@@ -18,20 +18,18 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="text">
-                                <!--Heading 1 Start-->
                                 <div class="headind-1">
-                                    <h3 class="title">Sobre nosotros</h3>
+                                    <h3 class="title">{{$about->about_title}}</h3>
                                 </div>
-                                <!--Heading 1 End-->
-                                <p>Situado en la zona de Deira Creek de Toronto, este hotel se encuentra a poca distancia de las estaciones de autobús y metro de ist y a sólo 7 kilómetros del aeropuerto. El alojamiento se construyó en 1975 y es un clásico del Viejo Toronto, una zona repleta de centros comerciales y zocos tradicionales como el Mercado de las Especias. Cada una de las 275 habitaciones y suites cuenta con comodidades de lujo, como balcón privado y provisiones para café y té. Los huéspedes pueden elegir entre 9 restaurantes, entre ellos </p>
-                                <p>Disfrute de un club de fitness bien equipado, un centro de negocios y servicio de aparcacoches, entre otros prácticos servicios. Este hotel de Dubái también incluye 12 salas de reuniones, la más grande de las cuales puede albergar eventos de hasta 1.400 asistentes.</p>
-                                <a class="chr-btn fancy-btn" href="#">Leer Mas</a>
+                                <p>{{$about->about_description}}</p>
+                                <a class="chr-btn fancy-btn" target="_blank"  href="{{$about->about_link}}">Leer Mas</a>
                                 <div class="weather"></div>
                             </div>
                         </div>
+
                         <div class="col-md-6 col-sm-6">
                             <figure>
-                                <img src="{{ asset('frontend/extra-images/about-img2.jpg') }}" alt="oscarthemes"/>
+                                <img src="{{ asset('storage/about/'.$about->about_imagen)}}" alt="oscarthemes"/>
                                 <img class="p-middel" src="{{ asset('frontend/extra-images/about-img3.jpg') }}" alt="oscarthemes"/>
                             </figure>
                         </div>

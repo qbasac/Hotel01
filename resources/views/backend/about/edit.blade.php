@@ -31,29 +31,32 @@
             @endif
 
 
-            <form action="{{ route('usuario.store') }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
+            <form action="{{ route('about.update',['about' => $about->id]) }}" method="POST" autocomplete="off" enctype="multipart/form-data" >
+              @method('PUT')
               @csrf
               <div class="mb-3">
-                <label for="name" class="form-label">Titulo</label>
-                <input id="name" name="name" id="name" type="text" class="form-control" value="{{ old('name') }}"  placeholder="Ingrese un titulo..." autofocus>
+                <label for="title" class="form-label">Titulo</label>
+                <input id="title" name="title" type="text" class="form-control" value="{{$about->about_title}}"  placeholder="Ingrese un titulo..." >
               </div>
               <div class="mb-3">
-                <label for="name" class="form-label">Descripción</label>
-                <input id="name" name="name" id="name" type="text" class="form-control" value="{{ old('name') }}"  placeholder="Ingrese un titulo descripción ..." autofocus>
+                <label for="description">Descripción</label>
+                <textarea id="description" name="description" type="text" class="form-control">{{$about->about_description}}</textarea>
               </div>
               <div class="mb-3">
-                <label for="name" class="form-label">Link</label>
-                <input id="name" name="name" id="name" type="text" class="form-control" value="{{ old('name') }}"  placeholder="Ingrese un link..." autofocus>
+                <label for="link" class="form-label">Link</label>
+                <input id="link" name="link" type="url" class="form-control" value="{{$about->about_link}}"  placeholder="Ingrese un link..." >
               </div>
-              <div class="mb-3">
-                <label for="nick_name" class="form-label">Imagen 1</label>
-                <input id="nick_name" name="nick_name" type="text" class="form-control" value="{{ old('nick_name') }}" placeholder="Imagen 1...">
+
+              <div class="form-group mb-3">
+                <label class="mb-0" for="">Imagen 1</label>
+                <input type="file" accept="image/*" class="form-control" name="about_imagen" id="about_imagen">
               </div>
-              <div class="mb-3">
-                <label for="nick_name" class="form-label">Imagen 2</label>
-                <input id="nick_name" name="nick_name" type="text" class="form-control" value="{{ old('nick_name') }}" placeholder="Imagen 2...">
+
+              <div class="form-group mb-3">
+                <label class="mb-0" for="">Imagen 2</label>
+                <input type="file" accept="image/*" class="form-control" name="about_sub_imagen" id="about_sub_imagen">
               </div>
-              <a href="{{ route('usuario.index') }}" class="btn btn-danger">Cancelar</a>
+              <a href="{{ route('about.index') }}" class="btn btn-danger">Cancelar</a>
               <button type="submit" class="btn btn-primary">Guardar <i class="far fa-paper-plane"></i></button>
             </form>
           </div>

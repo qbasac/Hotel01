@@ -17,9 +17,9 @@ class CreateAboutsTable extends Migration
             $table->id();
             $table->string('about_title', 50);
             $table->text('about_description');
-            $table->text('about_link');
-            $table->string('about_imagen')->default(1);
-            $table->string('about_sub_imagen')->default(1);
+            $table->text('about_link')->nullable();
+            $table->string('about_imagen')->nullable();
+            $table->string('about_sub_imagen')->nullable();
             $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
