@@ -17,7 +17,7 @@ class AboutSeeder extends Seeder
         $about = new About();
         $about->about_title='Este es un titulo';
         $about->about_description='Este es un a descripción';
-        $about->about_link='https://www.xnxx.com/';
+        $about->about_link='https://www.google.com/';
         $about->save();
     }
 }

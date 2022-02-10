@@ -18,8 +18,17 @@ class CreateAboutsTable extends Migration
             $table->string('about_title', 50);
             $table->text('about_description');
             $table->text('about_link')->nullable();
-            $table->string('about_imagen')->nullable();
-            $table->string('about_sub_imagen')->nullable();
+            $table->string('about_image')->nullable();
+            $table->string('about_sub_image')->nullable();
+
+            $table->string('seccion_video_title')->nullable();
+            $table->text('seccion_video_description')->nullable();
+            $table->text('seccion_video_link')->nullable();
+
+            $table->boolean('seccion_staff_is_active')->default(1);
+
+            $table->boolean('sec')->default(1);
+
             $table->boolean('is_active')->default(1);
             $table->timestamps();
         });

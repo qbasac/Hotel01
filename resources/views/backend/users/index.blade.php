@@ -98,7 +98,6 @@
                       <tr>
                         <th style="width: 80px;" scope="col">Opciones</th>
                         <th style="width: 80px;" scope="col">Estado</th>
-                        {{-- <th scope="col">ID</th> --}}
                         <th scope="col">Apodo</th>
                         <th scope="col">Nombres</th>
                         <th scope="col">Correo electrónico</th>

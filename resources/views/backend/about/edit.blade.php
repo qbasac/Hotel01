@@ -48,12 +48,12 @@
               </div>
 
               <div class="form-group mb-3">
-                <label class="mb-0" for="">Imagen 1</label>
+                <label class="mb-0" for="">Imagen de fondo</label>
                 <input type="file" accept="image/*" class="form-control" name="about_imagen" id="about_imagen">
               </div>
 
               <div class="form-group mb-3">
-                <label class="mb-0" for="">Imagen 2</label>
+                <label class="mb-0" for="">Imagen frontal</label>
                 <input type="file" accept="image/*" class="form-control" name="about_sub_imagen" id="about_sub_imagen">
               </div>
               <a href="{{ route('about.index') }}" class="btn btn-danger">Cancelar</a>

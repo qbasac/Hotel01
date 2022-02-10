@@ -21,6 +21,8 @@
       </a>
       <ul class="sub-menu" aria-expanded="true">
         <li><a href="{{route('about.index')}}">Sección Sobre Nosotros</a></li>
+        <li><a href="{{route('testimonial.index')}}">Sección testimonios</a></li>
+
         </li>
       </ul>
     </li>

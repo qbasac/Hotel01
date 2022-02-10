@@ -1,5 +1,16 @@
 @extends('frontend.layouts.app')
 
+@section('style')
+  <style>
+    .bg-section-video {
+      background: url('{{ asset("frontend/extra-images/about-img2.jpg") }}');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: top center;
+    }
+  </style>
+@endsection
 @section('content')
     <div data-stellar-background-ratio="0.5" class="parallax-section chr-sub-banner text-center">
         <div class="container">
@@ -37,11 +48,11 @@
                 </div>
             </div>
         </section>
-        <div data-stellar-background-ratio="0.5" class="section parallax-section call-to-action-wrap text-center">
+        <div data-stellar-background-ratio="0.5" style="" class="bg-section-video section parallax-section call-to-action-wrap text-center ">
             <div class="text">
                 <h4 class="title">VIDEO</h4>
                 <p>Este hotel de Dubái también cuenta con 12 salas de reuniones, la más grande de las cuales puede albergar eventos de hasta 1400 personas.</p>
-                <a class="chr-btn popup-youtube fancy-btn" href="https://www.youtube.com/watch?v=Z1Vjb2LBJJA">play</a>
+                <a class="chr-btn popup-youtube fancy-btn" href="https://www.youtube.com/watch?v=sl--ESzEUCk">play</a>
             </div>
         </div>
         <section>

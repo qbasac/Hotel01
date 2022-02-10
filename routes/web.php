@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\TestimonialController;
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -23,6 +24,11 @@ Route::middleware(['auth'])->group(function () {
   Route::post('/profile-update',[UserController::class, 'profileUpdate'])->name('profile.update');
 
   Route::resource('about', AboutController::class);
+  Route::resource('/testimonial', TestimonialController::class);
+
+  Route::post('usuario/update-is-active/{usuario}', [UserController::class, 'updateIsActive'])->name('usuario.updateIsActive');
+  Route::post('testimonial/update-is-active/{testimonial}', [TestimonialController::class, 'updateIsActive'])->name('testimonial.updateIsActive');
+
 });
 
 // frontend
@@ -65,5 +71,4 @@ Route::get('/pagina-inicio','PageController@pagesStarter')->name('pagina-inicio'
 
 
 
-Route::post('usuario/update-is-active/{usuario}', [UserController::class, 'updateIsActive'])->name('usuario.updateIsActive');
 
