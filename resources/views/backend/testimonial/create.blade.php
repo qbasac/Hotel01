@@ -39,11 +39,19 @@
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Comentario</label>
-                <input id="comment" name="comment" type="text" class="form-control" value="{{ old('section_testimonial_comment') }}" placeholder="Complete su correo electrónico...">
+                <textarea id="comment" name="comment" type="text" class="form-control" value="{{ old('section_testimonial_comment') }}" placeholder="Complete su comentario..."></textarea>
               </div>
               <div class="mb-3">
                 <label for="nick_name" class="form-label">Calificación</label>
-                <input id="rating" name="rating" type="text" class="form-control" value="{{ old('section_testimonial_rating') }}" placeholder="Complete su apodo...">
+                <input id="rating" name="rating" type="number" class="form-control" value="{{ old('section_testimonial_rating') }}" placeholder="Califica...">
+              </div>
+              <div class="mb-3">
+                <label for="rating" class="form-label">Género</label>
+                <select name="gender" id="gender" class="form-select" value="">
+                  <option value="">Seleccione</option>
+                  <option value="0">Varón</option>
+                  <option value="1">Mujer</option>
+                </select>
               </div>
               <a href="{{ route('testimonial.index') }}" class="btn btn-danger">Cancelar</a>
               <button type="submit" class="btn btn-primary">Guardar <i class="far fa-paper-plane"></i></button>

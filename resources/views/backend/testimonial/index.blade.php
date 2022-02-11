@@ -16,18 +16,41 @@
           <div class="card-body">
             <div class="card-title text-primary">
               <i class="fas fa-comment"></i> Testimonios
+              @foreach ($testimonials as $testimonial)
+              <form method="POST" action="{{route('testimonial.updateIsActive', ['testimonial' => $testimonial->id] )}}" class="d-inline">
+                @csrf
+                <input type="hidden" name="state" value="{{$testimonial->seccion_testimonial_is_active}}">
+                @if ($testimonial->seccion_testimonial_is_active)
+                  <button type="submit"
+                    class="btn btn-sm btn-success"
+                    title="Cambiar estado">
+                    <i class="far fa-check-circle"></i>
+                  </button>
+                @else
+                  <button type="submit"
+                    class="btn btn-sm btn-danger"
+                    title="Cambiar estado">
+                    <i class="far fa-times-circle"></i>
+                  </button>
+                @endif
+            </form>
+              @endforeach
+
+
+              <a href="" class="btn btn-danger float-end"><i class="fas fa-eye-slash"></i> Ocultar testimonios </a>
+              {{-- <a href="{{ route('testimonial.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a> --}}
             </div>
             <hr>
-            {{-- <a href="{{ route('testimonial.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a> --}}
             <div  class="table-responsive">
               <table class="table table-sm table-striped mt-4">
                 <thead>
                     <tr>
-                      <th style="width: 130px;" scope="col">Opciones</th>
-                      <th style="width: 100px;" scope="col">Estado</th>
+                      <th style="width: 120px;" scope="col">Opciones</th>
+                      <th style="width: 90px;" scope="col">Estado</th>
                       <th scope="col">Nombre</th>
                       <th scope="col">Comentario</th>
                       <th scope="col">Calificación</th>
+                      <th scope="col">Avatar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,7 +93,13 @@
                         <td style="vertical-align: middle;">{{$testimonial->section_testimonial_name}}</td>
                         <td style="vertical-align: middle;">{{$testimonial->section_testimonial_comment}}</td>
                         <td style="vertical-align: middle;">{{$testimonial->section_testimonial_rating}}</td>
-
+                        <td style="vertical-align: middle;" class="text-center">
+                          @if ($testimonial->section_testimonial_gender)
+                            <img src="{{ asset('backend/assets/images/users/F.png') }}" class="rounded-circle" width="30" height="30">
+                          @else
+                            <img src="{{ asset('backend/assets/images/users/M.png') }}" class="rounded-circle" width="30" height="30">
+                          @endif
+                      </td>
                     </tr>
                   @endforeach
                 </tbody>

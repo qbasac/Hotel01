@@ -8,6 +8,7 @@
     <meta name="keywords" content="HTML5 Template, Hotels near me, Motel, booking hotel,hotel booking,rooms,discounted,offers,deals,last minute,hotels,oscarthemes,Oscar Themes,Jasmine Hotel" >
     <meta name="description" content="Discover Oscar Themes - Jasmine Hotel HTML5 Template, Hotel, Travel,Top Destinations Discover responsive Bootstrap templates, & HTML templates," >
     <meta name="theme-color" content="#f4b843">
+    <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <title>About Us Hotel</title>
     <link href="{{ asset('frontend/css/css-plugin-collection.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/typography.css') }}" rel="stylesheet">

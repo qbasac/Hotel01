@@ -21,6 +21,7 @@ class TestimonialController extends Controller
       $testimonial->section_testimonial_name = $request->name;
       $testimonial->section_testimonial_comment = $request->comment;
       $testimonial->section_testimonial_rating = $request->rating;
+      $testimonial->section_testimonial_gender = $request->gender;
 
       $testimonial->save();
 
@@ -39,6 +40,8 @@ class TestimonialController extends Controller
       $testimonial->section_testimonial_name = $request->name;
       $testimonial->section_testimonial_comment = $request->comment;
       $testimonial->section_testimonial_rating = $request->rating;
+      $testimonial->section_testimonial_gender = $request->gender;
+
 
       $testimonial->save();
 

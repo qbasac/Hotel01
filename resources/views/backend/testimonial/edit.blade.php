@@ -36,11 +36,19 @@
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Comentario</label>
-              <input id="comment" name="comment" type="text" class="form-control" value="{{$testimonial->section_testimonial_comment}}" tabindex="2" required placeholder="Complete su correo electrónico...">
+              <textarea id="comment" name="comment" type="text" class="form-control" value="" tabindex="2" required placeholder="Complete su correo electrónico...">{{$testimonial->section_testimonial_comment}}</textarea>
             </div>
             <div class="mb-3">
               <label for="rating" class="form-label">Calificación</label>
               <input id="rating" name="rating" type="text" class="form-control" value="{{$testimonial->section_testimonial_rating}}" tabindex="2" placeholder="Complete su apodo...">
+            </div>
+            <div class="mb-3">
+              <label for="rating" class="form-label">Género</label>
+              <select name="gender" id="" class="form-select" value="{{$testimonial->section_testimonial_rating}}">
+                <option value="{{$testimonial->section_testimonial_rating}}">Seleccione</option>
+                <option value="0">Varón</option>
+                <option value="1">Mujer</option>
+              </select>
             </div>
             <a href="{{ route('usuario.index') }}" class="btn btn-danger" tabindex="4">Cancelar</a>
             <button type="submit" class="btn btn-primary" tabindex="3">Actualizar</button>
