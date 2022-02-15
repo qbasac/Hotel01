@@ -15,15 +15,24 @@
       </a>
     </li>
     <li>
+        <a href="javascript: void(0);" class="has-arrow waves-effect">
+          <i class="fas fa-address-card"></i>
+          <span>Sobre Nosotros</span>
+        </a>
+        <ul class="sub-menu" aria-expanded="true">
+          <li><a href="{{route('about.index')}}">Sección Sobre Nosotros</a></li>
+          <li><a href="{{route('testimonial.index')}}">Sección testimonios</a></li>
+       </ul>
+    </li>
+
+    <li>
       <a href="javascript: void(0);" class="has-arrow waves-effect">
-        <i class="fas fa-address-card"></i>
-        <span>Sobre Nosotros</span>
+        <i class="fas fa-hotel"></i>
+        <span>Habitaciones</span>
       </a>
       <ul class="sub-menu" aria-expanded="true">
-        <li><a href="{{route('about.index')}}">Sección Sobre Nosotros</a></li>
-        <li><a href="{{route('testimonial.index')}}">Sección testimonios</a></li>
-
-        </li>
+        <li><a href="{{route('room.index')}}">Nuestras habitaciones</a></li>
+        <li><a href="#">Reserva de habitaciones</a></li>
       </ul>
     </li>
     <li>

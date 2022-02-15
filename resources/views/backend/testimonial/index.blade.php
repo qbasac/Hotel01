@@ -16,29 +16,27 @@
           <div class="card-body">
             <div class="card-title text-primary">
               <i class="fas fa-comment"></i> Testimonios
-              @foreach ($testimonials as $testimonial)
-              <form method="POST" action="{{route('testimonial.updateIsActive', ['testimonial' => $testimonial->id] )}}" class="d-inline">
+              @foreach ($abouts as $about)
+              <form method="POST" action="{{route('testimonial.ShowSectionTestimonial', ['testimonial' => $about->id] )}}" class="d-inline">
                 @csrf
-                <input type="hidden" name="state" value="{{$testimonial->seccion_testimonial_is_active}}">
-                @if ($testimonial->seccion_testimonial_is_active)
+                <input type="hidden" name="state" value="{{$about->show_section_testimonial}}">
+                @if ($about->show_section_testimonial)
                   <button type="submit"
-                    class="btn btn-sm btn-success"
-                    title="Cambiar estado">
-                    <i class="far fa-check-circle"></i>
+                    class="btn btn btn-danger float-end"
+                    title="">
+                    Ocultar testimonios <i class="fas fa-eye-slash"></i>
                   </button>
                 @else
                   <button type="submit"
-                    class="btn btn-sm btn-danger"
+                    class="btn btn btn-success float-end"
                     title="Cambiar estado">
-                    <i class="far fa-times-circle"></i>
+                    Mostrar testimonios <i class="fas fa-eye"></i>
                   </button>
                 @endif
             </form>
               @endforeach
 
-
-              <a href="" class="btn btn-danger float-end"><i class="fas fa-eye-slash"></i> Ocultar testimonios </a>
-              {{-- <a href="{{ route('testimonial.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a> --}}
+              <a style="margin-right: 10px" href="{{ route('testimonial.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
             </div>
             <hr>
             <div  class="table-responsive">

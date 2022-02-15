@@ -171,78 +171,57 @@
                 </div>
             </div>
         </section>
-        <section data-paroller-factor="0.25" data-paroller-type="background"  data-paroller-direction="vertical"  class="parallax hotel-testimonial-bg ">
-            <div class="container">
-                <div class="headind-1 white text-center">
-                  <h3 class="title">Testimonios</h3>
-                </div>
-                <div class="hotel-testimonial arrows">
-                  @forelse ($testimonials as $testimonial)
-                    <div class="col-md-6 col-sm-6" style="cursor: pointer">
-                        <div class="hotel-testimonial-thumb">
-                            <div class="text">
-                                <p> {{ $testimonial->section_testimonial_comment }} </p>
-                                <div class="rating-thumb">
-                                    <label>Calificación</label>
-                                    <div class="rating_down">
-                                      <div style="width: {{$convertNumberIntoPercentage($testimonial->section_testimonial_rating)}}%;" class="rating_up"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="user-th">
-                                <div class="overflow-text">
-                                  <span class="sub-title">Nuestro cliente</span>
-                                    <h6 class="title"><a href="#">{{$testimonial->section_testimonial_name}}</a></h6>
-                                </div>
-                                <figure>
-                                    {{-- <img src="{{ asset('frontend/extra-images/testimonial1.jpg') }}" alt="Oscar Themes"/> --}}
-                                  @if ($testimonial->section_testimonial_gender)
-                                    <img src="{{ asset('backend/assets/images/users/F.png') }}" alt="Oscar Themes"/>
-                                  @else
-                                    <img src="{{ asset('backend/assets/images/users/M.png') }}" alt="Oscar Themes"/>
-                                  @endif
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                  @empty
-                    <div class="col-md-12 col-sm-12 text-center">
-                      <i class="far fa-comments" style="font-size: 7em; padding-bottom: 15px"></i>
-                      <h5 class="text-muted" style="font-weight: bold">Sin testimonios</h5>
-                    </div>
-                    <div class="col-md-12 col-sm-12 text-center">
-                      <i class="far fa-comments" style="font-size: 7em; padding-bottom: 15px"></i>
-                      <h5 class="text-muted" style="font-weight: bold">Sin testimonios</h5>
-                    </div>
-                  @endforelse
 
-                    {{-- <div class="col-md-6 col-sm-6">
-                        <div class="hotel-testimonial-thumb">
-                            <div class="text">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                                <div class="rating-thumb">
-                                    <label>Califica</label>
-                                    <div class="rating_down">
-                                        <div style="width: 80%;" class="rating_up"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="user-th">
-                                <div class="overflow-text">
-                                    <h6 class="title"><a href="#">Gary</a></h6>
-                                    <span class="sub-title">Invitado perfecto</span>
-                                </div>
-                                <figure>
-                                    <img src="{{ asset('frontend/extra-images/testimonial2.jpg') }}" alt="Oscar Themes"/>
-                                </figure>
-                            </div>
-                        </div>
-                    </div> --}}
+        @if ($about->show_section_testimonial)
+          <section data-paroller-factor="0.25" data-paroller-type="background"  data-paroller-direction="vertical"  class="parallax hotel-testimonial-bg ">
+              <div class="container">
+                  <div class="headind-1 white text-center">
+                    <h3 class="title">Testimonios</h3>
+                  </div>
+                  <div class="hotel-testimonial arrows">
+                    @forelse ($testimonials as $testimonial)
+                      <div class="col-md-6 col-sm-6" style="cursor: pointer">
+                          <div class="hotel-testimonial-thumb">
+                              <div class="text">
+                                  <p> {{ $testimonial->section_testimonial_comment }} </p>
+                                  <div class="rating-thumb">
+                                      <label>Calificación</label>
+                                      <div class="rating_down">
+                                        <div style="width: {{$convertNumberIntoPercentage($testimonial->section_testimonial_rating)}}%;" class="rating_up"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="user-th">
+                                  <div class="overflow-text">
+                                    <span class="sub-title">Nuestro cliente</span>
+                                      <h6 class="title"><a href="#">{{$testimonial->section_testimonial_name}}</a></h6>
+                                  </div>
+                                  <figure>
+                                    @if ($testimonial->section_testimonial_gender)
+                                      <img src="{{ asset('backend/assets/images/users/F.png') }}" alt="Oscar Themes"/>
+                                    @else
+                                      <img src="{{ asset('backend/assets/images/users/M.png') }}" alt="Oscar Themes"/>
+                                    @endif
+                                  </figure>
+                              </div>
+                          </div>
+                      </div>
+                    @empty
+                      <div class="col-md-12 col-sm-12 text-center">
+                        <i class="far fa-comments" style="font-size: 7em; padding-bottom: 15px"></i>
+                        <h5 class="text-muted" style="font-weight: bold">Sin testimonios</h5>
+                      </div>
+                      <div class="col-md-12 col-sm-12 text-center">
+                        <i class="far fa-comments" style="font-size: 7em; padding-bottom: 15px"></i>
+                        <h5 class="text-muted" style="font-weight: bold">Sin testimonios</h5>
+                      </div>
+                    @endforelse
+                  </div>
+              </div>
+          </section>
+        @else
 
-
-                </div>
-            </div>
-        </section>
+        @endif
     </div>
 
 @endsection

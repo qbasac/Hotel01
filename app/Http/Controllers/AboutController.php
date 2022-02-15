@@ -62,7 +62,6 @@ class AboutController extends Controller
       }
 
       $about->save();
-
       return redirect()->route('about.index')->with('created', 'Se creo exitosamente su Slider');
     }
 }

@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
 {
     public function index(){
+      $abouts = About::get();
       $testimonials = Testimonial::get();
-      return view('backend.testimonial.index', compact('testimonials'));
+      return view('backend.testimonial.index', compact('testimonials', 'abouts'));
     }
 
     public function create(){
@@ -17,6 +19,7 @@ class TestimonialController extends Controller
     }
 
     public function store(Request $request){
+      dd($request->all());
       $testimonial = new Testimonial();
       $testimonial->section_testimonial_name = $request->name;
       $testimonial->section_testimonial_comment = $request->comment;
@@ -65,4 +68,15 @@ class TestimonialController extends Controller
 
       return redirect()->route('testimonial.index');
     }
+
+    public function ShowSectionTestimonial(Request $request, $id)
+    {
+
+      $newState = $request->state ? 0 : 1;
+      About::whereId($id)->update([
+        'show_section_testimonial' => $newState
+      ]);
+      return redirect()->route('testimonial.index');
+    }
+
 }

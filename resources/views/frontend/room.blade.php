@@ -10,190 +10,69 @@
         </ol>
     </div>
 </div>
-<!--Banner Wrap End-->
+
 <div class="main-contant">
-    <!--Rooms Section Start-->
-    <section>
-        <div class="container">
-            <div class="row">
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room1.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 100</a>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="{{ route('habitacion-detalle')}}">Habitación de invitados tradicional</a></h4>
-                            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                            <ul class="blog-meta">
-                                <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-                                <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
-                            </ul>
-                        </div>
-                    </div>
+  <section>
+    <div class="container">
+
+      <div class="row">
+        <nav class="navbar">
+          <div class="container-fluid">
+            <a class="navbar-brand"></a>
+            <form class="row g-3" action="{{-- route('usuario.index') --}}" method="GET" autocomplete="off">
+              <div class="col-auto">
+                <label class="form-control-plaintext">Fitrar por precio</label>
+              </div>
+
+              <div class="col-auto">
+                <div class="form-group">
+                  <select name="searchBy" id=""  class="form-select form-select" aria-label=".form-select-sm example">
+                    <option value="name">Precios entre 20 - 80 soles</option>
+                    <option value="email">Precios entre 100 - 200 soles</option>
+                  </select>
                 </div>
-                <!--Room Thumb End-->
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room2.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 200</a>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="{{ route('habitacion-detalle')}}">Habitación de invitados tradicional</a></h4>
-                            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                            <ul class="blog-meta">
-                                <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-                                <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Room Thumb End-->
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room3.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 250</a>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="room-detail.html">Habitación de invitados tradicional</a></h4>
-                            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                            <ul class="blog-meta">
-                                <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-                                <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Room Thumb End-->
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room4.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 350</a>
-                        </figure>
-                        <div class="text">
-                            <h5 class="title"><a href="#">Habitación de lujo para huéspedes</a></h4>
-                                <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                                <ul class="blog-meta">
-                                    <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-                                    <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Room Thumb End-->
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room5.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 450</a>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="room-detail.html">Habitación de invitados tradicional</a></h4>
-                            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                            <ul class="blog-meta">
-                                <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-                                <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Room Thumb End-->
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room6.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 200</a>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="{{ route('habitacion-detalle')}}">Habitación de invitados tradicional</a></h4>
-                            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                            <ul class="blog-meta">
-                                <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-                                <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Room Thumb End-->
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room7.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 400</a>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="{{ route('habitacion-detalle')}}">Habitación de invitados tradicional</a></h4>
-                            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                            <ul class="blog-meta">
-                                <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-                                <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Room Thumb End-->
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room8.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 600</a>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="{{ route('habitacion-detalle')}}">Habitación de invitados tradicional</a></h4>
-                            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                            <ul class="blog-meta">
-                                <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-                                <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Room Thumb End-->
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room9.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 800</a>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="{{ route('habitacion-detalle')}}">Habitación de invitados tradicional</a></h4>
-                            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                            <ul class="blog-meta">
-                                <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-                                <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Room Thumb End-->
-                <div class="col-md-12">
-                    <!-- Pagination Start-->
-                    <div class="chr-pagination text-center">
-                        <span class="page-numbers current">1</span>
-                        <a class="page-numbers" href="#">2</a>
-                        <a class="page-numbers" href="#">3</a>
-                        <a class="page-numbers border_none" href="#">...</a>
-                        <a class="page-numbers" href="#">18</a>
-                        <a class="page-numbers" href="#">19</a>
-                        <a class="page-numbers" href="#">20</a>
-                    </div>
-                    <!-- Pagination End-->
-                </div>
+              </div>
+
+              <div class="col-auto">
+              <div class="input-group mb-3">
+                {{-- <input  class="form-control" type="search" {{ request('search') ? 'autofocus' : '' }} placeholder="Buscar" name="search" aria-label="Search" value="{{ request('search') }}" > --}}
+                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+              </div></div>
+
+              {{-- <div class="col-auto">
+                <input class="form-control" type="search" {{ request('search') ? 'autofocus' : '' }}  placeholder="Buscar" name="search" aria-label="Search" value="{{ request('search') }}">
+              </div>
+              <div class="col-auto">
+                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+              </div> --}}
+            </form>
+          </div>
+        </nav>
+
+        @foreach ($rooms as $room)
+        <div class="col-md-4 col-sm-6">
+          <div class="chr-room-thumb fancy-thumb">
+            <figure>
+              <img src='{{ asset("storage/rooms/$room->image")}}' alt="oscarthemes"/>
+              <a href="#" class="price-tag th-bg" >
+                S/ {{ $room->price }}
+              </a>
+            </figure>
+            <div class="text">
+              <h4 class="title"><a href="{{ route('habitacion-detalle')}}">{{ $room->name }}</a></h4>
+              <p>{{ $room->description }}</p>
+              <ul class="blog-meta">
+                <li><i class="fa fa-bed th-cl"></i><span>{{ $room->number_beds }} camas</span></li>
+                <li><i class="fa fa-user th-cl"></i><span>{{ $room->number_people }} personas</span></li>
+              </ul>
             </div>
+          </div>
         </div>
-    </section>
-    <!--Rooms Section End-->
+        @endforeach
+
+
+      </div>
+    </div>
+  </section>
 </div>
 @endsection

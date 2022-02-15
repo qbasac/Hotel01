@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
 
-class HabitacionesController extends Controller
+class RoomController extends Controller
 {
+  public function index() {
+    $rooms = Room::get();
+    return view('frontend.room', compact('rooms'));
+  }
+
   public function roomDetail()
   {
     return view('frontend.room-detail');
@@ -16,10 +22,10 @@ class HabitacionesController extends Controller
     return view('frontend.room');
   }
 
-  public function index()
-  {
-    return view('backend.room.reservation.index');
-  }
+  // public function index()
+  // {
+  //   return view('backend.room.reservation.index');
+  // }
 
   public function ourroom()
   {

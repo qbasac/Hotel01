@@ -62,17 +62,17 @@
                                     <li ><a href="#">Habitaciones</a>
                                         <ul class="children">
                                             <li><a href="{{ route('habitacion')}}">Nuestras habitaciones</a></li>
-                                            <li><a href="{{ route('habitacion-lista')}}">Lista de habitaciones</a></li>
+                                            <li><a href="">Lista de habitaciones</a></li>
                                             <li><a href="{{ route('habitacion-detalle')}}">Detalle de la habitación</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Evento</a>
                                         <ul class="children">
-                                            <li><a href="{{ route('evento-pequeño')}}">Evento Pequeño</a></li>
-                                            <li><a href="{{ route('evento-mediano')}}">Evento Medio</a></li>
-                                            <li><a href="{{ route('evento-grande') }}">Evento grande</a></li>
-                                            <li><a href="{{ route('evento-lista')}}">Lista de eventos</a></li>
-                                            <li><a href="{{ route('evento-detalle')}}">Detalle del evento</a></li>
+                                            <li><a href="{{-- route('evento-pequeño')  --}}">Evento Pequeño</a></li>
+                                            <li><a href="{{-- route('evento-mediano')  --}}">Evento Medio</a></li>
+                                            <li><a href="{{-- route('evento-grande')  --}}">Evento grande</a></li>
+                                            <li><a href="{{-- route('evento-lista') --}}">Lista de eventos</a></li>
+                                            <li><a href="{{-- route('evento-detalle') --}}">Detalle del evento</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -84,40 +84,40 @@
                                 <ul>
                                     <li><a href="#">Blog</a>
                                         <ul class="children">
-                                            <li><a href="{{ route('lateral-blog')}}">Blog con Side</a></li>
-                                            <li><a href="{{ route('pequeño-blog')}}">Blog Pequeño</a></li>
-                                            <li><a href="{{ route('mediano-blog')}}">Blog Medio</a></li>
-                                            <li><a href="{{ route('grande-blog') }}">Blog Grande</a></li>
-                                            <li><a href="{{ route('lista-blog') }}">Lista de blogs</a></li>
-                                            <li><a href="{{ route('detalle-blog') }}">Detalle del blog</a></li>
+                                            <li><a href="{{-- route('lateral-blog') --}}">Blog con Side</a></li>
+                                            <li><a href="{{-- route('pequeño-blog') --}}">Blog Pequeño</a></li>
+                                            <li><a href="{{-- route('mediano-blog') --}}">Blog Medio</a></li>
+                                            <li><a href="{{-- route('grande-blog')  --}}">Blog Grande</a></li>
+                                            <li><a href="{{-- route('lista-blog')  --}}">Lista de blogs</a></li>
+                                            <li><a href="{{-- route('detalle-blog')  --}}">Detalle del blog</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="#">Galerí DASDADAa</a>
                                         <ul class="children">
-                                            <li><a href="{{ route('galeria-maposteria')}}">Galería de mampostería</a></li>
-                                            <li><a href="{{ route('galeria-simple')}}">Galería simple</a></li>
+                                            <li><a href="{{-- route('galeria-maposteria') --}}">Galería de mampostería</a></li>
+                                            <li><a href="{{-- route('galeria-simple') --}}">Galería simple</a></li>
                                         </ul>
                                     </li>
                                     <li class="last">
                                         <a href="#">Páginas</a>
                                         <ul class="children">
-                                            <li><a href="{{ route('404')}}">404</a></li>
-                                            <li><a href="{{ route('personal-pagina')}}">Personal</a></li>
-                                            <li><a href="{{ route('acceso-pagina')}}">Inicio de sesión</a></li>
-                                            <li><a href="{{ route('inscribase-pagina')}}">Inscríbase en</a></li>
-                                            <li><a href="{{ route('comingsoon-paginas')}}">Comingsoon</a></li>
+                                            <li><a href="{{-- route('404') --}}">404</a></li>
+                                            <li><a href="{{-- route('personal-pagina') --}}">Personal</a></li>
+                                            <li><a href="{{-- route('acceso-pagina') --}}">Inicio de sesión</a></li>
+                                            <li><a href="{{-- route('inscribase-pagina') --}}">Inscríbase en</a></li>
+                                            <li><a href="{{-- route('comingsoon-paginas') --}}">Comingsoon</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="{{ route('contacto')}}">Contacto con nosotros</a>
+                                        <a href="{{-- route('contacto') --}}">Contacto con nosotros</a>
                                     </li>
                                 </ul>
                             </nav>
                             <!--DL Menu Start-->
 
 
-                            <div id="mg-responsive-navigation" class="dl-menuwrapper">
+                            {{-- <div id="mg-responsive-navigation" class="dl-menuwrapper">
                                 <button class="dl-trigger">Abrir el menú</button>
                                 <ul class="dl-menu">
                                     <li class="menu-item mg-parent-menu">
@@ -127,7 +127,7 @@
                                     <li class="menu-item mg-parent-menu"><a href="#">Habitaciones</a>
                                         <ul class="dl-submenu">
                                             <li><a href="{{ route('habitacion')}}">Nuestras habitaciones</a></li>
-                                            <li><a href="{{ route('habitacion-lista')}}">Lista de habitaciones</a></li>
+                                            <li><a href="">Lista de habitaciones</a></li>
                                             <li><a href="{{ route('habitacion-detalle')}}">Detalle de la habitación</a></li>
                                         </ul>
                                     </li>
@@ -167,8 +167,8 @@
                                     </li>
                                     <li class="menu-item mg-parent-menu"><a href="{{ route ('contacto')}}">Contacto con nosotros</a></li>
                                 </ul>
-                            </div>
-                            <!--DL Menu END-->
+                            </div> --}}
+
                         </div>
                     </div>
                 </div>

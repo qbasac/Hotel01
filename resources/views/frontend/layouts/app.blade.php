@@ -22,6 +22,7 @@
     <link rel="apple-touch-icon" sizes="114x114" href="{{asset('frontend/images/favicon/apple-touch-icon-114x114.png')}}">
     <link rel="icon" sizes="192x192" href="{{asset('frontend/images/favicon/icon-192x192.png')}}">
 
+    <link href="{{ asset('frontend/css/general-styles.css') }}" rel="stylesheet">
     @yield('style')
 </head>
     <body>
@@ -59,24 +60,26 @@
                                 <ul>
                                     <li class="{{ \Request::path() == 'home' ? 'active' : ''}}"><a href="{{ url('/') }}">Inicio</a></li>
                                     <li class="{{ \Request::path() == 'nosotros' ? 'active' : ''}}"><a href="{{ route('nosotros') }}"> Sobre nosotros</a></li>
-                                    <li
-                                    class=" {{ \Request::path() == 'habitacion' || \Request::path() == 'habitacion-lista' || \Request::path() == 'habitacion-detalle'? 'active' : '' }}"
+                                    <li class="{{
+                                    \Request::path() == 'habitacion' ||
+                                    \Request::path() == 'habitacion-lista' ||
+                                    \Request::path() == 'habitacion-detalle'
+                                    ? 'active' : '' }}"
                                     ><a href="#">Habitaciones</a>
                                         <ul class="children">
-                                            <li><a href="{{ route('habitacion')}}">Nuestras habitaciones</a></li>
-                                            <li><a href="{{ route('habitacion-lista')}}">Lista de habitaciones</a></li>
-                                            <li><a href="{{ route('habitacion-detalle')}}">Detalle de la habitación</a></li>
+                                            <li><a href="{{ route('habitacion.index')}}">Nuestras habitaciones</a></li>
+                                            {{-- <li><a href="{{ route('habitacion-detalle')}}">Detalle de la habitación</a></li> --}}
                                         </ul>
                                     </li>
                                     <li
                                     class="{{ \Request::path() == 'evento-peque%C3%B1o' || \Request::path() == 'evento-mediano' || \Request::path() == 'evento-grande' || \Request::path() == 'evento-lista'|| \Request::path() == 'evento-detalle'? 'active' : '' }}"
                                     ><a href="#">Evento</a>
                                         <ul class="children">
-                                            <li><a href="{{ route('evento-pequeño')}}">Evento Pequeño</a></li>
-                                            <li><a href="{{ route('evento-mediano')}}">Evento Medio</a></li>
-                                            <li><a href="{{ route('evento-grande') }}">Evento grande</a></li>
-                                            <li><a href="{{ route('evento-lista')}}">Lista de eventos</a></li>
-                                            <li><a href="{{ route('evento-detalle')}}">Detalle del evento</a></li>
+                                            <li><a href="{{-- route('evento-pequeño') --}}">Evento Pequeño</a></li>
+                                            <li><a href="{{-- route('evento-mediano') --}}">Evento Medio</a></li>
+                                            <li><a href="{{-- route('evento-grande') --}}">Evento grande</a></li>
+                                            <li><a href="{{-- route('evento-lista') --}}">Lista de eventos</a></li>
+                                            <li><a href="{{-- route('evento-detalle') --}}">Detalle del evento</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -90,35 +93,35 @@
                                     class="{{ \Request::path() == 'lateral-blog' || \Request::path() == 'peque%C3%B1o-blog' || \Request::path() == 'mediano-blog' || \Request::path() == 'grande-blog'|| \Request::path() == 'lista-blog'|| \Request::path() == 'detalle-blog'? 'active' : '' }}"
                                     ><a href="#">Blog</a>
                                         <ul class="children">
-                                            <li><a href="{{ route('lateral-blog')}}">Blog con Side</a></li>
-                                            <li><a href="{{ route('pequeño-blog')}}">Blog Pequeño</a></li>
-                                            <li><a href="{{ route('mediano-blog')}}">Blog Medio</a></li>
-                                            <li><a href="{{ route('grande-blog') }}">Blog Grande</a></li>
-                                            <li><a href="{{ route('lista-blog') }}">Lista de blogs</a></li>
-                                            <li><a href="{{ route('detalle-blog') }}">Detalle del blog</a></li>
+                                            <li><a href="{{-- route('lateral-blog') --}}">Blog con Side</a></li>
+                                            <li><a href="{{-- route('pequeño-blog') --}}">Blog Pequeño</a></li>
+                                            <li><a href="{{-- route('mediano-blog') --}}">Blog Medio</a></li>
+                                            <li><a href="{{-- route('grande-blog') --}}">Blog Grande</a></li>
+                                            <li><a href="{{-- route('lista-blog') --}}">Lista de blogs</a></li>
+                                            <li><a href="{{-- route('detalle-blog') --}}">Detalle del blog</a></li>
                                         </ul>
                                     </li>
                                     <li
                                     class=" {{ \Request::path() == 'galeria-maposteria' || \Request::path() == 'galeria-simple'? 'active' : '' }}"
                                      ><a href="#">Galería Edit</a>
                                         <ul class="children">
-                                            <li><a href="{{ route('galeria-maposteria')}}">Galería de mampostería</a></li>
-                                            <li><a href="{{ route('galeria-simple')}}">Galería simple</a></li>
+                                            <li><a href="{{-- route('galeria-maposteria') --}}">Galería de mampostería</a></li>
+                                            <li><a href="{{-- route('galeria-simple') --}}">Galería simple</a></li>
                                         </ul>
                                     </li>
                                     <li
                                     class=" {{ \Request::path() == '404' || \Request::path() == 'personal-pagina' || \Request::path() == 'acceso-pagina' || \Request::path() == 'inscribase-pagina'|| \Request::path() == 'comingsoon-paginas'? 'active' : '' }}"
                                     ><a href="#">Páginas</a>
                                         <ul class="children">
-                                            <li><a href="{{ route('404')}}">404</a></li>
-                                            <li><a href="{{ route('personal-pagina')}}">Personal</a></li>
-                                            <li><a href="{{ route('acceso-pagina')}}">Inicio de sesión</a></li>
-                                            <li><a href="{{ route('inscribase-pagina')}}">Inscríbase en</a></li>
-                                            <li><a href="{{ route('comingsoon-paginas')}}">Comingsoon</a></li>
+                                            <li><a href="{{-- route('404') --}}">404</a></li>
+                                            <li><a href="{{-- route('personal-pagina') --}}">Personal</a></li>
+                                            <li><a href="{{-- route('acceso-pagina') --}}">Inicio de sesión</a></li>
+                                            <li><a href="{{-- route('inscribase-pagina') --}}">Inscríbase en</a></li>
+                                            <li><a href="{{-- route('comingsoon-paginas') --}}">Comingsoon</a></li>
                                         </ul>
                                     </li>
                                     <li class="{{ \Request::path() == 'contacto' ? 'active' : ''}}">
-                                        <a href="{{ route('contacto')}}">Contacto con nosotros</a>
+                                        <a href="{{-- route('contacto') --}}">Contacto con nosotros</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -136,13 +139,12 @@
                                     class=" {{ \Request::path() == 'habitacion' || \Request::path() == 'habitacion-lista' || \Request::path() == 'habitacion-detalle'? 'active' : '' }}"
                                     class="menu-item mg-parent-menu"><a href="#">Habitaciones</a>
                                         <ul class="dl-submenu">
-                                            <li><a href="{{ route('habitacion')}}">Nuestras habitaciones</a></li>
-                                            <li><a href="{{ route('habitacion-lista')}}">Lista de habitaciones</a></li>
-                                            <li><a href="{{ route('habitacion-detalle')}}">Detalle de la habitación</a></li>
+                                            <li><a href="{{ route('habitacion.index')}}">Nuestras habitaciones</a></li>
+                                            {{-- <li><a href="{{ route('habitacion-lista')}}">Lista de habitaciones</a></li> --}}
+                                            {{-- <li><a href="{{ route('habitacion-detalle')}}">Detalle de la habitación</a></li> --}}
                                         </ul>
                                     </li>
-                                    <li
-                                    class=" {{ \Request::path() == 'lateral-blog' || \Request::path() == 'pequeño-blog' || \Request::path() == 'mediano-blog' || \Request::path() == 'grande-blog' || \Request::path() == 'lista-blog' || \Request::path() == 'detalle-blog'? 'active' : '' }}"
+                                    {{-- <li class=" {{ \Request::path() == 'lateral-blog' || \Request::path() == 'pequeño-blog' || \Request::path() == 'mediano-blog' || \Request::path() == 'grande-blog' || \Request::path() == 'lista-blog' || \Request::path() == 'detalle-blog'? 'active' : '' }}"
                                     ><a class="active" href="#">Blog</a>
                                         <ul class="dl-submenu">
                                             <li><a href="{{ route('lateral-blog')}}">Blog con Side</a></li>
@@ -185,14 +187,12 @@
                                     </li>
                                     <li
                                     class="{{ \Request::path() == 'contacto' ? 'active' : ''}}"
-                                    class="menu-item mg-parent-menu"><a href="{{ route ('contacto')}}">Contacto con nosotros</a></li>
+                                    class="menu-item mg-parent-menu"><a href="{{ route ('contacto')}}">Contacto con nosotros</a></li> --}}
                                 </ul>
                             </div>
-                            <!--DL Menu END-->
                         </div>
                     </div>
                 </div>
-                <!-- Top Bar Start -->
             </header>
 
             @yield('content')
