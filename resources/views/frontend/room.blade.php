@@ -6,7 +6,7 @@
         <h5>Nuestra habitación</h5>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ url('/') }}">Inicio</a></li>
-            <li class="breadcrumb-item active">Nuestra habitación</li>
+            <li class="breadcrumb-item active">Nuestra habitación 16/02</li>
         </ol>
     </div>
 </div>
