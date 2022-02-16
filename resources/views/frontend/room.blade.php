@@ -1,5 +1,54 @@
 @extends('frontend.layouts.app')
 
+@section('style')
+  <style>
+    .grid-rooms {
+      display: grid;
+      gap: 2rem;
+    }
+    .chr-room-thumb {
+      margin: 0;
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* block-size: 100%; */
+    }
+
+    .chr-room-thumb.fancy-thumb  figure{
+      /* block-size: 252px; */
+    }
+    .chr-room-thumb.fancy-thumb .text{
+      /* flex: 1; */
+    }
+
+
+
+    @media screen and (max-width: 380px) {
+    .chr-room-thumb.fancy-thumb {
+      width: 320px;
+    }
+    .grid-rooms {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .grid-rooms {
+      grid-template-columns: 1fr 1fr;
+    }
+    .chr-room-thumb.fancy-thumb {
+      width: 250px;
+    }
+  }
+
+  @media screen and (min-width: 901px) {
+    .grid-rooms {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+
+  </style>
+@endsection
 @section('content')
 <div data-stellar-background-ratio="0.5" class="parallax-section chr-sub-banner text-center">
     <div class="container">
@@ -48,24 +97,26 @@
             </form>
           </div>
         </nav>
+      </div>
 
+      <div class="grid-rooms">
         @foreach ($rooms as $room)
-        <div class="col-md-4 col-sm-6">
-          <div class="chr-room-thumb fancy-thumb">
-            <figure>
-              <img src='{{ asset("storage/rooms/$room->image")}}' alt="oscarthemes"/>
-              <a href="#" class="price-tag th-bg" >
-                S/ {{ $room->price }}
-              </a>
-            </figure>
-            <div class="text">
-              <h4 class="title"><a href="{{ route('habitacion-detalle')}}">{{ $room->name }}</a></h4>
-              <p>{{ $room->description }}</p>
-              <ul class="blog-meta">
-                <li><i class="fa fa-bed th-cl"></i><span>{{ $room->number_beds }} camas</span></li>
-                <li><i class="fa fa-user th-cl"></i><span>{{ $room->number_people }} personas</span></li>
-              </ul>
-            </div>
+        <div class="chr-room-thumb fancy-thumb">
+          <figure>
+            <img src='{{ asset("storage/rooms/$room->image")}}' alt="oscarthemes"/>
+            <a href="#" class="price-tag th-bg" >
+              S/ {{ $room->price }}
+            </a>
+          </figure>
+          <div class="text">
+            <h4 class="title">
+              <a href="{{-- route('habitacion-detalle') --}}">{{ $room->name }}</a>
+            </h4>
+            <p>{{ $room->description }}</p>
+            <ul class="blog-meta">
+              <li><i class="fa fa-bed th-cl"></i><span>{{ $room->number_beds }} camas</span></li>
+              <li><i class="fa fa-user th-cl"></i><span>{{ $room->number_people }} personas</span></li>
+            </ul>
           </div>
         </div>
         @endforeach

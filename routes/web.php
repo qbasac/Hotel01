@@ -39,7 +39,7 @@ Auth::routes(['register' => false]);
 
 // frontend
 Route::get('/nosotros', [AboutUsController::class, 'index'])->name('nosotros');
-Route::get('/habitacion-detalle', [RoomController::class,  'roomDetail'])->name('habitacion-detalle');
+// Route::get('/habitacion-detalle', [RoomController::class,  'roomDetail'])->name('habitacion-detalle');
 // Route::get('/habitacion', [RoomController::class,  'room'])->name('habitacion');
 
 Route::resource('/habitacion', RoomController::class);
