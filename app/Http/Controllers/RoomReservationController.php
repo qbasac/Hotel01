@@ -13,10 +13,13 @@ class RoomReservationController extends Controller
      */
     public function index()
     {
-        //
+      return view('backend.room.room-reservation.index');
     }
 
-    /**
+    public function rooms()
+    {
+      return view('backend.room.reservation.index');
+    }/**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

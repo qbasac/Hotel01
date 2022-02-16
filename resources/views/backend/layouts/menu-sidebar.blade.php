@@ -31,8 +31,8 @@
         <span>Habitaciones</span>
       </a>
       <ul class="sub-menu" aria-expanded="true">
-        <li><a href="{{route('room.index')}}">Nuestras habitaciones</a></li>
-        <li><a href="#">Reserva de habitaciones</a></li>
+        <li><a href="{{route('admin.room.index')}}">Nuestras habitaciones</a></li>
+        <li><a href="{{route('room-reservation.index')}}">Reserva de habitaciones</a></li>
       </ul>
     </li>
     <li>

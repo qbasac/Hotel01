@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('style')
+{{-- @section('style')
   <style>
     .grid-rooms {
       display: grid;
@@ -36,7 +36,7 @@
       grid-template-columns: 1fr 1fr;
     }
     .chr-room-thumb.fancy-thumb {
-      width: 250px;
+      width: 260px;
     }
   }
 
@@ -47,9 +47,12 @@
   }
 
 
+
+
   </style>
-@endsection
+@endsection --}}
 @section('content')
+
 <div data-stellar-background-ratio="0.5" class="parallax-section chr-sub-banner text-center">
     <div class="container">
         <h5>Nuestra habitación</h5>
@@ -98,8 +101,26 @@
           </div>
         </nav>
       </div>
+      @foreach ($rooms as $room)
 
-      <div class="grid-rooms">
+      <div class="col-md-4 col-sm-6">
+        <div class="chr-room-thumb fancy-thumb">
+            <figure>
+              <img src='{{ asset("storage/rooms/$room->image")}}' alt="oscarthemes"/>
+              <a href="#" class="price-tag th-bg">$ 100</a>
+            </figure>
+            <div class="text">
+                <h4 class="title"><a href="">Habitación de invitados tradicional</a></h4>
+                <p>{{ $room->description }}</p>
+                <ul class="blog-meta">
+                    <li><i class="fa fa-bed th-cl"></i><span>{{ $room->number_beds }} Cama</span></li>
+                    <li><i class="fa fa-user th-cl"></i><span>{{ $room->number_people }} Duerme</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @endforeach
+      {{-- <div class="grid-rooms">
         @foreach ($rooms as $room)
         <div class="chr-room-thumb fancy-thumb">
           <figure>
@@ -110,7 +131,7 @@
           </figure>
           <div class="text">
             <h4 class="title">
-              <a href="{{-- route('habitacion-detalle') --}}">{{ $room->name }}</a>
+              <a href="">{{ $room->name }}</a>
             </h4>
             <p>{{ $room->description }}</p>
             <ul class="blog-meta">
@@ -119,11 +140,13 @@
             </ul>
           </div>
         </div>
-        @endforeach
+        @endforeach --}}
 
 
+
+{{--
       </div>
-    </div>
+    </div> --}}
   </section>
 </div>
 @endsection

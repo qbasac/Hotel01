@@ -10,6 +10,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Admin\RoomController as AdminRoomController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\RoomReservationController;
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -27,9 +28,20 @@ Auth::routes(['register' => false]);
 
   Route::resource('about', AboutController::class);
   Route::resource('/testimonial', TestimonialController::class);
-  Route::resource('/admin/room', AdminRoomController::class);
+
+  Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
+    Route::resource('/room', AdminRoomController::class);
+  });
+
+  // Route::as('admin.')->group(function () {
+  //   Route::prefix('admin')->group(function () {
+  //     Route::resource('/room', AdminRoomController::class);
+  //   });
+  // });
 
   Route::resource('/room', RoomController::class);
+  Route::resource('/room-reservation', RoomReservationController::class);
+
 
   Route::post('usuario/update-is-active/{usuario}', [UserController::class, 'updateIsActive'])->name('usuario.updateIsActive');
   Route::post('testimonial/update-is-active/{testimonial}', [TestimonialController::class, 'updateIsActive'])->name('testimonial.updateIsActive');
@@ -72,7 +84,7 @@ Route::resource('/habitacion', RoomController::class);
 // Route::get('galeria-simple', 'GaleriaController@galeriaSimple')->name('galeria-simple');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Route::get('/inicio','IndexController@indexBackend')->name('inicio');

@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
-  // public function index()
-  // {
-  //   return view('backend.room.reservation.index');
-  // }
+  public function index()
+  {
+    return view('backend.room.our-rooms.index');
+  }
 
 
   // public function roomDetail()
