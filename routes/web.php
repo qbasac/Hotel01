@@ -18,7 +18,7 @@ Route::get('/',[HomeController::class, 'index'])->name('index');
 
 Auth::routes(['register' => false]);
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
   Route::resource('/dashboard', DashboardController::class);
 
   Route::resource('/usuario', UserController::class);
@@ -35,7 +35,7 @@ Route::middleware(['auth'])->group(function () {
   Route::post('testimonial/update-is-active/{testimonial}', [TestimonialController::class, 'updateIsActive'])->name('testimonial.updateIsActive');
   Route::post('about/show-section-testimonial/{testimonial}', [TestimonialController::class, 'ShowSectionTestimonial'])->name('testimonial.ShowSectionTestimonial');
 
-});
+// });
 
 // frontend
 Route::get('/nosotros', [AboutUsController::class, 'index'])->name('nosotros');
