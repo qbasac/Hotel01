@@ -60,14 +60,15 @@
                                 <ul>
                                     <li class="{{ \Request::path() == 'home' ? 'active' : ''}}"><a href="{{ url('/') }}">Inicio</a></li>
                                     <li class="{{ \Request::path() == 'nosotros' ? 'active' : ''}}"><a href="{{ route('nosotros') }}"> Sobre nosotros</a></li>
+                                    
                                     <li class="{{
                                     \Request::path() == 'habitacion' ||
                                     \Request::path() == 'habitacion-lista' ||
                                     \Request::path() == 'habitacion-detalle'
                                     ? 'active' : '' }}"
-                                    ><a href="#">Habitaciones</a>
+                                    ><a href="">Habitaciones</a>
                                         <ul class="children">
-                                            <li><a href="{{ route('habitacion.index')}}">Nuestras habitaciones</a></li>
+                                            <li><a href="">Nuestras habitaciones</a></li>
                                             {{-- <li><a href="{{ route('habitacion-detalle')}}">Detalle de la habitación</a></li> --}}
                                         </ul>
                                     </li>

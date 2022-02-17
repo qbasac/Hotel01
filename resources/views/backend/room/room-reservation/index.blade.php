@@ -11,7 +11,7 @@
       <div class="card">
         <div class="card-body">
           <div class="card-title text-primary">
-            <i class="fas fa-user-edit"></i> Nuestras habitaciones
+            <i class="fas fa-user-edit"></i> Reservas
           </div>
           <hr>
 
