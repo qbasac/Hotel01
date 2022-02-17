@@ -11,26 +11,28 @@
     </div>
 </div>
 <section>
+  {{-- @foreach ($rooms as $room) --}}
   <div class="container">
     <aside class="row">
       <div class="col-sm-12 col-md-5">
         <div class="chr-room-thumb fancy-thumb">
           <figure>
-            <img src="{{asset('frontend/extra-images/room1.jpg')}}" alt="oscarthemes"/>
+            <img src="{{ asset("storage/rooms/$room->image")}}" alt="oscarthemes"/>
             <a href="#" class="price-tag th-bg" >
-              S/ 100.00
+              S/ {{ $room->price }}
             </a>
           </figure>
           <div class="text">
-            <h4 class="title"><a href="{{ route('habitacion-detalle')}}">Habitación de invitados tradicional</a></h4>
-            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
+            <h4 class="title"><a href="{{ route('habitacion-detalle')}}">{{ $room->name }}</a></h4>
+            <p>{{ $room->description }}</p>
             <ul class="blog-meta">
-              <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-              <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
+              <li><i class="fa fa-bed th-cl"></i><span>{{ $room->number_beds }} Cama</span></li>
+              <li><i class="fa fa-user th-cl"></i><span>{{ $room->number_people }} Duerme</span></li>
             </ul>
           </div>
         </div>
       </div>
+      {{-- @endforeach --}}
 
       <div class="col-sm-12 col-md-7">
         <div class="chr-sidebar">

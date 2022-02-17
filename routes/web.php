@@ -31,6 +31,8 @@ Auth::routes(['register' => false]);
 
   Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
     Route::resource('/room', AdminRoomController::class);
+    Route::post('room/update-is-active/{room}', [AdminRoomController::class, 'updateIsActive'])->name('room.updateIsActive');
+
   });
 
   // Route::as('admin.')->group(function () {
@@ -46,17 +48,21 @@ Auth::routes(['register' => false]);
   Route::post('usuario/update-is-active/{usuario}', [UserController::class, 'updateIsActive'])->name('usuario.updateIsActive');
   Route::post('testimonial/update-is-active/{testimonial}', [TestimonialController::class, 'updateIsActive'])->name('testimonial.updateIsActive');
   Route::post('about/show-section-testimonial/{testimonial}', [TestimonialController::class, 'ShowSectionTestimonial'])->name('testimonial.ShowSectionTestimonial');
+  // Route::post('room/update-is-active/{room}', [AdminRoomController::class, 'updateIsActive'])->name('room.updateIsActive');
 
 // });
 
 // frontend
 Route::get('/nosotros', [AboutUsController::class, 'index'])->name('nosotros');
-// Route::get('/habitacion-detalle', [RoomController::class,  'roomDetail'])->name('habitacion-detalle');
-// Route::get('/habitacion', [RoomController::class,  'room'])->name('habitacion');
+Route::get('/habitacion-detalle', [RoomController::class,  'roomDetail'])->name('habitacion-detalle');
+
+// Route::get('/habitacion', [RoomController::class,  'index'])->name('habitacion');
 
 Route::resource('/habitacion', RoomController::class);
 
-
+// Route::get('habitacion-detalle', 'HabitacionesController@roomDetail')->name('habitacion-detalle');
+// Route::get('habitacion-lista', 'HabitacionesController@roomList')->name('habitacion-lista');
+// Route::get('habitacion', 'HabitacionesController@room')->name('habitacion');
 
 // Route::get('/detalle-blog', 'BlogController@blogDetail')->name('detalle-blog');
 // Route::get('/grande-blog', 'BlogController@blogLarge')->name('grande-blog');
@@ -84,7 +90,7 @@ Route::resource('/habitacion', RoomController::class);
 // Route::get('galeria-simple', 'GaleriaController@galeriaSimple')->name('galeria-simple');
 
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Route::get('/inicio','IndexController@indexBackend')->name('inicio');

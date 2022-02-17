@@ -59,12 +59,7 @@
                                 <ul>
                                     <li class="active"><a href="{{ url('/') }}">Inicio</a></li>
                                     <li class="{{ \Request::path() == 'nosotros' ? 'active' : ''}}"><a href="{{ route('nosotros') }}"> Sobre nosotros</a></li>
-                                    <li ><a href="#">Habitaciones</a>
-                                        <ul class="children">
-                                            <li><a href="{{ route('habitacion.index') }}">Nuestras habitaciones</a></li>
-                                            <li><a href="">Lista de habitaciones</a></li>
-                                            {{-- <li><a href="{{ route('habitacion-detalle') }}">Detalle de la habitación</a></li> --}}
-                                        </ul>
+                                    <li ><a href="{{ route('habitacion.index') }}">Habitaciones</a>
                                     </li>
                                     <li><a href="#">Evento</a>
                                         <ul class="children">

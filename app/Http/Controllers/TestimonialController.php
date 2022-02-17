@@ -19,7 +19,7 @@ class TestimonialController extends Controller
     }
 
     public function store(Request $request){
-      dd($request->all());
+      // dd($request->all());
       $testimonial = new Testimonial();
       $testimonial->section_testimonial_name = $request->name;
       $testimonial->section_testimonial_comment = $request->comment;

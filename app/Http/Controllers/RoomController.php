@@ -8,13 +8,15 @@ use Illuminate\Http\Request;
 class RoomController extends Controller
 {
   public function index() {
-    $rooms = Room::get();
+    $rooms = Room::where('is_active', 1)->paginate(6);
     return view('frontend.room', compact('rooms'));
   }
 
-  public function roomDetail()
+  public function roomDetail($id)
   {
-    return view('frontend.room-detail');
+    $room = Room::whereId($id)->first();
+    return view('frontend.room-detail', compact('room'));
+    // return view('frontend.room-detail');
   }
 
   public function room()

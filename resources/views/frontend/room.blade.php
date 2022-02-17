@@ -1,56 +1,28 @@
 @extends('frontend.layouts.app')
 
-{{-- @section('style')
+@section('style')
   <style>
-    .grid-rooms {
-      display: grid;
-      gap: 2rem;
-    }
-    .chr-room-thumb {
-      margin: 0;
-      /* display: flex; */
-      /* flex-direction: column; */
-      /* block-size: 100%; */
-    }
+   .pagination li {
+    margin-left: .25rem;
+    margin-right: .25rem;
+}
 
-    .chr-room-thumb.fancy-thumb  figure{
-      /* block-size: 252px; */
-    }
-    .chr-room-thumb.fancy-thumb .text{
-      /* flex: 1; */
-    }
+.pagination li .page-link {
+  border-radius: 5rem;
+  border: none;
+  min-width: 2.25rem;
+  text-align: center;
+  color: #4f5464;
+}
 
-
-
-    @media screen and (max-width: 380px) {
-    .chr-room-thumb.fancy-thumb {
-      width: 320px;
-    }
-    .grid-rooms {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media screen and (max-width: 900px) {
-    .grid-rooms {
-      grid-template-columns: 1fr 1fr;
-    }
-    .chr-room-thumb.fancy-thumb {
-      width: 260px;
-    }
-  }
-
-  @media screen and (min-width: 901px) {
-    .grid-rooms {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-
-
-
+.pagination li.active .page-link,
+.pagination li .page-link:hover {
+  background-color: #EDCB9A;
+  color: #fff;
+  font-weight: bold;
+}
   </style>
-@endsection --}}
+@endsection
 @section('content')
 
 <div data-stellar-background-ratio="0.5" class="parallax-section chr-sub-banner text-center">
@@ -107,19 +79,23 @@
         <div class="chr-room-thumb fancy-thumb">
             <figure>
               <img src='{{ asset("storage/rooms/$room->image")}}' alt="oscarthemes"/>
-              <a href="#" class="price-tag th-bg">$ 100</a>
+              {{-- {{ asset('storage/users/'.$user->avatar) }} --}}
+              <a href="#" class="price-tag th-bg">$ {{ $room->price }}</a>
             </figure>
             <div class="text">
-                <h4 class="title"><a href="">Habitación de invitados tradicional</a></h4>
+                <h4 class="title"><a href="habitacion-detalle">{{ $room->name }}</a></h4>
                 <p>{{ $room->description }}</p>
                 <ul class="blog-meta">
                     <li><i class="fa fa-bed th-cl"></i><span>{{ $room->number_beds }} Cama</span></li>
                     <li><i class="fa fa-user th-cl"></i><span>{{ $room->number_people }} Duerme</span></li>
                 </ul>
+
             </div>
         </div>
     </div>
     @endforeach
+    {{ $rooms->links() }}
+
       {{-- <div class="grid-rooms">
         @foreach ($rooms as $room)
         <div class="chr-room-thumb fancy-thumb">
