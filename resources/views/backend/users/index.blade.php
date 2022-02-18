@@ -81,14 +81,7 @@
                     <div class="input-group mb-3">
                       <input  class="form-control" type="search" {{ request('search') ? 'autofocus' : '' }} placeholder="Buscar" name="search" aria-label="Search" value="{{ request('search') }}" >
                       <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
-                    </div></div>
-
-                    {{-- <div class="col-auto">
-                      <input class="form-control" type="search" {{ request('search') ? 'autofocus' : '' }}  placeholder="Buscar" name="search" aria-label="Search" value="{{ request('search') }}">
-                    </div>
-                    <div class="col-auto">
-                      <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
-                    </div> --}}
+                    </div></div>             
                   </form>
                 </div>
               </nav>

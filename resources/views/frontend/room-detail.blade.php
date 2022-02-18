@@ -11,7 +11,7 @@
     </div>
 </div>
 <section>
-  {{-- @foreach ($rooms as $room) --}}
+
   <div class="container">
     <aside class="row">
       <div class="col-sm-12 col-md-5">
@@ -22,17 +22,16 @@
               S/ {{ $room->price }}
             </a>
           </figure>
-          <div class="text">
+          <div  class="text">
             <h4 class="title"><a href="{{ route('habitacion-detalle')}}">{{ $room->name }}</a></h4>
             <p>{{ $room->description }}</p>
             <ul class="blog-meta">
-              <li><i class="fa fa-bed th-cl"></i><span>{{ $room->number_beds }} Cama</span></li>
+              <li><i class="fa fa-bed th-cl"></i><span >{{ $room->number_beds }} Cama</span></li>
               <li><i class="fa fa-user th-cl"></i><span>{{ $room->number_people }} Duerme</span></li>
             </ul>
           </div>
         </div>
       </div>
-      {{-- @endforeach --}}
 
       <div class="col-sm-12 col-md-7">
         <div class="chr-sidebar">

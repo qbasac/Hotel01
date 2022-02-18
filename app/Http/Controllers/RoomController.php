@@ -12,25 +12,12 @@ class RoomController extends Controller
     return view('frontend.room', compact('rooms'));
   }
 
-  public function roomDetail($id)
+  public function show($id)
   {
     $room = Room::whereId($id)->first();
+
     return view('frontend.room-detail', compact('room'));
-    // return view('frontend.room-detail');
   }
 
-  public function room()
-  {
-    return view('frontend.room');
-  }
-
-  // public function index()
-  // {
-  //   return view('backend.room.reservation.index');
-  // }
-
-  public function ourroom()
-  {
-    return view('backend.room.our-rooms.index');
-  }
+  
 }

@@ -44,8 +44,8 @@
             </div>
             <div class="mb-3">
               <label for="rating" class="form-label">Género</label>
-              <select name="gender" id="" class="form-select" value="{{$testimonial->section_testimonial_rating}}">
-                <option value="{{$testimonial->section_testimonial_rating}}">Seleccione</option>
+              <select name="gender" id="" class="form-select" value="{{$testimonial->section_testimonial_gender}}">
+                <option value="{{$testimonial->section_testimonial_gender}}">Seleccione</option>
                 <option value="0">Varón</option>
                 <option value="1">Mujer</option>
               </select>

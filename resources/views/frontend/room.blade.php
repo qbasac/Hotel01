@@ -74,7 +74,6 @@
         </nav>
       </div>
       @foreach ($rooms as $room)
-
       <div class="col-md-4 col-sm-6">
         <div class="chr-room-thumb fancy-thumb">
             <figure>
@@ -85,44 +84,22 @@
             <div class="text">
                 <h4 class="title"><a href="habitacion-detalle">{{ $room->name }}</a></h4>
                 <p>{{ $room->description }}</p>
-                <ul class="blog-meta">
+                <ul style="margin: 5px !important;" class="blog-meta">
                     <li><i class="fa fa-bed th-cl"></i><span>{{ $room->number_beds }} Cama</span></li>
                     <li><i class="fa fa-user th-cl"></i><span>{{ $room->number_people }} Duerme</span></li>
                 </ul>
-
+                <div style="text-align: center;">
+                  <a class="chr-btn fancy-btn" href="{{ route('room.show',['room' => $room->id]) }}">Reservar ahora</a>
+                </div>
             </div>
         </div>
     </div>
     @endforeach
-    {{ $rooms->links() }}
-
-      {{-- <div class="grid-rooms">
-        @foreach ($rooms as $room)
-        <div class="chr-room-thumb fancy-thumb">
-          <figure>
-            <img src='{{ asset("storage/rooms/$room->image")}}' alt="oscarthemes"/>
-            <a href="#" class="price-tag th-bg" >
-              S/ {{ $room->price }}
-            </a>
-          </figure>
-          <div class="text">
-            <h4 class="title">
-              <a href="">{{ $room->name }}</a>
-            </h4>
-            <p>{{ $room->description }}</p>
-            <ul class="blog-meta">
-              <li><i class="fa fa-bed th-cl"></i><span>{{ $room->number_beds }} camas</span></li>
-              <li><i class="fa fa-user th-cl"></i><span>{{ $room->number_people }} personas</span></li>
-            </ul>
-          </div>
-        </div>
-        @endforeach --}}
-
-
-
-{{--
+     <div style="text-align: center;">
+           {{ $rooms->links() }}
+     </div>
       </div>
-    </div> --}}
+    </div> 
   </section>
 </div>
 @endsection

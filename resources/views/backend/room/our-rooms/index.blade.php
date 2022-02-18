@@ -30,12 +30,46 @@
       <div class="card">
         <div class="card-body">
           <div class="card-title text-primary">
-            <i class="fas fa-user-edit"></i> Nuestras habitaciones
+            <i class="fas fa-hotel"></i> Nuestras habitaciones
             <a href="{{ route('admin.room.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
 
           </div>
 
           <hr>
+          <br>
+              <nav class="navbar">
+                <div class="container-fluid">
+                  <a class="navbar-brand"></a>
+                  <form class="row g-3" action="{{ route('admin.room.index') }}" method="GET" autocomplete="off">
+                    <div class="col-auto">
+                      <label class="form-control-plaintext">Buscar por</label>
+                    </div>
+
+                    <div class="col-auto">
+                      <div class="form-group">
+                        <select name="searchBy" id=""  class="form-select form-select" aria-label=".form-select-sm example">
+                          <option value="price">Precios</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-auto">
+                     <div  class="input-group mb-3">
+                     <select name="search" type="search"  class="form-select" aria-label="Search">
+                       
+                        <option value="60.66">Precio 60</option>
+                        <option value="29.05">Precio 29</option>
+                        <option value="51.21">Precio 51</option>
+
+                      </select>
+
+                       <!-- <input  readonly class="form-control" type="search" {{ request('search') ? 'autofocus' : '' }}  name="search" aria-label="Search" value="60.66" > -->
+                       <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+                     </div>
+                    </div>
+                  </form>
+                </div>
+              </nav>
           <div class="table-responsive">
             <table class="table table-sm table-striped mt-4">
               <thead>

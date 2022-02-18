@@ -1163,7 +1163,7 @@
                                 <li>1 Curso de fitness</li>
                                 <li>Entrada ilimitada al gimnasio</li>
                             </ul>
-                            <a class="chr-btn fancy-btn" href="#">Comprar ahora</a>
+                            <a style="text-align: center;" class="chr-btn fancy-btn" href="#">Comprar ahora</a>
                         </div>
                     </div>
                 </div>

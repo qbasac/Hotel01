@@ -44,7 +44,7 @@ Auth::routes(['register' => false]);
   Route::resource('/room', RoomController::class);
   Route::resource('/room-reservation', RoomReservationController::class);
 
-
+  Route::post('reservation/update-is-active/{room_reservation}', [RoomReservationController::class, 'updateIsActive'])->name('reservation.updateIsActive');
   Route::post('usuario/update-is-active/{usuario}', [UserController::class, 'updateIsActive'])->name('usuario.updateIsActive');
   Route::post('testimonial/update-is-active/{testimonial}', [TestimonialController::class, 'updateIsActive'])->name('testimonial.updateIsActive');
   Route::post('about/show-section-testimonial/{testimonial}', [TestimonialController::class, 'ShowSectionTestimonial'])->name('testimonial.ShowSectionTestimonial');

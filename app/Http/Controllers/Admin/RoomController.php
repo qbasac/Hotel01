@@ -9,9 +9,13 @@ use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
-  public function index()
+  public function index(Request $request)
   {
-    $rooms = Room::paginate(7);
+    $rooms = Room::where(function ($query) use ($request) {
+      if ($request->searchBy && $request->search) {
+        $query->where($request->searchBy, 'like', "%$request->search%");
+      }
+    })->paginate(7);
     return view('backend.room.our-rooms.index', compact('rooms'));
   }
 
@@ -76,18 +80,5 @@ class RoomController extends Controller
 
       return redirect()->route('admin.room.index');
     }
-  // public function roomDetail()
-  // {
-  //   return view('frontend.room-detail');
-  // }
-
-  // public function room_reservation()
-  // {
-  //   return view('backend.room.our-rooms.index');
-  // }
-
-  // public function room()
-  // {
-  //   return view('frontend.room');
-  // }
+ 
 }

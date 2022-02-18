@@ -52,7 +52,6 @@
                 <label for="about_sub_imagen" class="form-label">Imagen 2</label>
                 <input id="about_sub_imagen" name="about_sub_imagen" type="text" class="form-control" readonly value="{{$about->about_sub_imagen}}" >
               </div>
-              {{-- {{ route('usuario.edit', ['usuario' => $user->id] ) }} --}}
               <a href="{{ route('about.edit',['about' => $about->id]) }}" class="btn btn btn-info" title="Editar"> Editar <i class="far fa-edit"></i></a>
             </form>
 
