@@ -49,12 +49,12 @@
 
               <div class="form-group mb-3">
                 <label class="mb-0" for="">Imagen de fondo</label>
-                <input type="file" accept="image/*" class="form-control" name="about_imagen" id="about_imagen">
+                <input type="file" accept="image/*" class="form-control" name="about_image" id="about_image">
               </div>
 
               <div class="form-group mb-3">
                 <label class="mb-0" for="">Imagen frontal</label>
-                <input type="file" accept="image/*" class="form-control" name="about_sub_imagen" id="about_sub_imagen">
+                <input type="file" accept="image/*" class="form-control" name="about_sub_image" id="about_sub_image">
               </div>
               <a href="{{ route('about.index') }}" class="btn btn-danger">Cancelar</a>
               <button type="submit" class="btn btn-primary">Guardar <i class="far fa-paper-plane"></i></button>

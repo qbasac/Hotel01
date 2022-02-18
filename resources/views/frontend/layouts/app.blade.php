@@ -63,7 +63,7 @@
                                     <li class="{{ \Request::path() == 'nosotros' ? 'active' : ''}}"><a href="{{ route('nosotros') }}"> Sobre nosotros</a></li>
                                     <li class="{{ \Request::path() == 'habitacion' ? 'active' : ''}}"><a href="{{ route('habitacion.index') }}"> Habitaciones</a></li>
 
-                                   
+
                                     <li
                                     class="{{ \Request::path() == 'evento-peque%C3%B1o' || \Request::path() == 'evento-mediano' || \Request::path() == 'evento-grande' || \Request::path() == 'evento-lista'|| \Request::path() == 'evento-detalle'? 'active' : '' }}"
                                     ><a href="#">Evento</a>
@@ -328,6 +328,8 @@
         <script src="{{ asset('frontend/js/3deffect.js')}}"></script>
         <script src="{{ asset('frontend/js/isotope.js')}}"></script>
         <script src="{{ asset('frontend/js/custom.js') }}"></script>
+
+        {{-- <script src="{{asset('frontend/js/datepicker.js')}}"></script> --}}
 
     </body>
 

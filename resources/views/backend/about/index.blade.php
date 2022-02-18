@@ -45,12 +45,12 @@
                 <input id="link" name="link" id="link" type="text" class="form-control"readonly  value="{{$about->about_link}}">
               </div>
               <div class="mb-3">
-                <label for="about_sub_imagen" class="form-label">Imagen 2</label>
-                <input id="about_imagen" name="about_imagen" type="text" class="form-control" readonly value="{{$about->about_imagen}}" >
+                <label for="about_sub_image" class="form-label">Imagen de fondo</label>
+                <input id="about_image" name="about_image" type="text" class="form-control" readonly value="{{$about->about_image}}" >
               </div>
                 <div class="mb-3">
-                <label for="about_sub_imagen" class="form-label">Imagen 2</label>
-                <input id="about_sub_imagen" name="about_sub_imagen" type="text" class="form-control" readonly value="{{$about->about_sub_imagen}}" >
+                <label for="about_sub_image" class="form-label">Imagen frontal</label>
+                <input id="about_sub_image" name="about_sub_image" type="text" class="form-control" readonly value="{{$about->about_sub_image}}" >
               </div>
               <a href="{{ route('about.edit',['about' => $about->id]) }}" class="btn btn btn-info" title="Editar"> Editar <i class="far fa-edit"></i></a>
             </form>

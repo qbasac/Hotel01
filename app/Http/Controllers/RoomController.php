@@ -15,9 +15,6 @@ class RoomController extends Controller
   public function show($id)
   {
     $room = Room::whereId($id)->first();
-
     return view('frontend.room-detail', compact('room'));
   }
-
-  
 }

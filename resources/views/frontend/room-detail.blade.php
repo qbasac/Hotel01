@@ -11,7 +11,6 @@
     </div>
 </div>
 <section>
-
   <div class="container">
     <aside class="row">
       <div class="col-sm-12 col-md-5">
@@ -40,29 +39,35 @@
                   <!--Title Start-->
                   <h5 class=" th-bd title">Reserva de habitaciones</h5>
                   <!--Title End-->
-                  <form>
+                  <form action="{{ route('room-reservation.store') }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
+                    @csrf
                       <div class="input-field">
-                        <input type="text" placeholder="Su nombre">
+                        <input id="name" name="name" type="text" placeholder="Su nombre">
                       </div>
                       <div class="input-field">
-                        <input type="text" placeholder="Su correo electrónico">
+                        <input id="email" name="email" type="text" placeholder="Su correo electrónico">
                       </div>
                       <div class="input-field">
-                        <input type="text" placeholder="Su número de móvil">
+                        <input id="phone" name="phone" type="text" placeholder="Su número de móvil">
                       </div>
                       <div class="input-field">
-                        <input type="text" placeholder="Habitación individual">
-                      </div>
+                        <select id="room_type" name="room_type">
+                          <option value="">Habitación</option>
+                          <option value="1">Individual</option>
+                          <option value="2">Duplex</option>
+                          <option value="3">Familía</option>
+                          <option value="5">Pareja</option>
+                      </select>                      </div>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="input-field">
                             <div class="rq-check-inout-wrapper rq-check-in-wrapper" id="rq-check-in-single">
                               <div class="rq-check-inout-single-wrapper">
-                                <span class="rq-single-date">24</span>
+                                <span class="rq-single-date"></span>
                                 <span class="rq-month-year">
                                   <span class="rq-single-month"></span>
                                 </span>
-                                <input type="hidden" name="date_in" />
+                                <input id="reservation_start_date" name="reservation_start_date" type="date"  />
                               </div>
                             </div>
                           </div>
@@ -71,11 +76,11 @@
                           <div class="input-field">
                             <div class="rq-check-inout-wrapper rq-check-in-wrapper" id="rq-check-out-single">
                               <div class="rq-check-inout-single-wrapper">
-                                <span class="rq-single-date">24</span>
+                                <span class="rq-single-date"></span>
                                 <span class="rq-month-year">
-                                  <span class="rq-single-month">sep</span>
+                                  <span class="rq-single-month"></span>
                                 </span>
-                                <input type="hidden" name="date_out" />
+                                <input id="reservation_end_date" name="reservation_end_date" type="date"/>
                               </div>
                             </div>
                           </div>
@@ -83,43 +88,34 @@
                       </div>
                       <!--Input Field Start-->
                       <div class="input-field">
-                          <select>
+                          <select id="quantity_adults" name="quantity_adults">
                               <option value="">Adultos</option>
-                              <option value="aye">1</option>
-                              <option value="eh">2</option>
-                              <option value="ooh">3</option>
-                              <option value="whoop">4</option>
-                              <option value="whoop">5</option>
-                              <option value="whoop">6</option>
-                              <option value="whoop">7</option>
-                              <option value="whoop">8</option>
-                              <option value="whoop">9</option>
-                              <option value="whoop">10</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="5">4</option>
                           </select>
                       </div>
                       <!--Input Field End-->
                       <!--Input Field Start-->
                       <div class="input-field">
-                          <select>
+                          <select id="quantity_childrens" name="quantity_childrens">
                               <option value="">Niños</option>
-                              <option value="aye">1</option>
-                              <option value="eh">2</option>
-                              <option value="ooh">3</option>
-                              <option value="whoop">4</option>
-                              <option value="whoop">5</option>
-                              <option value="whoop">6</option>
-                              <option value="whoop">7</option>
-                              <option value="whoop">8</option>
-                              <option value="whoop">9</option>
-                              <option value="whoop">10</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
                           </select>
                       </div>
                       <!--Input Field End-->
                       <!--Input Field Start-->
                       <div class="input-field">
                           <input class="chr-btn th-bg" type="submit" value="Compruebe la disponibilidad">
+
                       </div>
                       <!--Input Field End-->
+
                   </form>
               </div>
           </div>

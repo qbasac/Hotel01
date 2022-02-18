@@ -26,16 +26,16 @@ class AboutController extends Controller
       $about->about_description=$request->description;
       $about->about_link=$request->link;
 
-      if($request->file('about_imagen')){
-        $namefile = Carbon::now()->format("dmYHis").".".$request->file('about_imagen')->getClientOriginalExtension();
-        $request->file('about_imagen')->storeAs('public/about', $namefile);
-        $about->about_imagen = $namefile;
+      if($request->file('about_image')){
+        $namefile = Carbon::now()->format("dmYHis").".".$request->file('about_image')->getClientOriginalExtension();
+        $request->file('about_image')->storeAs('public/about', $namefile);
+        $about->about_image = $namefile;
       }
 
-      if($request->file('about_sub_imagen')){
-        $namefile = Carbon::now()->format("dmYHis").".".$request->file('about_sub_imagen')->getClientOriginalExtension();
-        $request->file('about_sub_imagen')->storeAs('public/about', $namefile);
-        $about->about_sub_imagen = $namefile;
+      if($request->file('about_sub_image')){
+        $namefile = Carbon::now()->format("dmYHis").".".$request->file('about_sub_image')->getClientOriginalExtension();
+        $request->file('about_sub_image')->storeAs('public/about', $namefile);
+        $about->about_sub_image = $namefile;
       }
 
       $about->save();
@@ -49,16 +49,16 @@ class AboutController extends Controller
 
       $about->about_title = $request ->title;
       $about->about_description = $request->description;
-      if($request->file('about_imagen')){
-        $namefile = Carbon::now()->format("dmYHis").".".$request->file('about_imagen')->getClientOriginalExtension();
-        $request->file('about_imagen')->storeAs('public/about', $namefile);
-        $about->about_imagen = $namefile;
+      if($request->file('about_image')){
+        $namefile = Carbon::now()->format("dmYHis").".".$request->file('about_image')->getClientOriginalExtension();
+        $request->file('about_image')->storeAs('public/about', $namefile);
+        $about->about_image = $namefile;
       }
 
-      if($request->file('about_sub_imagen')){
-        $namefile = Carbon::now()->format("dmYHis").".".$request->file('about_sub_imagen')->getClientOriginalExtension();
-        $request->file('about_sub_imagen')->storeAs('public/about', $namefile);
-        $about->about_sub_imagen = $namefile;
+      if($request->file('about_sub_image')){
+        $namefile = Carbon::now()->format("dmYHis").".".$request->file('about_sub_image')->getClientOriginalExtension();
+        $request->file('about_sub_image')->storeAs('public/about', $namefile);
+        $about->about_sub_image = $namefile;
       }
 
       $about->save();

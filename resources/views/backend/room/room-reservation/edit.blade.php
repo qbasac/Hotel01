@@ -15,7 +15,7 @@
           </div>
           <hr>
 
-         
+
 
 
           <form action="{{ route('room-reservation.update', ['room_reservation' => $room_reservation->id]) }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
@@ -34,16 +34,24 @@
                   <input id="phone" name="phone" type="phone" class="form-control" value="{{$room_reservation->phone}}" placeholder="Complete este campo...">
                 </div>
                 <div class="mb-3">
-                  <label for="room_name" class="form-label">Habitación</label>
-                  <input id="room_name" name="room_name" type="text" class="form-control" value="{{$room_reservation->room_name}}" placeholder="Complete este campo...">
+                  <label for="room_type" class="form-label">Habitación</label>
+                  <input id="room_type" name="room_type" type="text" class="form-control" value="{{$room_reservation->room_type}}" placeholder="Complete este campo...">
                 </div>
                 <div class="mb-3">
-                  <label for="date_entry" class="form-label">Fecha de ingreso</label>
-                  <input id="date_entry" name="date_entry" type="text" class="form-control" value="{{$room_reservation->date_entry}}" placeholder="Complete este campo...">
+                  <label for="quantity_adults" class="form-label">Adultos</label>
+                  <input id="quantity_adults" name="quantity_adults" type="text" class="form-control" value="{{$room_reservation->quantity_adults}}" placeholder="Complete este campo...">
                 </div>
                 <div class="mb-3">
-                  <label for="date_out" class="form-label">Fecha de salida</label>
-                  <input id="date_out" name="date_out" type="text" class="form-control" value="{{$room_reservation->date_out}}" placeholder="Complete este campo...">
+                  <label for="quantity_childrens" class="form-label">Niños</label>
+                  <input id="quantity_childrens" name="quantity_childrens" type="text" class="form-control" value="{{$room_reservation->quantity_childrens}}" placeholder="Complete este campo...">
+                </div>
+                <div class="mb-3">
+                  <label for="reservation_start_date" class="form-label">Fecha de ingreso</label>
+                  <input id="reservation_start_date" name="reservation_start_date" type="text" class="form-control" value="{{$room_reservation->reservation_start_date}}" placeholder="Complete este campo...">
+                </div>
+                <div class="mb-3">
+                  <label for="reservation_end_date" class="form-label">Fecha de salida</label>
+                  <input id="reservation_end_date" name="reservation_end_date" type="text" class="form-control" value="{{$room_reservation->reservation_end_date}}" placeholder="Complete este campo...">
                 </div>
             <a href="{{ route('room-reservation.index') }}" class="btn btn-danger" tabindex="4">Cancelar</a>
             <button type="submit" class="btn btn-primary" tabindex="3">Actualizar</button>

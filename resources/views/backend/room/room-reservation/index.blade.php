@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('sub-title')
-    Usuarios
+  Habitaciones
 @endsection
 
 @section('content')
@@ -12,13 +12,12 @@
         <div class="card-body">
           <div class="card-title text-primary">
             <i class="fas fa-hotel"></i> Reserva habitaciones
-            <a href="{{ route('room-reservation.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
-
+            {{-- <a href="{{ route('room-reservation.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a> --}}
           </div>
 
           <hr>
           <br>
-             
+
           <div class="table-responsive">
             <table class="table table-sm table-striped mt-4">
               <thead>
@@ -29,12 +28,14 @@
                     <th style="min-inline-size: 120px;">Email</th>
                     <th scope="col">Teléfono</th>
                     <th scope="col">Habitacion</th>
+                    <th scope="col">Adultos</th>
+                    <th scope="col">Niños</th>
                     <th scope="col">Fecha de Ingreso</th>
                     <th scope="col">Fecha de salida</th>
                   </tr>
               </thead>
               <tbody>
-             
+
               @foreach ($room_reservations as $room_reservation)
                   <tr>
                     <td style=" text-align: left;vertical-align: middle;">
@@ -61,7 +62,7 @@
                               <i class="far fa-times-circle"></i>
                             </button>
                           @endif
-                      </form> 
+                      </form>
 
                        <td style="vertical-align: middle;">
                           @if ($room_reservation->is_active)
@@ -74,9 +75,11 @@
                       <td style="vertical-align: middle;">{{$room_reservation->name}}</td>
                       <td style="vertical-align: middle;">{{$room_reservation->email}}</td>
                       <td style="vertical-align: middle;">{{$room_reservation->phone}}</td>
-                      <td style="vertical-align: middle;">{{$room_reservation->room_name}}</td>
-                      <td style="vertical-align: middle;">{{$room_reservation->date_entry}}</td>
-                      <td style="vertical-align: middle;">{{$room_reservation->date_out}}</td>
+                      <td style="vertical-align: middle;">{{$room_reservation->room_type}}</td>
+                      <td style="vertical-align: middle;">{{$room_reservation->quantity_adults}}</td>
+                      <td style="vertical-align: middle;">{{$room_reservation->quantity_childrens}}</td>
+                      <td style="vertical-align: middle;">{{$room_reservation->reservation_start_date}}</td>
+                      <td style="vertical-align: middle;">{{$room_reservation->reservation_end_date}}</td>
 
                   </tr>
                   @endforeach

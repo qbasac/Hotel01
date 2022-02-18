@@ -7,13 +7,13 @@ use Illuminate\Database\Seeder;
 
 class RoomReservationSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        RoomReservation::factory()->count(12)->create();
-    }
+  /**
+   * Run the database seeds.
+   *
+   * @return void
+   */
+  public function run()
+  {
+    RoomReservation::factory()->count(12)->create();
+  }
 }
