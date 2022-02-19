@@ -11,12 +11,14 @@
       <div class="card">
         <div class="card-body">
           <div class="card-title text-primary">
-            <i class="fas fa-hotel"></i> Reserva habitaciones
+            <h6>
+              <i class="fas fa-hotel pe-1"></i> Reserva habitaciones
+            </h6>
             {{-- <a href="{{ route('room-reservation.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a> --}}
           </div>
 
           <hr>
-          <br>
+          {{-- <br> --}}
 
           <div class="table-responsive">
             <table class="table table-sm table-striped mt-4">
@@ -75,7 +77,7 @@
                       <td style="vertical-align: middle;">{{$room_reservation->name}}</td>
                       <td style="vertical-align: middle;">{{$room_reservation->email}}</td>
                       <td style="vertical-align: middle;">{{$room_reservation->phone}}</td>
-                      <td style="vertical-align: middle;">{{$room_reservation->room_type}}</td>
+                      <td style="vertical-align: middle;">{{ $renderNameRoomType($room_reservation->room_type)}}</td>
                       <td style="vertical-align: middle;">{{$room_reservation->quantity_adults}}</td>
                       <td style="vertical-align: middle;">{{$room_reservation->quantity_childrens}}</td>
                       <td style="vertical-align: middle;">{{$room_reservation->reservation_start_date}}</td>

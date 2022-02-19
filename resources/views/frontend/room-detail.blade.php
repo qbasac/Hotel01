@@ -52,12 +52,13 @@
                       </div>
                       <div class="input-field">
                         <select id="room_type" name="room_type">
-                          <option value="">Habitación</option>
-                          <option value="1">Individual</option>
-                          <option value="2">Duplex</option>
-                          <option value="3">Familía</option>
+                          <option value="1">Habitación</option>
+                          <option value="2">Individual</option>
+                          <option value="3">Duplex</option>
+                          <option value="4">Familía</option>
                           <option value="5">Pareja</option>
-                      </select>                      </div>
+                        </select>
+                      </div>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="input-field">

@@ -29,3 +29,15 @@ table thead tr th.column-date {
   text-align: center;
   vertical-align: middle;
 }
+
+.card .card-body .card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.card .card-body .card-title h6 {
+  color: var(--bs-primary);
+  margin-bottom: 0;
+}

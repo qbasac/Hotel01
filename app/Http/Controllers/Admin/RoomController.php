@@ -11,13 +11,31 @@ class RoomController extends Controller
 {
   public function index(Request $request)
   {
-    $rooms = Room::paginate(7);
-    $rooms = Room::orderBy("price", "desc")->paginate(7);
-    $rooms = Room::orderBy("price", "asc")->paginate(7);
+    $columnOrder = 'id';
+    $orderBy = 'desc';
+
+    if ($request->searchBy == 'price' || $request->searchBy == 'number_beds') {
+      $columnOrder = $request->searchBy;
+      $orderBy = $request->orderBy;
+    }
+    // if ($request->searchBy == 'number_beds') {
+    //   $columnOrder = 'number_beds';
+    //   $orderBy = $request->orderBy;
+    // }
+    $rooms = Room::where(function ($query) use ($request) {
+      if ($request->searchBy == 'name') {
+        $query->where($request->searchBy, 'LIKE', "%$request->search%");
+      }
+    })
+      ->orderBy($columnOrder, $orderBy)
+      ->paginate(7);
+
+    // $rooms = Room::paginate(7);
+    // $rooms = Room::orderBy("price", "asc")->paginate(7);
 
     return view('backend.room.our-rooms.index', compact('rooms'));
   }
-  // orderBy("id", "desc");
+
   public function create()
   {
     return view('backend.room.our-rooms.create');
@@ -31,8 +49,8 @@ class RoomController extends Controller
     $room->description = $request->description;
     $room->number_beds = $request->beds;
     $room->number_people = $request->people;
-    if($request->file('image')){
-      $namefile = Carbon::now()->format("dmYHis").".".$request->file('image')->getClientOriginalExtension();
+    if ($request->file('image')) {
+      $namefile = Carbon::now()->format("dmYHis") . "." . $request->file('image')->getClientOriginalExtension();
       $request->file('image')->storeAs('public/rooms', $namefile);
       $room->image = $namefile;
     }
@@ -54,8 +72,8 @@ class RoomController extends Controller
     $room->description = $request->description;
     $room->number_beds = $request->beds;
     $room->number_people = $request->people;
-    if($request->file('image')){
-      $namefile = Carbon::now()->format("dmYHis").".".$request->file('image')->getClientOriginalExtension();
+    if ($request->file('image')) {
+      $namefile = Carbon::now()->format("dmYHis") . "." . $request->file('image')->getClientOriginalExtension();
       $request->file('image')->storeAs('public/rooms', $namefile);
       $room->image = $namefile;
     }
@@ -64,20 +82,19 @@ class RoomController extends Controller
   }
 
   public function updateIsActive(Request $request, $id)
-    {
-      $newState = $request->state ? 0 : 1;
-      Room::whereId($id)->update([
-        'is_active' => $newState
-      ]);
-      return back();
-    }
+  {
+    $newState = $request->state ? 0 : 1;
+    Room::whereId($id)->update([
+      'is_active' => $newState
+    ]);
+    return back();
+  }
 
   public function destroy($id)
-    {
-      $room = Room::find($id);
-      $room->delete();
+  {
+    $room = Room::find($id);
+    $room->delete();
 
-      return redirect()->route('admin.room.index');
-    }
- 
+    return redirect()->route('admin.room.index');
+  }
 }

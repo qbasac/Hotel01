@@ -29,40 +29,50 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <div class="card-title text-primary">
-            <i class="fas fa-hotel"></i> Nuestras habitaciones
-            <a href="{{ route('admin.room.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
-
+          <div class="card-title">
+            <h6 class="text-primary">
+              <i class="fas fa-hotel me-1"></i> NUESTRAS HABITACIONES
+            </h6>
+            {{-- <a href="{{ route('admin.room.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a> --}}
           </div>
-
           <hr>
-          <br>
-          <nav class="navbar">
-                <div class="container-fluid">
+          {{-- <hr> --}}
+          {{-- <br> --}}
+          <form class="row justify-content-end" action="{{ route('admin.room.index') }}" method="GET" autocomplete="off">
+            {{-- <div class="col-12 col-md-6">
+              <label class="form-control-plaintext">Filtrar</label>
+            </div> --}}
+            <div class="form-group col-12 col-md-6 col-lg-4">
+              <label for="" class="mb-0">Buscar</label>
+              <div  class="input-group mb-3">
+               <select name="searchBy" id="search-by"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
+                 <option value="name" {{ request('searchBy') == 'name' ? 'selected' : '' }}>Nombres</option>
+                 <option value="price" {{ request('searchBy') == 'price' ? 'selected' : '' }}>Precio</option>
+                 <option value="number_beds" {{ request('searchBy') == 'number_beds' ? 'selected' : '' }}>Camas</option>
+               </select>
+
+               <select name="orderBy" id="form-price"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
+                 <option value="asc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De menor a mayor</option>
+                 <option value="desc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De mayor a menor</option>
+               </select>
+
+              <select name="orderBy" id="form-number_beds"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
+                <option value="asc" {{ request('searchBy') == 'number_beds' && request('orderBy') ? 'selected' : '' }} >de menor a mayor</option>
+                <option value="desc" {{ request('searchBy') == 'number_beds' && request('orderBy') ? 'selected' : '' }} >de mayor a menor</option>
+              </select>
+
+                <input class="form-control d-none" id="form-name" type="search" placeholder="Nombres..." {{ request('search') ? 'autofocus' : '' }} name="search" aria-label="Search" value="{{ request('search') }}" >
+
+                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+              </div>
+
+            </div>
+          </form>
+          {{-- <div class="row">
+                <div class="col-12">
                   <a class="navbar-brand"></a>
-                  <form class="row g-3" action="{{ route('admin.room.index') }}" method="GET" autocomplete="off">
-                    <div class="col-auto">
-                      <label class="form-control-plaintext">Buscar por</label>
-                    </div>
-
-                    <div class="col-auto">
-                      <div class="form-group">
-                        <select name="searchBy" id=""  class="form-select form-select" aria-label=".form-select-sm example">
-                          <option value="price">Precios</option>
-                          <option value="number_beds">Camas</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="col-auto">
-                     <div  class="input-group mb-3">
-                       <input class="form-control" type="search" {{ request('search') ? 'autofocus' : '' }}  name="search" aria-label="Search" value="{{ request('search') }}" >
-                       <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
-                     </div>
-                    </div>
-                  </form>
                 </div>
-              </nav>
+              </div> --}}
           <div class="table-responsive">
             <table class="table table-sm table-striped mt-4">
               <thead>
@@ -133,9 +143,70 @@
           </div>
         </div>
         {{ $rooms->links() }}
-
       </div>
     </div>
   </div>
 </div>
+@endsection
+
+@section('scripts')
+  <script>
+    const listFormInputs = ['form-name', 'form-price', 'form-number_beds']
+    const $searchBy = document.getElementById('search-by')
+
+    $searchBy.onchange = setClassDiplayNone
+
+    function setClassDiplayNone() {
+      const listInputs = listFormInputs.map(item => document.getElementById(item))
+        .forEach($input => {
+          const method = $input.id == `form-${$searchBy.value}` ? 'remove' : 'add'
+          $input.classList[method]('d-none')
+        })
+    }
+
+    setClassDiplayNone()
+
+
+
+    // const $searchBy = document.getElementById('search-by');
+    // const listFormInputs = [ 'form-name', 'form-price'];
+
+    // $searchBy.onchange = getCurrentValue
+    // getCurrentValue()
+
+    // function getCurrentValue() {
+    //   setClassDiplayNone($searchBy.value)
+    // }
+
+
+    //   function setClassDiplayNone(currentValue) {
+    //     // const $element = document.getElementById(`form-${currentValue}`)
+    //     const listInputs = listFormInputs.map( item => document.getElementById(item) );
+    //     listInputs.forEach($input => {
+    //       const method = $input.id == `form-${currentValue}` ? 'remove' : 'add'
+    //       $input.classList[method]('d-none')
+
+    //       // if($input.id == `form-${currentValue}`) {
+    //       //   $input.classList.remove('d-none')
+    //       // } else {
+    //       //   $input.classList.add('d-none')
+    //       // }
+    //     })
+
+    //     // console.log(listFormInputs)
+    //     // $element.classList.toggle('d-none')
+    //     // if (currentValue == 'name') {
+    //     //   $element.classList.remove('d-none')
+    //     // } else {
+    //     //   $element.classList.add('d-none')
+    //     // }
+
+    //     // if(currentValue == 'price') {
+    //     //   $element.classList.remove('d-none')
+    //     // } else {
+    //     //   // $element.classList.add('d-none')
+    //     // }
+    // }
+
+  </script>
 @endsection
