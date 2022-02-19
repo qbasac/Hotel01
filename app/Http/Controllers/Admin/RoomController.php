@@ -11,14 +11,13 @@ class RoomController extends Controller
 {
   public function index(Request $request)
   {
-    $rooms = Room::where(function ($query) use ($request) {
-      if ($request->searchBy && $request->search) {
-        $query->where($request->searchBy, 'like', "%$request->search%");
-      }
-    })->paginate(7);
+    $rooms = Room::paginate(7);
+    $rooms = Room::orderBy("price", "desc")->paginate(7);
+    $rooms = Room::orderBy("price", "asc")->paginate(7);
+
     return view('backend.room.our-rooms.index', compact('rooms'));
   }
-
+  // orderBy("id", "desc");
   public function create()
   {
     return view('backend.room.our-rooms.create');

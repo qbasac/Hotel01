@@ -24,7 +24,6 @@
       color: rgb(139, 139, 139);
     }
     .list-checbox-star:not(:checked):hover + i {
-      /* color: rgb(139, 139, 139); */
       cursor: pointer;
       color: #ED980E;
     }

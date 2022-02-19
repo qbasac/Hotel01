@@ -37,20 +37,20 @@
 
           <hr>
           <br>
-              <nav class="navbar">
+          <nav class="navbar">
                 <div class="container-fluid">
                   <a class="navbar-brand"></a>
                   <form class="row g-3" action="{{ route('admin.room.index') }}" method="GET" autocomplete="off">
                     <div class="col-auto">
-                      <label class="form-control-plaintext">Buscar por precios</label>
+                      <label class="form-control-plaintext">Buscar por</label>
                     </div>
 
                     <div class="col-auto">
                       <div class="form-group">
-                        <div name="searchBy" id=""  class="form-select form-select" aria-label=".form-select-sm example">
-                          <option value="price">De menor a mayor</option>
-                          <option value="number_beds">De mayor a menor</option>
-                        </div>
+                        <select name="searchBy" id=""  class="form-select form-select" aria-label=".form-select-sm example">
+                          <option value="price">Precios</option>
+                          <option value="number_beds">Camas</option>
+                        </select>
                       </div>
                     </div>
 
