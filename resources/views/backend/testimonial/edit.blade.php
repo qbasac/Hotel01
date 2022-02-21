@@ -10,8 +10,10 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <div class="card-title text-primary">
-            <i class="fas fa-user-edit"></i> Editar datos del usuario
+          <div class="card-title">
+            <h6 class="text-primary">
+              <i class="fas fa-comment"></i> Editar testimonio
+            </h6>
           </div>
           <hr>
 

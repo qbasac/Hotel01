@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('sub-title')
-    Usuarios
+Usuarios
 @endsection
 
 @section('content')
@@ -10,26 +10,28 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <div class="card-title text-primary">
-            <i class="fas fa-user-edit"></i> Editar datos del usuario
+          <div class="card-title">
+            <h6 class="text-primary">
+              <i class="fas fa-user-edit"></i> Editar datos del usuario
+            </h6>
           </div>
           <hr>
 
           @if (count($errors->all()))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <ul class="mb-0">
-                @foreach ($errors->all() as $message)
-                  <li>{{$message}}</li>
-                @endforeach
-              </ul>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <ul class="mb-0">
+              @foreach ($errors->all() as $message)
+              <li>{{$message}}</li>
+              @endforeach
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
           @endif
 
 
           <form action="{{ route('usuario.update', ['usuario' => $user->id]) }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
             @method('PUT')
-                 @csrf
+            @csrf
             <div class="mb-3">
               <label for="name" class="form-label">Nombres</label>
               <input id="name" name="name" id="name" type="text" class="form-control" value="{{$user->name}}" autofocus tabindex="1" required placeholder="Complete su nombre...">

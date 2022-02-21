@@ -31,9 +31,9 @@
         <div class="card-body">
           <div class="card-title">
             <h6 class="text-primary">
-              <i class="fas fa-hotel me-1"></i> NUESTRAS HABITACIONES
+              <i class="fas fa-hotel me-1"></i> Nuestras habitaciones
             </h6>
-            {{-- <a href="{{ route('admin.room.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a> --}}
+           <!-- <a href="{{ route('admin.room.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a>  -->
           </div>
           <hr>
           {{-- <hr> --}}

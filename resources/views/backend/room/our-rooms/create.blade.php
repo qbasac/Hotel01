@@ -14,11 +14,12 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <div class="card-title text-primary">
-              <i class="fas fa-user-plus"></i> Nuevo usuario
-            </div>
-            <hr>
-
+          <div class="card-title">
+            <h6 class="text-primary">
+              <i class="fas fa-hotel me-1"></i> Agregar habitaciones
+            </h6>
+          </div>
+          <hr>
             {{-- @if (count($errors->all()))
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <ul class="mb-0">

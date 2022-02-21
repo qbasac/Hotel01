@@ -14,14 +14,12 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <div class="card-title text-primary">
-               <i class="fas fa-hotel"></i> Registrar una reserva
-            </div>
-            <hr>
-
-
-
-
+          <div class="card-title">
+            <h6 class="text-primary">
+              <i class="fas fa-hotel me-1"></i> Agreagar reserva
+            </h6>
+          </div>
+          <hr>
             <form action="{{ route('room-reservation.store') }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
               @csrf
               <div class="mb-3">
