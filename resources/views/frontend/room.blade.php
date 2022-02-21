@@ -40,10 +40,9 @@
     <div class="container">
 
       <div class="row">
-        <nav class="navbar">
+        {{-- <nav class="navbar">
           <div class="container-fluid">
             <a class="navbar-brand"></a>
-            <form class="row g-3" action="{{-- route('usuario.index') --}}" method="GET" autocomplete="off">
               <div class="col-auto">
                 <label class="form-control-plaintext">Fitrar por precio</label>
               </div>
@@ -59,19 +58,10 @@
 
               <div class="col-auto">
               <div class="input-group mb-3">
-                {{-- <input  class="form-control" type="search" {{ request('search') ? 'autofocus' : '' }} placeholder="Buscar" name="search" aria-label="Search" value="{{ request('search') }}" > --}}
                 <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
               </div></div>
-
-              {{-- <div class="col-auto">
-                <input class="form-control" type="search" {{ request('search') ? 'autofocus' : '' }}  placeholder="Buscar" name="search" aria-label="Search" value="{{ request('search') }}">
-              </div>
-              <div class="col-auto">
-                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
-              </div> --}}
-            </form>
           </div>
-        </nav>
+        </nav> --}}
       </div>
       @foreach ($rooms as $room)
       <div class="col-md-4 col-sm-6">
@@ -99,7 +89,7 @@
            {{ $rooms->links() }}
      </div>
       </div>
-    </div> 
+    </div>
   </section>
 </div>
 @endsection

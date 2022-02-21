@@ -9,12 +9,12 @@ $(document).ready(function() {
     var t = $("#rq-check-in"),
         e = $("#rq-check-in-single"),
         i = $("#rq-check-in-time"),
-        n = $(" #rq-check-in-filter"),
+        n = $("#rq-check-in-filter"),
         r = $("#rq-check-out"),
         l = $("#rq-check-out-single"),
         a = $("#rq-check-out-time"),
         o = $("#rq-check-out-filter"),
-        g = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        g = ["January", "Febrero", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     ! function() {
         var i = new Date;
         t.find(".rq-single-date").html(i.getDate()), t.find(".rq-single-month").html(g[i.getMonth()].toString().substr(0, 3)), t.find(".rq-single-year").html(i.getFullYear().toString().substr(2, 2)), e.find(".rq-single-date").html(i.getDate()), e.find(".rq-single-month").html(g[i.getMonth()].toString().substr(0, 3)), n.find(".rq-single-date").html(i.getDate()), n.find(".rq-single-month").html(g[i.getMonth()].toString().substr(0, 3)), n.find(".rq-single-year").html(i.getFullYear().toString().substr(2, 2))
@@ -45,8 +45,13 @@ $(document).ready(function() {
             })
         },
         onChangeDateTime: function() {
-            var t = e.datetimepicker("getValue");
-            e.find(".rq-single-date").html(t.getDate()), e.find(".rq-single-month").html(g[t.getMonth()].toString().substr(0, 3)), e.find(".rq-single-year").html(t.getFullYear().toString().substr(2, 2))
+          var t = e.datetimepicker("getValue");
+          const currentDate = new Date();
+          const date = `${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDay()}`
+          document.getElementById('reservation_end_date').value = date
+          e.find(".rq-single-date").html(t.getDate()),
+          e.find(".rq-single-month").html(g[t.getMonth()].toString().substr(0, 3)),
+          e.find(".rq-single-year").html(t.getFullYear().toString().substr(2, 2))
         }
     }), n.datetimepicker({
         timepicker: !1,

@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 class TestimonialController extends Controller
 {
     public function index(){
-      $abouts = About::get();
+      $about = About::first();
       $testimonials = Testimonial::get();
-      return view('backend.testimonial.index', compact('testimonials', 'abouts'));
+      return view('backend.testimonial.index', compact('testimonials', 'about'));
     }
 
     public function create(){

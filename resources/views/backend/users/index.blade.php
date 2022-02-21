@@ -60,8 +60,8 @@ Usuarios
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
-   
-          
+
+
             <form class="row justify-content-end" action="{{ route('usuario.index') }}" method="GET" autocomplete="off">
             {{-- <div class="col-12 col-md-6">
               <label class="form-control-plaintext">Filtrar</label>
@@ -71,10 +71,10 @@ Usuarios
               <div  class="input-group mb-3">
                <select name="searchBy" id="search-by"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
                  <option value="name" {{ request('searchBy') == 'name' ? 'selected' : '' }}>Nombres</option>
-                 <option value="email" {{ request('searchBy') == 'email' ? 'selected' : '' }}>Precio</option>
+                 <option value="email" {{ request('searchBy') == 'email' ? 'selected' : '' }}>Correo</option>
                </select>
 
-  
+
 
                 <input class="form-control " id="form-name" type="search" placeholder="Nombres..." {{ request('search') ? 'autofocus' : '' }} name="search" aria-label="Search" value="{{ request('search') }}" >
 

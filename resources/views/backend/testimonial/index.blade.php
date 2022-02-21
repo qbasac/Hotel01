@@ -18,9 +18,8 @@ Usuarios
             <h6 class="text-primary">
               <i class="fas fa-comment "></i> Testimonios
             </h6>
-            @foreach ($abouts as $about)
-            <div class="d-inline">
-              <!-- <a href="{{ route('testimonial.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a> -->
+            <div >
+              {{-- <a href="{{ route('testimonial.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a> --}}
               <form  method="POST" action="{{route('testimonial.ShowSectionTestimonial', ['testimonial' => $about->id] )}}" class="d-inline">
                 @csrf
                 <input type="hidden" name="state" value="{{$about->show_section_testimonial}}">
@@ -35,7 +34,6 @@ Usuarios
                 @endif
               </form>
             </div>
-            @endforeach
           </div>
           <hr>
           <div class="table-responsive">

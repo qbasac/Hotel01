@@ -361,7 +361,7 @@ input[type="submit"]:hover {
     -moz-appearance: none;
     border-color: #dbdbdb;
     -webkit-appearance: none;
-    text-transform: capitalize;
+    /* text-transform: lowercase; */
     background-color: transparent;
 }
 .input-field textarea {

@@ -329,8 +329,8 @@
         <script src="{{ asset('frontend/js/isotope.js')}}"></script>
         <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
-        {{-- <script src="{{asset('frontend/js/datepicker.js')}}"></script> --}}
-
+        <script src="{{asset('frontend/js/datepicker.js')}}"></script>
+        @yield('scripts')
     </body>
 
 <!-- Mirrored from bilalmghl.com/html/hotel/light-demo/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Oct 2021 22:56:30 GMT -->
