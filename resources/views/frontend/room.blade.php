@@ -93,3 +93,16 @@
   </section>
 </div>
 @endsection
+
+
+@section('scripts')
+  <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Corrija los errores!',
+      text:"
+      ",
+      confirmButtonText: 'Continuar'
+    })
+  </script>
+@endsection
