@@ -22,6 +22,7 @@
     <link rel="apple-touch-icon" sizes="114x114" href="{{asset('frontend/images/favicon/apple-touch-icon-114x114.png')}}">
     <link rel="icon" sizes="192x192" href="{{asset('frontend/images/favicon/icon-192x192.png')}}">
 
+    <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
 
     <link href="{{ asset('frontend/css/general-styles.css') }}" rel="stylesheet">
     @yield('style')
