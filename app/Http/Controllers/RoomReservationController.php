@@ -10,7 +10,6 @@ class RoomReservationController extends Controller
 {
   public function index()
   {
-    $room = Room::first();
     $room_reservations = RoomReservation::paginate(8);
     $tupeRooms = [
       7 => 'Habitación',
@@ -26,7 +25,7 @@ class RoomReservationController extends Controller
       return $tupeRooms[$type];
     };
 
-    return view('backend.room.room-reservation.index', compact('room_reservations', 'renderNameRoomType', 'room'));
+    return view('backend.room.room-reservation.index', compact('room_reservations', 'renderNameRoomType'));
   }
 
   public function create()
@@ -48,7 +47,7 @@ class RoomReservationController extends Controller
     $room_reservation->reservation_end_date = $request->reservation_end_date;
     $room_reservation->save();
 
-    return view('frontend.room-detail')->with('created', 'Registro guardado exitósamente.');
+    return back()->with('created', 'Registro guardado exitósamente.');
   }
 
 
