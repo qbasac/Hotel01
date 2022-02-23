@@ -19,7 +19,7 @@ Usuarios
               <i class="fas fa-comment "></i> Testimonios
             </h6>
             <div >
-              {{-- <a href="{{ route('testimonial.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a> --}}
+              <a href="{{ route('testimonial.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
               <form  method="POST" action="{{route('testimonial.ShowSectionTestimonial', ['testimonial' => $about->id] )}}" class="d-inline">
                 @csrf
                 <input type="hidden" name="state" value="{{$about->show_section_testimonial}}">

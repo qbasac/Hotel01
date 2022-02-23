@@ -44,6 +44,10 @@ Usuarios
               <label for="nick_name" class="form-label">Apodo</label>
               <input id="nick_name" name="nick_name" type="text" class="form-control" value="{{$user->nick_name}}" tabindex="2" placeholder="Complete su apodo...">
             </div>
+            <div class="mb-3">
+              <label class="mb-0" for="">Avatar (Tamaño de imagen recomendado 220px x 290px)</label>
+              <input type="file" accept="image/*" class="form-control" name="avatar" id="avatar">
+            </div>
             <a href="{{ route('usuario.index') }}" class="btn btn-danger" tabindex="4">Cancelar</a>
             <button type="submit" class="btn btn-primary" tabindex="3">Actualizar</button>
           </form>

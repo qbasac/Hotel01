@@ -48,6 +48,8 @@ Auth::routes(['register' => false]);
   Route::post('usuario/update-is-active/{usuario}', [UserController::class, 'updateIsActive'])->name('usuario.updateIsActive');
   Route::post('testimonial/update-is-active/{testimonial}', [TestimonialController::class, 'updateIsActive'])->name('testimonial.updateIsActive');
   Route::post('about/show-section-testimonial/{testimonial}', [TestimonialController::class, 'ShowSectionTestimonial'])->name('testimonial.ShowSectionTestimonial');
+  Route::post('about/show-section-staff/{staff}', [UserController::class, 'ShowSectionStaff'])->name('staff.ShowSectionStaff');
+
   // Route::post('room/update-is-active/{room}', [AdminRoomController::class, 'updateIsActive'])->name('room.updateIsActive');
 
 // });

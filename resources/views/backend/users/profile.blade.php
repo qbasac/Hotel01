@@ -25,8 +25,11 @@ Perfil
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <div class="card-title text-primary">
-            <i class="fas fa-user"></i> Mi cuenta
+          <div class="card-title">
+            <h6 class="text-primary">
+              <i class="fas fa-user"></i> Mi cuenta
+            </h6>
+
           </div>
           <hr>
           <div class="card-body">
@@ -56,13 +59,19 @@ Perfil
                     <label for="is_change_password" class="form-check-label user-select-none cursor-pointer "  for="flexCheckIndeterminate" >Cambiar contraseña</label>
                   </div>
 
-                  <div class="col-sm-12 col-md-7 d-none" id="inputs-change-password">
-                    <div class="form-group mb-3 row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right text-right">Contraseña actual</label>
-                        <div class="col-md-6">
-                            <input id="password" type="password" class="form-control input-profile" name="current_password" autocomplete="current-password" placeholder="********">
-                        </div>
-                    </div>
+                
+                    <div class="col-sm-12 col-md-7 d-none" id="inputs-change-password">
+                      <div class="form-group mb-3 row">
+                          <label for="password" class="col-md-4 col-form-label text-md-right text-right">Contraseña actual</label>
+                          <div class="col-md-6">
+                          <div class="input-group">
+                            <input ID="txtPassword" type="Password" Class="form-control" name="current_password" autocomplete="current-password" placeholder="********">
+                            <div class="input-group-append">
+                                  <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                                </div>
+                          </div>
+                      </div>
+
 
                     <div class="form-group mb-3 row">
                         <label for="password" class="col-md-4 col-form-label text-md-right">Nueva contraseña</label>
@@ -110,5 +119,19 @@ Perfil
 
     setClassTogggleDiplay()
 
+  </script>
+
+<script>
+  function mostrarPassword(){
+      var cambio = document.getElementById("txtPassword");
+      if(cambio.type == "password"){
+        cambio.type = "text";
+        $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+      }else{
+        cambio.type = "password";
+        $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+      }
+    }
+</script>
   </script>
 @endsection

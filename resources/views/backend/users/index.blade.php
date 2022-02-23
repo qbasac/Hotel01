@@ -38,8 +38,25 @@ Usuarios
             <h6 class="text-primary">
               <i class="fas fa-users"></i> Usuarios
             </h6>
+
+            <div>
             <a href="{{ route('usuario.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
+            <form  method="POST" action="{{route('staff.ShowSectionStaff', ['staff' => $about->id] )}}" class="d-inline">
+              @csrf
+              <input type="hidden" name="state" value="{{$about->show_section_staff}}">
+              @if ($about->show_section_staff)
+              <button style="margin-right: 5px;"  type="submit" class="btn btn btn-danger float-end" title="">
+                Ocultar personal <i class="fas fa-eye-slash"></i>
+              </button>
+              @else
+              <button  style="margin-right: 5px;" type="submit" class="btn btn btn-success " title="Cambiar estado">
+                Mostrar personal <i class="fas fa-eye"></i>
+              </button>
+              @endif
+            </form>
           </div>
+        </div>
+
           <hr>
 
             @if (session('created'))
@@ -63,9 +80,6 @@ Usuarios
 
 
             <form class="row justify-content-end" action="{{ route('usuario.index') }}" method="GET" autocomplete="off">
-            {{-- <div class="col-12 col-md-6">
-              <label class="form-control-plaintext">Filtrar</label>
-            </div> --}}
             <div class="form-group col-12 col-md-6 col-lg-4">
               <label for="" class="mb-0">Buscar</label>
               <div  class="input-group mb-3">
@@ -84,32 +98,7 @@ Usuarios
             </div>
           </form>
 
-            <!-- <nav class="navbar">
-              <div class="container-fluid">
-                <a class="navbar-brand"></a>
-                <form class="row g-3" action="{{ route('usuario.index') }}" method="GET" autocomplete="off">
-                  <div class="col-auto">
-                    <label class="form-control-plaintext">Buscar por</label>
-                  </div>
 
-                  <div class="col-auto">
-                    <div class="form-group">
-                      <select name="searchBy" id="" class="form-select form-select" aria-label=".form-select-sm example">
-                        <option value="name">Nombre</option>
-                        <option value="email">Correo</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="col-auto">
-                    <div class="input-group mb-3">
-                      <input class="form-control" type="search" {{ request('search') ? 'autofocus' : '' }} placeholder="Buscar" name="search" aria-label="Search" value="{{ request('search') }}">
-                      <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </nav> -->
             <div class="table-responsive">
               <table class="table table-sm table-striped mt-4">
                 <thead>
@@ -119,6 +108,7 @@ Usuarios
                     <th scope="col">Apodo</th>
                     <th scope="col">Nombres</th>
                     <th scope="col">Correo electrónico</th>
+                    <th scope="col">Avatar</th>
                     <th class="column-date">Creado</th>
                     <th class="column-date">Actualizado</th>
                   </tr>
@@ -154,8 +144,15 @@ Usuarios
                     <td style="vertical-align: middle;">{{$user->nick_name}}</td>
                     <td style="vertical-align: middle;">{{$user->name}}</td>
                     <td style="vertical-align: middle;">{{$user->email}}</td>
-                    <td class="column-date">{{ \Carbon\Carbon::parse($user->created_at)->format('d-m-Y H:i:s a')}}</td>
-                    <td class="column-date">{{ \Carbon\Carbon::parse($user->updated_at)->format('d-m-Y H:i:s a')}}</td>
+                    <td style="vertical-align: middle;">
+                      @if ($user->avatar)
+                        <img src="{{ asset('storage/users/'.$user->avatar) }}" class="rounded-circle" width="30" height="30">
+                      @else
+                        <img src="{{ asset('assets/users/avatar-default.png') }}" class="rounded-circle" width="30" height="30">
+                      @endif
+                  </td>
+                    <td style="vertical-align: middle;">{{ \Carbon\Carbon::parse($user->created_at)->format('d-m-Y H:i:s a')}}</td>
+                    <td style="vertical-align: middle;">{{ \Carbon\Carbon::parse($user->updated_at)->format('d-m-Y H:i:s a')}}</td>
                   </tr>
                   @endforeach
                 </tbody>

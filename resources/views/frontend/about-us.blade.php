@@ -55,122 +55,45 @@
                 <a class="chr-btn popup-youtube fancy-btn" href="https://www.youtube.com/watch?v=sl--ESzEUCk">play</a>
             </div>
         </div>
+
+        @if ($about->show_section_staff)
         <section>
-            <div class="container">
-                <!--Heading 1 Start-->
-                <div class="headind-1 text-center">
-                    <h3 class="title">Nuestro personal</h3>
-                </div>
-                <!--Heading 1 End-->
-                <div class="chr-staff-slider dot-style-1">
-                    <!--Staff Thumb Start-->
-                    <div class="col-md-3">
-                        <div class="chr-staff-thumb">
-                            <figure>
-                                <img src="{{ asset('frontend/extra-images/img-1.png') }}" alt="oscarthemes"/>
-                                <div class="p-middel">
-                                    <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                                    <ul class="chr-social">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </figure>
-                            <div class="text">
-                                <h5 class="title"><a href="#">Daniel Braim</a></h5>
-                                <span class="designation">Gerente</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Staff Thumb End-->
-                    <!--Staff Thumb Start-->
-                    <div class="col-md-3">
-                        <div class="chr-staff-thumb">
-                            <figure>
-                                <img src="{{ asset('frontend/extra-images/img-2.png') }}" alt="oscarthemes"/>
-                                <div class="p-middel">
-                                    <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                                    <ul class="chr-social">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </figure>
-                            <div class="text">
-                                <h5 class="title"><a href="#">Daniel Braim</a></h5>
-                                <span class="designation">Gerente</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Staff Thumb End-->
-                    <!--Staff Thumb Start-->
-                    <div class="col-md-3">
-                        <div class="chr-staff-thumb">
-                            <figure>
-                                <img src="{{ asset('frontend/extra-images/img-3.png') }}" alt="oscarthemes"/>
-                                <div class="p-middel">
-                                    <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                                    <ul class="chr-social">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </figure>
-                            <div class="text">
-                                <h5 class="title"><a href="#">Daniel Braim</a></h5>
-                                <span class="designation">Gerente</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Staff Thumb End-->
-                    <!--Staff Thumb Start-->
-                    <div class="col-md-3">
-                        <div class="chr-staff-thumb">
-                            <figure>
-                                <img src="{{ asset('frontend/extra-images/img-4.png') }}" alt="oscarthemes"/>
-                                <div class="p-middel">
-                                    <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                                    <ul class="chr-social">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </figure>
-                            <div class="text">
-                                <h5 class="title"><a href="#">Daniel Braim</a></h5>
-                                <span class="designation">Gerente</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Staff Thumb End-->
-                    <!--Staff Thumb Start-->
-                    <div class="col-md-3">
-                        <div class="chr-staff-thumb">
-                            <figure>
-                                <img src="{{ asset('frontend/extra-images/img-4.png') }}" alt="oscarthemes"/>
-                                <div class="p-middel">
-                                    <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                                    <ul class="chr-social">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </figure>
-                            <div class="text">
-                                <h5 class="title"><a href="#">Daniel Braim</a></h5>
-                                <span class="designation">Gerente</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Staff Thumb End-->
-                </div>
-            </div>
-        </section>
+          <div class="container">
+              <div class="headind-1 text-center">
+                  <h3 class="title">Nuestro personal</h3>
+              </div>
+              <div class="chr-staff-slider dot-style-1">
+                  @forelse ($users as $user)
+                  <div class="col-md-3">
+                      <div class="chr-staff-thumb">
+                          <figure>
+                            @if ($user->avatar)
+                            <img src="{{ asset('storage/users/'.$user->avatar) }}" alt="oscarthemes"/>
+                            @else
+                            <img src="{{ asset('assets/users/avatar-default.png')}}" alt="oscarthemes"/>
+                            @endif
+                              <div class="p-middel">
+                                  <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
+                                  <ul class="chr-social">
+                                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                      <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                  </ul>
+                              </div>
+                          </figure>
+                          <div class="text">
+                              <h5 class="title"><a href="#">{{$user->nick_name}}</a></h5>
+                              <span class="designation">Gerente</span>
+                          </div>
+                      </div>
+                  </div>
+                  @empty
+                  @endforelse
+              </div>
+          </div>
+      </section>
+      @else
+    @endif
 
         @if ($about->show_section_testimonial)
           <section data-paroller-factor="0.25" data-paroller-type="background"  data-paroller-direction="vertical"  class="parallax hotel-testimonial-bg ">
@@ -219,9 +142,8 @@
                   </div>
               </div>
           </section>
-        @else
-
-        @endif
     </div>
+    @else
+    @endif
 
 @endsection

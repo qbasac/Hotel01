@@ -38,7 +38,7 @@
     position: relative;
     box-sizing: border-box;
     grid-template-columns: minmax(0,100%);
-    width: 30em !important;
+    width: 32em !important;
     max-width: 100%;
     padding: 16px 0 1.25em;
     border: none;
@@ -64,9 +64,10 @@
     word-break: break-word;
     }
 
-    .container.container.styledselect {
-    display: none;
-}
+    body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.text{
+      display: none ;
+    }
+
 
   </style>
 @endsection
@@ -236,14 +237,14 @@
     Swal.fire({
           icon: 'success',
           title: 'Reserva Registrada exitosamente!',
-        
+
           html: `
           Su reserva se ha registrado exitosamente nos comunicaremos con usted lo más pronto posible para confirmarle su reserva!
           `,
           confirmButtonText: 'Aceptar'
         })
     </script>
-  
+
   @endif
 
 @endsection

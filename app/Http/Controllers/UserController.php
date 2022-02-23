@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use App\Models\About;
 use App\Models\User;
 use Carbon\Carbon;
 use Exception;
@@ -15,12 +16,13 @@ class UserController extends Controller
 {
   public function index(Request $request)
   {
+    $about = About::first();
     $users = User::where(function ($query) use ($request) {
       if ($request->searchBy && $request->search) {
         $query->where($request->searchBy, 'like', "%$request->search%");
       }
     })->paginate(7);
-    return view('backend.users.index', compact('users'));
+    return view('backend.users.index', compact('users', 'about'));
   }
 
   public function create()
@@ -34,6 +36,11 @@ class UserController extends Controller
     $users->name = $request->name;
     $users->email = $request->email;
     $users->nick_name = $request->nick_name;
+    if($request->file('avatar')){
+      $namefile = Carbon::now()->format("dmYHis").".".$request->file('avatar')->getClientOriginalExtension();
+      $request->file('avatar')->storeAs('public/users', $namefile);
+      $users->avatar = $namefile;
+    }
     $users->password = Hash::make("fulltecnologia");
     $users->save();
 
@@ -52,7 +59,11 @@ class UserController extends Controller
     $users->name = $request->name;
     $users->email = $request->email;
     $users->nick_name = $request->nick_name;
-
+    if($request->file('avatar')){
+      $namefile = Carbon::now()->format("dmYHis").".".$request->file('avatar')->getClientOriginalExtension();
+      $request->file('avatar')->storeAs('public/users', $namefile);
+      $users->avatar = $namefile;
+    }
     $users->save();
 
     return redirect()->route('usuario.index')->with('updated', 'Registro actualizado exitósamente.');
@@ -104,4 +115,13 @@ class UserController extends Controller
     return back();
   }
 
+  public function ShowSectionStaff(Request $request, $id)
+  {
+
+    $newState = $request->state ? 0 : 1;
+    About::whereId($id)->update([
+      'show_section_staff' => $newState
+    ]);
+    return back();
+  }
 }
