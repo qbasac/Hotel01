@@ -62,6 +62,10 @@
     text-align: center;
     word-wrap: break-word;
     word-break: break-word;
+    }
+
+    .container.container.styledselect {
+    display: none;
 }
 
   </style>
@@ -175,6 +179,7 @@
                   <div class="input-field">
                     <select id="quantity_childrens" name="quantity_childrens">
                       <option value="">Niños</option>
+                      <option value="0">Ninguno</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -185,7 +190,7 @@
                   <!--Input Field End-->
                   <!--Input Field Start-->
                   <div class="input-field">
-                    <input class="chr-btn th-bg" type="submit" value="Compruebe la disponibilidad">
+                    <input class="chr-btn th-bg" type="submit" value="Reservar ahora">
 
                   </div>
                   <!--Input Field End-->
@@ -227,15 +232,18 @@
 
 
   @if (session('created'))
-  <script type="text/javascript">
-    Swal.fire(
-      'Reserva Registrada exitosamente!',
-      'Su reserva se ha registrado exitosamente nos comunicaremos con usted lo más pronto posible para confirmarle su reserva!',
-      'success'
-
-    )
-  </script>
+  <script>
+    Swal.fire({
+          icon: 'success',
+          title: 'Reserva Registrada exitosamente!',
+        
+          html: `
+          Su reserva se ha registrado exitosamente nos comunicaremos con usted lo más pronto posible para confirmarle su reserva!
+          `,
+          confirmButtonText: 'Aceptar'
+        })
+    </script>
+  
   @endif
-
 
 @endsection
