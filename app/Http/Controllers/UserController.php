@@ -103,6 +103,8 @@ class UserController extends Controller
     $user = User::find(auth()->user()->id);
     $user->nick_name = $request->nick_name;
     $user->email = $request->email;
+    $user->avatar = $request->avatar;
+
     if($request->is_change_password) {
       $user->password = Hash::make($request->new_password);
     }
