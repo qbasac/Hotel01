@@ -48,7 +48,7 @@ Usuarios
               <input id="nick_name" name="nick_name" type="text" class="form-control" value="{{ old('nick_name') }}" placeholder="Complete su apodo...">
             </div>
             <div class="mb-3">
-              <label class="mb-0" for="">Avatar (Tamaño de imagen recomendado 220px x 290px)</label>
+              <label class="mb-0" for="">Avatar <small class="text-muted"> (Tamaño de imagen recomendado 220px x 290px) </small></label>
               <input type="file" accept="image/*" class="form-control" name="avatar" id="avatar">
             </div>
             <a href="{{ route('usuario.index') }}" class="btn btn-danger">Cancelar</a>

@@ -41,3 +41,12 @@ table thead tr th.column-date {
   color: var(--bs-primary);
   margin-bottom: 0;
 }
+
+.form-label {
+  margin-bottom: 0;
+}
+
+.span-reqrired {
+  color: var(--bs-danger);
+  user-select: none;
+}
