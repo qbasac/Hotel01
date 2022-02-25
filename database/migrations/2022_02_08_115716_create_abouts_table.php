@@ -27,7 +27,6 @@ class CreateAboutsTable extends Migration
 
             $table->boolean('seccion_staff_is_active')->default(1);
 
-            $table->boolean('sec')->default(1);
 
             $table->boolean('is_active')->default(1);
             $table->timestamps();

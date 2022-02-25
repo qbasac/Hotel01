@@ -41,7 +41,7 @@
                         <div class="col-md-6 col-sm-6">
                             <figure>
                                 <img src="{{ asset('storage/about/'.$about->about_image)}}" alt="oscarthemes"/>
-                                <img class="p-middel" src="{{ asset('frontend/extra-images/about-img3.jpg') }}" alt="oscarthemes"/>
+                                <img class="p-middel" src="{{ asset('storage/about/'.$about->about_sub_image)}}" alt="oscarthemes"/>
                             </figure>
                         </div>
                     </div>

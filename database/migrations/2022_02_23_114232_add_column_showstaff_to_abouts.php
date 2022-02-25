@@ -14,7 +14,7 @@ class AddColumnShowstaffToAbouts extends Migration
     public function up()
     {
         Schema::table('abouts', function (Blueprint $table) {
-          $table->boolean('show_section_staff')->default(1)->after('show_section_testimonial');
+          // $table->boolean('show_section_staff')->default(1)->after('show_section_testimonial');
         });
     }
 

@@ -61,7 +61,7 @@ class UserController extends Controller
     $users->nick_name = $request->nick_name;
     if($request->file('avatar')){
       $namefile = Carbon::now()->format("dmYHis").".".$request->file('avatar')->getClientOriginalExtension();
-      $request->file('avatar')->storeAs('public/users', $namefile);
+      $request->file('avatar')->storeAs('public/avatar', $namefile);
       $users->avatar = $namefile;
     }
     $users->save();
@@ -103,11 +103,20 @@ class UserController extends Controller
     $user = User::find(auth()->user()->id);
     $user->nick_name = $request->nick_name;
     $user->email = $request->email;
+    // if($request->file('avatar')){
+    //   $namefile = Carbon::now()->format("dmYHis").".".$request->file('avatar')->getClientOriginalExtension();
+    //   $request->file('avatar')->storeAs('public/users', $namefile);
+    //   $user->avatar = $namefile;
+    // }
+
     if($request->file('avatar')){
       $namefile = Carbon::now()->format("dmYHis").".".$request->file('avatar')->getClientOriginalExtension();
-      $request->file('avatar')->storeAs('public/users', $namefile);
+      $request->file('avatar')->storeAs('public/avatar', $namefile);
       $user->avatar = $namefile;
     }
+
+
+
     if($request->is_change_password) {
       $user->password = Hash::make($request->new_password);
     }

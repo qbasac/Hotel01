@@ -8,9 +8,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Admin\RoomController as AdminRoomController;
+use App\Http\Controllers\Admin\SliderHomeController as AdminSliderHomeController;
+
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\RoomReservationController;
+
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -32,6 +35,7 @@ Auth::routes(['register' => false]);
   Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
     Route::resource('/room', AdminRoomController::class);
     Route::post('room/update-is-active/{room}', [AdminRoomController::class, 'updateIsActive'])->name('room.updateIsActive');
+    Route::resource('/home', AdminSliderHomeController::class);
 
   });
 
