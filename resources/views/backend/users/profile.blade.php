@@ -99,7 +99,6 @@ Usuarios
 
             <form method="POST" action="{{ route('profile.update') }}" class="row justify-content-between" autocomplete="off">
               @csrf
-
                   <div class="col-12 col-md-6 col-lg-4 mb-2">
                     <div class="form-group mb-2">
                       <label for="nick_name" class="form-label" class="">
@@ -117,20 +116,13 @@ Usuarios
                       <input id="email" type="email" class="form-control" name="email" placeholder="Complete este campo" value="{{Auth::user()->email}}">
                     </div>
 
-                    <div class="col-12 mb-2">
-                      <div class="form-group">
-                        <input class="form-check-input" type="checkbox" name="is_change_password" id="is_change_password" value="{{true}}" {{ old('is_change_password') ? 'checked' : '' }}>
-                        <label for="is_change_password" class="form-check-label user-select-none cursor-pointer " for="flexCheckIndeterminate">Cambiar contraseña</label>
-                      </div>
-                    </div> 
-
-                    <!-- <div class="d-flex align-items-start">
+                    <div class="d-flex align-items-start">
                       <div>
-                        <input type="checkbox" switch="none" name="is_change_password" value="{{false}}" id="is_change_password" {{ old('is_change_password') ? 'checked' : '' }}>
-                        <label class="form-label form-l" for="is_change_password" data-on-label="Si" data-off-label="No"></label>
+                        <input type="checkbox" class="form-check-input" switch="none"  name="is_change_password"  id="is_change_password" value="{{true}}" {{ old('is_change_password') ? 'checked' : '' }}>
+                        <label for="is_change_password" class="form-check-label user-select-none cursor-pointer " for="flexCheckIndeterminate" data-on-label="Si" data-off-label="No"></label>
                       </div>
                       <div style="padding-block-start: 3px;">Cambiar contraseña</div>
-                    </div>  -->
+                    </div> 
 
                      <div class="d-none row" id="inputs-change-password">
                       <div class="col-12 mb-2">
@@ -163,15 +155,22 @@ Usuarios
                       <button type="submit" class="btn btn-primary"> Actualizar perfil </button>
                     </div>
                   </div>
-                {{-- </div> --}}
+
+
+                  
+                     <!-- <div class="col-12 col-lg-5  text-center">
+                          <div class="mb-3">
+                          <label class="mb-0" for="">Avatar <small class="text-muted"> (Tamaño de imagen recomendado 220px x 290px) </small></label>
+                          <input type="file" accept="image/*" class="form-control" name="avatar" id="avatar">
+                        </div>
+                     </div>      -->
 
                      <div class="col-12 col-lg-5  text-center">
-                         <div class="card" >
-                            <div class="file_container">
-                              <input  type="file" class="file_input" id="file_input" name="avatar" accept="image/*">
-                              <img id="file_image" class="file_image" src="{{ asset('storage/users/'.Auth::user()->avatar) }}">
-                            </div>
-                          </div>                
+                        <div class="file_container">
+                          <input  type="file" class="file_input" id="file_input" name="avatar" accept="image/*">
+                            <img id="file_image" class="file_image" src="{{ asset('storage/users/'.Auth::user()->avatar) }}" alt="oscarthemes">
+                          </input>
+                        </div>
                      </div>     
                 </div>
             </form>
