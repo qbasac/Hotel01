@@ -22,6 +22,60 @@ Usuarios
   input[switch]:checked+label:after {
     transform: scale(.9)
   }
+
+  /* CODE SNIPPETS CSS */
+
+.file_container {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  border-radius: 10px;
+  border-radius: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  overflow: auto;
+}
+
+.file_container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+.file_container::-webkit-scrollbar-thumb {
+  background-color: rgb(145, 145, 145);
+  border-radius: 20px;
+}
+
+.file_container::-webkit-scrollbar-track {
+  background-color: white;
+}
+.file_input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  cursor: pointer;
+  border-radius: inherit;
+}
+
+.file_letter {
+  font-size: 1.5rem;
+}
+
+.file_image {
+  z-index: 0;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+/* CODE SNIPPETS CSS */
 </style>
 @endsection
 
@@ -63,22 +117,22 @@ Usuarios
                       <input id="email" type="email" class="form-control" name="email" placeholder="Complete este campo" value="{{Auth::user()->email}}">
                     </div>
 
-                    {{-- <div class="col-12 mb-2">
+                    <div class="col-12 mb-2">
                       <div class="form-group">
                         <input class="form-check-input" type="checkbox" name="is_change_password" id="is_change_password" value="{{true}}" {{ old('is_change_password') ? 'checked' : '' }}>
                         <label for="is_change_password" class="form-check-label user-select-none cursor-pointer " for="flexCheckIndeterminate">Cambiar contraseña</label>
                       </div>
-                    </div> --}}
+                    </div> 
 
-                    <div class="d-flex align-items-start">
+                    <!-- <div class="d-flex align-items-start">
                       <div>
                         <input type="checkbox" switch="none" name="is_change_password" value="{{false}}" id="is_change_password" {{ old('is_change_password') ? 'checked' : '' }}>
                         <label class="form-label form-l" for="is_change_password" data-on-label="Si" data-off-label="No"></label>
                       </div>
                       <div style="padding-block-start: 3px;">Cambiar contraseña</div>
-                    </div>
+                    </div>  -->
 
-                    <div class="d-none row" id="inputs-change-password">
+                     <div class="d-none row" id="inputs-change-password">
                       <div class="col-12 mb-2">
                         <label class="form-label m-0">Contraseña actual</label>
                         <div class="input-group">
@@ -92,7 +146,7 @@ Usuarios
                       <div class="col-12 mb-2">
                         <label class="form-label m-0">Nueva contraseña</label>
                         <div class="input-group">
-                          <input ID="txtPassword" type="Password" Class="form-control" name="current_password" autocomplete="current-password" placeholder="********">
+                              <input id="new_password" type="password" class="form-control" name="new_password" autocomplete="current-password" placeholder="********">
                         </div>
                       </div>
 
@@ -103,53 +157,22 @@ Usuarios
                         </div>
                       </div>
                     </div>
-
-
-
-                    <div class="row">
-
-                      {{-- <div class="d-none" >
-                      </div> --}}
-
-                      {{-- <div class="d-none" id="inputs-change-password">
-                        <div class="row">
-                          <div class="col-12">
-                            <label for="password" class="col-form-label text-md-right text-right">Contraseña actual</label>
-                            <input ID="txtPassword" type="Password" Class="form-control" name="current_password" autocomplete="current-password" placeholder="********">
-                            <div class="input-group-append">
-                              <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-12 col-lg-4 ">
-                            <label for="password" class="col-form-label text-md-right">Nueva contraseña</label>
-                          </div>
-                          <div class="col-12 col-lg-6">
-                            <div class="input-group">
-                              <input id="new_password" type="password" class="form-control" name="new_password" autocomplete="current-password" placeholder="********">
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-12 col-lg-4">
-                            <label for="password" class="col-form-label text-md-right">Confirmar contraseña</label>
-                            <input id="new_confirm_password" type="password" class="form-control " name="new_confirm_password" autocomplete="current-password" placeholder="********">
-                          </div>
-                        </div>
-                      </div> --}}
-                    </div>
+                      
+                   
                     <div class="col-12 col-lg-12">
                       <button type="submit" class="btn btn-primary"> Actualizar perfil </button>
                     </div>
                   </div>
                 {{-- </div> --}}
 
-                    <div class="col-12 col-lg-5  text-center">
-                      <img src="{{ asset('storage/users/'.Auth::user()->avatar) }}" alt="oscarthemes">
-                    </div>
+                     <div class="col-12 col-lg-5  text-center">
+                         <div class="card" >
+                            <div class="file_container">
+                              <input  type="file" class="file_input" id="file_input" name="avatar" accept="image/*">
+                              <img id="file_image" class="file_image" src="{{ asset('storage/users/'.Auth::user()->avatar) }}">
+                            </div>
+                          </div>                
+                     </div>     
                 </div>
             </form>
           </div>
@@ -187,6 +210,22 @@ Usuarios
       }
     }
     mostrarPassword()
+  </script>
+
+<script>
+    let fileInput,
+  fileImage = document.querySelector('#file_image'),
+  letterUpload = document.querySelector('#letter-upload');
+
+if(fileInput = document.querySelector('#file_input')) {
+  fileInput.addEventListener('change', function (e) {
+    const file = e.target.files[0]
+    const reader = new FileReader(file)
+    reader.onload = (e) => fileImage.src = reader.result
+    reader.readAsDataURL(file)
+    letterUpload.style.opacity = '0'
+  })
+}
   </script>
 
   @endsection

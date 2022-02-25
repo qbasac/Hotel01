@@ -38,6 +38,10 @@ class AboutController extends Controller
         $about->about_sub_image = $namefile;
       }
 
+      $about->seccion_video_title=$request->seccion_video_title;
+      $about->seccion_video_description=$request->seccion_video_description;
+      $about->seccion_video_link=$request->seccion_video_link;
+
       $about->save();
 
       return redirect()->route('about.index')->with('updated', 'Registro actualizado exitósamente.');

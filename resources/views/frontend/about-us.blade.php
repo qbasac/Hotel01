@@ -50,9 +50,9 @@
         </section>
         <div data-stellar-background-ratio="0.5" style="" class="bg-section-video section parallax-section call-to-action-wrap text-center ">
             <div class="text">
-                <h4 class="title">VIDEO</h4>
-                <p>Este hotel de Dubái también cuenta con 12 salas de reuniones, la más grande de las cuales puede albergar eventos de hasta 1400 personas.</p>
-                <a class="chr-btn popup-youtube fancy-btn" href="https://www.youtube.com/watch?v=sl--ESzEUCk">play</a>
+                <h4 class="title">{{$about->seccion_video_title}}</h4>
+                <p>{{$about->seccion_video_description}}</p>
+                <a class="chr-btn popup-youtube fancy-btn" href="{{$about->seccion_video_link}}">play</a>
             </div>
         </div>
 

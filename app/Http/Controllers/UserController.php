@@ -92,7 +92,7 @@ class UserController extends Controller
   }
 
   public function profileUpdate(UpdateProfileRequest $request) {
-
+    // dd($request->all());
     if(!Hash::check($request->current_password, auth()->user()->password)) {
       return back()->withErrors(['currentPasswordError' => 'La contraseña actual no es correcta.'])->withInput();
     }
@@ -103,8 +103,11 @@ class UserController extends Controller
     $user = User::find(auth()->user()->id);
     $user->nick_name = $request->nick_name;
     $user->email = $request->email;
-    $user->avatar = $request->avatar;
-
+    if($request->file('avatar')){
+      $namefile = Carbon::now()->format("dmYHis").".".$request->file('avatar')->getClientOriginalExtension();
+      $request->file('avatar')->storeAs('public/users', $namefile);
+      $user->avatar = $namefile;
+    }
     if($request->is_change_password) {
       $user->password = Hash::make($request->new_password);
     }

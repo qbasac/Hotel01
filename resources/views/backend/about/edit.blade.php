@@ -57,6 +57,19 @@ Usuarios
               <label class="mb-0" for="">Imagen frontal</label>
               <input type="file" accept="image/*" class="form-control" name="about_sub_image" id="about_sub_image">
             </div>
+
+            <div class="mb-3">
+              <label for="seccion_video_title" class="form-label">Titulo del video</label>
+              <input id="seccion_video_title" name="seccion_video_title" type="text" class="form-control" value="{{$about->seccion_video_title}}" placeholder="Ingrese un titulo...">
+            </div>
+            <div class="mb-3">
+              <label for="seccion_video_description">Descripción del video</label>
+              <textarea id="seccion_video_description" name="seccion_video_description" type="text" class="form-control">{{$about->seccion_video_description}}</textarea>
+            </div>
+            <div class="mb-3">
+              <label for="seccion_video_link" class="form-label">Link del video</label>
+              <input id="seccion_video_link" name="seccion_video_link" type="url" class="form-control" value="{{$about->seccion_video_link}}" placeholder="Ingrese un link...">
+            </div>
             <a href="{{ route('about.index') }}" class="btn btn-danger">Cancelar</a>
             <button type="submit" class="btn btn-primary">Guardar <i class="far fa-paper-plane"></i></button>
           </form>

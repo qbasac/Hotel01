@@ -53,6 +53,18 @@ Usuarios
               <label for="about_sub_image" class="form-label">Imagen frontal</label>
               <input id="about_sub_image" name="about_sub_image" type="text" class="form-control" readonly value="{{$about->about_sub_image}}">
             </div>
+            <div class="mb-3">
+              <label for="seccion_video_title" class="form-label">Titulo del video</label>
+              <input id="seccion_video_title" name="seccion_video_title" type="text" class="form-control" readonly value="{{$about->seccion_video_title}}" placeholder="Ingrese un titulo...">
+            </div>
+            <div class="mb-3">
+              <label for="seccion_video_description">Descripción del video</label>
+              <textarea id="seccion_video_description" name="seccion_video_description" type="text" readonly class="form-control">{{$about->seccion_video_description}}</textarea>
+            </div>
+            <div class="mb-3">
+              <label for="seccion_video_link" class="form-label">Link del video</label>
+              <input id="seccion_video_link" name="seccion_video_link" type="url" class="form-control" readonly value="{{$about->seccion_video_link}}" placeholder="Ingrese un link...">
+            </div>
             <a href="{{ route('about.edit',['about' => $about->id]) }}" class="btn btn btn-info" title="Editar"> Editar <i class="far fa-edit"></i></a>
           </form>
 
