@@ -15,19 +15,13 @@
       </a>
     </li>
 
-    <li>
-      <a href="javascript: void(0);" class="has-arrow waves-effect">
-        <i class="fas fa-home"></i>
-        <span>Inicio</span>
-      </a>
-      <ul class="sub-menu" aria-expanded="true">
-        <li><a href="javascript: void(0);" class="has-arrow">Carrucel de imagenes</a>
+        <li>
+          <a href="javascript: void(0);" class="has-arrow waves-effect">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+          </a>
           <ul class="sub-menu" aria-expanded="true">
             <li><a href="{{route('admin.home.index')}}">Carrucel de imagenes </a></li>
-            <li><a href="{{route('testimonial.index')}}">Formulario de reserva </a></li>
-
-          </ul>
-        </li>
             <li><a href="{{route('testimonial.index')}}">Sección ofertas especiales</a></li>
             <li><a href="{{route('testimonial.index')}}">Sección nuestros servicios</a></li>
             <li><a href="{{route('testimonial.index')}}">Sección nuestras habitaciones</a></li>

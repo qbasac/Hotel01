@@ -240,81 +240,14 @@
             <form>
                 <div class="row">
                     <div class="col-md-12">
-                        <!--Input Field Start-->
                         <div class="input-field">
-                            <input type="text" placeholder="Su nombre">
+                          RESERVA AHORA Y DISFRUTA DE UNA EXPERIENCIA DIFERENTE CON NOSOTROS
                         </div>
-                        <!--Input Field End-->
-                    </div>
-                    <div class="col-md-6">
-                        <!--Input Field Start-->
-                        <div class="input-field">
-                            <div class="rq-check-inout-wrapper rq-check-in-wrapper" id="rq-check-in-single">
-                                <div class="rq-check-inout-single-wrapper">
-                                    <span class="rq-single-date">24</span>
-                                    <span class="rq-month-year">
-                                        <span class="rq-single-month"></span>
-                                    </span>
-                                    <input type="hidden" name="date_in" />
-                                </div>
-                            </div>
-                        </div>
-                        <!--Input Field End-->
-                    </div>
-                    <div class="col-md-6">
-                        <!--Input Field Start-->
-                        <div class="input-field">
-                            <div class="rq-check-inout-wrapper rq-check-in-wrapper" id="rq-check-out-single">
-                                <div class="rq-check-inout-single-wrapper">
-                                    <span class="rq-single-date">24</span>
-                                    <span class="rq-month-year">
-                                        <span class="rq-single-month">Sep</span>
-                                    </span>
-                                    <input type="hidden" name="date_out" />
-                                </div>
-                            </div>
-                        </div>
-                        <!--Input Field End-->
-                    </div>
-                    <div class="col-md-6">
-                        <!--Input Field Start-->
-                        <div class="input-field">
-                            <!-- TIME WRAP START-->
-                            <div title="check in" class="time_picker">
-                                <input id="rq-check-in-time" class="timepicker" placeholder="Tiempo" name="time_in" />
-                            </div>
-                            <!--TIME WRAP END-->
-                        </div>
-                        <!--Input Field End-->
-                    </div>
-                    <div class="col-md-6">
-                        <!--Input Field Start-->
-                        <div class="input-field">
-                            <!-- TIME WRAP START-->
-                            <div title="check out" class="time_picker">
-                                <input id="rq-check-out-time" class="timepicker" placeholder="Tiempo" name="time_out" />
-                            </div>
-                            <!--TIME WRAP END-->
-                        </div>
-                        <!--Input Field End-->
-                    </div>
-                    <div class="col-md-12">
-                        <!--Input Field Start-->
-                        <div class="input-field">
-                            <select>
-                                <option value="">1 Adulto 1 Habitación</option>
-                                <option value="aye">3 adultos 1 habitación</option>
-                                <option value="eh">5 Adultos 2 Habitaciones</option>
-                                <option value="ooh">8 Adultos 2 Habitaciones</option>
-                                <option value="whoop">10 Adultos 3 Habitaciones</option>
-                            </select>
-                        </div>
-                        <!--Input Field End-->
                     </div>
                 </div>
                 <!--Input Field Start-->
                 <div class="input-field">
-                    <input class="chr-btn th-bg" type="submit" value="Compruebe la disponibilidad">
+                    <input class="chr-btn th-bg" type="submit" value="Reservar ahora">
                 </div>
                 <!--Input Field End-->
             </form>

@@ -14,13 +14,11 @@ class SliderHomeFactory extends Factory
     {
         return [
           'sub_title' => $this->faker->sentence(2, true),
-          'title' => $this->faker->sentence(6, true),
+          'title' => $this->faker->sentence(4, true),
           'description' => $this->faker->text(500),
           'link_1' => $this->faker->url(),
-          'link_1' => $this->faker->url(),
-          'slider_image_1' => $this->faker->image('public/storage/slider-image',1920, 1200,'cats', false),
-          'slider_image_2' => $this->faker->image('public/storage/slider-image',1920, 1200,'cats', false),
-          'slider_image_3' => $this->faker->image('public/storage/slider-image',1920, 1200,'cats', false),
+          'link_2' => $this->faker->url(),
+          'slider_image' => $this->faker->image('public/storage/slider-image',1920, 1200,'cats', false),
         ];
     }
 }

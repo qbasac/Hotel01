@@ -20,9 +20,7 @@ class CreateSliderHomesTable extends Migration
             $table->text('description');
             $table->text('link_1')->nullable();
             $table->text('link_2')->nullable();
-            $table->string('slider_image_1')->nullable();
-            $table->string('slider_image_2')->nullable();
-            $table->string('slider_image_3')->nullable();
+            $table->string('slider_image')->nullable();
             $table->timestamps();
         });
     }

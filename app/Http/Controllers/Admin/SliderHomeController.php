@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\SliderHome;
 use Illuminate\Http\Request;
 
 class SliderHomeController extends Controller
@@ -14,7 +15,8 @@ class SliderHomeController extends Controller
      */
     public function index()
     {
-      return view('backend.home.slider-home.index');
+      $slider_homes = SliderHome::get();
+      return view('backend.home.slider-home.index', compact('slider_homes'));
     }
 
     /**

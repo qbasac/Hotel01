@@ -68,11 +68,7 @@
 
             </div>
           </form>
-          {{-- <div class="row">
-                <div class="col-12">
-                  <a class="navbar-brand"></a>
-                </div>
-              </div> --}}
+
           <div class="table-responsive">
             <table class="table table-sm table-striped mt-4">
               <thead>
@@ -128,15 +124,7 @@
                       <td style="vertical-align: middle;">{{$room->price}}</td>
                       <td style="vertical-align: middle;">{{$room->number_beds}}</td>
                       <td style="vertical-align: middle;">{{$room->number_people}}</td>
-
-                      {{-- <td style="vertical-align: middle;" class="text-center">
-                        @if ($room->image)
-                          <img src="{{ asset('backend/assets/images/users/F.png') }}" class="rounded-circle" width="30" height="30">
-                        @else
-                          <img src="{{ asset('backend/assets/images/users/M.png') }}" class="rounded-circle" width="30" height="30">
-                        @endif
-                    </td> --}}
-                  </tr>
+                    </tr>
                 @endforeach
               </tbody>
             </table>

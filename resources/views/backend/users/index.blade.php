@@ -150,7 +150,7 @@ Usuarios
                       @else
                         <img src="{{ asset('assets/users/avatar-default.png') }}" class="rounded-circle" width="30" height="30">
                       @endif
-                  </td>
+                    </td>
                     <td style="vertical-align: middle;">{{ \Carbon\Carbon::parse($user->created_at)->format('d-m-Y H:i:s a')}}</td>
                     <td style="vertical-align: middle;">{{ \Carbon\Carbon::parse($user->updated_at)->format('d-m-Y H:i:s a')}}</td>
                   </tr>

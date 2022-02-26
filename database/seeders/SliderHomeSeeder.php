@@ -14,6 +14,6 @@ class SliderHomeSeeder extends Seeder
      */
     public function run()
     {
-      SliderHome::factory()->count(1)->create();
+      SliderHome::factory()->count(5)->create();
     }
 }
