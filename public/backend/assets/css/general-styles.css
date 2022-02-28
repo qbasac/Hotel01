@@ -50,3 +50,19 @@ table thead tr th.column-date {
   color: var(--bs-danger);
   user-select: none;
 }
+
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  display: block;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #73b9ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1B82EC;
+  border-radius: 5px;
+}

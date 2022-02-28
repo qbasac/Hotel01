@@ -168,93 +168,68 @@
                 </div>
                 <!-- Top Bar Start -->
             </header>
-<div  class="chr_banner banner-hotel">
-    <ul class="slider arrows">
-        <li class="">
-            <!--Banner Thumb START-->
-            <div>
-                <img src="{{asset('frontend/extra-images/banner-01.jpg')}}" alt="Image here">
-                <div class="chr-caption-wrapper">
-                    <div class="chr_banner_caption container">
-                        <div class="chr-caption">
-                            <h6 data-animation="fadeInUp" data-delay="0.3s" class="chr-caption-title">Ven a nosotros</h6>
-                            <h6 data-animation="fadeInUp" data-delay="0.5s" class="chr-caption-text">El hogar lejos del hogar</h6>
-                            <p data-animation="fadeInUp" data-delay="1s" class="chr-caption-contant">
-                                Reserve ahora una habitación en nuestro Hotel y obtenga un descuento del 30%. Le esperan una cesta de frutas, refrescos y una cama acogedora. Haremos todo lo posible para que se sienta como en casa.
-                            </p>
-                            <a href="blog-detail.html" data-animation="fadeInLeft" data-delay="1.3s" class="chr-btn fancy-btn">Explorar</a>
-                            <a href="#" data-animation="fadeInRight" data-delay="1.3s" class="chr-btn fancy-btn">Bok Ahora</a>
+
+@if ($home->show_section_slider)
+    <div  class="chr_banner banner-hotel">
+        <ul class="slider arrows">
+
+          @forelse ($slider_homes as $slider_home)
+          <li class="">
+                <div>
+                    <img src="{{ asset('storage/slider-image/'.$slider_home->slider_image) }}" alt="Image here">
+                    <div class="chr-caption-wrapper">
+                        <div class="chr_banner_caption container">
+                            <div class="chr-caption">
+                                <h6 data-animation="fadeInUp" data-delay="0.3s" class="chr-caption-title">{{$slider_home->sub_title}}</h6>
+                                <h6 data-animation="fadeInUp" data-delay="0.5s" class="chr-caption-text">{{$slider_home->title}}</h6>
+                                <p data-animation="fadeInUp" data-delay="1s" class="chr-caption-contant">
+                                  {{$slider_home->description}}
+                                </p>
+                                <a href="{{$slider_home->link_1}}" data-animation="fadeInLeft" data-delay="1.3s" class="chr-btn fancy-btn">Explorar</a>
+                                <a href="{{$slider_home->link_2}}" data-animation="fadeInRight" data-delay="1.3s" class="chr-btn fancy-btn">Bok Ahora</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </li>
+          @empty
+          @endforelse
+
+        </ul>
+        <div class="widget widget-booking">
+            <div class="booking-form">
+                <h3 class="title th-bd">Reserva de habitaciones</h3>
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-field">
+                              RESERVA AHORA Y DISFRUTA DE UNA EXPERIENCIA DIFERENTE CON NOSOTROS
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <input class="chr-btn th-bg" type="submit" value="Reservar ahora">
+                    </div>
+                </form>
             </div>
-            <!--Banner Thumb End-->
-        </li>
-        <li class="">
-            <!--Banner Thumb START-->
-            <div>
-                <img src="{{asset('frontend/extra-images/banner-02.jpg')}}" alt="Image here">
-                <div class="chr-caption-wrapper">
-                    <div class="chr_banner_caption container">
-                        <div class="chr-caption">
-                            <h6 data-animation="fadeInUp" data-delay="0.3s" class="chr-caption-title">Ven a nosotros</h6>
-                            <h6 data-animation="fadeInUp" data-delay="0.5s" class="chr-caption-text">El hogar lejos del hogar</h6>
-                            <p data-animation="fadeInUp" data-delay="1s" class="chr-caption-contant">
-                                Reserve ahora una habitación en nuestro Hotel y obtenga un descuento del 30%. Le esperan una cesta de frutas, refrescos y una cama acogedora. Haremos todo lo posible para que se sienta como en casa.
-                            </p>
-                            <a href="blog-detail.html" data-animation="fadeInLeft" data-delay="1.3s" class="chr-btn fancy-btn">Explorar</a>
-                            <a href="#" data-animation="fadeInRight" data-delay="1.3s" class="chr-btn fancy-btn">Bok Ahora</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Banner Thumb End-->
-        </li>
-        <li class="">
-            <!--Banner Thumb START-->
-            <div>
-                <img src="{{asset('frontend/extra-images/banner-03.jpg')}}" alt="Image here">
-                <div class="chr-caption-wrapper">
-                    <div class="chr_banner_caption container">
-                        <div class="chr-caption">
-                            <h6 data-animation="fadeInUp" data-delay="0.3s" class="chr-caption-title">Ven a nosotros</h6>
-                            <h6 data-animation="fadeInUp" data-delay="0.5s" class="chr-caption-text">El hogar lejos del hogar</h6>
-                            <p data-animation="fadeInUp" data-delay="1s" class="chr-caption-contant">
-                                Reserve ahora una habitación en nuestro Hotel y obtenga un descuento del 30%. Le esperan una cesta de frutas, refrescos y una cama acogedora. Haremos todo lo posible para que se sienta como en casa.
-                            </p>
-                            <a href="blog-detail.html" data-animation="fadeInLeft" data-delay="1.3s" class="chr-btn fancy-btn">Explorar</a>
-                            <a href="#" data-animation="fadeInRight" data-delay="1.3s" class="chr-btn fancy-btn">Bok Ahora</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Banner Thumb End-->
-        </li>
-    </ul>
-    <!--Widget Booking Start-->
-    <div class="widget widget-booking">
-        <div class="booking-form">
-            <!--Title Start-->
-            <h3 class="title th-bd">Reserva de habitaciones</h3>
-            <!--Title End-->
-            <form>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="input-field">
-                          RESERVA AHORA Y DISFRUTA DE UNA EXPERIENCIA DIFERENTE CON NOSOTROS
-                        </div>
-                    </div>
-                </div>
-                <!--Input Field Start-->
-                <div class="input-field">
-                    <input class="chr-btn th-bg" type="submit" value="Reservar ahora">
-                </div>
-                <!--Input Field End-->
-            </form>
         </div>
     </div>
-    <!--Widget Booking End-->
+@else
+<div class="widget widget-booking">
+  <div style="background: #0C4459" class="booking-form">
+      <h3 class="title th-bd"></h3>
+      <form>
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="input-field">
+                  </div>
+              </div>
+          </div>
+      </form>
+  </div>
 </div>
+@endif
+
 <!--Banner Wrap End-->
 <div class="main-contant">
     <!--Offers Section Start-->

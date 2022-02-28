@@ -20,7 +20,7 @@
             </h6>
           </div>
           <hr>
-            {{-- @if (count($errors->all()))
+            @if (count($errors->all()))
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <ul class="mb-0">
                   @foreach ($errors->all() as $message)
@@ -29,7 +29,7 @@
                 </ul>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
-            @endif --}}
+            @endif
 
 
             <form action="{{ route('admin.room.store') }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>

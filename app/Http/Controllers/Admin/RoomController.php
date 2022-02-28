@@ -83,6 +83,7 @@ class RoomController extends Controller
 
   public function updateIsActive(Request $request, $id)
   {
+    
     $newState = $request->state ? 0 : 1;
     Room::whereId($id)->update([
       'is_active' => $newState

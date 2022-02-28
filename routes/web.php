@@ -35,7 +35,9 @@ Auth::routes(['register' => false]);
   Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
     Route::resource('/room', AdminRoomController::class);
     Route::post('room/update-is-active/{room}', [AdminRoomController::class, 'updateIsActive'])->name('room.updateIsActive');
-    Route::resource('/home', AdminSliderHomeController::class);
+    Route::resource('/home-slider', AdminSliderHomeController::class);
+    Route::post('home-slider/update-is-active/{slider}', [AdminSliderHomeController::class, 'updateIsActive'])->name('home-slider.updateIsActive');
+    Route::post('home-slider/show-section-slider/{slider}', [AdminSliderHomeController::class, 'ShowSectionSlider'])->name('home-slider.ShowSectionSlider');
 
   });
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\home;
+use App\Models\SliderHome;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,7 +14,9 @@ class HomeController extends Controller
     }
     public function index()
     {
-        return view('frontend.index');
+        $home = home::first();
+        $slider_homes = SliderHome ::where('is_active', 1)->get();
+        return view('frontend.index', compact('slider_homes', 'home'));
     }
 
 }

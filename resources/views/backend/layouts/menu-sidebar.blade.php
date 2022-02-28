@@ -21,7 +21,7 @@
             <span>Inicio</span>
           </a>
           <ul class="sub-menu" aria-expanded="true">
-            <li><a href="{{route('admin.home.index')}}">Carrucel de imagenes </a></li>
+            <li><a href="{{route('admin.home-slider.index')}}">Carrucel de imagenes </a></li>
             <li><a href="{{route('testimonial.index')}}">Sección ofertas especiales</a></li>
             <li><a href="{{route('testimonial.index')}}">Sección nuestros servicios</a></li>
             <li><a href="{{route('testimonial.index')}}">Sección nuestras habitaciones</a></li>

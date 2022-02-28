@@ -40,20 +40,20 @@ Usuarios
             </h6>
 
             <div>
-            <a href="{{ route('usuario.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
-            <form  method="POST" action="{{route('staff.ShowSectionStaff', ['staff' => $about->id] )}}" class="d-inline">
-              @csrf
-              <input type="hidden" name="state" value="{{$about->show_section_staff}}">
-              @if ($about->show_section_staff)
-              <button style="margin-right: 5px;"  type="submit" class="btn btn btn-danger float-end" title="">
-                Ocultar personal <i class="fas fa-eye-slash"></i>
-              </button>
-              @else
-              <button  style="margin-right: 5px;" type="submit" class="btn btn btn-success " title="Cambiar estado">
-                Mostrar personal <i class="fas fa-eye"></i>
-              </button>
-              @endif
-            </form>
+              <a href="{{ route('usuario.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
+              <form  method="POST" action="{{route('staff.ShowSectionStaff', ['staff' => $about->id] )}}" class="d-inline">
+                @csrf
+                <input type="hidden" name="state" value="{{$about->show_section_staff}}">
+                @if ($about->show_section_staff)
+                <button style="margin-right: 5px;"  type="submit" class="btn btn btn-danger float-end" title="">
+                  Ocultar personal <i class="fas fa-eye-slash"></i>
+                </button>
+                @else
+                <button  style="margin-right: 5px;" type="submit" class="btn btn btn-success " title="Cambiar estado">
+                  Mostrar personal <i class="fas fa-eye"></i>
+                </button>
+                @endif
+              </form>
           </div>
         </div>
 
