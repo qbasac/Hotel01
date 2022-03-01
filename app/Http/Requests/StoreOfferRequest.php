@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSliderHomeRequest extends FormRequest
+class StoreOfferRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,22 +24,18 @@ class StoreSliderHomeRequest extends FormRequest
     public function rules()
     {
         return [
-          'sub_title' => 'required',
-          'title' => 'required',
+          'title' => 'required ',
+          'discount_percentage' => 'required|Numeric',
           'description' => 'required',
-          'link_1' => 'nullable|url',
-          'link_2' => 'nullable|url'
         ];
     }
 
     public function attributes()
     {
       return [
-        'sub_title' => 'título',
-        'title' => 'título',
-        'description' => 'descripción',
-        'link_1' => 'Link 1 - Explorar',
-        'link_2' => 'Link 2 '
+          'title' => 'título',
+          'discount_percentage' => 'Porcentaje del descuento',
+          'description' => 'descripción',
       ];
     }
 }

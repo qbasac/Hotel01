@@ -185,8 +185,17 @@
                                 <p data-animation="fadeInUp" data-delay="1s" class="chr-caption-contant">
                                   {{$slider_home->description}}
                                 </p>
-                                <a href="{{$slider_home->link_1}}" data-animation="fadeInLeft" data-delay="1.3s" class="chr-btn fancy-btn">Explorar</a>
+                                @if ($slider_home->link_1)
+                                  <a href="{{$slider_home->link_1}}" data-animation="fadeInLeft" data-delay="1.3s" class="chr-btn fancy-btn">Explorar</a>
+                                @else
+
+                                @endif
+
+                                @if ($slider_home->link_2)
                                 <a href="{{$slider_home->link_2}}" data-animation="fadeInRight" data-delay="1.3s" class="chr-btn fancy-btn">Bok Ahora</a>
+                                @else
+
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -208,7 +217,7 @@
                         </div>
                     </div>
                     <div class="input-field">
-                        <input class="chr-btn th-bg" type="submit" value="Reservar ahora">
+                       <a style="text-align: center" class="chr-btn th-bg" href="{{ route('habitacion.index')}}"> RESERVAR AHORA</a>
                     </div>
                 </form>
             </div>
@@ -232,101 +241,40 @@
 
 <!--Banner Wrap End-->
 <div class="main-contant">
-    <!--Offers Section Start-->
-    <section>
+
+  @if ($home->show_section_offers)
+  <section>
         <div class="container">
-            <!--Heading 1 Start-->
             <div class="headind-1 text-center">
                 <h3 class="title">Nuestras ofertas especiales</h3>
             </div>
-            <!--Heading 1 End-->
             <div class="row">
-               <!-- <ul class="port-grid masonry clearfix items-grid">-->
-                    <!-- Event Thum Start -->
-                    <li class="port-item col-md-4 col-sm-6">
-                        <div class="fancy-effect">
-                            <a href="#" class="chr-event-thumb fancy-thumb">
-                                <figure>
-                                    <img src="{{asset('frontend/extra-images/pkg-img1.jpg')}}" alt="Oscar Themes"/>
-                                </figure>
-                                <div class="text p-middel">
-                                    <p>Oferta de la pareja Crusie  </p>
-                                    <h3 class="th-cl">70% <sup>Fuera de</sup></h3>
-                                    <p>Reserve con antelación y ahorre </p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                    <!-- Event Thum End -->
-                    <!-- Event Thum Start -->
-                    <li class="port-item col-md-4 col-sm-6">
-                        <div class="fancy-effect">
-                            <a href="#" class="chr-event-thumb fancy-thumb event-arrived">
-                                <figure>
-                                    <img src="{{asset('frontend/extra-images/pkg-img3.jpg')}}" alt="Oscar Themes"/>
-                                </figure>
-                                <div class="text p-middel">
-                                    <h3>Refresca tu mente</h3>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and is the best inisistin typesetting industry. Lorem Ipsum has been ..</p>
-                                    <h3>Inicio 08 : 30 p. m</h3>
-                                </div>
-                                <div class="event-ticket-link th-bg"><em>Entrada</em><span>$50</span></div>
-                            </a>
-                        </div>
-                    </li>
-                    <!-- Event Thum End -->
-                    <!-- Event Thum Start -->
-                    <li class="port-item col-md-4 col-sm-6">
-                        <div class="fancy-effect">
-                            <a href="#" class="chr-event-thumb fancy-thumb">
-                                <figure>
-                                    <img src="{{asset('frontend/extra-images/pkg-img2.jpg')}}" alt="Oscar Themes"/>
-                                </figure>
-                                <div class="text p-middel">
-                                    <p>Oferta Familia Feliz  </p>
-                                    <h3 class="th-cl">30% <sup>Fuera de</sup></h3>
-                                    <p>Reserve con antelación y ahorre </p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                    <!-- Event Thum End -->
-                    <!-- Event Thum Start -->
-                    <li class="port-item col-md-4 col-sm-6">
-                        <div class="fancy-effect">
-                            <a href="#" class="chr-event-thumb fancy-thumb">
-                                <figure>
-                                    <img src="{{asset('frontend/extra-images/pkg-img4.jpg')}}" alt="Oscar Themes"/>
-                                </figure>
-                                <div class="text p-middel">
-                                    <p>Grupos y entretenimiento</p>
-                                    <h3 class="th-cl">40% <sup>Fuera de</sup></h3>
-                                    <p>Reserve con antelación y ahorre </p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                    <!-- Event Thum End -->
-                    <!-- Event Thum Start -->
-                    <li class="port-item col-md-4 col-sm-6">
-                        <div class="fancy-effect">
-                            <a href="#" class="chr-event-thumb fancy-thumb">
-                                <figure>
-                                    <img src="{{asset('frontend/extra-images/pkg-img5.jpg')}}" alt="Oscar Themes"/>
-                                </figure>
-                                <div class="text p-middel">
-                                    <p>Buffet y Restaurante</p>
-                                    <h3 class="th-cl">35% <sup>Fuera de</sup></h3>
-                                    <p>Reserve con antelación y ahorre </p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                    <!-- Event Thum End -->
-                </ul>
+              <ul style="list-style:none;">
+              @foreach ( $offers as $offer )
+                <li class="port-item col-md-4 col-sm-6">
+                  <div class="fancy-effect">
+                      <a href="#" class="chr-event-thumb fancy-thumb">
+                          <figure>
+                              <img src="{{ asset('storage/offers-image/'.$offer->offer_image) }}" alt="Oscar Themes"/>
+                          </figure>
+                          <div class="text p-middel">
+                              <p>{{$offer->title}} </p>
+                              <h3 class="th-cl">70%</h3>
+                              <p>Reserve con antelación y ahorre </p>
+                          </div>
+                      </a>
+                  </div>
+                </li>
+                @endforeach
+              </ul>
             </div>
         </div>
     </section>
+    @else
+
+@endif
+
+
     <!--Offers Section End-->
     <!--Services Tabs Section Start-->
     <section data-stellar-background-ratio="0.5"  class="parallax-section services-bg">

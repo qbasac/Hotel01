@@ -40,28 +40,33 @@
     <div class="container">
 
       <div class="row">
-        {{-- <nav class="navbar">
-          <div class="container-fluid">
-            <a class="navbar-brand"></a>
-              <div class="col-auto">
-                <label class="form-control-plaintext">Fitrar por precio</label>
-              </div>
+        {{-- <form class="row justify-content-end" action="{{ route('admin.room.index') }}" method="GET" autocomplete="off">
+          <div class="form-group col-12 col-md-6 col-lg-4">
+            <label for="" class="mb-0">Buscar</label>
+            <div  class="input-group mb-3">
+             <select name="searchBy" id="search-by"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
+               <option value="name" {{ request('searchBy') == 'name' ? 'selected' : '' }}>Nombres</option>
+               <option value="price" {{ request('searchBy') == 'price' ? 'selected' : '' }}>Precio</option>
+               <option value="number_beds" {{ request('searchBy') == 'number_beds' ? 'selected' : '' }}>Camas</option>
+             </select>
 
-              <div class="col-auto">
-                <div class="form-group">
-                  <select name="searchBy" id=""  class="form-select form-select" aria-label=".form-select-sm example">
-                    <option value="name">Precios entre 20 - 80 soles</option>
-                    <option value="email">Precios entre 100 - 200 soles</option>
-                  </select>
-                </div>
-              </div>
+             <select name="orderBy" id="form-price"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
+               <option value="asc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De menor a mayor</option>
+               <option value="desc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De mayor a menor</option>
+             </select>
 
-              <div class="col-auto">
-              <div class="input-group mb-3">
-                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
-              </div></div>
+            <select name="orderBy" id="form-number_beds"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
+              <option value="asc" {{ request('searchBy') == 'number_beds' && request('orderBy') ? 'selected' : '' }} >de menor a mayor</option>
+              <option value="desc" {{ request('searchBy') == 'number_beds' && request('orderBy') ? 'selected' : '' }} >de mayor a menor</option>
+            </select>
+
+              <input class="form-control d-none" id="form-name" type="search" placeholder="Nombres..." {{ request('search') ? 'autofocus' : '' }} name="search" aria-label="Search" value="{{ request('search') }}" >
+
+              <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+            </div>
+
           </div>
-        </nav> --}}
+        </form> --}}
       </div>
       @foreach ($rooms as $room)
       <div class="col-md-4 col-sm-6">

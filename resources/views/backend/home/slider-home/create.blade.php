@@ -53,12 +53,12 @@
                 <textarea id="description" name="description" type="text" class="form-control" value="" tabindex="2" required placeholder="Complete su correo electrónico..."></textarea>
               </div>
               <div class="mb-3">
-                <label for="link_1" class="form-label">Link 1</label>
-                <input id="link_1" name="link_1" type="text" class="form-control" value="{{ old('link_1') }}" placeholder="Complete este campo...">
+                <label for="link_1" class="form-label">Link 1 - Explorar</label>
+                <input id="link_1" name="link_1" type="url" class="form-control" value="{{ old('link_1') }}" placeholder="Complete este campo...">
               </div>
               <div class="mb-3">
                 <label for="link_2" class="form-label">Link 2</label>
-                <input id="link_2" name="link_2" type="text" class="form-control" value="{{ old('link_2') }}" placeholder="Complete este campo...">
+                <input id="link_2" name="link_2" type="url" class="form-control" value="{{ old('link_2') }}" placeholder="Complete este campo...">
               </div>
               <div class="form-group mb-3">
                 <label class="mb-0" for="">Imagen del slider</label>

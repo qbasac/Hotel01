@@ -160,14 +160,14 @@ Usuarios
                    </div> --}}
 
 
-                   <div class="card" >
+                   {{-- <div class="card" >
                      <div class="file_container">
                        <input type="file" class="file_input" id="file_input" name="avatar" accept="image/*">
                        <img id="file_image" class="file_image">
                        <small id="letter-upload" class="file_letter">Subir Imagen</small>
                      </div>
-                   </div>
-             
+                   </div> --}}
+
 
 
                     <div class="col-12 col-lg-12">
@@ -175,14 +175,20 @@ Usuarios
                     </div>
                   </div>
 
+  <div class="col-12 col-lg-5  text-center">
+                      <div class="file_container">
+                        <input  type="file" class="file_input" id="file_input" name="avatar" accept="image/*">
+                          <img id="file_image" class="file_image" src="{{ asset('storage/users/'.Auth::user()->avatar) }}" alt="oscarthemes">
+                        </input>
+                      </div>
+                   </div>
 
-
-                     <!-- <div class="col-12 col-lg-5  text-center">
+                    {{-- <div class="col-12 col-lg-5  text-center">
                           <div class="mb-3">
                           <label class="mb-0" for="">Avatar <small class="text-muted"> (Tamaño de imagen recomendado 220px x 290px) </small></label>
                           <input type="file" accept="image/*" class="form-control" name="avatar" id="avatar">
                         </div>
-                     </div>      -->
+                     </div> --}}
 
 
                 </div>
@@ -225,30 +231,20 @@ Usuarios
   </script>
 
 <script>
-//     let fileInput,
-//   fileImage = document.querySelector('#file_image'),
-//   letterUpload = document.querySelector('#letter-upload');
+    let fileInput,
+    fileImage = document.querySelector('#file_image'),
+    letterUpload = document.querySelector('#letter-upload');
 
-// if(fileInput = document.querySelector('#file_input')) {
-//   fileInput.addEventListener('change', function (e) {
-//     const file = e.target.files[0]
-//     const reader = new FileReader(file)
-//     reader.onload = (e) => fileImage.src = reader.result
-//     reader.readAsDataURL(file)
-//     letterUpload.style.opacity = '0'
-//   })
-// }
+    if(fileInput = document.querySelector('#file_input')) {
+    fileInput.addEventListener('change', function (e) {
+    const file = e.target.files[0]
+    const reader = new FileReader(file)
+    reader.onload = (e) => fileImage.src = reader.result
+    reader.readAsDataURL(file)
+    letterUpload.style.opacity = '0'
+  })
+}
 
-const fileInput = document.querySelector('#file_input');
-        const fileImage = document.querySelector('#avatar');
-
-        fileInput.addEventListener('change', function(e) {
-            const file = e.target.files[0]
-
-            const reader = new FileReader(file)
-            reader.onload = (e) => avatar.src = reader.result
-            reader.readAsDataURL(file)
-        })
-  </script>
+</script>
 
   @endsection

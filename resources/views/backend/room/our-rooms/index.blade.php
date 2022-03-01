@@ -33,15 +33,11 @@
             <h6 class="text-primary">
               <i class="fas fa-hotel me-1"></i> Nuestras habitaciones
             </h6>
-           <!-- <a href="{{ route('admin.room.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a>  -->
+            {{-- <a href="{{ route('admin.room.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a>   --}}
           </div>
           <hr>
-          {{-- <hr> --}}
-          {{-- <br> --}}
+
           <form class="row justify-content-end" action="{{ route('admin.room.index') }}" method="GET" autocomplete="off">
-            {{-- <div class="col-12 col-md-6">
-              <label class="form-control-plaintext">Filtrar</label>
-            </div> --}}
             <div class="form-group col-12 col-md-6 col-lg-4">
               <label for="" class="mb-0">Buscar</label>
               <div  class="input-group mb-3">

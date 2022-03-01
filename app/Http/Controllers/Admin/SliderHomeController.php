@@ -47,11 +47,7 @@ class SliderHomeController extends Controller
       return redirect()->route('admin.home-slider.index')->with('created', 'Registro guardado exitósamente.');
     }
 
-    public function show($id)
-    {
-        //
-    }
-
+  
     public function edit($id)
     {
       $slider_home = SliderHome::whereId($id)->first();
