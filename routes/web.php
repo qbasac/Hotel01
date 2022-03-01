@@ -41,11 +41,7 @@ Auth::routes(['register' => false]);
 
   });
 
-  // Route::as('admin.')->group(function () {
-  //   Route::prefix('admin')->group(function () {
-  //     Route::resource('/room', AdminRoomController::class);
-  //   });
-  // });
+ //frontend
 
   Route::resource('/room', RoomController::class);
   Route::resource('/room-reservation', RoomReservationController::class);

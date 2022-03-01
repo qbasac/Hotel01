@@ -251,7 +251,7 @@
                                 </figure>
                                 <div class="text p-middel">
                                     <p>Oferta de la pareja Crusie  </p>
-                                    <h3 class="th-cl">60% <sup>Fuera de</sup></h3>
+                                    <h3 class="th-cl">70% <sup>Fuera de</sup></h3>
                                     <p>Reserve con antelación y ahorre </p>
                                 </div>
                             </a>

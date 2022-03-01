@@ -16,6 +16,14 @@ class CreateHomesTable extends Migration
         Schema::create('homes', function (Blueprint $table) {
             $table->id();
             $table->boolean('show_section_slider')->default(1);
+            $table->boolean('show_section_offers')->default(1);
+            $table->boolean('show_section_services')->default(1);
+            $table->boolean('show_section_staff')->default(1);
+            $table->boolean('show_section_testimonial')->default(1);
+            $table->boolean('show_section_rooms')->default(1);
+            $table->boolean('show_section_gallery')->default(1);
+            $table->boolean('show_section_blog')->default(1);
+            $table->boolean('show_section_prices')->default(1);
             $table->timestamps();
         });
     }
