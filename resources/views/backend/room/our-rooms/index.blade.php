@@ -3,23 +3,42 @@
 @section('sub-title')
     Habitaciones
 @endsection
+
 @section('styles')
   <style>
-    ::-webkit-scrollbar {
-      height: 5px;
-      width: 5px;
-      display: block;
+    .column-options,
+    .column-name
+    .column-description {
+      inline-size: 120px;
+      min-inline-size: 120px;
+      text-align: center;
+    }
+    .column-name,
+    .column-description {
+      text-align: start
     }
 
-    ::-webkit-scrollbar-track {
-      background-color: #73b9ff;
-      border-radius: 10px;
+    .column-price{
+      min-inline-size: 70px
+
     }
 
-    ::-webkit-scrollbar-thumb {
-      background-color: #1B82EC;
-      border-radius: 5px;
+    .column-description{
+      inline-size: 200px;
+      max-inline-size: 250px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
+
+    .column-name{
+      inline-size: 100px;
+      max-inline-size: 130px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
   </style>
 @endsection
 
@@ -33,7 +52,7 @@
             <h6 class="text-primary">
               <i class="fas fa-hotel me-1"></i> Nuestras habitaciones
             </h6>
-            {{-- <a href="{{ route('admin.room.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a>   --}}
+            <a href="{{ route('admin.room.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a>
           </div>
           <hr>
 
@@ -66,29 +85,36 @@
           </form>
 
           <div class="table-responsive">
-            <table class="table table-sm table-striped mt-4">
+            <table class="table table-sm table-striped table-bordered mt-4">
               <thead>
-                  <tr>
-                    <th style="width: 120px;" scope="col">Opciones</th>
-                    <th style="width: 90px;" scope="col">Estado</th>
-                    <th style="min-inline-size: 120px;">Nombre</th>
-                    <th style="min-inline-size: 120px;">Descripción</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Camas</th>
-                    <th scope="col">Personas</th>
-                  </tr>
+                <tr class="vertical-align-middle">
+                  <th class="column-options" rowspan="2">Opciones</th>
+                  <th class="column-name" rowspan="2">Nombre</th>
+                  <th class="column-description" rowspan="2">Descripción</th>
+                  <th scope="col" colspan="2" class="text-center">Precio</th>
+                  <th style="inline-size: 90px;" rowspan="2" class="text-center">Oferta</th>
+                  <th scope="col" rowspan="2">Camas</th>
+                  <th scope="col" rowspan="2">Personas</th>
+                  <th scope="col" rowspan="2">Imagen</th>
+
+                </tr>
+                <tr class="vertical-align-middle">
+                  <th>Original </th>
+                  <th>Renta </th>
+                </tr>
               </thead>
               <tbody>
                 @foreach ($rooms as $room)
-                  <tr>
-                    <td style=" text-align: left;vertical-align: middle;">
-                      <a href="{{ route('admin.room.edit', ['room' => $room->id] ) }}" class="btn btn-sm btn-info" title="Editar"><i class="far fa-edit"></i></a>
-                      <form action="{{ route('admin.room.destroy',$room->id) }}"  method="POST" class="d-inline">
-                          @csrf
-                          @method('DELETE')
-                          <button type="submit" title="Eliminar" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
+                  <tr class="vertical-align-middle">
+                    <td class="column-options">
+                      <a href="{{ route('admin.room.edit', ['room' => $room->id] ) }}" class="btn btn-sm btn-info" title="Editar">
+                        <i class="far fa-edit"></i>
+                      </a>
+                      <form action="{{ route('admin.room.destroy',$room->id) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" title="Eliminar" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
                       </form>
-
                       <form method="POST" action="{{route('admin.room.updateIsActive', ['room' => $room->id] )}}" class="d-inline">
                           @csrf
                           <input type="hidden" name="state" value="{{$room->is_active}}">
@@ -106,21 +132,22 @@
                             </button>
                           @endif
                       </form>
-
-                      <td style="vertical-align: middle;">
-                          @if ($room->is_active)
-                          <span style="width: 60px;" class="badge rounded-pill bg-success">{{$room->is_active ? 'Activo' : 'Inactivo'}}
-                          @else
-                          <span style="width: 60px;" class="badge rounded-pill bg-danger">{{$room->is_active ? 'Activo' : 'Inactivo'}}
-                          @endif</span>
-                      </td>
-
-                      <td style="vertical-align: middle;">{{$room->name}}</td>
-                      <td style="vertical-align: middle;">{{$room->description}}</td>
-                      <td style="vertical-align: middle;">{{$room->price}}</td>
-                      <td style="vertical-align: middle;">{{$room->number_beds}}</td>
-                      <td style="vertical-align: middle;">{{$room->number_people}}</td>
-                    </tr>
+                    </td>
+                    <td class="column-name"> {{ $room->name }}</td>
+                    <td class="column-description"> {{ $room->description }}</td>
+                    <td class="column-price"> S/ {{ $room->price }}</td>
+                    <td class="column-price"> S/ {{ $room->rental_price }}</td>
+                    <td class="column-"> {{ $room->has_offer ? 'Si' : 'No' }} </td>
+                    <td class="column-"> {{ $room->number_beds }}</td>
+                    <td class="column-"> {{ $room->number_people }}</td>
+                    <td>
+                      @if ($room->image)
+                        <img src="{{ asset('storage/rooms/'.$room->image) }}"  width="60" height="30">
+                      @else
+                        <img src="{{ asset('assets/image-slider/image-slider-default.png') }}"  width="60" height="30">
+                      @endif
+                    </td>
+                  </tr>
                 @endforeach
               </tbody>
             </table>

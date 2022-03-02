@@ -21,7 +21,7 @@ Habitaciones
               <ul class="mb-0">
                 @foreach ($errors->all() as $message)
                   <li>{{$message}}</li>
-          @endforeach
+           @endforeach
           </ul>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -55,6 +55,33 @@ Habitaciones
             <label class="mb-0" for="">Imagen</label>
             <input type="file" accept="image/*" class="form-control" name="image" id="image">
           </div>
+
+
+
+
+
+          
+          <div class="d-flex align-items-start">
+            <div>
+              <input type="checkbox" class="form-check-input" switch="none"  @if ($room->has_offer) checked @endif name="has_offer" id="has-offer" value="1">
+              <label for="has-offer" class="form-check-label user-select-none cursor-pointer " for="flexCheckIndeterminate" data-on-label="Si" data-off-label="No"></label>
+            </div>
+            <div style="padding-block-start: 3px;"> Agregar descuento</div>
+          </div>
+
+          <div class="d-none row" id="inputs-add-offer">
+            <div class="form-group mb-3">
+              <label for="discount" class="form-label">Descuento %</label>
+              <input id="discount" name="discount" type="number" class="form-control" value="{{$room->discount}}" placeholder="Ejemplo: 0">
+            </div>
+         </div>
+
+
+            {{-- <div class="form-group mb-3">
+              <label for="rental_price" class="form-label">Precio de alquiler</label>
+              <input readonly id="discorental_priceunt" name="rental_price" type="number" class="form-control" value="{{$room->rental_price}}" placeholder="Ejemplo: 0">
+            </div> --}}
+
           <a href="{{ route('admin.room.index') }}" class="btn btn-danger" tabindex="4">Cancelar</a>
           <button type="submit" class="btn btn-primary" tabindex="3">Actualizar</button>
         </form>
@@ -64,3 +91,20 @@ Habitaciones
 </div>
 </div>
 @endsection
+@section('scripts')
+  <script>
+    const $hasAddOffer = document.getElementById('has-offer')
+    const $inputsAddOffer = document.getElementById('inputs-add-offer')
+    $hasAddOffer.addEventListener('change', function(){
+      setClassTogggleDisplay()
+    })
+
+    function setClassTogggleDisplay(){
+      const method = $hasAddOffer.checked ? 'remove' : 'add'
+      $inputsAddOffer.classList[method]('d-none')
+    }
+    setClassTogggleDiplay()
+  </script>
+
+@endsection
+

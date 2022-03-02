@@ -21,6 +21,9 @@ class CreateRoomsTable extends Migration
       $table->text('image');
       $table->integer('number_beds');
       $table->integer('number_people');
+      $table->boolean('has_offer')->default(0);
+      $table->integer('discount')->nullable();
+      $table->decimal('rental_price', 5, 2);
       $table->boolean('is_active')->default(1);
       $table->timestamps();
     });

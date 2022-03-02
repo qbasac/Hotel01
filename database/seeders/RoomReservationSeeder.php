@@ -14,6 +14,7 @@ class RoomReservationSeeder extends Seeder
    */
   public function run()
   {
+    RoomReservation::truncate();
     RoomReservation::factory()->count(12)->create();
   }
 }

@@ -38,7 +38,8 @@ class RoomController extends Controller
 
   public function create()
   {
-    return view('backend.room.our-rooms.create');
+    $room = Room::first();
+    return view('backend.room.our-rooms.create', compact('room'));
   }
 
   public function store(Request $request)
@@ -54,6 +55,15 @@ class RoomController extends Controller
       $request->file('image')->storeAs('public/rooms', $namefile);
       $room->image = $namefile;
     }
+    $room->has_offer = $request->has_offer ?? 0;
+    if($request->has_offer){
+      $room->discount = $request->discount;
+      $room->rental_price = $room->price - ($room->price * $request->discount / 100);
+    }else{
+      $room->discount = NULL;
+      $room->rental_price = $request->price;
+    }
+
     $room->save();
     return redirect()->route('admin.room.index')->with('created', 'Registro guardado exitósamente.');
   }
@@ -72,10 +82,22 @@ class RoomController extends Controller
     $room->description = $request->description;
     $room->number_beds = $request->beds;
     $room->number_people = $request->people;
+
+
     if ($request->file('image')) {
       $namefile = Carbon::now()->format("dmYHis") . "." . $request->file('image')->getClientOriginalExtension();
       $request->file('image')->storeAs('public/rooms', $namefile);
       $room->image = $namefile;
+    }
+
+    $room->has_offer = $request->has_offer ?? 0;
+
+    if($request->has_offer) {
+      $room->discount = $request->discount;
+      $room->rental_price = $room->price - ($room->price * $request->discount / 100);
+    } else {
+      $room->discount = NULL;
+      $room->rental_price = $request->price;
     }
     $room->save();
     return redirect()->route('admin.room.index')->with('created', 'Registro actualizado exitósamente.');
@@ -83,7 +105,7 @@ class RoomController extends Controller
 
   public function updateIsActive(Request $request, $id)
   {
-    
+
     $newState = $request->state ? 0 : 1;
     Room::whereId($id)->update([
       'is_active' => $newState

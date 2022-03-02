@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\home;
 use App\Models\Offers;
+use App\Models\Room;
 use App\Models\SliderHome;
 use Illuminate\Http\Request;
 
@@ -14,11 +15,10 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
     public function index()
-    {
+    {   $rooms = Room::where('has_offer', 1)->get();
         $home = home::first();
-        $offers = Offers ::where('is_active', 1)->get();
-        $slider_homes = SliderHome ::where('is_active', 1)->get();
-        return view('frontend.index', compact('slider_homes', 'home', 'offers'));
+        $slider_homes = SliderHome::where('is_active', 1)->get();
+        return view('frontend.index', compact('slider_homes', 'home', 'rooms'));
     }
 
 }

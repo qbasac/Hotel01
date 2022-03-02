@@ -9,7 +9,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Admin\RoomController as AdminRoomController;
 use App\Http\Controllers\Admin\SliderHomeController as AdminSliderHomeController;
-use App\Http\Controllers\Admin\OffersHomeController as AdminOffersHomeController;
 
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TestimonialController;
@@ -39,10 +38,6 @@ Auth::routes(['register' => false]);
     Route::resource('/home-slider', AdminSliderHomeController::class);
     Route::post('home-slider/update-is-active/{slider}', [AdminSliderHomeController::class, 'updateIsActive'])->name('home-slider.updateIsActive');
     Route::post('home-slider/show-section-slider/{slider}', [AdminSliderHomeController::class, 'ShowSectionSlider'])->name('home-slider.ShowSectionSlider');
-    Route::post('home-offers/show-section-offers/{offers}', [AdminOffersHomeController::class, 'ShowSectionOffers'])->name('home-offers.ShowSectionOffers');
-    Route::resource('/home-offers', AdminOffersHomeController::class);
-    Route::post('home-offers/update-is-active/{offer}', [AdminOffersHomeController::class, 'updateIsActive'])->name('home-offers.updateIsActive');
-
   });
 
  //frontend

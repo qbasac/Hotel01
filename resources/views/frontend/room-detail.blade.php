@@ -91,7 +91,8 @@
             <figure>
               <img src="{{ asset("storage/rooms/$room->image")}}" alt="oscarthemes" />
               <a href="#" class="price-tag th-bg">
-                S/ {{ $room->price }}
+
+                 S/ {{ $room->price }}
               </a>
             </figure>
             <div class="text">

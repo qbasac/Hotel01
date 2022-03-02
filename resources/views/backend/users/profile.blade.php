@@ -200,7 +200,6 @@ Usuarios
   </div>
   @endsection
 
-
   @section('scripts')
   <script>
     const $isChangePassword = document.getElementById('is_change_password')
@@ -244,7 +243,6 @@ Usuarios
     letterUpload.style.opacity = '0'
   })
 }
-
 </script>
 
   @endsection

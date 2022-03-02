@@ -14,7 +14,7 @@ class SliderHomeFactory extends Factory
     {
         return [
           'sub_title' => $this->faker->sentence(2, true),
-          'title' => $this->faker->sentence(4, true),
+          'title' => $this->faker->words(4, true),
           'description' => $this->faker->text(500),
           'link_1' => $this->faker->url(),
           'link_2' => $this->faker->url(),

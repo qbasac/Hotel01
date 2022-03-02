@@ -1,3 +1,30 @@
+
+ @section('style')
+ <style>
+ .paragraph_name{
+   inline-size: 320px;
+   max-inline-size: 305px;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   white-space: nowrap;
+ }
+
+ .paragraph_description{
+    inline-size: 320px;
+    max-inline-size: 305px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+ }
+
+ .old_price{
+  text-decoration:line-through;
+ }
+ </style>
+@endsection
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,6 +49,8 @@
     <link rel="icon" sizes="192x192" href="images/favicon/icon-192x192.png">
 
     @yield('style')
+
+
 </head>
     <body>
         <!-- LOADER -->
@@ -242,25 +271,28 @@
 <!--Banner Wrap End-->
 <div class="main-contant">
 
-  @if ($home->show_section_offers)
   <section>
-        <div class="container">
+        <div  class="container">
             <div class="headind-1 text-center">
                 <h3 class="title">Nuestras ofertas especiales</h3>
             </div>
             <div class="row">
               <ul style="list-style:none;">
-              @foreach ( $offers as $offer )
+              @foreach ( $rooms as $room )
                 <li class="port-item col-md-4 col-sm-6">
                   <div class="fancy-effect">
-                      <a href="#" class="chr-event-thumb fancy-thumb">
+                      <a href="{{ route('room.show',['room' => $room->id]) }}" class="chr-event-thumb fancy-thumb">
                           <figure>
-                              <img src="{{ asset('storage/offers-image/'.$offer->offer_image) }}" alt="Oscar Themes"/>
+                              <img src="{{ asset("storage/rooms/$room->image")}}" alt="Oscar Themes"/>
                           </figure>
                           <div class="text p-middel">
-                              <p>{{$offer->title}} </p>
-                              <h3 class="th-cl">70%</h3>
-                              <p>Reserve con antelación y ahorre </p>
+                              <p class="paragraph_name">{{$room->name}} </p>
+                              <h3 class="th-cl">{{$room->discount}}%</h3>
+
+                              <h6 class="th-cl old_price">Antes: S/.{{$room->price}}</h6>
+                              <h4 class="th-cl">Ahora: S/.{{$room->rental_price}}</h4>
+
+                              <p class="paragraph_description">{{$room->description}}</p>
                           </div>
                       </a>
                   </div>
@@ -270,9 +302,6 @@
             </div>
         </div>
     </section>
-    @else
-
-@endif
 
 
     <!--Offers Section End-->

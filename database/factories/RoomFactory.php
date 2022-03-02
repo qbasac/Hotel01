@@ -15,10 +15,12 @@ class RoomFactory extends Factory
    */
   public function definition()
   {
+    $price = $this->faker->randomFloat(2,25, 100);
     return [
       'name' => $this->faker->sentence(6, true),
       'description' => $this->faker->text(100),
-      'price' => $this->faker->randomFloat(2,25, 100),
+      'price' => $price,
+      'rental_price' => $price,
       'image' => $this->faker->image('public/storage/rooms',370, 255,'cats', false),
       'number_beds' => $this->faker->randomNumber(4),
       'number_people' => $this->faker->randomNumber(1),
