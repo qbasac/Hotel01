@@ -56,6 +56,25 @@
           </div>
           <hr>
 
+          @if (session('created'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('created') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
+          @if (session('updated'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('updated') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
+          @if (session('deleted'))
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('deleted') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
+          
           <form class="row justify-content-end" action="{{ route('admin.room.index') }}" method="GET" autocomplete="off">
             <div class="form-group col-12 col-md-6 col-lg-4">
               <label for="" class="mb-0">Buscar</label>

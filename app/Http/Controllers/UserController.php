@@ -61,7 +61,7 @@ class UserController extends Controller
     $users->nick_name = $request->nick_name;
     if($request->file('avatar')){
       $namefile = Carbon::now()->format("dmYHis").".".$request->file('avatar')->getClientOriginalExtension();
-      $request->file('avatar')->storeAs('public/avatar', $namefile);
+      $request->file('avatar')->storeAs('public/users', $namefile);
       $users->avatar = $namefile;
     }
     $users->save();
@@ -100,11 +100,26 @@ class UserController extends Controller
     $user->email = $request->email;
     if($request->file('avatar')){
       $namefile = Carbon::now()->format("dmYHis").".".$request->file('avatar')->getClientOriginalExtension();
-      $request->file('avatar')->storeAs('public/avatar', $namefile);
+      $request->file('avatar')->storeAs('public/users', $namefile);
       $user->avatar = $namefile;
     }
 
-    if(!Hash::check($request->current_password, auth()->user()->password)) {
+    $user->save();
+
+    // if($request->isChangePassword){
+    //   if (Hash::check($request->current_password, auth()->user()->password)) {
+    //     $user->fill([
+    //       'password' => Hash::make($request->get('new_password'))
+    //     ])
+    //     ->save();
+    //   } else {
+    //     throw ValidationException::withMessages([
+    //       'messages' => ['La contraseña actual no es la correcta']
+    //     ]);
+    //   }
+    // }
+
+   if(!Hash::check($request->current_password, auth()->user()->password)) {
       return back()->withErrors(['currentPasswordError' => 'La contraseña actual no es correcta.'])->withInput();
     }
     if($request->new_password != $request->new_confirm_password) {
@@ -116,7 +131,8 @@ class UserController extends Controller
       $user->password = Hash::make($request->new_password);
     }
     $user->save();
-    return back();
+
+    return back()->with('updated' , 'Registro Actualizado correctamente');
   }
 
   public function ShowSectionStaff(Request $request, $id)

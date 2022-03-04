@@ -23,7 +23,11 @@ class UpdateProfileRequest extends FormRequest
    */
   public function rules()
   {
+
+
     return [
+      'avatar' => '|image',
+      'email' => 'required|email|unique:users,email,'.auth()->user()->id,
       'current_password' => 'required_if:is_change_password,1',
       'new_password' => 'required_if:is_change_password,1',
       'new_confirm_password' => 'required_if:is_change_password,1',

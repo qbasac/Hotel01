@@ -97,7 +97,7 @@ Usuarios
             <p class="text-danger">{{ $error }}</p>
             @endforeach
 
-            <form method="POST" action="{{ route('profile.update') }}" class="row justify-content-between" autocomplete="off">
+            <form method="POST" action="{{ route('profile.update') }}" class="row justify-content-between" enctype="multipart/form-data" autocomplete="off">
               @csrf
                   <div class="col-12 col-md-6 col-lg-4 mb-2">
                     <div class="form-group mb-2">
@@ -151,45 +151,21 @@ Usuarios
                     </div>
 
 
-                    {{-- <div class="col-12 col-lg-5  text-center">
-                      <div class="file_container">
-                        <input  type="file" class="file_input" id="file_input" name="avatar" accept="image/*">
-                          <img id="file_image" class="file_image" src="{{ asset('storage/users/'.Auth::user()->avatar) }}" alt="oscarthemes">
-                        </input>
-                      </div>
-                   </div> --}}
-
-
-                   {{-- <div class="card" >
-                     <div class="file_container">
-                       <input type="file" class="file_input" id="file_input" name="avatar" accept="image/*">
-                       <img id="file_image" class="file_image">
-                       <small id="letter-upload" class="file_letter">Subir Imagen</small>
-                     </div>
-                   </div> --}}
-
-
-
                     <div class="col-12 col-lg-12">
                       <button type="submit" class="btn btn-primary"> Actualizar perfil </button>
                     </div>
                   </div>
 
-  <div class="col-12 col-lg-5  text-center">
+
+                   <div class="col-12 col-lg-5  text-center">
+
+                    <div class="mb-3">
                       <div class="file_container">
                         <input  type="file" class="file_input" id="file_input" name="avatar" accept="image/*">
                           <img id="file_image" class="file_image" src="{{ asset('storage/users/'.Auth::user()->avatar) }}" alt="oscarthemes">
                         </input>
                       </div>
                    </div>
-
-                    {{-- <div class="col-12 col-lg-5  text-center">
-                          <div class="mb-3">
-                          <label class="mb-0" for="">Avatar <small class="text-muted"> (Tamaño de imagen recomendado 220px x 290px) </small></label>
-                          <input type="file" accept="image/*" class="form-control" name="avatar" id="avatar">
-                        </div>
-                     </div> --}}
-
 
                 </div>
             </form>

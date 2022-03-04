@@ -59,6 +59,14 @@ Auth::routes(['register' => false]);
 Route::get('/nosotros', [AboutUsController::class, 'index'])->name('nosotros');
 Route::get('/habitacion-detalle', [RoomController::class,  'roomDetail'])->name('habitacion-detalle');
 
+
+// Route::resource('/home', HomeController::class);
+Route::get('/home',[HomeController::class, 'index'])->name('home');
+Route::resource('/room-search', HomeController::class);
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+
 // Route::get('/habitacion', [RoomController::class,  'index'])->name('habitacion');
 
 Route::resource('/habitacion', RoomController::class);
@@ -91,9 +99,6 @@ Route::resource('/habitacion', RoomController::class);
 
 // Route::get('galeria-maposteria', 'GaleriaController@galeriaMaposteria')->name('galeria-maposteria');
 // Route::get('galeria-simple', 'GaleriaController@galeriaSimple')->name('galeria-simple');
-
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Route::get('/inicio','IndexController@indexBackend')->name('inicio');

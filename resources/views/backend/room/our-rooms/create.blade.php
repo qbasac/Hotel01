@@ -8,6 +8,16 @@
   Usuarios
 @endsection
 
+@section('styles')
+  <style>
+    input[switch]+label,
+    input[switch]:checked+label:before,
+    input[switch]:checked+label:after {
+    transform: scale(.9)
+  }
+  </style>
+@endsection
+
 @section('content')
   <div class="page-content-wrapper">
     <div class="row">
@@ -35,27 +45,39 @@
             <form action="{{ route('admin.room.store') }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
               @csrf
               <div class="mb-3">
-                <label for="name" class="form-label">Nombre</label>
+                <label for="name" class="form-label">Nombre
+                  <span class="span-reqrired">*</span>
+                </label>
                 <input id="name" name="name" id="name" type="text" class="form-control" value="{{ old('name') }}"  placeholder="Complete este campo..." autofocus>
               </div>
               <div class="mb-3">
-                <label for="price" class="form-label">Precio</label>
+                <label for="price" class="form-label">Precio
+                  <span class="span-reqrired">*</span>
+                </label>
                 <input id="price" name="price" id="price" type="text" class="form-control" value="{{ old('price') }}"  placeholder="Complete este campo..." autofocus>
               </div>
               <div class="mb-3">
-                <label for="description" class="form-label">Descripción </label>
-                <input id="description" name="description" type="description" class="form-control" value="{{ old('description') }}" placeholder="Complete este campo...">
+                <label for="description" class="form-label">Descripción
+                  <span class="span-reqrired">*</span>
+                </label>
+                <textarea id="description" name="description" type="text" class="form-control" value="{{ old('description') }}" placeholder="Complete su comentario..."></textarea>
               </div>
               <div class="mb-3">
-                <label for="beds" class="form-label">Cantidad de camas</label>
+                <label for="beds" class="form-label">Cantidad de camas
+                  <span class="span-reqrired">*</span>
+                </label>
                 <input id="beds" name="beds" type="text" class="form-control" value="{{ old('number_beds') }}" placeholder="Complete este campo...">
               </div>
               <div class="mb-3">
-                <label for="people" class="form-label">Cantidad de personas</label>
+                <label for="people" class="form-label">Cantidad de personas
+                  <span class="span-reqrired">*</span>
+                </label>
                 <input id="people" name="people" type="text" class="form-control" value="{{ old('number_people') }}" placeholder="Complete este campo...">
               </div>
               <div class="form-group mb-3">
-                <label class="mb-0" for="">Imagen de fondo</label>
+                <label class="mb-0" for="">Imagen de fondo
+                  <span class="span-reqrired">*</span>
+                </label>
                 <input type="file" accept="image/*" class="form-control" name="image" id="image">
               </div>
 

@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  public function scopeActive($query)
+  {
+      $query->where('is_active', 1);
+  }
+
 }

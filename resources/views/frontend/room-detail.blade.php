@@ -5,18 +5,7 @@
     .rq-check-inout-single-wrapper::before {
       display: none;
       content: "\f073";
-      /* font-family: 'Font Awesome 5 Free';
-        cursor: pointer;
-        opacity: 0.7; */
     }
-
-    /*
-      .rq-check-inout-single-wrapper:hover::before {
-        opacity: 1;
-      }
-      .input-date::before {
-        opacity: 0;
-      } */
     .input-date {
       inline-size: 100%;
     }
@@ -69,6 +58,46 @@
     }
 
 
+  :focus::placeholder {
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+
+  .has_offer{
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: inline-block;
+  font-weight: 600;
+  background: #ff1212;
+  padding: 0 1rem;
+  color: white;
+  }
+
+
+
+  .room_quantity{
+   margin: 5px !important; display: block; inline-size: 100%;text-align: center;
+  }
+
+  .has_offer_if{
+    text-align: center;margin: 1rem 0 .5rem;
+  }
+
+  .sup_room_price{
+    text-decoration: line-through;color: #969696;
+  }
+
+  .span_rental_price{
+    font-weight: 600; font-size: 2rem
+  }
+
+  .btn_reservar{
+    text-align: center;
+  }
+
+
   </style>
 @endsection
 
@@ -89,19 +118,30 @@
         <div class="col-sm-12 col-md-5">
           <div class="chr-room-thumb fancy-thumb">
             <figure>
-              <img src="{{ asset("storage/rooms/$room->image")}}" alt="oscarthemes" />
-              <a href="#" class="price-tag th-bg">
+              <img src='{{ asset("storage/rooms/$room->image")}}' alt="oscarthemes"/>
 
-                 S/ {{ $room->price }}
-              </a>
+              @if ($room->has_offer)
+              <div class="has_offer"
+                <span>Desct. {{ $room->discount }}%</span>
+              </div>
+              @endif
             </figure>
             <div class="text">
-              <h4 class="title"><a href="{{ route('habitacion-detalle')}}">{{ $room->name }}</a></h4>
-              <p>{{ $room->description }}</p>
-              <ul class="blog-meta">
-                <li><i class="fa fa-bed th-cl"></i><span>{{ $room->number_beds }} Cama</span></li>
-                <li><i class="fa fa-user th-cl"></i><span>{{ $room->number_people }} Duerme</span></li>
-              </ul>
+                <h4 class="title"><a href="{{ route('room.show',['room' => $room->id]) }}">{{ $room->name }}</a></h4>
+                <p>{{ $room->description }}</p>
+                <ul class="room_quantity blog-meta">
+                  <li><i class="fa fa-bed th-cl"></i><span>{{ $room->number_beds }} Cama</span></li>
+                  <li><i class="fa fa-user th-cl"></i><span>{{ $room->number_people }} Duerme</span></li>
+                </ul>
+                <div class="has_offer_if">
+                  @if ($room->has_offer)
+                    <sup class="sup_room_price">S/{{ number_format(ceil($room->price),2) }}</sup>
+                  @endif
+                  <span class="span_rental_price">
+                    S/ {{ number_format(ceil($room->rental_price),2) }}
+                  </span>
+                </div>
+
             </div>
           </div>
         </div>

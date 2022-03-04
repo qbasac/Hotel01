@@ -198,75 +198,75 @@
                 <!-- Top Bar Start -->
             </header>
 
-@if ($home->show_section_slider)
-    <div  class="chr_banner banner-hotel">
-        <ul class="slider arrows">
+        @if ($home->show_section_slider)
+            <div  class="chr_banner banner-hotel">
+                <ul class="slider arrows">
 
-          @forelse ($slider_homes as $slider_home)
-          <li class="">
-                <div>
-                    <img src="{{ asset('storage/slider-image/'.$slider_home->slider_image) }}" alt="Image here">
-                    <div class="chr-caption-wrapper">
-                        <div class="chr_banner_caption container">
-                            <div class="chr-caption">
-                                <h6 data-animation="fadeInUp" data-delay="0.3s" class="chr-caption-title">{{$slider_home->sub_title}}</h6>
-                                <h6 data-animation="fadeInUp" data-delay="0.5s" class="chr-caption-text">{{$slider_home->title}}</h6>
-                                <p data-animation="fadeInUp" data-delay="1s" class="chr-caption-contant">
-                                  {{$slider_home->description}}
-                                </p>
-                                @if ($slider_home->link_1)
-                                  <a href="{{$slider_home->link_1}}" data-animation="fadeInLeft" data-delay="1.3s" class="chr-btn fancy-btn">Explorar</a>
-                                @else
+                  @forelse ($slider_homes as $slider_home)
+                  <li class="">
+                        <div>
+                            <img src="{{ asset('storage/slider-image/'.$slider_home->slider_image) }}" alt="Image here">
+                            <div class="chr-caption-wrapper">
+                                <div class="chr_banner_caption container">
+                                    <div class="chr-caption">
+                                        <h6 data-animation="fadeInUp" data-delay="0.3s" class="chr-caption-title">{{$slider_home->sub_title}}</h6>
+                                        <h6 data-animation="fadeInUp" data-delay="0.5s" class="chr-caption-text">{{$slider_home->title}}</h6>
+                                        <p data-animation="fadeInUp" data-delay="1s" class="chr-caption-contant">
+                                          {{$slider_home->description}}
+                                        </p>
+                                        @if ($slider_home->link_1)
+                                          <a href="{{$slider_home->link_1}}" data-animation="fadeInLeft" data-delay="1.3s" class="chr-btn fancy-btn">Explorar</a>
+                                        @else
 
-                                @endif
+                                        @endif
 
-                                @if ($slider_home->link_2)
-                                <a href="{{$slider_home->link_2}}" data-animation="fadeInRight" data-delay="1.3s" class="chr-btn fancy-btn">Bok Ahora</a>
-                                @else
+                                        @if ($slider_home->link_2)
+                                        <a href="{{$slider_home->link_2}}" data-animation="fadeInRight" data-delay="1.3s" class="chr-btn fancy-btn">Bok Ahora</a>
+                                        @else
 
-                                @endif
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </li>
+                  @empty
+                  @endforelse
+
+                </ul>
+                <div class="widget widget-booking">
+                    <div class="booking-form">
+                        <h3 class="title th-bd">Reserva de habitaciones</h3>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input-field">
+                                      RESERVA AHORA Y DISFRUTA DE UNA EXPERIENCIA DIFERENTE CON NOSOTROS
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-field">
+                              <a style="text-align: center" class="chr-btn th-bg" href="{{ route('habitacion.index')}}"> RESERVAR AHORA</a>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </li>
-          @empty
-          @endforelse
-
-        </ul>
-        <div class="widget widget-booking">
-            <div class="booking-form">
-                <h3 class="title th-bd">Reserva de habitaciones</h3>
-                <form>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="input-field">
-                              RESERVA AHORA Y DISFRUTA DE UNA EXPERIENCIA DIFERENTE CON NOSOTROS
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-field">
-                       <a style="text-align: center" class="chr-btn th-bg" href="{{ route('habitacion.index')}}"> RESERVAR AHORA</a>
-                    </div>
-                </form>
             </div>
-        </div>
-    </div>
-@else
-<div class="widget widget-booking">
-  <div style="background: #0C4459" class="booking-form">
-      <h3 class="title th-bd"></h3>
-      <form>
-          <div class="row">
-              <div class="col-md-12">
-                  <div class="input-field">
+        @else
+        <div class="widget widget-booking">
+          <div style="background: #0C4459" class="booking-form">
+              <h3 class="title th-bd"></h3>
+              <form>
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="input-field">
+                          </div>
+                      </div>
                   </div>
-              </div>
+              </form>
           </div>
-      </form>
-  </div>
-</div>
-@endif
+        </div>
+        @endif
 
 <!--Banner Wrap End-->
 <div class="main-contant">
@@ -281,16 +281,18 @@
               @foreach ( $rooms as $room )
                 <li class="port-item col-md-4 col-sm-6">
                   <div class="fancy-effect">
+
                       <a href="{{ route('room.show',['room' => $room->id]) }}" class="chr-event-thumb fancy-thumb">
                           <figure>
                               <img src="{{ asset("storage/rooms/$room->image")}}" alt="Oscar Themes"/>
                           </figure>
                           <div class="text p-middel">
                               <p class="paragraph_name">{{$room->name}} </p>
-                              <h3 class="th-cl">{{$room->discount}}%</h3>
-
                               <h6 class="th-cl old_price">Antes: S/.{{$room->price}}</h6>
-                              <h4 class="th-cl">Ahora: S/.{{$room->rental_price}}</h4>
+                              <h3 class="th-cl">S/.{{$room->rental_price}}</h3>
+
+                              <h4 class="th-cl">Desct. {{$room->discount}}%</h4>
+
 
                               <p class="paragraph_description">{{$room->description}}</p>
                           </div>

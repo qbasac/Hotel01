@@ -14,7 +14,7 @@ Habitaciones
             <h6>
               <i class="fas fa-hotel pe-1"></i> Reserva habitaciones
             </h6>
-            <!-- <a href="{{ route('room-reservation.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>  -->
+             <a href="{{ route('room-reservation.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a> 
           </div>
 
           <hr>
