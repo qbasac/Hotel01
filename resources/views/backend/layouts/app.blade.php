@@ -219,6 +219,7 @@
         <script src="{{ asset('backend/assets/libs/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
         <script src="{{asset('backend/assets/js/app.js')}}"></script>
 
+        <script src="{{ asset('js/app.js') }}"></script>
         @yield('scripts')
 
     </body>

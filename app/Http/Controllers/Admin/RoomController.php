@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRoomRequest;
+use App\Models\home;
 use App\Models\Room;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -31,10 +32,8 @@ class RoomController extends Controller
       ->orderBy($columnOrder, $orderBy)
       ->paginate(7);
 
-    // $rooms = Room::paginate(7);
-    // $rooms = Room::orderBy("price", "asc")->paginate(7);
-
-    return view('backend.room.our-rooms.index', compact('rooms'));
+    $home = home::first();
+    return view('backend.room.our-rooms.index', compact('rooms', 'home'));
   }
 
   public function create()
@@ -120,5 +119,15 @@ class RoomController extends Controller
     $room->delete();
 
     return redirect()->route('admin.room.index');
+  }
+
+  public function ShowSectionOffer(Request $request, $id)
+  {
+
+    $newState = $request->state ? 0 : 1;
+    home::whereId($id)->update([
+      'show_section_offers' => $newState
+    ]);
+    return back();
   }
 }

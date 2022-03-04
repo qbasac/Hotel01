@@ -52,226 +52,226 @@
 
 
 </head>
-    <body>
+  <body>
         <!-- LOADER -->
-        <div id="loader-overflow">
-          <div id="loader3" class="loader-cont">Please enable JS</div>
-        </div>
-        <div class="chr-wrapper">
-            <header class="sticky-header header-1">
-                <!-- Top Bar Start -->
-                <div class="chr-top-bar">
-                    <div class="pull-left">
-                        <div class="chr-top-info"><i class="fa fa-phone"></i><span>+92 - 33267 -124589</span></div>
-                        <div class="chr-top-info email-info"><i class="fa fa-envelope"></i><span>oscarthemes@gmail.com</span></div>
-                    </div>
-                    <div class="pull-right">
-                        <ul class="chr-social rd-0">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-tripadvisor"></i></a></li>
-                        </ul>
-                        <a class="chr-top-info chr-admin" href="signup.html">
-                            <i class="fa fa-user"></i>
-                            <span>Signup</span>
-                        </a>
-                    </div>
+    <div id="loader-overflow">
+      <div id="loader3" class="loader-cont">Please enable JS</div>
+    </div>
+    <div class="chr-wrapper">
+        <header class="sticky-header header-1">
+            <!-- Top Bar Start -->
+            <div class="chr-top-bar">
+                <div class="pull-left">
+                    <div class="chr-top-info"><i class="fa fa-phone"></i><span>+92 - 33267 -124589</span></div>
+                    <div class="chr-top-info email-info"><i class="fa fa-envelope"></i><span>oscarthemes@gmail.com</span></div>
                 </div>
-                <!-- Top Bar Start -->
-                <!-- Top Bar Start -->
-                <div class="chr-logo-outer">
-                    <div class="container">
-                        <div class="navigation-outer">
-                            <nav class="navigation pull-left">
-                                <ul>
-                                    <li class="active"><a href="{{ url('/') }}">Inicio</a></li>
-                                    <li class="{{ \Request::path() == 'nosotros' ? 'active' : ''}}"><a href="{{ route('nosotros') }}"> Sobre nosotros</a></li>
-                                    <li ><a href="{{ route('habitacion.index') }}">Habitaciones</a>
-                                    </li>
-                                    <li><a href="#">Evento</a>
-                                        <ul class="children">
-                                            <li><a href="{{-- route('evento-pequeño')  --}}">Evento Pequeño</a></li>
-                                            <li><a href="{{-- route('evento-mediano')  --}}">Evento Medio</a></li>
-                                            <li><a href="{{-- route('evento-grande')  --}}">Evento grande</a></li>
-                                            <li><a href="{{-- route('evento-lista') --}}">Lista de eventos</a></li>
-                                            <li><a href="{{-- route('evento-detalle') --}}">Detalle del evento</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </nav>
-                            <h1 class="logo">
-                                <a href="#"><img src="{{ asset('frontend/images/hotel-logo.png') }}" alt="Oscar Themes"/></a>
-                            </h1>
-                            <nav class="navigation pull-right">
-                                <ul>
-                                    <li><a href="#">Blog</a>
-                                        <ul class="children">
-                                            <li><a href="{{-- route('lateral-blog') --}}">Blog con Side</a></li>
-                                            <li><a href="{{-- route('pequeño-blog') --}}">Blog Pequeño</a></li>
-                                            <li><a href="{{-- route('mediano-blog') --}}">Blog Medio</a></li>
-                                            <li><a href="{{-- route('grande-blog')  --}}">Blog Grande</a></li>
-                                            <li><a href="{{-- route('lista-blog')  --}}">Lista de blogs</a></li>
-                                            <li><a href="{{-- route('detalle-blog')  --}}">Detalle del blog</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Galerí DASDADAa</a>
-                                        <ul class="children">
-                                            <li><a href="{{-- route('galeria-maposteria') --}}">Galería de mampostería</a></li>
-                                            <li><a href="{{-- route('galeria-simple') --}}">Galería simple</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="last">
-                                        <a href="#">Páginas</a>
-                                        <ul class="children">
-                                            <li><a href="{{-- route('404') --}}">404</a></li>
-                                            <li><a href="{{-- route('personal-pagina') --}}">Personal</a></li>
-                                            <li><a href="{{-- route('acceso-pagina') --}}">Inicio de sesión</a></li>
-                                            <li><a href="{{-- route('inscribase-pagina') --}}">Inscríbase en</a></li>
-                                            <li><a href="{{-- route('comingsoon-paginas') --}}">Comingsoon</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="{{-- route('contacto') --}}">Contacto con nosotros</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                            <!--DL Menu Start-->
-
-
-                            {{-- <div id="mg-responsive-navigation" class="dl-menuwrapper">
-                                <button class="dl-trigger">Abrir el menú</button>
-                                <ul class="dl-menu">
-                                    <li class="menu-item mg-parent-menu">
-                                        <a href="{{ route('home')}}">Inicio</a>
-                                    </li>
-                                    <li><a href="about-us.html">Sobre nosotros</a></li>
-                                    <li class="menu-item mg-parent-menu"><a href="#">Habitaciones</a>
-                                        <ul class="dl-submenu">
-                                            <li><a href="{{ route('habitacion')}}">Nuestras habitaciones</a></li>
-                                            <li><a href="">Lista de habitaciones</a></li>
-                                            <li><a href="{{ route('habitacion-detalle')}}">Detalle de la habitación</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item mg-parent-menu"><a href="#">Blog</a>
-                                        <ul class="dl-submenu">
-                                            <li><a href="{{ route('lateral-blog')}}">Blog con Side</a></li>
-                                            <li><a href="{{ route('pequeño-blog')}}l">Blog Pequeño</a></li>
-                                            <li><a href="{{ route('mediano-blog')}}">Blog Medio</a></li>
-                                            <li><a href="{{ route('grande-blog') }}">Blog Grande</a></li>
-                                            <li><a href="{{ route('lista-blog')}}">Lista de blogs</a></li>
-                                            <li><a href="{{ route('detalle-blog') }}">Detalle del blog</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item mg-parent-menu"><a href="#">Evento</a>
-                                        <ul class="children">
-                                            <li><a href="{{ route('evento-pequeño')}}">Evento Pequeño</a></li>
-                                            <li><a href="{{ route('evento-mediano')}}">Evento Medio</a></li>
-                                            <li><a href="{{ route('evento-grande')}}">Evento grande</a></li>
-                                            <li><a href="{{ route('evento-lista')}}">Lista de eventos</a></li>
-                                            <li><a href="{{ route('evento-detalle')}}">Detalle del evento</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item mg-parent-menu"><a href="#">Galería</a>
-                                        <ul class="dl-submenu">
-                                            <li><a href="{{ route('galeria-maposteria') }}">Galería de mampostería</a></li>
-                                            <li><a href="{{ route('galeria-simple') }}">Galería simple</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item mg-parent-menu"><a href="#">Páginas</a>
-                                        <ul class="dl-submenu">
-                                            <li><a href="{{ route('404') }}">404</a></li>
-                                            <li><a href="{{ route('personal-pagina') }}">Personal</a></li>
-                                            <li><a href="{{ route('acceso-pagina') }}">Inicio de sesión</a></li>
-                                            <li><a href="{{ route('inscribase-pagina') }}">Inscríbase en</a></li>
-                                            <li><a href="{{ route('comingsoon-paginas') }}">Comingsoon</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item mg-parent-menu"><a href="{{ route ('contacto')}}">Contacto con nosotros</a></li>
-                                </ul>
-                            </div> --}}
-
-                        </div>
-                    </div>
+                <div class="pull-right">
+                    <ul class="chr-social rd-0">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-tripadvisor"></i></a></li>
+                    </ul>
+                    <a class="chr-top-info chr-admin" href="signup.html">
+                        <i class="fa fa-user"></i>
+                        <span>Signup</span>
+                    </a>
                 </div>
-                <!-- Top Bar Start -->
-            </header>
+            </div>
+            <!-- Top Bar Start -->
+            <!-- Top Bar Start -->
+            <div class="chr-logo-outer">
+                <div class="container">
+                    <div class="navigation-outer">
+                        <nav class="navigation pull-left">
+                            <ul>
+                                <li class="active"><a href="{{ url('/') }}">Inicio</a></li>
+                                <li class="{{ \Request::path() == 'nosotros' ? 'active' : ''}}"><a href="{{ route('nosotros') }}"> Sobre nosotros</a></li>
+                                <li ><a href="{{ route('habitacion.index') }}">Habitaciones</a>
+                                </li>
+                                <li><a href="#">Evento</a>
+                                    <ul class="children">
+                                        <li><a href="{{-- route('evento-pequeño')  --}}">Evento Pequeño</a></li>
+                                        <li><a href="{{-- route('evento-mediano')  --}}">Evento Medio</a></li>
+                                        <li><a href="{{-- route('evento-grande')  --}}">Evento grande</a></li>
+                                        <li><a href="{{-- route('evento-lista') --}}">Lista de eventos</a></li>
+                                        <li><a href="{{-- route('evento-detalle') --}}">Detalle del evento</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                        <h1 class="logo">
+                            <a href="#"><img src="{{ asset('frontend/images/hotel-logo.png') }}" alt="Oscar Themes"/></a>
+                        </h1>
+                        <nav class="navigation pull-right">
+                            <ul>
+                                <li><a href="#">Blog</a>
+                                    <ul class="children">
+                                        <li><a href="{{-- route('lateral-blog') --}}">Blog con Side</a></li>
+                                        <li><a href="{{-- route('pequeño-blog') --}}">Blog Pequeño</a></li>
+                                        <li><a href="{{-- route('mediano-blog') --}}">Blog Medio</a></li>
+                                        <li><a href="{{-- route('grande-blog')  --}}">Blog Grande</a></li>
+                                        <li><a href="{{-- route('lista-blog')  --}}">Lista de blogs</a></li>
+                                        <li><a href="{{-- route('detalle-blog')  --}}">Detalle del blog</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Galerí DASDADAa</a>
+                                    <ul class="children">
+                                        <li><a href="{{-- route('galeria-maposteria') --}}">Galería de mampostería</a></li>
+                                        <li><a href="{{-- route('galeria-simple') --}}">Galería simple</a></li>
+                                    </ul>
+                                </li>
+                                <li class="last">
+                                    <a href="#">Páginas</a>
+                                    <ul class="children">
+                                        <li><a href="{{-- route('404') --}}">404</a></li>
+                                        <li><a href="{{-- route('personal-pagina') --}}">Personal</a></li>
+                                        <li><a href="{{-- route('acceso-pagina') --}}">Inicio de sesión</a></li>
+                                        <li><a href="{{-- route('inscribase-pagina') --}}">Inscríbase en</a></li>
+                                        <li><a href="{{-- route('comingsoon-paginas') --}}">Comingsoon</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="{{-- route('contacto') --}}">Contacto con nosotros</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!--DL Menu Start-->
 
-        @if ($home->show_section_slider)
-            <div  class="chr_banner banner-hotel">
-                <ul class="slider arrows">
 
-                  @forelse ($slider_homes as $slider_home)
-                  <li class="">
-                        <div>
-                            <img src="{{ asset('storage/slider-image/'.$slider_home->slider_image) }}" alt="Image here">
-                            <div class="chr-caption-wrapper">
-                                <div class="chr_banner_caption container">
-                                    <div class="chr-caption">
-                                        <h6 data-animation="fadeInUp" data-delay="0.3s" class="chr-caption-title">{{$slider_home->sub_title}}</h6>
-                                        <h6 data-animation="fadeInUp" data-delay="0.5s" class="chr-caption-text">{{$slider_home->title}}</h6>
-                                        <p data-animation="fadeInUp" data-delay="1s" class="chr-caption-contant">
-                                          {{$slider_home->description}}
-                                        </p>
-                                        @if ($slider_home->link_1)
-                                          <a href="{{$slider_home->link_1}}" data-animation="fadeInLeft" data-delay="1.3s" class="chr-btn fancy-btn">Explorar</a>
-                                        @else
+                        {{-- <div id="mg-responsive-navigation" class="dl-menuwrapper">
+                            <button class="dl-trigger">Abrir el menú</button>
+                            <ul class="dl-menu">
+                                <li class="menu-item mg-parent-menu">
+                                    <a href="{{ route('home')}}">Inicio</a>
+                                </li>
+                                <li><a href="about-us.html">Sobre nosotros</a></li>
+                                <li class="menu-item mg-parent-menu"><a href="#">Habitaciones</a>
+                                    <ul class="dl-submenu">
+                                        <li><a href="{{ route('habitacion')}}">Nuestras habitaciones</a></li>
+                                        <li><a href="">Lista de habitaciones</a></li>
+                                        <li><a href="{{ route('habitacion-detalle')}}">Detalle de la habitación</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item mg-parent-menu"><a href="#">Blog</a>
+                                    <ul class="dl-submenu">
+                                        <li><a href="{{ route('lateral-blog')}}">Blog con Side</a></li>
+                                        <li><a href="{{ route('pequeño-blog')}}l">Blog Pequeño</a></li>
+                                        <li><a href="{{ route('mediano-blog')}}">Blog Medio</a></li>
+                                        <li><a href="{{ route('grande-blog') }}">Blog Grande</a></li>
+                                        <li><a href="{{ route('lista-blog')}}">Lista de blogs</a></li>
+                                        <li><a href="{{ route('detalle-blog') }}">Detalle del blog</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item mg-parent-menu"><a href="#">Evento</a>
+                                    <ul class="children">
+                                        <li><a href="{{ route('evento-pequeño')}}">Evento Pequeño</a></li>
+                                        <li><a href="{{ route('evento-mediano')}}">Evento Medio</a></li>
+                                        <li><a href="{{ route('evento-grande')}}">Evento grande</a></li>
+                                        <li><a href="{{ route('evento-lista')}}">Lista de eventos</a></li>
+                                        <li><a href="{{ route('evento-detalle')}}">Detalle del evento</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item mg-parent-menu"><a href="#">Galería</a>
+                                    <ul class="dl-submenu">
+                                        <li><a href="{{ route('galeria-maposteria') }}">Galería de mampostería</a></li>
+                                        <li><a href="{{ route('galeria-simple') }}">Galería simple</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item mg-parent-menu"><a href="#">Páginas</a>
+                                    <ul class="dl-submenu">
+                                        <li><a href="{{ route('404') }}">404</a></li>
+                                        <li><a href="{{ route('personal-pagina') }}">Personal</a></li>
+                                        <li><a href="{{ route('acceso-pagina') }}">Inicio de sesión</a></li>
+                                        <li><a href="{{ route('inscribase-pagina') }}">Inscríbase en</a></li>
+                                        <li><a href="{{ route('comingsoon-paginas') }}">Comingsoon</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item mg-parent-menu"><a href="{{ route ('contacto')}}">Contacto con nosotros</a></li>
+                            </ul>
+                        </div> --}}
 
-                                        @endif
-
-                                        @if ($slider_home->link_2)
-                                        <a href="{{$slider_home->link_2}}" data-animation="fadeInRight" data-delay="1.3s" class="chr-btn fancy-btn">Bok Ahora</a>
-                                        @else
-
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                  @empty
-                  @endforelse
-
-                </ul>
-                <div class="widget widget-booking">
-                    <div class="booking-form">
-                        <h3 class="title th-bd">Reserva de habitaciones</h3>
-                        <form>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="input-field">
-                                      RESERVA AHORA Y DISFRUTA DE UNA EXPERIENCIA DIFERENTE CON NOSOTROS
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="input-field">
-                              <a style="text-align: center" class="chr-btn th-bg" href="{{ route('habitacion.index')}}"> RESERVAR AHORA</a>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
-        @else
-        <div class="widget widget-booking">
-          <div style="background: #0C4459" class="booking-form">
-              <h3 class="title th-bd"></h3>
-              <form>
-                  <div class="row">
-                      <div class="col-md-12">
-                          <div class="input-field">
-                          </div>
+            <!-- Top Bar Start -->
+        </header>
+
+    @if ($home->show_section_slider)
+        <div  class="chr_banner banner-hotel">
+            <ul class="slider arrows">
+
+              @forelse ($slider_homes as $slider_home)
+              <li class="">
+                    <div>
+                        <img src="{{ asset('storage/slider-image/'.$slider_home->slider_image) }}" alt="Image here">
+                        <div class="chr-caption-wrapper">
+                            <div class="chr_banner_caption container">
+                                <div class="chr-caption">
+                                    <h6 data-animation="fadeInUp" data-delay="0.3s" class="chr-caption-title">{{$slider_home->sub_title}}</h6>
+                                    <h6 data-animation="fadeInUp" data-delay="0.5s" class="chr-caption-text">{{$slider_home->title}}</h6>
+                                    <p data-animation="fadeInUp" data-delay="1s" class="chr-caption-contant">
+                                      {{$slider_home->description}}
+                                    </p>
+                                    @if ($slider_home->link_1)
+                                      <a href="{{$slider_home->link_1}}" data-animation="fadeInLeft" data-delay="1.3s" class="chr-btn fancy-btn">Explorar</a>
+                                    @else
+
+                                    @endif
+
+                                    @if ($slider_home->link_2)
+                                    <a href="{{$slider_home->link_2}}" data-animation="fadeInRight" data-delay="1.3s" class="chr-btn fancy-btn">Bok Ahora</a>
+                                    @else
+
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+              @empty
+              @endforelse
+
+            </ul>
+            <div class="widget widget-booking">
+                <div class="booking-form">
+                    <h3 class="title th-bd">Reserva de habitaciones</h3>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-field">
+                                  RESERVA AHORA Y DISFRUTA DE UNA EXPERIENCIA DIFERENTE CON NOSOTROS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                          <a style="text-align: center" class="chr-btn th-bg" href="{{ route('habitacion.index')}}"> RESERVAR AHORA</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @else
+    <div class="widget widget-booking">
+      <div style="background: #0C4459" class="booking-form">
+          <h3 class="title th-bd"></h3>
+          <form>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="input-field">
                       </div>
                   </div>
-              </form>
-          </div>
-        </div>
-        @endif
+              </div>
+          </form>
+      </div>
+    </div>
+    @endif
 
-<!--Banner Wrap End-->
+
 <div class="main-contant">
-
-  <section>
+    @if ($home->show_section_offers)
+    <section>
         <div  class="container">
             <div class="headind-1 text-center">
                 <h3 class="title">Nuestras ofertas especiales</h3>
@@ -304,9 +304,8 @@
             </div>
         </div>
     </section>
+    @endif
 
-
-    <!--Offers Section End-->
     <!--Services Tabs Section Start-->
     <section data-stellar-background-ratio="0.5"  class="parallax-section services-bg">
         <div class="container">

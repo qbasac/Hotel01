@@ -145,13 +145,16 @@
                 <option value="3" {{ request('prices') == 'price' && request('prices') ? 'selected' : '' }} >De 100 - más</option>
               </select>
             </div>
+
             <div style="cursor: pointer;"style="cursor: pointer;" class="col-sm-12 col-md-2">
-              <select  name="orderBy" id="form-price">
-                <option>Camas</option>
-                <option value="asc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De menor a mayor</option>
-                <option value="desc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De mayor a menor</option>
+              <select  name="number_beds" id="form-price">
+                <option value="0" {{ request('number_beds') == 'number_beds' && request('number_beds') ? 'selected' : '' }} >Cantidad de camas</option>
+                <option value="1" {{ request('number_beds') == 'number_beds' && request('number_beds') ? 'selected' : '' }} >De 10 - 50</option>
+                <option value="2" {{ request('number_beds') == 'number_beds' && request('number_beds') ? 'selected' : '' }} >De 51 - 100</option>
+                <option value="3" {{ request('number_beds') == 'number_beds' && request('number_beds') ? 'selected' : '' }} >De 100 - más</option>
               </select>
             </div>
+
             <div class="col-sm-12 col-md-1">
               <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
             </div>

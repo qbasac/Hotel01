@@ -52,7 +52,22 @@
             <h6 class="text-primary">
               <i class="fas fa-hotel me-1"></i> Nuestras habitaciones
             </h6>
-            <a href="{{ route('admin.room.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a>
+            <div>
+              <a href="{{ route('admin.room.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a>
+              <form  method="POST" action="{{route('admin.room.ShowSectionOffer', ['offers' => $home->id] )}}" class="d-inline">
+                @csrf
+                <input type="hidden" name="state" value="{{$home->show_section_offers}}">
+                @if ($home->show_section_offers)
+                <button  type="submit" class="btn btn btn-danger float-end" title="">
+                  Ocultar ofertas<i class="fas fa-eye-slash"></i>
+                </button>
+                @else
+                <button  type="submit" class="btn btn btn-success  " title="Cambiar estado">
+                  Mostrar ofertas <i class="fas fa-eye"></i>
+                </button>
+                @endif
+              </form>
+            </div>
           </div>
           <hr>
 
@@ -74,7 +89,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
           @endif
-          
+
           <form class="row justify-content-end" action="{{ route('admin.room.index') }}" method="GET" autocomplete="off">
             <div class="form-group col-12 col-md-6 col-lg-4">
               <label for="" class="mb-0">Buscar</label>
