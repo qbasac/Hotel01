@@ -12,15 +12,14 @@
         <div class="card-body">
           <div class="card-title">
             <h6 class="text-primary">
-              <i class="fas fa-hotel me-1"></i> Nuevo
+              <i class="fas fa-bed"></i> Nuevo
             </h6>
           </div>
           <hr>
-          <form action="{{ route('upload-images') }}" method="POST">
+          <form action="{{ route('admin.services.store') }}" method="POST" autocomplete="off">
             @csrf
-            <textarea id="editor" name="title"></textarea>
-            <textarea id="editor" name="description"></textarea>
-
+            <textarea id="editor" name="description" value="{{ old('description') }}"></textarea>
+            <br>
             <input type="submit" value="Send">
           </form>
         </div>

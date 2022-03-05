@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Services;
 use Illuminate\Http\Request;
 
 class ServicesController extends Controller
 {
     public function index()
     {
-      return view('backend.home.services.index');
+      $services = Services::get();
+      return view('backend.home.services.index', compact('services'));
     }
 
     public function create()
@@ -19,12 +21,16 @@ class ServicesController extends Controller
 
     public function store(Request $request)
     {
-        //
+      $services = new Services();
+      $services->description = $request->description;
+      $services->save();
+      return redirect()->route('admin.services.index')->with('created', 'Registro guardado exitósamente.');
     }
 
     public function edit($id)
     {
-      return view('backend.home.services.edit');
+      $service = Services::whereId($id)->first();
+      return view('backend.home.services.edit', compact('service'));
     }
 
     public function update(Request $request, $id)
