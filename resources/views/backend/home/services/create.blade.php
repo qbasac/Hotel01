@@ -16,11 +16,22 @@
             </h6>
           </div>
           <hr>
-          <form action="{{ route('admin.services.store') }}" method="POST" autocomplete="off">
+          <form action="{{ route('admin.services.store') }}" method="POST" enctype="multipart/form-data" autocomplete="off">
             @csrf
+            <div class="mb-3">
+              <label for="title" class="form-label">Titulo
+                <span class="span-reqrired">*</span>
+              </label>
+              <input id="title" name="title" id="title" type="text" class="form-control" value="{{ old('title') }}"  placeholder="Complete este campo..." autofocus>
+            </div>
+            <div class="form-group mb-3">
+              <label class="mb-0" for="">Imagen</label>
+              <input type="file" accept="image/*" class="form-control" name="image" id="image">
+            </div>
             <textarea id="editor" name="description" value="{{ old('description') }}"></textarea>
             <br>
-            <input type="submit" value="Send">
+            <a href="{{ route('admin.services.index') }}" class="btn btn-danger" tabindex="4">Cancelar</a>
+            <button type="submit" value="Send" class="btn btn-primary">Guardar <i class="far fa-paper-plane"></i></button>
           </form>
         </div>
       </div>

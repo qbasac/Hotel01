@@ -306,215 +306,150 @@
     </section>
     @endif
 
-    <!--Services Tabs Section Start-->
     <section data-stellar-background-ratio="0.5"  class="parallax-section services-bg">
-        <div class="container">
-            <!--Heading 1 Start-->
-            <div class="headind-1 white text-center">
-                <h3 class="title">Nuestros servicios</h3>
-            </div>
-            <!--Heading 1 End-->
-            <div class="chr-main-services">
-                <!-- Nav tabs Start -->
-                <ul class="main-services-tab" role="tablist">
-                    <li class="active" role="presentation"><a href="#spa" aria-controls="spa" role="tab" data-toggle="tab">Spa</a></li>
-                    <li role="presentation"><a href="#gym" aria-controls="gym" role="tab" data-toggle="tab">Gym</a></li>
-                    <li role="presentation"><a href="#restaurante" aria-controls="restaurante" role="tab" data-toggle="tab">RESTAURANTES</a></li>
-                    <li role="presentation"><a href="#animate" aria-controls="animate" role="tab" data-toggle="tab">Aminities</a></li>
-                </ul>
-                <!-- Nav tabs End -->
-                <!-- Tab panes Start -->
-                <div class="tab-content">
-                    <!-- Tabs Panel Start -->
-                    <div role="tabpanel" class="tab-pane active" id="spa">
-                        <!--About Us Inner Wrap Start-->
-                        <div class="chr-about-wrap">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    <figure class="fancy-btn">
-                                        <img src="{{asset('frontend/extra-images/about-spa.jpg')}}" alt="Oscar Themes"/>
-                                    </figure>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="text">
-                                        <h3 class="title">Spa</h3>
-                                        <p>Lorem ipsum dolor sit amet, maiestatis scriptorem at duo, mei ne porro pertinacia repudiandae. Nisl possim delicata nam et, saepe gubergren sed eu. Regione detracto petentium qui id. Ut nusquam recusabo eos, justo accusam sea et. Nostro commune.</p>
-                                        <ul class="chr-sr-list">
-                                            <li>Waterbom Bali</li>
-                                            <li>Experiencia de seguimiento</li>
-                                            <li>Pueblo de Mayong </li>
-                                            <li>Cascadas de Sekumpul</li>
-                                            <li>Palacio del Agua de Ujung</li>
-                                            <li>Tirta Gangga</li>
-                                            <li>Buceo y snorkel</li>
-                                            <li>Visitas en barco</li>
-                                        </ul>
-                                        <a href="#" class="chr-btn fancy-btn">Leer más</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--About Us Inner Wrap End-->
-                    </div>
-                    <!-- Tabs Panel End -->
-                    <!-- Tabs Panel Start -->
-                    <div role="tabpanel" class="tab-pane" id="gym">
-                        <!--About Us Inner Wrap Start-->
-                        <div class="chr-about-wrap">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    <figure class="fancy-btn">
-                                        <img src="{{asset('frontend/extra-images/about-gym.jpg')}}" alt="Oscar Themes"/>
-                                    </figure>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="text">
-                                        <h3 class="title">Gym</h3>
-                                        <p>Lorem ipsum dolor sit amet, maiestatis scriptorem at duo, mei ne porro pertinacia repudiandae. Nisl possim delicata nam et, saepe gubergren sed eu. Regione detracto petentium qui id. Ut nusquam recusabo eos, justo accusam sea et. Nostro commune. </p>
-                                        <ul class="chr-sr-list">
-                                            <li>Waterbom Bali</li>
-                                            <li>Experiencia de seguimiento</li>
-                                            <li>Pueblo de Mayong </li>
-                                            <li>Cascadas de Sekumpul</li>
-                                            <li>Palacio del Agua de Ujung</li>
-                                            <li>Tirta Gangga</li>
-                                            <li>Buceo y snorkel</li>
-                                            <li>Visitas en barco</li>
-                                        </ul>
-                                        <a href="#" class="chr-btn fancy-btn">Leer más</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--About Us Inner Wrap End-->
-                    </div>
-                    <!-- Tabs Panel End -->
-                    <!-- Tabs Panel Start -->
-                    <div role="tabpanel" class="tab-pane" id="restaurante">
-                        <!--About Us Inner Wrap Start-->
-                        <div class="chr-about-wrap">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    <figure class="fancy-btn">
-                                        <img src="{{asset('frontend/extra-images/about-restaurante.jpg')}}" alt="Oscar Themes"/>
-                                    </figure>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="text">
-                                        <h3 class="title">Restaurante</h3>
-                                        <p>Lorem ipsum dolor sit amet, maiestatis scriptorem at duo, mei ne porro pertinacia repudiandae. Nisl possim delicata nam et, saepe gubergren sed eu. Regione detracto petentium qui id. Ut nusquam recusabo eos, justo accusam sea et. Nostro commune.</p>
-                                        <ul class="chr-sr-list">
-                                            <li>Waterbom Bali</li>
-                                            <li>Experiencia de seguimiento</li>
-                                            <li>Pueblo de Mayong </li>
-                                            <li>Cascadas de Sekumpul</li>
-                                            <li>Palacio del Agua de Ujung</li>
-                                            <li>Tirta Gangga</li>
-                                            <li>Buceo y snorkel</li>
-                                            <li>Visitas en barco</li>
-                                        </ul>
-                                        <a href="#" class="chr-btn fancy-btn">Leer más</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--About Us Inner Wrap End-->
-                    </div>
-                    <!-- Tabs Panel End -->
-                    <!-- Tabs Panel Start -->
-                    <div role="tabpanel" class="tab-pane" id="animate">
-                        <!-- Aminities List Start -->
-                        <ul class="aminities-list">
-                            <li>
-                                <!-- Aminities Thumb Start -->
-                                <div class="aminities-thumb">
-                                    <span class="chricon-transport-1">
-                                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span><span class="path24"></span><span class="path25"></span><span class="path26"></span><span class="path27"></span><span class="path28"></span><span class="path29"></span>
-                                    </span>
-                                    <h6>Dormitorio principal</h6>
-                                </div>
-                                <!-- Aminities Thumb End -->
-                            </li>
-                            <li>
-                                <!-- Aminities Thumb Start -->
-                                <div class="aminities-thumb">
-                                    <span class="chricon-transport-1">
-                                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span><span class="path24"></span><span class="path25"></span><span class="path26"></span><span class="path27"></span><span class="path28"></span><span class="path29"></span>
-                                    </span>
-                                    <h6>Servicio de recogida y entrega</h6>
-                                </div>
-                                <!-- Aminities Thumb End -->
-                            </li>
-                            <li>
-                                <!-- Aminities Thumb Start -->
-                                <div class="aminities-thumb">
-                                    <span class="chricon-transport-1">
-                                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span><span class="path24"></span><span class="path25"></span><span class="path26"></span><span class="path27"></span><span class="path28"></span><span class="path29"></span>
-                                    </span>
-                                    <h6>Cajero automático disponible</h6>
-                                </div>
-                                <!-- Aminities Thumb End -->
-                            </li>
-                            <li>
-                                <!-- Aminities Thumb Start -->
-                                <div class="aminities-thumb">
-                                    <span class="chricon-transport-1">
-                                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span><span class="path24"></span><span class="path25"></span><span class="path26"></span><span class="path27"></span><span class="path28"></span><span class="path29"></span>
-                                    </span>
-                                    <h6>Balcón con vistas al mar</h6>
-                                </div>
-                                <!-- Aminities Thumb End -->
-                            </li>
-                            <li>
-                                <!-- Aminities Thumb Start -->
-                                <div class="aminities-thumb">
-                                    <span class="chricon-transport-1">
-                                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span><span class="path24"></span><span class="path25"></span><span class="path26"></span><span class="path27"></span><span class="path28"></span><span class="path29"></span>
-                                    </span>
-                                    <h6>Restaurante sabroso</h6>
-                                </div>
-                                <!-- Aminities Thumb End -->
-                            </li>
-                            <li>
-                                <!-- Aminities Thumb Start -->
-                                <div class="aminities-thumb">
-                                    <span class="chricon-transport-1">
-                                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span><span class="path24"></span><span class="path25"></span><span class="path26"></span><span class="path27"></span><span class="path28"></span><span class="path29"></span>
-                                    </span>
-                                    <h6>Wifi gratuito</h6>
-                                </div>
-                                <!-- Aminities Thumb End -->
-                            </li>
-                            <li>
-                                <!-- Aminities Thumb Start -->
-                                <div class="aminities-thumb">
-                                    <span class="chricon-transport-1">
-                                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span><span class="path24"></span><span class="path25"></span><span class="path26"></span><span class="path27"></span><span class="path28"></span><span class="path29"></span>
-                                    </span>
-                                    <h6>Se admiten animales de compañía</h6>
-                                </div>
-                                <!-- Aminities Thumb End -->
-                            </li>
-                            <li>
-                                <!-- Aminities Thumb Start -->
-                                <div class="aminities-thumb">
-                                    <span class="chricon-transport-1">
-                                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span><span class="path24"></span><span class="path25"></span><span class="path26"></span><span class="path27"></span><span class="path28"></span><span class="path29"></span>
-                                    </span>
-                                    <h6>Servicio de habitaciones 24 / 7</h6>
-                                </div>
-                                <!-- Aminities Thumb End -->
-                            </li>
-                        </ul>
-                        <!-- Aminities List End -->
-                    </div>
-                    <!-- Tabs Panel End -->
-                </div>
-                <!-- Tab panes End -->
-            </div>
+      <div class="container">
+        <div class="headind-1 white text-center">
+          <h3 class="title">Nuestros servicios</h3>
         </div>
+
+
+
+
+
+
+        <div class="chr-main-services">
+          <ul class="main-services-tab" role="tablist">
+            @foreach ( $services as $service )
+              <li role="presentation" {{$loop->first ? 'class="active"' : ''}}>
+                <a href="#service-{{$service->id}}" aria-controls="service-{{$service->id}}" role="tab" data-toggle="tab">
+                  {{ $service->title }}
+                </a>
+              </li>
+            @endforeach
+          </ul>
+          <div class="tab-content">
+            @foreach ( $services as $service )
+              <div role="tabpanel" class="tab-pane {{$loop->first ? 'active' : ''}}" id="service-{{$service->id}}">
+                  <div class="chr-about-wrap">
+                      <div class="row">
+                          <div class="col-md-6 col-sm-6">
+                              <figure class="fancy-btn">
+                                  <img src="{{ asset('storage/service-image/'.$service->image) }}" alt="Oscar Themes"/>
+                              </figure>
+                          </div>
+                          <div class="col-md-7">
+                            <div class="card-body render-html-card">
+                              {!! $service->description !!}
+                              <div class="col">
+                                <a href="{{ route('admin.services.edit', ['service' => $service->id] ) }}" class="btn btn-primary" title="Editar">
+                                  <i class="far fa-edit pe-1"></i> Editar
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            @endforeach
+          </div>
+        </div>
+
+        {{-- <div class="chr-main-services">
+          <ul class="main-services-tab" role="tablist">
+            <li role="presentation" class="active"><a href="#spa" aria-controls="spa" role="tab" data-toggle="tab">Spa</a></li>
+            <li role="presentation"><a href="#gym" aria-controls="gym" role="tab" data-toggle="tab">Gym</a></li>
+            <li role="presentation"><a href="#restaurante" aria-controls="restaurante" role="tab" data-toggle="tab">RESTAURANTES</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="spa">
+              <div class="chr-about-wrap">
+                  <div class="row">
+                      <div class="col-md-6 col-sm-6">
+                          <figure class="fancy-btn">
+                              <img src="{{asset('frontend/extra-images/about-spa.jpg')}}" alt="Oscar Themes"/>
+                          </figure>
+                      </div>
+                      <div class="col-md-6 col-sm-6">
+                          <div class="text">
+                              <h3 class="title">Spa</h3>
+                              <p>Lorem ipsum dolor sit amet, maiestatis scriptorem at duo, mei ne porro pertinacia repudiandae. Nisl possim delicata nam et, saepe gubergren sed eu. Regione detracto petentium qui id. Ut nusquam recusabo eos, justo accusam sea et. Nostro commune.</p>
+                              <ul class="chr-sr-list">
+                                  <li>Waterbom Bali</li>
+                                  <li>Experiencia de seguimiento</li>
+                                  <li>Pueblo de Mayong </li>
+                                  <li>Cascadas de Sekumpul</li>
+                                  <li>Palacio del Agua de Ujung</li>
+                                  <li>Tirta Gangga</li>
+                                  <li>Buceo y snorkel</li>
+                                  <li>Visitas en barco</li>
+                              </ul>
+                              <a href="#" class="chr-btn fancy-btn">Leer más</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="gym">
+                <!--About Us Inner Wrap Start-->
+                <div class="chr-about-wrap">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <figure class="fancy-btn">
+                                <img src="{{asset('frontend/extra-images/about-gym.jpg')}}" alt="Oscar Themes"/>
+                            </figure>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="text">
+                                <h3 class="title">Gym</h3>
+                                <p>Lorem ipsum dolor sit amet, maiestatis scriptorem at duo, mei ne porro pertinacia repudiandae. Nisl possim delicata nam et, saepe gubergren sed eu. Regione detracto petentium qui id. Ut nusquam recusabo eos, justo accusam sea et. Nostro commune. </p>
+                                <ul class="chr-sr-list">
+                                    <li>Waterbom Bali</li>
+                                    <li>Experiencia de seguimiento</li>
+                                    <li>Pueblo de Mayong </li>
+                                    <li>Cascadas de Sekumpul</li>
+                                    <li>Palacio del Agua de Ujung</li>
+                                    <li>Tirta Gangga</li>
+                                    <li>Buceo y snorkel</li>
+                                    <li>Visitas en barco</li>
+                                </ul>
+                                <a href="#" class="chr-btn fancy-btn">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--About Us Inner Wrap End-->
+            </div>
+            <div role="tabpanel" class="tab-pane" id="restaurante">
+                <!--About Us Inner Wrap Start-->
+                <div class="chr-about-wrap">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <figure class="fancy-btn">
+                                <img src="{{asset('frontend/extra-images/about-restaurante.jpg')}}" alt="Oscar Themes"/>
+                            </figure>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="text">
+                                <h3 class="title">Restaurante</h3>
+                                <p>Lorem ipsum dolor sit amet, maiestatis scriptorem at duo, mei ne porro pertinacia repudiandae. Nisl possim delicata nam et, saepe gubergren sed eu. Regione detracto petentium qui id. Ut nusquam recusabo eos, justo accusam sea et. Nostro commune.</p>
+                                <ul class="chr-sr-list">
+                                    <li>Waterbom Bali</li>
+                                    <li>Experiencia de seguimiento</li>
+                                </ul>
+                                <a href="#" class="chr-btn fancy-btn">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--About Us Inner Wrap End-->
+            </div>
+          </div>
+        </div> --}}
+
+      </div>
     </section>
-    <!--Services Tabs Section End-->
+
     <!--Staff Section Start-->
     <section>
         <div class="container">

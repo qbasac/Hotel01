@@ -15,7 +15,9 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 50);
             $table->text('description');
+            $table->string('image')->nullable();
             $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
