@@ -1,15 +1,15 @@
 
  @section('style')
  <style>
- .paragraph_name{
-   inline-size: 320px;
-   max-inline-size: 305px;
-   text-overflow: ellipsis;
-   overflow: hidden;
-   white-space: nowrap;
- }
+    .paragraph_name{
+    inline-size: 320px;
+    max-inline-size: 305px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    }
 
- .paragraph_description{
+    .paragraph_description{
     inline-size: 320px;
     max-inline-size: 305px;
     overflow:hidden;
@@ -17,11 +17,17 @@
     display:-webkit-box;
     -webkit-box-orient:vertical;
     -webkit-line-clamp:2;
- }
+    }
 
- .old_price{
-  text-decoration:line-through;
- }
+    .old_price{
+    text-decoration:line-through;
+    }
+
+    .card-body.render-html-card ul {
+      display: grid;
+      /* grid-auto-columns: 1fr 1fr; */
+      grid-template-columns: 1fr 1fr;
+    }
  </style>
 @endsection
 
@@ -272,13 +278,13 @@
 <div class="main-contant">
     @if ($home->show_section_offers)
     <section>
-        <div  class="container">
+        <div class="container">
             <div class="headind-1 text-center">
                 <h3 class="title">Nuestras ofertas especiales</h3>
             </div>
             <div class="row">
               <ul style="list-style:none;">
-              @foreach ( $rooms as $room )
+                @foreach ( $rooms as $room )
                 <li class="port-item col-md-4 col-sm-6">
                   <div class="fancy-effect">
 
@@ -305,22 +311,17 @@
         </div>
     </section>
     @endif
-
+   
+    @if ($home->show_section_services)
     <section data-stellar-background-ratio="0.5"  class="parallax-section services-bg">
       <div class="container">
         <div class="headind-1 white text-center">
           <h3 class="title">Nuestros servicios</h3>
         </div>
-
-
-
-
-
-
         <div class="chr-main-services">
           <ul class="main-services-tab" role="tablist">
             @foreach ( $services as $service )
-              <li role="presentation" {{$loop->first ? 'class="active"' : ''}}>
+              <li role="presentation" class="{{$loop->first ? 'active' : ''}}">
                 <a href="#service-{{$service->id}}" aria-controls="service-{{$service->id}}" role="tab" data-toggle="tab">
                   {{ $service->title }}
                 </a>
@@ -337,14 +338,9 @@
                                   <img src="{{ asset('storage/service-image/'.$service->image) }}" alt="Oscar Themes"/>
                               </figure>
                           </div>
-                          <div class="col-md-7">
+                          <div class="col-md-6">
                             <div class="card-body render-html-card">
                               {!! $service->description !!}
-                              <div class="col">
-                                <a href="{{ route('admin.services.edit', ['service' => $service->id] ) }}" class="btn btn-primary" title="Editar">
-                                  <i class="far fa-edit pe-1"></i> Editar
-                                </a>
-                              </div>
                             </div>
                           </div>
                       </div>
@@ -353,103 +349,10 @@
             @endforeach
           </div>
         </div>
-
-        {{-- <div class="chr-main-services">
-          <ul class="main-services-tab" role="tablist">
-            <li role="presentation" class="active"><a href="#spa" aria-controls="spa" role="tab" data-toggle="tab">Spa</a></li>
-            <li role="presentation"><a href="#gym" aria-controls="gym" role="tab" data-toggle="tab">Gym</a></li>
-            <li role="presentation"><a href="#restaurante" aria-controls="restaurante" role="tab" data-toggle="tab">RESTAURANTES</a></li>
-          </ul>
-
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="spa">
-              <div class="chr-about-wrap">
-                  <div class="row">
-                      <div class="col-md-6 col-sm-6">
-                          <figure class="fancy-btn">
-                              <img src="{{asset('frontend/extra-images/about-spa.jpg')}}" alt="Oscar Themes"/>
-                          </figure>
-                      </div>
-                      <div class="col-md-6 col-sm-6">
-                          <div class="text">
-                              <h3 class="title">Spa</h3>
-                              <p>Lorem ipsum dolor sit amet, maiestatis scriptorem at duo, mei ne porro pertinacia repudiandae. Nisl possim delicata nam et, saepe gubergren sed eu. Regione detracto petentium qui id. Ut nusquam recusabo eos, justo accusam sea et. Nostro commune.</p>
-                              <ul class="chr-sr-list">
-                                  <li>Waterbom Bali</li>
-                                  <li>Experiencia de seguimiento</li>
-                                  <li>Pueblo de Mayong </li>
-                                  <li>Cascadas de Sekumpul</li>
-                                  <li>Palacio del Agua de Ujung</li>
-                                  <li>Tirta Gangga</li>
-                                  <li>Buceo y snorkel</li>
-                                  <li>Visitas en barco</li>
-                              </ul>
-                              <a href="#" class="chr-btn fancy-btn">Leer más</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="gym">
-                <!--About Us Inner Wrap Start-->
-                <div class="chr-about-wrap">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <figure class="fancy-btn">
-                                <img src="{{asset('frontend/extra-images/about-gym.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="text">
-                                <h3 class="title">Gym</h3>
-                                <p>Lorem ipsum dolor sit amet, maiestatis scriptorem at duo, mei ne porro pertinacia repudiandae. Nisl possim delicata nam et, saepe gubergren sed eu. Regione detracto petentium qui id. Ut nusquam recusabo eos, justo accusam sea et. Nostro commune. </p>
-                                <ul class="chr-sr-list">
-                                    <li>Waterbom Bali</li>
-                                    <li>Experiencia de seguimiento</li>
-                                    <li>Pueblo de Mayong </li>
-                                    <li>Cascadas de Sekumpul</li>
-                                    <li>Palacio del Agua de Ujung</li>
-                                    <li>Tirta Gangga</li>
-                                    <li>Buceo y snorkel</li>
-                                    <li>Visitas en barco</li>
-                                </ul>
-                                <a href="#" class="chr-btn fancy-btn">Leer más</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--About Us Inner Wrap End-->
-            </div>
-            <div role="tabpanel" class="tab-pane" id="restaurante">
-                <!--About Us Inner Wrap Start-->
-                <div class="chr-about-wrap">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <figure class="fancy-btn">
-                                <img src="{{asset('frontend/extra-images/about-restaurante.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="text">
-                                <h3 class="title">Restaurante</h3>
-                                <p>Lorem ipsum dolor sit amet, maiestatis scriptorem at duo, mei ne porro pertinacia repudiandae. Nisl possim delicata nam et, saepe gubergren sed eu. Regione detracto petentium qui id. Ut nusquam recusabo eos, justo accusam sea et. Nostro commune.</p>
-                                <ul class="chr-sr-list">
-                                    <li>Waterbom Bali</li>
-                                    <li>Experiencia de seguimiento</li>
-                                </ul>
-                                <a href="#" class="chr-btn fancy-btn">Leer más</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--About Us Inner Wrap End-->
-            </div>
-          </div>
-        </div> --}}
-
       </div>
     </section>
-
+    @endif
+                        
     <!--Staff Section Start-->
     <section>
         <div class="container">
@@ -1222,6 +1125,32 @@
 <script src="{{asset('frontend/js/isotope.js')}}"></script>
 <script src="{{asset('frontend/js/datepicker.js')}}"></script>
 <script src="{{asset('frontend/js/custom.js')}}"></script>
+<script src="{{asset('frontend/js/general-scripts.js') }}"></script>
 
 </body>
 </html>
+
+@section('scripts')
+    <script>
+            console.log('test')
+
+    // const $cards = document.querySelectorAll('.render-html-card')
+    // $cards.forEach( $card => {
+    //   const $links = $card.querySelectorAll('p > a')
+    //   $links.forEach( $link => {
+    //     $link.setAttribute('class','btn btn-sm btn-dark')
+    //     $link.target = '_blank'
+    //   })
+
+    //   $listItem = $card.querySelectorAll('ul > li')
+    //   $listItem.forEach( item => {
+    //     item.setAttribute('style', `
+    //       white-space: nowrap;
+    //       text-overflow: ellipsis;
+    //       overflow: hidden;
+    //       list-style-position: inside ;
+    //     `)
+    //   })
+    // })
+  </script>
+@endsection

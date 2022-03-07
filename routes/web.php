@@ -45,6 +45,9 @@ Auth::routes(['register' => false]);
     Route::post('home-slider/show-section-slider/{slider}', [AdminSliderHomeController::class, 'ShowSectionSlider'])->name('home-slider.ShowSectionSlider');
 
     Route::resource('/services', AdminServicesController::class);
+    Route::post('services/update-is-active/{services}', [AdminServicesController::class, 'updateIsActive'])->name('services.updateIsActive');
+    Route::post('services/show-section-services/{services}', [AdminServicesController::class, 'ShowSectionServices'])->name('services.ShowSectionServices');
+
 
   });
 

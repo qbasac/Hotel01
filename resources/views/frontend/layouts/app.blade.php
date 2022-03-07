@@ -333,6 +333,9 @@
         <script src="{{asset('frontend/js/datepicker.js')}}"></script>
         <script src="{{ asset('frontend/js/sweetalert2.js') }}"></script>
 
+        <script src="{{ asset('frontend/js/general-scripts.js') }}"> </script>
+
+
         @yield('scripts')
     </body>
 

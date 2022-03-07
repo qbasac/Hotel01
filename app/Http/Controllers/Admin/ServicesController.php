@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\home;
 use App\Models\Services;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -11,8 +12,9 @@ class ServicesController extends Controller
 {
     public function index()
     {
+      $home = home::first();
       $services = Services::get();
-      return view('backend.home.services.index', compact('services'));
+      return view('backend.home.services.index', compact('services', 'home'));
     }
 
     public function create()
@@ -53,13 +55,33 @@ class ServicesController extends Controller
       return redirect()->route('admin.services.index')->with('created', 'Registro actualizado exitósamente.');
     }
 
+    public function updateIsActive(Request $request, $id)
+    {
+
+      $newState = $request->state ? 0 : 1;
+      Services::whereId($id)->update([
+        'is_active' => $newState
+      ]);
+      return back();
+    }
+
     public function destroy($id)
     {
       $service = Services::find($id);
       $service->delete();
       return redirect()->route('admin.services.index');
     }
-    public function handleImages(Request $request) {
-      dd($request->all());
+
+    public function ShowSectionServices(Request $request, $id)
+    {
+
+      $newState = $request->state ? 0 : 1;
+      home::whereId($id)->update([
+        'show_section_services' => $newState
+      ]);
+      return redirect()->route('admin.services.index');
     }
+    // public function handleImages(Request $request) {
+    //   dd($request->all());
+    // }
 }

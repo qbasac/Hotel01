@@ -15,7 +15,7 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
     public function index(Request $request)
-    {   $services = Services::get();
+    {   $services = Services::where('is_active', 1)->get();
         $rooms = Room::where('has_offer', 1)->where('is_active', 1)->get();
         $home = home::first();
         $slider_homes = SliderHome::where('is_active', 1)->get();
