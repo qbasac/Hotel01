@@ -28,6 +28,19 @@
       /* grid-auto-columns: 1fr 1fr; */
       grid-template-columns: 1fr 1fr;
     }
+    .name-img{
+      color: white;
+      text-align: center;
+    }
+    .gallary-thumb{
+      background:#edcb9a;
+    }
+    .custom-li{
+      list-style-type: none;
+    }
+    .text-img-description{
+      margin: 8px;
+    }
  </style>
 @endsection
 
@@ -283,11 +296,9 @@
                 <h3 class="title">Nuestras ofertas especiales</h3>
             </div>
             <div class="row">
-              <ul style="list-style:none;">
                 @foreach ( $rooms as $room )
                 <li class="port-item col-md-4 col-sm-6">
                   <div class="fancy-effect">
-
                       <a href="{{ route('room.show',['room' => $room->id]) }}" class="chr-event-thumb fancy-thumb">
                           <figure>
                               <img src="{{ asset("storage/rooms/$room->image")}}" alt="Oscar Themes"/>
@@ -306,12 +317,11 @@
                   </div>
                 </li>
                 @endforeach
-              </ul>
             </div>
         </div>
     </section>
     @endif
-   
+
     @if ($home->show_section_services)
     <section data-stellar-background-ratio="0.5"  class="parallax-section services-bg">
       <div class="container">
@@ -340,7 +350,9 @@
                           </div>
                           <div class="col-md-6">
                             <div class="card-body render-html-card">
-                              {!! $service->description !!}
+                                <div class="text">
+                                  {!! $service->description !!}
+                                </div>
                             </div>
                           </div>
                       </div>
@@ -352,212 +364,9 @@
       </div>
     </section>
     @endif
-                        
-    <!--Staff Section Start-->
-    <section>
-        <div class="container">
-            <!--Heading 1 Start-->
-            <div class="headind-1 text-center">
-                <h3 class="title">Nuestro personal especial</h3>
-            </div>
-            <!--Heading 1 End-->
-            <div class="chr-staff-slider">
-                <!--Staff Thumb Start-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="chr-staff-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-1.png')}}" alt="oscarthemes"/>
-                            <div class="p-middel">
-                                <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                                <ul class="chr-social">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="#">Daniel Braim</a></h4>
-                            <span class="designation">Gerente</span>
-                        </div>
-                    </div>
-                </div>
-                <!--Staff Thumb End-->
-                <!--Staff Thumb Start-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="chr-staff-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-2.png')}}" alt="oscarthemes"/>
-                            <div class="p-middel">
-                                <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                                <ul class="chr-social">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="#">Daniel Braim</a></h4>
-                            <span class="designation">Gerente</span>
-                        </div>
-                    </div>
-                </div>
-                <!--Staff Thumb End-->
-                <!--Staff Thumb Start-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="chr-staff-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-3.png')}}" alt="oscarthemes"/>
-                            <div class="p-middel">
-                                <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                                <ul class="chr-social">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="#">Daniel Braim</a></h4>
-                            <span class="designation">Gerente</span>
-                        </div>
-                    </div>
-                </div>
-                <!--Staff Thumb End-->
-                <!--Staff Thumb Start-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="chr-staff-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-4.png')}}" alt="oscarthemes"/>
-                            <div class="p-middel">
-                                <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                                <ul class="chr-social">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="#">Daniel Braim</a></h4>
-                            <span class="designation">Gerente</span>
-                        </div>
-                    </div>
-                </div>
-                <!--Staff Thumb End-->
-                <!--Staff Thumb Start-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="chr-staff-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-4.png')}}" alt="oscarthemes"/>
-                            <div class="p-middel">
-                                <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                                <ul class="chr-social">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="#">Daniel Braim</a></h4>
-                            <span class="designation">Gerente</span>
-                        </div>
-                    </div>
-                </div>
-                <!--Staff Thumb End-->
-            </div>
-        </div>
-    </section>
-    <!--Staff Section End-->
-    <!--Testimonial Section Start-->
-    <section data-stellar-background-ratio="0.5" class="parallax-section hotel-testimonial-bg">
-        <div class="container">
-            <!--Heading 1 Start-->
-            <div class="headind-1 white text-center">
-                <h3 class="title">Testimonios</h3>
-            </div>
-            <!--Heading 1 End-->
-            <div class="hotel-testimonial arrows">
-                <!--Testimonial Thumb Start-->
-                <div class="col-md-6 col-sm-6">
-                    <div class="hotel-testimonial-thumb">
-                        <div class="text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and is the best inisistin typesetting industry. Lorem Ipsum has been the industry's has been  theisstandard dummy text ever since.dummy text of the printing and is the best inis typesetting industry. Lorem Ipsum has been the industry's has be</p>
-                            <div class="rating-thumb">
-                                <label>Califica</label>
-                                <div class="rating_down">
-                                    <div style="width: 90%;" class="rating_up"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="user-th">
-                            <div class="overflow-text">
-                                <h6 class="title"><a href="#">Gary Christian</a></h6>
-                                <span class="sub-title">Invitado perfecto</span>
-                            </div>
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/testimonial1.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-                <!--Testimonial Thumb End-->
-                <!--Testimonial Thumb Start-->
-                <div class="col-md-6 col-sm-6">
-                    <div class="hotel-testimonial-thumb">
-                        <div class="text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and is the best inisistin typesetting industry. Lorem Ipsum has been the industry's has been  theisstandard dummy text ever since.dummy text of the printing and is the best inis typesetting industry. Lorem Ipsum has been the industry's has bee</p>
-                            <div class="rating-thumb">
-                                <label>Califica</label>
-                                <div class="rating_down">
-                                    <div style="width: 100%;" class="rating_up"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="user-th">
-                            <div class="overflow-text">
-                                <h6 class="title"><a href="#">Gary Christian</a></h6>
-                                <span class="sub-title">Invitado perfecto</span>
-                            </div>
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/testimonial2.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-                <!--Testimonial Thumb End-->
-                <!--Testimonial Thumb Start-->
-                <div class="col-md-6 col-sm-6">
-                    <div class="hotel-testimonial-thumb">
-                        <div class="text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and is the best inisistin typesetting industry. Lorem Ipsum has been the industry's has been  theisstandard dummy text ever since.dummy text of the printing and is the best inis typesetting industry. Lorem Ipsum has been the industry's has bee</p>
-                            <div class="rating-thumb">
-                                <label>Califica</label>
-                                <div class="rating_down">
-                                    <div style="width: 80%;" class="rating_up"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="user-th">
-                            <div class="overflow-text">
-                                <h6 class="title"><a href="#">Gary Christian</a></h6>
-                                <span class="sub-title">Invitado perfecto</span>
-                            </div>
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/testimonial3.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-                <!--Testimonial Thumb End-->
-            </div>
-        </div>
-    </section>
-    <!--Testimonial Section End-->
+
     <!--Rooms Section Start-->
-    <section>
+    {{-- <section>
         <div class="container">
             <!--Heading 1 Start-->
             <div class="headind-1 text-center">
@@ -639,144 +448,32 @@
                 <!--Room Thumb End-->
             </div>
         </div>
-    </section>
-    <!--Rooms Section End-->
-    <!--Masonry Gallery Section Start-->
+    </section> --}}
+    
+    @if ($home->show_section_gallery)
     <section class="gray-bg">
-        <!--Heading 1 Start-->
+      <div class="container">
         <div class="headind-1 text-center">
             <h3 class="title">Nuestra galería</h3>
         </div>
-        <!--Heading 1 End-->
-        <!--Gallery Navigation Start-->
-        <ul class="port-filter text-center">
-            <li>
-                <a href="#" class="filter active" data-filter="*">Todos los proyectos                                                                                                                                                                                                                                                                                                                                                                                                                           </a>
-            </li>
-            <li>
-                <a href="#" class="filter" data-filter=".gym">Gym</a>
-            </li>
-            <li>
-                <a href="#" class="filter" data-filter=".spa">Spa</a>
-            </li>
-            <li>
-                <a href="#" class="filter" data-filter=".hotel">Hotel</a>
-            </li>
-        </ul>
-        <!--Gallery Navigation End-->
-        <!--Gallery Grid Start-->
+        @foreach ($galleries as $gallery )
+          <li class="port-item col-md-3 col-sm-3 mix spa hotel gym custom-li">
+            <div class="gallary-thumb">
+                <div class="fancy-thumb">
+                  <img src="{{ asset('storage/gallery-image/'.$gallery->image) }}" alt="Oscar Themes">
+                </div>
+                <div class="name-img">
+                  <div class="text text-img-description">
+                    {{$gallery->description}}
+                  </div>
+                </div>
+            </div>
+          </li>
+        @endforeach
 
-            <!--Masonry Item Start-->
-            <li class="port-item col-md-3 col-sm-3 mix spa hotel gym">
-                <!--Gallary Thumb Strat-->
-                <div class="gallary-thumb">
-                    <div class="fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/mgallary-img1.jpg')}}" alt="Oscar Themes">
-                        </figure>
-                        <div class="zoom-icon p-middel">
-                            <a href="extra-images/mgallary-img1.jpg">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-            </li>
-            <!--Masonry Item End -->
-            <!--Masonry Item Start-->
-            <li class="port-item col-md-6 col-sm-6 mix hotel gym">
-                <!--Gallary Thumb Strat-->
-                <div class="gallary-thumb">
-                    <div class="fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/mgallary-img3.jpg')}}" alt="Oscar Themes">
-                        </figure>
-                        <div class="zoom-icon p-middel">
-                            <a href="{{asset('frontend/extra-images/mgallary-img3.jpg')}}">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-            </li>
-            <!--Masonry Item End -->
-            <!--Masonry Item Start-->
-            <li class="port-item col-md-3 col-sm-3 mix hotel">
-                <!--Gallary Thumb Strat-->
-                <div class="gallary-thumb">
-                    <div class="fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/mgallary-img2.jpg')}}" alt="Oscar Themes">
-                        </figure>
-                        <div class="zoom-icon p-middel">
-                            <a href="extra-images/mgallary-img2.jpg">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-            </li>
-            <!--Masonry Item End -->
-            <!--Masonry Item Start-->
-            <li class="port-item col-md-3 col-sm-3 mix spa gym">
-                <!--Gallary Thumb Strat-->
-                <div class="gallary-thumb">
-                    <div class="fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/mgallary-img4.jpg')}}" alt="Oscar Themes">
-                        </figure>
-                        <div class="zoom-icon p-middel">
-                            <a href="{{asset('frontend/extra-images/mgallary-img4.jpg')}}">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-            </li>
-            <!--Masonry Item End -->
-            <!--Masonry Item Start-->
-            <li class="port-item col-md-3 col-sm-3 mix hotel spa gym">
-                <!--Gallary Thumb Strat-->
-                <div class="gallary-thumb">
-                    <div class="fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/mgallary-img5.jpg')}}" alt="Oscar Themes">
-                        </figure>
-                        <div class="zoom-icon p-middel">
-                            <a href="{{asset('frontend/extra-images/mgallary-img5.jpg')}}">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-            </li>
-            <!--Masonry Item End -->
-            <!--Masonry Item Start-->
-            <li class="port-item col-md-3 col-sm-3 mix spa hotel">
-                <!--Gallary Thumb Strat-->
-                <div class="gallary-thumb">
-                    <div class="fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/mgallary-img6.jpg')}}" alt="Oscar Themes">
-                        </figure>
-                        <div class="zoom-icon p-middel">
-                            <a href="{{asset('frontend/extra-images/mgallary-img6.jpg')}}">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-            </li>
-            <!--Masonry Item End -->
-        </ul>
-        <!--Gallery Grid End-->
+       </div>
     </section>
+    @endif
     <!--Masonry Gallery Section End-->
     <!--Blog Section Start-->
     <section>

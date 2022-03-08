@@ -74,7 +74,6 @@ class ServicesController extends Controller
 
     public function ShowSectionServices(Request $request, $id)
     {
-
       $newState = $request->state ? 0 : 1;
       home::whereId($id)->update([
         'show_section_services' => $newState

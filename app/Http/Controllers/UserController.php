@@ -140,7 +140,7 @@ class UserController extends Controller
 
     $newState = $request->state ? 0 : 1;
     About::whereId($id)->update([
-      'show_section_staff' => $newState
+      'seccion_staff_is_active' => $newState
     ]);
     return back();
   }

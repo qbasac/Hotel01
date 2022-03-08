@@ -11,11 +11,6 @@ use Illuminate\Http\Request;
 
 class SliderHomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
       $home = home::first();
@@ -47,7 +42,7 @@ class SliderHomeController extends Controller
       return redirect()->route('admin.home-slider.index')->with('created', 'Registro guardado exitósamente.');
     }
 
-  
+
     public function edit($id)
     {
       $slider_home = SliderHome::whereId($id)->first();

@@ -274,7 +274,7 @@
 
 
   @if (session('created'))
-  <script>
+    <script>
     Swal.fire({
           icon: 'success',
           title: 'Reserva Registrada exitosamente!',
@@ -285,7 +285,6 @@
           confirmButtonText: 'Aceptar'
         })
     </script>
-
   @endif
 
 @endsection

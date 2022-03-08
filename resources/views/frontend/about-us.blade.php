@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        @if ($about->show_section_staff)
+        @if ($about->seccion_staff_is_active)
         <section>
           <div class="container">
               <div class="headind-1 text-center">

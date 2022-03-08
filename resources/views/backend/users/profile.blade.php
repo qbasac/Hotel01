@@ -25,57 +25,56 @@ Usuarios
 
   /* CODE SNIPPETS CSS */
 
-.file_container {
-  width: 100%;
-  height: 300px;
-  position: relative;
-  border-radius: 10px;
-  border-radius: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 0;
-  overflow: auto;
-}
+  .file_container {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    border-radius: 10px;
+    border-radius: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    overflow: auto;
+  }
 
-.file_container::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-  display: block;
-}
-.file_container::-webkit-scrollbar-thumb {
-  background-color: rgb(145, 145, 145);
-  border-radius: 20px;
-}
+  .file_container::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    display: block;
+  }
+  .file_container::-webkit-scrollbar-thumb {
+    background-color: rgb(145, 145, 145);
+    border-radius: 20px;
+  }
 
-.file_container::-webkit-scrollbar-track {
-  background-color: white;
-}
-.file_input {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  opacity: 0;
-  z-index: 1;
-  cursor: pointer;
-  border-radius: inherit;
-}
+  .file_container::-webkit-scrollbar-track {
+    background-color: white;
+  }
+  .file_input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: inherit;
+  }
 
-.file_letter {
-  font-size: 1.5rem;
-}
+  .file_letter {
+    font-size: 1.5rem;
+  }
 
-.file_image {
-  z-index: 0;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  margin: auto;
-}
-/* CODE SNIPPETS CSS */
+  .file_image {
+    z-index: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+  }
 </style>
 @endsection
 
@@ -205,20 +204,20 @@ Usuarios
     mostrarPassword()
   </script>
 
-<script>
-    let fileInput,
-    fileImage = document.querySelector('#file_image'),
-    letterUpload = document.querySelector('#letter-upload');
+  <script>
+      let fileInput,
+      fileImage = document.querySelector('#file_image'),
+      letterUpload = document.querySelector('#letter-upload');
 
-    if(fileInput = document.querySelector('#file_input')) {
-    fileInput.addEventListener('change', function (e) {
-    const file = e.target.files[0]
-    const reader = new FileReader(file)
-    reader.onload = (e) => fileImage.src = reader.result
-    reader.readAsDataURL(file)
-    letterUpload.style.opacity = '0'
-  })
-}
-</script>
+      if(fileInput = document.querySelector('#file_input')) {
+      fileInput.addEventListener('change', function (e) {
+      const file = e.target.files[0]
+      const reader = new FileReader(file)
+      reader.onload = (e) => fileImage.src = reader.result
+      reader.readAsDataURL(file)
+      letterUpload.style.opacity = '0'
+    })
+  }
+  </script>
 
-  @endsection
+@endsection

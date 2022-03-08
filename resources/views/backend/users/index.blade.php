@@ -43,8 +43,8 @@ Usuarios
               <a href="{{ route('usuario.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
               <form  method="POST" action="{{route('staff.ShowSectionStaff', ['staff' => $about->id] )}}" class="d-inline">
                 @csrf
-                <input type="hidden" name="state" value="{{$about->show_section_staff}}">
-                @if ($about->show_section_staff)
+                <input type="hidden" name="state" value="{{$about->seccion_staff_is_active}}">
+                @if ($about->seccion_staff_is_active)
                 <button style="margin-right: 5px;"  type="submit" class="btn btn btn-danger float-end" title="">
                   Ocultar personal <i class="fas fa-eye-slash"></i>
                 </button>
