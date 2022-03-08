@@ -53,7 +53,8 @@ class GalleryController extends Controller
     {
       $gallery = Gallery::find($id);
       $gallery->delete();
-      return back()->with('delete');    }
+      return redirect()->route('admin.gallery.index')->with('deleted', 'vale');
+      }
 
     public function updateIsActive(Request $request, $id)
     {

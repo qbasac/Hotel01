@@ -270,10 +270,9 @@
           confirmButtonText: 'Continuar'
         })
     </script>
-  @endif
+  @endif 
 
-
-  @if (session('created'))
+  @if (session('created') == 'vale')
     <script>
     Swal.fire({
           icon: 'success',

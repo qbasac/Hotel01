@@ -155,7 +155,7 @@
                             </button>
                           @endif
                         </form>
-                        <form action="{{ route('admin.gallery.destroy',$gallery->id) }}" method="POST" class="d-inline">
+                        <form action="{{ route('admin.gallery.destroy',$gallery->id) }}" method="POST" class="form-delete d-inline">
                           @csrf
                           @method('DELETE')
                           <button type="submit" title="Eliminar" class="btn btn-sm btn-danger text-center"><i class="far fa-trash-alt"></i></button>
@@ -177,51 +177,46 @@
 @endsection
 
 @section('scripts')
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ 
+ @if (session('deleted') == 'vale')
   <script>
-    $(document).ready(function() {
+   Swal.fire({
+          icon: 'success',
+          title: 'Eliminado!',
 
-    $('.delete-form').on('submit', function(e) {
-      e.preventDefault();
-      var button = $(this);
-
+          html: `
+          Se ha eliminado con exito
+          `,
+          confirmButtonText: 'Aceptar'
+        })
+  </script>
+ @endif
+ 
+ <script>
+    $('.form-delete').submit(function(e){
+      e.preventDefault()
+     
       Swal.fire({
-        icon: 'warning',
-          title: 'Are you sure you want to delete this record?',
-          showDenyButton: false,
-          showCancelButton: true,
-          confirmButtonText: 'Yes'
+      title: '¿Estas seguro?',
+      text: "Se eliminará definitivamente!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Eliminar!',
+      cancelButtonText: 'Cancelar'
+
       }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          $.ajax({
-            type: 'post',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: button.data('route'),
-            data: {
-              '_method': 'delete'
-            },
-            success: function (response, textStatus, xhr) {
-              Swal.fire({
-                icon: 'success',
-                  title: response,
-                  showDenyButton: false,
-                  showCancelButton: false,
-                  confirmButtonText: 'Yes'
-              }).then((result) => {
-                window.location='/posts'
-              });
-            }
-          });
-        }
-      });
-
+      if (result.isConfirmed) {
+       
+        this.submit();
+      }
+      })
     })
-    });
-</script>
 
+  </script>
+     
 
   <script>
       let fileInput,

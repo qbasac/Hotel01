@@ -49,7 +49,7 @@ class RoomReservationController extends Controller
     $room_reservation->reservation_end_date = $request->reservation_end_date;
     $room_reservation->save();
 
-    return back()->with('created');
+    return back()->with('created', 'vale');
   }
 
 
