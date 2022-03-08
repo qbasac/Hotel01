@@ -70,10 +70,13 @@
     cursor: pointer;
     }
     .icon-change-image{
-    margin-left: 10px;
-    margin-top: 5px;
+      margin-left: 12px;
+      margin-top: 8px;
+      width: 10px;
     }
-
+    .fa-icon-camera {
+    font-size: 1.5em;
+}
 </style>
 @endsection
 
@@ -106,7 +109,19 @@
             </div>
           </div>
           <hr>
-          
+          @if (session('created'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('created') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
+          @if (session('updated'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('updated') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
+
             <div class="row">
               @foreach ($galleries as $gallery)
                 <div class="col-xl-3 col-lg-6  ">
@@ -114,14 +129,13 @@
                     <form action="{{ route('admin.gallery.update', ['gallery' => $gallery->id]) }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
                       @method('PUT')
                       @csrf
-
                       <div class="mb-3">
                         <div class="file_container">
-                          <input type="file" class="file_input" onchange="previewImage(event, {{$gallery->id}})"  name="image" accept="image/*">
+                          <input  type="file" class="file_input input-changes" onchange="previewImage(event, {{$gallery->id}})"  name="image" accept="image/*">
                           <img class="file_image  card-img-top rounded-top" id="image-preview-{{$gallery->id}}"  src="{{ asset('storage/gallery-image/'.$gallery->image) }}" alt="oscarthemes">
                           <div class="texto-encima file_containe">
                             <div class="icon-change-image">
-                              <h3><i class="fas fa-camera text-white"></i></h3>
+                              <i class="fas fa-camera text-white fa-icon-camera"></i>
                             </div>
                           </div>
                         </div>
@@ -129,12 +143,15 @@
                       <div class=" row card-body text-center">
                         <label>Descripción</label>
                         {{-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam asperiores excepturi aperiam voluptatum dolorum alias voluptate modi! Perferendis in, ex corporis mollitia perspiciatis earum asperiores. --}}
-                        <textarea class="form-control" id="editor-{{$gallery->id}}" name="description">{{$gallery->description}}</textarea>
+                        <textarea  class="form-control input-changes" name="description">{{$gallery->description}}</textarea>
+                        {{-- <p contenteditable name="description">
+                          {{$gallery->description}}
+                        </p> --}}
                       </div>
 
                       <div class="text-center p-2">
                         <a href="{{ route('admin.gallery.index') }}" class="btn btn-sm btn-light border border-secondary" tabindex="4">Cancelar</a>
-                        <button  type="submit" class="btn btn-sm btn-primary" tabindex="3">Actualizar cambios</button>
+                        <button  id="submit" disabled="disabled" type="submit" class="btn btn-sm btn-primary submit" tabindex="3">Actualizar cambios</button>
                       </div>
                     </form>
                      <div class="text-end pb-1">
@@ -166,9 +183,6 @@
                 </div>
               @endforeach
            </div>
-
-
-
         </div>
       </div>
     </div>
@@ -178,8 +192,8 @@
 
 @section('scripts')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
- 
- @if (session('deleted') == 'vale')
+
+ @if (session('deleted') == 'Eliminado')
   <script>
    Swal.fire({
           icon: 'success',
@@ -192,11 +206,11 @@
         })
   </script>
  @endif
- 
+
  <script>
     $('.form-delete').submit(function(e){
       e.preventDefault()
-     
+
       Swal.fire({
       title: '¿Estas seguro?',
       text: "Se eliminará definitivamente!",
@@ -209,14 +223,14 @@
 
       }).then((result) => {
       if (result.isConfirmed) {
-       
+
         this.submit();
       }
       })
     })
 
   </script>
-     
+
 
   <script>
       let fileInput,
@@ -232,5 +246,18 @@
         reader.readAsDataURL(file)
       }
   </script>
+  <script>
+    $(document).ready(function () {
+        $('.input-changes').on('input change', function () {
+            if ($(this).val() != '') {
+                $('.submit').prop('disabled', false);
+            }
+            else {
+                $('.submit').prop('disabled', true);
+            }
+        });
+    });
+</script>
+
 @endsection
 

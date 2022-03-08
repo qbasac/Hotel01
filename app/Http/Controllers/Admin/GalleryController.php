@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreGalleryRequest;
 use App\Models\Gallery;
 use App\Models\home;
 use Carbon\Carbon;
@@ -21,7 +22,7 @@ class GalleryController extends Controller
       return view('backend.home.gallery.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreGalleryRequest $request)
     {
       $gallery = new Gallery();
       if ($request->file('image')) {
@@ -36,24 +37,23 @@ class GalleryController extends Controller
 
     public function update(Request $request, $id)
     {
-            // dd($request->all());
-
+      // dd($request->all());
       $gallery = Gallery::find($id);
+      $gallery->description = $request->description;
       if ($request->file('image')) {
         $namefile = Carbon::now()->format("dmYHis") . "." . $request->file('image')->getClientOriginalExtension();
         $request->file('image')->storeAs('public/gallery-image', $namefile);
         $gallery->image = $namefile;
       }
-      $gallery->description = $request->description;
       $gallery->save();
-      return redirect()->route('admin.gallery.index')->with('created', 'Registro guardado exitósamente.');
+      return redirect()->route('admin.gallery.index')->with('updated', 'Registro actualizado exitósamente.');
     }
 
     public function destroy($id)
     {
       $gallery = Gallery::find($id);
       $gallery->delete();
-      return redirect()->route('admin.gallery.index')->with('deleted', 'vale');
+      return redirect()->route('admin.gallery.index')->with('deleted', 'Eliminado');
       }
 
     public function updateIsActive(Request $request, $id)

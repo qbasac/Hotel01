@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\RoomController as AdminRoomController;
 use App\Http\Controllers\Admin\SliderHomeController as AdminSliderHomeController;
 use App\Http\Controllers\Admin\ServicesController as AdminServicesController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+
 
 
 
@@ -54,6 +56,8 @@ Auth::routes(['register' => false]);
     Route::post('gallery/update-is-active/{gallery}', [AdminGalleryController::class, 'updateIsActive'])->name('gallery.updateIsActive');
     Route::post('gallery/show-section-gallery/{gallery}', [AdminGalleryController::class, 'ShowSectionGallery'])->name('gallery.ShowSectionGallery');
 
+    Route::resource('/blog', AdminBlogController::class);
+    Route::post('blog/update-is-active/{blog}', [AdminBlogController::class, 'updateIsActive'])->name('blog.updateIsActive');
 
 
   });

@@ -41,6 +41,28 @@
     .text-img-description{
       margin: 8px;
     }
+
+    .p_title{
+      inline-size: 300px;
+      block-size: 40px;
+      max-inline-size: 100%;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:2;
+      }
+
+    .p_description{
+      inline-size: 320px;
+      block-size: 70px;
+      max-inline-size: 305px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:3;
+    }
  </style>
 @endsection
 
@@ -449,7 +471,7 @@
             </div>
         </div>
     </section> --}}
-    
+
     @if ($home->show_section_gallery)
     <section class="gray-bg">
       <div class="container">
@@ -484,75 +506,35 @@
             </div>
             <!--Heading 1 End-->
             <div class="row">
-                <!--Blog Small Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-blog-small">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-1.jpg')}}" alt="oscarthemes">
-                            <div class="s-date-box">
-                                <span>24</span>
-                                <p>Jan 2017</p>
-                            </div>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="blog-detail.html">La antigua cacería de huéspedes en el lado del río</a></h4>
-                            <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-user"></i><span>Admin</span></a></li>
-                                <li><a href="#"><i class="fa fa-comment-o"></i><span>3 Comentarios</span></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i><span>30 Likes</span></a></li>
-                            </ul>
-                            <p>Lorem Ipsum is simply dummy text of the asi printing and is the best inisistin type settinin industry. Lorem Ipsum...</p>
-                            <a class="readmore-btn" href="#">Leer más</a>
+
+              @foreach ($blogs as $blog )
+              <div class="col-md-4 col-sm-6">
+                <div class="chr-blog-small">
+                    <figure>
+                        <img src="{{ asset('storage/blog-image/'.$blog->image) }}" alt="oscarthemes">
+                        <div class="s-date-box">
+                            <p>{{$blog->created_at}}</p>
+                            {{-- <span>24</span>
+                            <p>Jan 2017</p> --}}
                         </div>
+                    </figure>
+                    <div class="text">
+                        <h4 class="title p_title"><a href="blog-detail.html">{{$blog->title}}</a></h4>
+                        <ul class="blog-meta">
+                            <li><a href="#"><i class="fa fa-user"></i><span>Admin</span></a></li>
+                            <li><a href="#"><i class="fa fa-comment-o"></i><span>3 Comentarios</span></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i><span>30 Likes</span></a></li>
+                        </ul>
+                        <p class="p_description">{{$blog->description}}</p>
+                        <a class="readmore-btn" href="#">Leer más</a>
                     </div>
                 </div>
-                <!--Blog Small End-->
-                <!--Blog Small Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-blog-small">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-2.jpg')}}" alt="oscarthemes">
-                            <div class="s-date-box">
-                                <span>24</span>
-                                <p>Jan 2017</p>
-                            </div>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="blog-detail.html">New Extensive View of Hotel</a></h4>
-                            <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-user"></i><span>Admin</span></a></li>
-                                <li><a href="#"><i class="fa fa-comment-o"></i><span>3 Comments</span></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i><span>30 Likes</span></a></li>
-                            </ul>
-                            <p>Lorem Ipsum is simply dummy text of the asi printing and is the best inisistin type settinin industry. Lorem Ipsum...</p>
-                            <a class="readmore-btn" href="#">Leer más</a>
-                        </div>
-                    </div>
-                </div>
-                <!--Blog Small End-->
-                <!--Blog Small Start-->
-                <div class="col-md-4 hidden-sm">
-                    <div class="chr-blog-small">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-3.jpg')}}" alt="oscarthemes">
-                            <div class="s-date-box">
-                                <span>24</span>
-                                <p>Jan 2017</p>
-                            </div>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="blog-detail.html">MASAJE DE TEJIDO PROFUNDO</a></h4>
-                            <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-user"></i><span>Admin</span></a></li>
-                                <li><a href="#"><i class="fa fa-comment-o"></i><span>3 Comments</span></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i><span>30 Likes</span></a></li>
-                            </ul>
-                            <p>Lorem Ipsum is simply dummy text of the asi printing and is the best inisistin type settinin industry. Lorem Ipsum...</p>
-                            <a class="readmore-btn " href="#">Leer más</a>
-                        </div>
-                    </div>
-                </div>
-                <!--Blog Small End-->
+              </div>
+              @endforeach
+
+
+
+
             </div>
         </div>
     </section>

@@ -25,7 +25,7 @@
             <li><a href="{{route('admin.services.index')}}">Sección nuestros servicios</a></li>
             {{-- <li><a href="{{route('testimonial.index')}}">Sección nuestras habitaciones</a></li> --}}
             <li><a href="{{route('admin.gallery.index')}}">Sección nuestra galeria</a></li>
-            <li><a href="{{route('testimonial.index')}}">Sección nuestro blog</a></li>
+            <li><a href="{{route('admin.blog.index')}}">Sección nuestro blog</a></li>
             <li><a href="{{route('testimonial.index')}}">Sección nuestros precios</a></li>
       </ul>
     </li>
