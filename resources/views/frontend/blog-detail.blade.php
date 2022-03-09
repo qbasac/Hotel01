@@ -29,7 +29,7 @@
                             <h5 class="title"><a href="blog-detail.html">{{$blog->title}}</a></h5>
                             <ul class="blog-meta">
                                 <li><a href="#"><i class="fa fa-user"></i><span>{{$blog->name_author}}</span></a></li>
-                                <li><a href="#"><i class="fa fa-comment-o"></i><span>3 Comentarios</span></a></li>
+                                <li><a href="#"><i class="fa fa-comment-o"></i><span>{{ $blog->comments_count}} Comentarios</span></a></li>
                                 <li><a href="#"><i class="fa fa-heart"></i><span>30 Me Gustas</span></a></li>
                             </ul>
                             <p>{{$blog->description}}</p>
@@ -54,24 +54,26 @@
                     <!--Comment Wrap Start-->
                     <div class="chr-comment-wrap">
                         <!--Heading Title Start-->
-                        <h5 class="heading-title">Comentarios 4</h5>
+                        <h5 class="heading-title">Comentarios {{ $blog->comments_count}}</h5>
                         <!--Heading Title End-->
                         <!--Comment Start-->
                         <ul class="comment">
+                          @foreach ( $blog->comments as $comment )
+                          <li>
+                              <div class="comment-thumb flex-text">
+                                  <figure>
+                                      <img src="{{asset('frontend/extra-images/ct-1.jpg')}}" alt="oscarthemes"/>
+                                  </figure>
+                                  <div class="text">
+                                      <h5 class="title"><a href="#">{{$comment->name}}</a><span>March , 2017</span></h5>
+                                      <p>{{$comment->comment}}</p>
+                                  </div>
+                              </div>
+                          </li>
+                        @endforeach
 
-                          
-                            <li>
-                                <div class="comment-thumb flex-text">
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/ct-1.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                    <div class="text">
-                                        <h5 class="title"><a href="#">Merry John</a><span>March , 2017</span></h5>
-                                        <p>Duis aute irure dolor in reprehenderit in vol uptate velit esse cillum dolore eu fugiat nulla pari atur. Excepteur sint occaecat cupidatat non proid pent.</p>
-                                        <a class="comment-reply-link" href="#">Respuesta</a>
-                                    </div>
-                                </div>
-                            </li>
+
+
 
 
                         </ul>

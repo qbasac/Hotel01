@@ -135,7 +135,7 @@
                       {{ $blog_comment->is_active ? 'bg-success' : 'bg-danger' }}">{{$blog_comment->is_active ? 'Activo' : 'Inactivo'}}
                     </td>
 
-                    <td class="td-style"> {{ $blog_comment->blog->title }} </td>
+                    <td class="td-style"> {{ $blog_comment->blog->title ?? '-' }} </td>
                     <td class="td-style"> {{ $blog_comment->name}} </td>
                     <td class="td-style"> {{ $blog_comment->email }}</td>
                     <td class="td-style column-comment"> {{ $blog_comment->comment }}</td>
