@@ -246,44 +246,28 @@
       }
   </script>
 
-  <script>
+  <script>  
     $(document).ready(function () {
-      console.log($('.input-changes'))
-      $('.input-changes').on('input change', function (e) {
-        console.log()
+      $('.input-changes').on('input', function (e) {
         const textAreaValue = $(this).val()
         if (textAreaValue != '') {
           $(`.submit-${this.dataset.idGallery}`).removeClass('d-none', false);
         }
-      });
-    });
+      })
+    })
   </script>
 
 <script>
   $(document).ready(function () {
-    $('.input-changes').on('input change', function (e) {
-      console.log()
+    $('.input-changes').on('input', function (e) {
       const textAreaValue = $(this).val()
       if (textAreaValue != '') {
         $(`.submitUpdated-${this.dataset.idGallery}`).addClass('d-none', true);
       }
-    });
-  });
+    })
+  })
 </script>
 
-{{-- <script>
-  const $isChanges = document.getElementById('.input-changes')
-  const $inputsChangePassword = document.getElemenTagName(`.submit-${this.dataset.idGallery}`)
-  $Change.addEventListener('change', function() {
-    setClassTogggleDiplay()
-  })
-
-  function setClassTogggleDiplay() {
-    const method = $Change.checked ? 'remove' : 'add'
-    $inputsChange.class('d-none')
-  }
-  setClassTogggleDiplay()
-</script> --}}
 
 @endsection
 
