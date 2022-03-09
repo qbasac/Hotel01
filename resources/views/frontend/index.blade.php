@@ -146,15 +146,8 @@
                         </h1>
                         <nav class="navigation pull-right">
                             <ul>
-                                <li><a href="#">Blog</a>
-                                    <ul class="children">
-                                        <li><a href="{{-- route('lateral-blog') --}}">Blog con Side</a></li>
-                                        <li><a href="{{-- route('pequeño-blog') --}}">Blog Pequeño</a></li>
-                                        <li><a href="{{-- route('mediano-blog') --}}">Blog Medio</a></li>
-                                        <li><a href="{{-- route('grande-blog')  --}}">Blog Grande</a></li>
-                                        <li><a href="{{-- route('lista-blog')  --}}">Lista de blogs</a></li>
-                                        <li><a href="{{-- route('detalle-blog')  --}}">Detalle del blog</a></li>
-                                    </ul>
+                                <li><a href="{{ route('pequeño-blog') }}">Blog</a>
+
                                 </li>
                                 <li>
                                     <a href="#">Galerí DASDADAa</a>
@@ -513,20 +506,18 @@
                     <figure>
                         <img src="{{ asset('storage/blog-image/'.$blog->image) }}" alt="oscarthemes">
                         <div class="s-date-box">
-                            <p>{{$blog->created_at}}</p>
-                            {{-- <span>24</span>
-                            <p>Jan 2017</p> --}}
+                          <p>{{ \Carbon\Carbon::parse($blog->created_at)->toFormattedDateString('d-F-Y')}}</p>
                         </div>
                     </figure>
                     <div class="text">
-                        <h4 class="title p_title"><a href="blog-detail.html">{{$blog->title}}</a></h4>
+                        <h4 class="title p_title"><a href="{{ route('blog.show',['blog' => $blog->id]) }}">{{$blog->title}}</a></h4>
                         <ul class="blog-meta">
-                            <li><a href="#"><i class="fa fa-user"></i><span>Admin</span></a></li>
+                            <li><a href="#"><i class="fa fa-user"></i><span >{{$blog->name_author}}</span></a></li>
                             <li><a href="#"><i class="fa fa-comment-o"></i><span>3 Comentarios</span></a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i><span>30 Likes</span></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i><span>{{$blog ->like}}</span></a></li>
                         </ul>
                         <p class="p_description">{{$blog->description}}</p>
-                        <a class="readmore-btn" href="#">Leer más</a>
+                        <a class="readmore-btn" href="{{ route('blog.show',['blog' => $blog->id]) }}">Leer más</a>
                     </div>
                 </div>
               </div>

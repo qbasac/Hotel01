@@ -17,48 +17,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <!--Blog Detail Start-->
                     <div class="chr-blog-small chr-blog-detail">
                         <figure>
-                            <img src="{{ asset('frontend/extra-images/img-d1.jpg') }}" alt="oscarthemes">
+                            <img src="{{ asset('storage/blog-image/'.$blog->image) }}" alt="oscarthemes">
                             <div class="s-date-box">
                                 <span>24</span>
                                 <p>Enero 2017</p>
                             </div>
                         </figure>
                         <div class="text">
-                            <h5 class="title"><a href="blog-detail.html">Live the Life in Bali National Hotel</a></h5>
+                            <h5 class="title"><a href="blog-detail.html">{{$blog->title}}</a></h5>
                             <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-user"></i><span>Admin</span></a></li>
+                                <li><a href="#"><i class="fa fa-user"></i><span>{{$blog->name_author}}</span></a></li>
                                 <li><a href="#"><i class="fa fa-comment-o"></i><span>3 Comentarios</span></a></li>
                                 <li><a href="#"><i class="fa fa-heart"></i><span>30 Me Gustas</span></a></li>
                             </ul>
-                            <p>Las terrazas y balcones privados sacan su espacio vital al exterior. Sus orígenes se remontan a la visión de un comerciante de vinos francés, la casa pronto evolucionó hasta convertirse en un centro de glamour e inspiración para las figuras literarias y artísticas de la habitación del hotel Alójese dos noches o más en fechas seleccionadas y le obsequiaremos con todo lo que necesita para escribir su propia historia de amor en el Hotel de lujo. El ambiente de la residencia hotelera se recrea en las zonas públicas del hotel.</p>
-                                <p>Cada una de nuestras habitaciones es un viaje único. El edificio de Regent Street también resort The Club, un lujo que cuenta con una galería para exposiciones temporales y resort de artistas contemporáneos como room resort o hotel room & hotel Beach Resort es un íntimo, hotel escapada romántica sólo para Adultos (18+) , situado en las arenas de polvo blanco de Eagle Beach, hotel Stay relaxed, estancia productiva, y la estancia en el corazón del hotel cerca de la estación de tren principal y a pocos minutos del museo de arte moderno de Hamburgo hotel Cada suite del complejo ofrece una sensación de la habitación y está amueblada individualmente con su propia decoración única y características de diseño, tales como chimeneas originales de la chimenea, habitación individual y ventanas de la bahía. </p>
-                            <!--Blockquote Start-->
-                            <blockquote>
-                                <P>Each of our rooms is a unique journey. The building at Regent Street also Club, a luxury featuring a gallery for temporary exhibitions ...</P>
-                            </blockquote>
-                            <!--Blockquote End-->
-                            <p>Cada una de nuestras habitaciones es un viaje único. El edificio de Regent Street también resort The Club, un lujo que cuenta con una galería para exposiciones temporales y resort de artistas contemporáneos como habitación resort o habitación hotel & hotel Beach Resort es un íntimo, hotel escapada romántica...</p>
-                            <!--Blog Detail Thumb Start-->
-                            <div class="blog-detail-thumb">
-                                <div class="row">
-                                    <div class="col-md-7 col-sm-7">
-                                        <figure>
-                                            <img src="{{ asset('frontend/extra-images/img-d2.jpg') }}" alt="oscarthemes"/>
-                                        </figure>
-                                    </div>
-                                    <div class="col-md-5 col-sm-5">
-                                        <figure>
-                                            <img src="{{ asset('frontend/extra-images/img-d3.jpg') }}" alt="oscarthemes"/>
-                                        </figure>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Blog Detail Thumb End-->
-                            <p>Sólo para adultos (18+) , situado en las blancas arenas de Eagle Beach, el hotel se mantiene relajado, se mantiene productivo, y se mantiene en el corazón del hotel cerca de la estación principal de tren y a pocos minutos del museo de arte moderno Hamburger hotel Cada Suite del resort proporciona una sensación de habitación y está amueblada individualmente con su propia decoración y características de diseño únicas, tales como chimeneas originales, ...</p>
-                            <!--Social Wrap Start-->
+                            <p>{{$blog->description}}</p>
+
                             <div class="chr-social-wrap">
                                 <ul class="chr-social">
                                     <li class="social_title"><strong>Compartir:</strong></li>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -10,9 +11,10 @@ class BlogController extends Controller
     {
         $this->middleware('auth');
     }
-    public function blogDetail()
+    public function blogDetail($id)
     {
-        return view('frontend.blog-detail');
+        $blog = Blog::whereId($id)->first();
+        return view('frontend.blog-detail', compact('blog'));
     }
     public function blogLarge()
     {
@@ -28,10 +30,15 @@ class BlogController extends Controller
     }
     public function blogSmall()
     {
-        return view('frontend.blog-small');
+        $blogs = Blog::where('is_active', 1)->get();
+        return view('frontend.blog-small', compact('blogs'));
     }
     public function blogSiderbar()
     {
         return view('frontend.blog-sidebar');
     }
-}
+    public function show($id)
+    {
+      $blog = Blog::whereId($id)->first();
+      return view('frontend.blog-detail', compact('blog'));
+    }}

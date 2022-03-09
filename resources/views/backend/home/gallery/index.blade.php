@@ -98,11 +98,11 @@
               <input type="hidden" name="state" value="{{$home->show_section_gallery}}">
               @if ($home->show_section_gallery)
               <button style="margin-left: 5px;"  type="submit" class="btn btn btn-danger float-end" title="">
-                Ocultar galería <i class="fas fa-eye-slash"></i>
+                Ocultar <i class="fas fa-eye-slash"></i>
               </button>
               @else
               <button style="margin-right: 5px;" type="submit" class="btn btn btn-success " title="Cambiar estado">
-                Mostrar galería <i class="fas fa-eye"></i>
+                Mostrar <i class="fas fa-eye"></i>
               </button>
               @endif
             </form>
@@ -124,14 +124,14 @@
 
             <div class="row">
               @foreach ($galleries as $gallery)
-                <div class="col-xl-3 col-lg-6  ">
+                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
                   <div class="card m-3 bg-light rounded">
                     <form action="{{ route('admin.gallery.update', ['gallery' => $gallery->id]) }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
                       @method('PUT')
                       @csrf
-                      <div class="mb-3">
+                      <div class="mb-0">
                         <div class="file_container">
-                          <input  type="file" class="file_input input-changes" onchange="previewImage(event, {{$gallery->id}})"  name="image" accept="image/*">
+                          <input  type="file" class="file_input input-changes" data-id-gallery="{{$gallery->id}}" onchange="previewImage(event, {{$gallery->id}})"  name="image" accept="image/*">
                           <img class="file_image  card-img-top rounded-top" id="image-preview-{{$gallery->id}}"  src="{{ asset('storage/gallery-image/'.$gallery->image) }}" alt="oscarthemes">
                           <div class="texto-encima file_containe">
                             <div class="icon-change-image">
@@ -140,22 +140,23 @@
                           </div>
                         </div>
                       </div>
-                      <div class=" row card-body text-center">
-                        <label>Descripción</label>
-                        {{-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam asperiores excepturi aperiam voluptatum dolorum alias voluptate modi! Perferendis in, ex corporis mollitia perspiciatis earum asperiores. --}}
-                        <textarea  class="form-control input-changes" name="description">{{$gallery->description}}</textarea>
+
+                      <div class="card-body pb-1">
+                        <i class="fas fa-pencil-alt"></i>
+                        <label class="text-start mb-0"> Descripción</label>
+                        <textarea  class="form-control input-changes" name="description" rows="" data-id-gallery="{{$gallery->id}}">{{$gallery->description}}</textarea>
                         {{-- <p contenteditable name="description">
                           {{$gallery->description}}
                         </p> --}}
                       </div>
 
-                      <div class="text-center p-2">
-                        <a href="{{ route('admin.gallery.index') }}" class="btn btn-sm btn-light border border-secondary" tabindex="4">Cancelar</a>
-                        <button  id="submit" disabled="disabled" type="submit" class="btn btn-sm btn-primary submit" tabindex="3">Actualizar cambios</button>
+                      <div class="text-center pb-1 pt-2">
+                        <a href="{{ route('admin.gallery.index') }}" class="btn btn-sm btn-light border border-secondary submit-{{$gallery->id}} d-none" tabindex="4">Cancelar</a>
+                        <button type="submit" class="btn btn-sm btn-primary submit-{{$gallery->id}} d-none" tabindex="3">Actualizar cambios</button>
                       </div>
                     </form>
-                     <div class="text-end pb-1">
-                        <form method="POST" action="{{route('admin.gallery.updateIsActive', ['gallery' => $gallery->id] )}}" class="d-inline">
+                     <div class="text-center pb-2 submitUpdated-{{$gallery->id}}">
+                        <form  method="POST" action="{{route('admin.gallery.updateIsActive', ['gallery' => $gallery->id] )}}" class="d-inline">
                           @csrf
                           <input type="hidden" name="state" value="{{$gallery->is_active}}">
                           @if ($gallery->is_active)
@@ -177,7 +178,6 @@
                           @method('DELETE')
                           <button type="submit" title="Eliminar" class="btn btn-sm btn-danger text-center"><i class="far fa-trash-alt"></i></button>
                         </form>
-
                      </div>
                   </div>
                 </div>
@@ -191,23 +191,23 @@
 @endsection
 
 @section('scripts')
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
- @if (session('deleted') == 'Eliminado')
+  @if (session('deleted') == 'Eliminado')
+    <script>
+      Swal.fire({
+            icon: 'success',
+            title: 'Eliminado!',
+
+            html: `
+            Se ha eliminado con exito
+            `,
+            confirmButtonText: 'Aceptar'
+          })
+    </script>
+  @endif
+
   <script>
-   Swal.fire({
-          icon: 'success',
-          title: 'Eliminado!',
-
-          html: `
-          Se ha eliminado con exito
-          `,
-          confirmButtonText: 'Aceptar'
-        })
-  </script>
- @endif
-
- <script>
     $('.form-delete').submit(function(e){
       e.preventDefault()
 
@@ -231,7 +231,6 @@
 
   </script>
 
-
   <script>
       let fileInput,
       fileImage = document.querySelectorAll('.file_image'),
@@ -246,18 +245,45 @@
         reader.readAsDataURL(file)
       }
   </script>
+
   <script>
     $(document).ready(function () {
-        $('.input-changes').on('input change', function () {
-            if ($(this).val() != '') {
-                $('.submit').prop('disabled', false);
-            }
-            else {
-                $('.submit').prop('disabled', true);
-            }
-        });
+      console.log($('.input-changes'))
+      $('.input-changes').on('input change', function (e) {
+        console.log()
+        const textAreaValue = $(this).val()
+        if (textAreaValue != '') {
+          $(`.submit-${this.dataset.idGallery}`).removeClass('d-none', false);
+        }
+      });
     });
+  </script>
+
+<script>
+  $(document).ready(function () {
+    $('.input-changes').on('input change', function (e) {
+      console.log()
+      const textAreaValue = $(this).val()
+      if (textAreaValue != '') {
+        $(`.submitUpdated-${this.dataset.idGallery}`).addClass('d-none', true);
+      }
+    });
+  });
 </script>
+
+{{-- <script>
+  const $isChanges = document.getElementById('.input-changes')
+  const $inputsChangePassword = document.getElemenTagName(`.submit-${this.dataset.idGallery}`)
+  $Change.addEventListener('change', function() {
+    setClassTogggleDiplay()
+  })
+
+  function setClassTogggleDiplay() {
+    const method = $Change.checked ? 'remove' : 'add'
+    $inputsChange.class('d-none')
+  }
+  setClassTogggleDiplay()
+</script> --}}
 
 @endsection
 

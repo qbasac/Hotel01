@@ -112,7 +112,6 @@
     </div>
   </div>
   <section>
-
     <div class="container">
       <aside class="row">
         <div class="col-sm-12 col-md-5">
@@ -270,7 +269,7 @@
           confirmButtonText: 'Continuar'
         })
     </script>
-  @endif 
+  @endif
 
   @if (session('created') == 'vale')
     <script>

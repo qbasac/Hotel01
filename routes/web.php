@@ -19,6 +19,8 @@ use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\RoomReservationController;
+use App\Http\Controllers\BlogController;
+
 
 Route::post('upload-images', [AdminServicesController::class, 'handleImages'])->name('upload-images');
 
@@ -92,6 +94,11 @@ Route::resource('/room-search', HomeController::class);
 // Route::get('/habitacion', [RoomController::class,  'index'])->name('habitacion');
 
 Route::resource('/habitacion', RoomController::class);
+Route::get('/pequeño-blog', [BlogController::class, 'blogsmall'])->name('pequeño-blog');
+Route::resource('/blog', BlogController::class);
+// Route::get('/blog-detail', [BlogController::class, 'blog-detail'])->name('pequeño-blog');
+
+
 
 // Route::get('habitacion-detalle', 'HabitacionesController@roomDetail')->name('habitacion-detalle');
 // Route::get('habitacion-lista', 'HabitacionesController@roomList')->name('habitacion-lista');
