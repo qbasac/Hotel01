@@ -58,44 +58,44 @@
     }
 
 
-  :focus::placeholder {
-    opacity: 0;
-    transition-property: all;
-    transition-duration: 300ms;
-  }
+    :focus::placeholder {
+      opacity: 0;
+      transition-property: all;
+      transition-duration: 300ms;
+    }
 
-  .has_offer{
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  display: inline-block;
-  font-weight: 600;
-  background: #ff1212;
-  padding: 0 1rem;
-  color: white;
-  }
+    .has_offer{
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: inline-block;
+    font-weight: 600;
+    background: #ff1212;
+    padding: 0 1rem;
+    color: white;
+    }
 
 
 
-  .room_quantity{
-   margin: 5px !important; display: block; inline-size: 100%;text-align: center;
-  }
+    .room_quantity{
+    margin: 5px !important; display: block; inline-size: 100%;text-align: center;
+    }
 
-  .has_offer_if{
-    text-align: center;margin: 1rem 0 .5rem;
-  }
+    .has_offer_if{
+      text-align: center;margin: 1rem 0 .5rem;
+    }
 
-  .sup_room_price{
-    text-decoration: line-through;color: #969696;
-  }
+    .sup_room_price{
+      text-decoration: line-through;color: #969696;
+    }
 
-  .span_rental_price{
-    font-weight: 600; font-size: 2rem
-  }
+    .span_rental_price{
+      font-weight: 600; font-size: 2rem
+    }
 
-  .btn_reservar{
-    text-align: center;
-  }
+    .btn_reservar{
+      text-align: center;
+    }
 
 
   </style>
@@ -248,7 +248,6 @@
 @endsection
 
 @section('scripts')
-
   @if ($errors->any())
     <script>
         Swal.fire({

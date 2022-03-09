@@ -20,6 +20,7 @@
   </style>
 
 @endsection
+
 @section('content')
 <div class="page-content-wrapper">
   <div class="row">
@@ -30,9 +31,8 @@
             <h6 class="text-primary">
               <i class="fas fa-book"></i> Blog
             </h6>
-            <div >
+            <div>
               <a href="{{ route('admin.blog.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
-
             </div>
           </div>
           <hr>
@@ -50,12 +50,12 @@
                   <th scope="col">Creado</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody style="vertical-align: middle;">
                 @foreach ($blogs as $blog)
                 <tr>
                   <td style=" text-align: left;vertical-align: middle;">
                     <a href="{{ route('admin.blog.edit', ['blog' => $blog->id] ) }}" class="btn btn-sm btn-info" title="Editar"><i class="far fa-edit"></i></a>
-                    <form action="{{ route('admin.blog.destroy',$blog->id) }}"  method="POST" class="d-inline">
+                    <form action="{{ route('admin.blog.destroy',$blog->id) }}"  method="POST" class="d-inline form-delete">
                         @csrf
                         @method('DELETE')
                         <button type="submit" title="Eliminar" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
@@ -95,7 +95,6 @@
                         <img src="{{ asset('storage/blog-image/'.$blog->image) }}"  width="60" height="30">
                     </td>
                     <td>{{$blog->created_at}}</td>
-
                 </tr>
                 @endforeach
               </tbody>
@@ -107,3 +106,44 @@
   </div>
 </div>
 @endsection
+
+@section('scripts')
+
+  @if (session('deleted') == 'Eliminado satisfactoriamente')
+    <script>
+      Swal.fire({
+            icon: 'success',
+            title: 'Eliminado!',
+
+            html: `
+            Se ha eliminado con exito
+            `,
+            confirmButtonText: 'Aceptar'
+          })
+    </script>
+  @endif
+
+  <script>
+    $('.form-delete').submit(function(e){
+      e.preventDefault()
+
+      Swal.fire({
+      title: '¿Estas seguro?',
+      text: "Se eliminará definitivamente!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Eliminar!',
+      cancelButtonText: 'Cancelar'
+
+      }).then((result) => {
+      if (result.isConfirmed) {
+        this.submit();
+      }
+      })
+    })
+
+  </script>
+@endsection
+

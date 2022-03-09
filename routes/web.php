@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\SliderHomeController as AdminSliderHomeController
 use App\Http\Controllers\Admin\ServicesController as AdminServicesController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\Admin\BlogCommentsController as AdminBlogCommentsController;
+
 
 
 
@@ -60,6 +62,10 @@ Auth::routes(['register' => false]);
 
     Route::resource('/blog', AdminBlogController::class);
     Route::post('blog/update-is-active/{blog}', [AdminBlogController::class, 'updateIsActive'])->name('blog.updateIsActive');
+
+    Route::resource('/blog-comments', AdminBlogCommentsController::class);
+    Route::post('blog-comments/update-is-active/{comments}', [AdminBlogCommentsController::class, 'updateIsActive'])->name('blog-comments.updateIsActive');
+
 
 
   });

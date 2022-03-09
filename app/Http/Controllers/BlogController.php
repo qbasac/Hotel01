@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\BlogComments;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -13,8 +14,9 @@ class BlogController extends Controller
     }
     public function blogDetail($id)
     {
+        $blog_comments = BlogComments::swhere('is_active', 1)->get();
         $blog = Blog::whereId($id)->first();
-        return view('frontend.blog-detail', compact('blog'));
+        return view('frontend.blog-detail', compact('blog', 'blog_comments'));
     }
     public function blogLarge()
     {

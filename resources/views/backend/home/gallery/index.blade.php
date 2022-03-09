@@ -191,7 +191,6 @@
 @endsection
 
 @section('scripts')
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   @if (session('deleted') == 'Eliminado')
     <script>
@@ -223,7 +222,6 @@
 
       }).then((result) => {
       if (result.isConfirmed) {
-
         this.submit();
       }
       })
@@ -246,7 +244,7 @@
       }
   </script>
 
-  <script>  
+  <script>
     $(document).ready(function () {
       $('.input-changes').on('input', function (e) {
         const textAreaValue = $(this).val()
@@ -257,17 +255,15 @@
     })
   </script>
 
-<script>
-  $(document).ready(function () {
-    $('.input-changes').on('input', function (e) {
-      const textAreaValue = $(this).val()
-      if (textAreaValue != '') {
-        $(`.submitUpdated-${this.dataset.idGallery}`).addClass('d-none', true);
-      }
+  <script>
+    $(document).ready(function () {
+      $('.input-changes').on('input', function (e) {
+        const textAreaValue = $(this).val()
+        if (textAreaValue != '') {
+          $(`.submitUpdated-${this.dataset.idGallery}`).addClass('d-none', true);
+        }
+      })
     })
-  })
-</script>
-
-
+  </script>
 @endsection
 

@@ -22,11 +22,17 @@
           </a>
           <ul class="sub-menu" aria-expanded="true">
             <li><a href="{{route('admin.home-slider.index')}}">Carrucel de imagenes </a></li>
-            <li><a href="{{route('admin.services.index')}}">Sección nuestros servicios</a></li>
+            <li><a href="{{route('admin.services.index')}}">Sección servicios</a></li>
             {{-- <li><a href="{{route('testimonial.index')}}">Sección nuestras habitaciones</a></li> --}}
-            <li><a href="{{route('admin.gallery.index')}}">Sección nuestra galeria</a></li>
-            <li><a href="{{route('admin.blog.index')}}">Sección nuestro blog</a></li>
-            <li><a href="{{route('testimonial.index')}}">Sección nuestros precios</a></li>
+            <li><a href="{{route('admin.gallery.index')}}">Sección galeria</a></li>
+            {{-- <li><a href="javascript: void(0);" class="has-arrow">Blog</a>
+              <ul class="sub-menu" aria-expanded="true">
+                <li><a href="{{route('admin.blog.index')}}">Sección blog</a></li>
+                <li><a href="javascript: void(0);">Comentarios del blog</a></li>
+              </ul>
+            </li> --}}
+            {{-- <li><a href="{{route('admin.blog.index')}}">Sección blog</a></li> --}}
+            <li><a href="{{route('testimonial.index')}}">Sección precios</a></li>
       </ul>
     </li>
 
@@ -49,6 +55,18 @@
       <ul class="sub-menu" aria-expanded="true">
         <li><a href="{{route('admin.room.index')}}">Nuestras habitaciones</a></li>
         <li><a href="{{route('room-reservation.index')}}">Reserva de habitaciones</a></li>
+      </ul>
+    </li>
+    <li>
+
+    <li>
+      <a href="javascript: void(0);" class="has-arrow waves-effect">
+        <i class="fas fa-book"></i>
+        <span>Blog</span>
+      </a>
+      <ul class="sub-menu" aria-expanded="true">
+        <li><a href="{{route('admin.blog.index')}}">Sección blog</a></li>
+        <li><a href="{{route('admin.blog-comments.index')}}">Comentarios del blog</a></li>
       </ul>
     </li>
     <li>

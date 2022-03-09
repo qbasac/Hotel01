@@ -11,11 +11,11 @@ class BlogController extends Controller
 {
     public function index(){
       $blogs = Blog::get();
-      return view('backend.home.blog.index', compact('blogs'));
+      return view('backend.blog.blogs.index', compact('blogs'));
     }
 
     public function create(){
-      return view('backend.home.blog.create');
+      return view('backend.blog.blogs.create');
     }
 
     public function store(Request $request){
@@ -34,7 +34,7 @@ class BlogController extends Controller
 
     public function edit($id){
       $blog = Blog::whereId($id)->first();
-      return view('backend.home.blog.edit', compact('blog'));
+      return view('backend.blog.blogs.edit', compact('blog'));
     }
 
     public function update(Request $request, $id){
@@ -54,7 +54,7 @@ class BlogController extends Controller
     public function destroy($id){
       $blog = Blog::find($id);
       $blog->delete();
-      return redirect()->route('admin.blog.index');
+      return redirect()->route('admin.blog.index')->with('delete', 'Eliminado satisfactoriamente');
     }
 
     public function updateIsActive(Request $request, $id)

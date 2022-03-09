@@ -11,7 +11,7 @@
     <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-    <meta name="END-POINT" content="http://127.0.0.1:8000/"> 
+    {{-- <meta name="END-POINT" content="http://127.0.0.1:8000/">  --}}
     <meta name="END-POINT" content="http://hotel01.test:8080/">
 
 
@@ -217,7 +217,9 @@
         <script src="{{ asset('backend/assets/libs/simplebar/simplebar.min.js') }}"></script>
         <script src="{{ asset('backend/assets/libs/node-waves/waves.min.js') }}"></script>
         <script src="{{ asset('backend/assets/libs/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
-        <script src="{{asset('backend/assets/js/app.js')}}"></script>
+        <script src="{{ asset('backend/assets/js/app.js')}}"></script>
+        <script src="{{ asset('frontend/js/sweetalert2.js') }}"></script>
+
 
         @yield('scripts')
 

@@ -58,40 +58,9 @@
                         <!--Heading Title End-->
                         <!--Comment Start-->
                         <ul class="comment">
+
+                          
                             <li>
-                                <!--Comment Thumb Start-->
-                                <div class="comment-thumb flex-text">
-                                    <figure>
-                                        <img src="{{ asset('frontend/extra-images/ct-1.jpg') }}" alt="oscarthemes"/>
-                                    </figure>
-                                    <div class="text">
-                                        <h5 class="title"><a href="#">Merry John</a><span>March , 2017</span></h5>
-                                        <p>Duis aute irure dolor in reprehenderit in vol utate velit esse cillum dolore eu fugiat nulla pari atur. Excepteur sint occaecat cupidatat non proid pent.</p>
-                                        <a class="comment-reply-link" href="#">Respuesta</a>
-                                    </div>
-                                </div>
-                                <!--Comment Thumb End-->
-                                <!--Comment Children Start-->
-                                <ul class="children">
-                                    <li>
-                                        <!--Comment Thumb Start-->
-                                        <div class="comment-thumb flex-text">
-                                            <figure>
-                                                <img src="{{ asset('frontend/extra-images/ct-1.jpg') }}" alt="oscarthemes"/>
-                                            </figure>
-                                            <div class="text">
-                                                <h5 class="title"><a href="#">Merry John</a><span>March , 2017</span></h5>
-                                                <p>Duis aute irure dolor in reprehenderit in vol uptate velit esse cillum dolore eu fugiat nulla pari atur. Excepteur sint occaecat cupidatat non proid pent.</p>
-                                                <a class="comment-reply-link" href="#">Respuesta</a>
-                                            </div>
-                                        </div>
-                                        <!--Comment Thumb End-->
-                                    </li>
-                                </ul>
-                                <!--Comment Children End-->
-                            </li>
-                            <li>
-                                <!--Comment Thumb Start-->
                                 <div class="comment-thumb flex-text">
                                     <figure>
                                         <img src="{{asset('frontend/extra-images/ct-1.jpg')}}" alt="oscarthemes"/>
@@ -102,36 +71,9 @@
                                         <a class="comment-reply-link" href="#">Respuesta</a>
                                     </div>
                                 </div>
-                                <!--Comment Thumb End-->
                             </li>
-                            <li>
-                                <!--Comment Thumb Start-->
-                                <div class="comment-thumb flex-text">
-                                    <figure>
-                                        <img src="{{asset ('frontend/extra-images/ct-1.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                    <div class="text">
-                                        <h5 class="title"><a href="#">Merry John</a><span>March , 2017</span></h5>
-                                        <p>Duis aute irure dolor in reprehenderit in vol uptate velit esse cillum dolore eu fugiat nulla pari atur. Excepteur sint occaecat cupidatat non proid pent.</p>
-                                        <a class="comment-reply-link" href="#">Respuesta</a>
-                                    </div>
-                                </div>
-                                <!--Comment Thumb End-->
-                            </li>
-                            <li>
-                                <!--Comment Thumb Start-->
-                                <div class="comment-thumb flex-text">
-                                    <figure>
-                                        <img src="{{asset ('frontend/extra-images/ct-1.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                    <div class="text">
-                                        <h5 class="title"><a href="#">Merry John</a><span>March , 2017</span></h5>
-                                        <p>Duis aute irure dolor in reprehenderit in vol uptate velit esse cillum dolore eu fugiat nulla pari atur. Excepteur sint occaecat cupidatat non proid pent.</p>
-                                        <a class="comment-reply-link" href="#">Respuesta</a>
-                                    </div>
-                                </div>
-                                <!--Comment Thumb End-->
-                            </li>
+
+
                         </ul>
                         <!--Comment End-->
                     </div>
