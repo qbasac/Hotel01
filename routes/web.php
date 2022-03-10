@@ -102,6 +102,7 @@ Route::resource('/room-search', HomeController::class);
 Route::resource('/habitacion', RoomController::class);
 Route::get('/pequeño-blog', [BlogController::class, 'blogsmall'])->name('pequeño-blog');
 Route::resource('/blog', BlogController::class);
+
 // Route::get('/blog-detail', [BlogController::class, 'blog-detail'])->name('pequeño-blog');
 
 

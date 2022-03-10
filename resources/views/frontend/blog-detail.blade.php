@@ -1,4 +1,49 @@
+@php
+  use \Carbon\Carbon;
+
+@endphp
 @extends('frontend.layouts.app')
+
+@section('style')
+  <style>
+
+    .swal2-popup2 {
+    display: none;
+    position: relative;
+    box-sizing: border-box;
+    grid-template-columns: minmax(0,100%);
+    width: 46em !important;
+    max-width: 100%;
+    block-size: 300px;
+    padding: 16px 0 1.25em;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    color: #545454;
+    font-family: inherit;
+    font-size: 1rem;
+    }
+
+    .swal2-html-container2{
+    z-index: 1;
+    justify-content: center;
+    margin: 1em 1.6em .3em;
+    padding: 0;
+    overflow: hidden !important;
+    color: inherit;
+    font-size: 1.125em;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-word;
+    }
+
+    body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.text{
+      display: none ;
+    }
+  </style>
+@endsection
 
 @section('content')
 <div data-stellar-background-ratio="0.5" class="parallax-section chr-sub-banner text-center">
@@ -50,70 +95,51 @@
                             <!--Social Wrap End-->
                         </div>
                     </div>
-                    <!--Blog Detail End-->
-                    <!--Comment Wrap Start-->
                     <div class="chr-comment-wrap">
-                        <!--Heading Title Start-->
                         <h5 class="heading-title">Comentarios {{ $blog->comments_count}}</h5>
-                        <!--Heading Title End-->
-                        <!--Comment Start-->
                         <ul class="comment">
-                          @foreach ( $blog->comments as $comment )
-                          <li>
-                              <div class="comment-thumb flex-text">
-                                  <figure>
-                                      <img src="{{asset('frontend/extra-images/ct-1.jpg')}}" alt="oscarthemes"/>
-                                  </figure>
-                                  <div class="text">
-                                      <h5 class="title"><a href="#">{{$comment->name}}</a><span>March , 2017</span></h5>
-                                      <p>{{$comment->comment}}</p>
-                                  </div>
-                              </div>
-                          </li>
-                        @endforeach
 
-
-
-
-
+                          @foreach ( $blog->comments as $comment)
+                          @if ($comment->is_active)
+                            <li>
+                                <div class="comment-thumb flex-text">
+                                    <figure>
+                                        <img src="{{asset('frontend/extra-images/ct-1.jpg')}}" alt="oscarthemes"/>
+                                    </figure>
+                                    <div class="text">
+                                        <h5 class="title"><a href="#">{{$comment->name}}</a><span>{{ Carbon::parse($comment->created_at)->isoFormat('dddd, DD MMMM YYYY') }}</span></h5>
+                                        <p>{{$comment->comment}}</p>
+                                    </div>
+                                </div>
+                            </li>
+                          @endif
+                          @endforeach
                         </ul>
-                        <!--Comment End-->
                     </div>
-                    <!--Comment Wrap End-->
-                    <!--Comment Wrap End-->
+
                     <div class="comment-form">
-                        <!--Heading Title Start-->
-                        <h5 class="heading-title">Leave a Comment</h5>
-                        <!--Heading Title End-->
-                        <form>
-                            <!--Divider Start-->
+                        <h5 class="heading-title">Deja tu comentario</h5>
+                        <form action="{{ route('blog.store') }}" method="POST" autocomplete="off">
+                          @csrf
+                          <input type="hidden" name="blog_id" value="{{$blog->id}}">
                             <div class="input-divider row">
                                 <div class="col-md-6 col-sm-6">
-                                    <!--Input Field Start-->
                                     <div class="input-field">
-                                        <input type="text" placeholder="Su nombre">
+                                        <input id="name" name="name"  type="text" placeholder="Su nombre">
                                     </div>
-                                    <!--Input Field End-->
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <!--Input Field Start-->
                                     <div class="input-field">
-                                        <input type="text" placeholder="Su correo electrónico">
+                                        <input id="email" name="email" type="text" placeholder="Su correo electrónico">
                                     </div>
-                                    <!--Input Field End-->
                                 </div>
                             </div>
-                            <!--Divider End-->
-                            <!--Input Field Start-->
                             <div class="input-field">
-                                <textarea placeholder="Su mensaje"></textarea>
+                                <textarea id="comment" name="comment" placeholder="Su mensaje"></textarea>
                             </div>
-                            <!--Input Field End-->
-                            <!--Input Field Start-->
                             <div class="input-field">
                                 <input type="submit" value="Enviar ahora">
                             </div>
-                            <!--Input Field End-->
                         </form>
                     </div>
                 </div>
@@ -274,4 +300,43 @@
     </section>
     <!--Blog Section End-->
 </div>
+@endsection
+
+@section('scripts')
+  @if ($errors->any())
+    <script>
+        Swal.fire({
+          icon: 'error',
+          title: 'Corrija los errores!',
+          customClass:
+          {
+            popup: 'swal2-popup2',
+            htmlContainer: 'swal2-html-container2',
+          },
+          html: `
+            <ul style="size:30px;">
+              @foreach ($errors->all() as $message)
+               <li style="text-align: start">{{$message}}</li>
+              @endforeach
+            </ul>
+          `,
+          confirmButtonText: 'Continuar'
+        })
+    </script>
+  @endif
+
+  @if (session('created') == 'vale')
+    <script>
+    Swal.fire({
+          icon: 'success',
+          title: 'Su comentario se ha enviado exitosamente!',
+
+          html: `
+          Su comentario se ha enviado exitosamente!
+          `,
+          confirmButtonText: 'Aceptar'
+        })
+    </script>
+  @endif
+
 @endsection

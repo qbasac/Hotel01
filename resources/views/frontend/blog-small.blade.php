@@ -57,8 +57,7 @@
                     <h4 class="title p_title"><a href="{{ route('blog.show',['blog' => $blog->id]) }}">{{$blog->title}}</a></h4>
                     <ul class="blog-meta">
                         <li><a href="#"><i class="fa fa-user"></i><span >{{$blog->name_author}}</span></a></li>
-                        <li><a href="#"><i class="fa fa-comment-o"></i><span>3 Comentarios</span></a></li>
-                        <li><a href="#"><i class="fa fa-heart"></i><span>30 Likes</span></a></li>
+                        <li><a href="#"><i class="fa fa-comment-o"></i><span>{{ $blog->comments_count}} Comentarios</span></a></li>
                     </ul>
                     <p class="p_description">{{$blog->description}}</p>
                     <a class="readmore-btn" href="{{ route('blog.show',['blog' => $blog->id]) }}">Leer más</a>

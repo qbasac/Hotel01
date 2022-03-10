@@ -25,7 +25,7 @@
 
     .column-comment{
       inline-size: 200px;
-      max-inline-size: 290px;
+      max-inline-size: 200px;
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
@@ -48,7 +48,7 @@
               <i class="fas fa-book"></i> Comentarios del blog
             </h6>
             <div>
-              <a href="{{ route('admin.blog-comments.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a>
+              {{-- <a href="{{ route('admin.blog-comments.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a> --}}
               {{-- <form  method="POST" action="{{route('admin.room.ShowSectionOffer', ['offers' => $home->id] )}}" class="d-inline">
                 @csrf
                 <input type="hidden" name="state" value="{{$home->show_section_offers}}">
@@ -104,9 +104,9 @@
                 @foreach ($blog_comments as $blog_comment)
                   <tr class="vertical-align-middle">
                     <td class="column-options td-style">
-                      <a href="{{ route('admin.blog-comments.edit', ['blog_comment' => $blog_comment->id] ) }}" class="btn btn-sm btn-info" title="Editar">
+                      {{-- <a href="{{ route('admin.blog-comments.edit', ['blog_comment' => $blog_comment->id] ) }}" class="btn btn-sm btn-info" title="Editar">
                         <i class="far fa-edit"></i>
-                      </a>
+                      </a> --}}
                       <form action="{{ route('admin.blog-comments.destroy',$blog_comment->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
@@ -139,14 +139,14 @@
                     <td class="td-style"> {{ $blog_comment->name}} </td>
                     <td class="td-style"> {{ $blog_comment->email }}</td>
                     <td class="td-style column-comment"> {{ $blog_comment->comment }}</td>
-                    <td style="vertical-align: middle;">{{ \Carbon\Carbon::parse($blog_comment->created_at)->format('d-m-Y H:i:s a')}}</td>
+                    <td style="vertical-align: middle;">{{ \Carbon\Carbon::parse($blog_comment->created_at)->format('d-m-Y')}}</td>
                   </tr>
                 @endforeach
               </tbody>
             </table>
           </div>
         </div>
-        {{-- {{ $rooms->links() }} --}}
+        {{ $blog_comments->links() }}
       </div>
     </div>
   </div>

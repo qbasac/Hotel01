@@ -18,6 +18,11 @@ class BlogComments extends Model
    */
   public function blog(): BelongsTo
   {
-      return $this->belongsTo(Blog::class, 'blog_id', 'id');
+    return $this->belongsTo(Blog::class, 'blog_id', 'id');
+  }
+
+  public function scopeActive($query)
+  {
+    return $query->where('is_active', 1);
   }
 }

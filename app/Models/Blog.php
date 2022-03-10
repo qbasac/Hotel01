@@ -19,4 +19,8 @@ class Blog extends Model
   {
       return $this->hasMany(BlogComments::class, 'blog_id', 'id');
   }
+
+  public function scopeActive($query) {
+    return $query->where('is_active', 1);
+  }
 }

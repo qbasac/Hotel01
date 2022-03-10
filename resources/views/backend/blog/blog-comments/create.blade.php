@@ -38,13 +38,13 @@
                 <label for="name" class="form-label">Nombre
                   <span class="span-reqrired">*</span>
                 </label>
-                <input id="name" name="name" id="name" type="text" class="form-control" value="{{ old('name') }}"  placeholder="Complete este campo..." autofocus>
+                <input id="name" name="name"  type="text" class="form-control" value="{{ old('name') }}"  placeholder="Complete este campo..." autofocus>
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Correo
                   <span class="span-reqrired">*</span>
                 </label>
-                <input id="email" name="email" id="email" type="text" class="form-control" value="{{ old('email') }}"  placeholder="Complete este campo..." autofocus>
+                <input id="email" name="email"  type="text" class="form-control" value="{{ old('email') }}"  placeholder="Complete este campo..." autofocus>
               </div>
               <div class="mb-3">
                 <label for="description" class="form-label">Comentario
