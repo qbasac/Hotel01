@@ -19,9 +19,7 @@ class CreateBlogsTable extends Migration
             $table->text('description');
             $table->string('image');
             $table->string('name_author')->nullable();
-            $table->integer('like')->nullable();
             $table->boolean('is_active')->default(1);
-
             $table->timestamps();
         });
     }

@@ -194,3 +194,22 @@
 </div>
 @endsection
 
+@section('scripts')
+  <script>
+    const listFormInputs = ['form-name', 'form-price', 'form-number_beds']
+    const $searchBy = document.getElementById('search-by')
+
+    $searchBy.onchange = setClassDiplayNone
+
+    function setClassDiplayNone() {
+      const listInputs = listFormInputs.map(item => document.getElementById(item))
+        .forEach($input => {
+          const method = $input.id == `form-${$searchBy.value}` ? 'remove' : 'add'
+          $input.classList[method]('d-none')
+        })
+    }
+    setClassDiplayNone()
+  </script>
+@endsection
+
+

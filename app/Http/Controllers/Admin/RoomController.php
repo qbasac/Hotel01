@@ -20,10 +20,7 @@ class RoomController extends Controller
       $columnOrder = $request->searchBy;
       $orderBy = $request->orderBy;
     }
-    // if ($request->searchBy == 'number_beds') {
-    //   $columnOrder = 'number_beds';
-    //   $orderBy = $request->orderBy;
-    // }
+
     $rooms = Room::where(function ($query) use ($request) {
       if ($request->searchBy == 'name') {
         $query->where($request->searchBy, 'LIKE', "%$request->search%");

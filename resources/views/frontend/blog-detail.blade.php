@@ -75,7 +75,6 @@
                             <ul class="blog-meta">
                                 <li><a href="#"><i class="fa fa-user"></i><span>{{$blog->name_author}}</span></a></li>
                                 <li><a href="#"><i class="fa fa-comment-o"></i><span>{{ $blog->comments_count}} Comentarios</span></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i><span>30 Me Gustas</span></a></li>
                             </ul>
                             <p>{{$blog->description}}</p>
 
@@ -314,9 +313,9 @@
             htmlContainer: 'swal2-html-container2',
           },
           html: `
-            <ul style="size:30px;">
+            <ul">
               @foreach ($errors->all() as $message)
-               <li style="text-align: start">{{$message}}</li>
+                 <h5> <li style="text-align: start">{{$message}}</li></h5>
               @endforeach
             </ul>
           `,
