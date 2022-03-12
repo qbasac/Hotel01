@@ -18,6 +18,8 @@ Usuarios
 
   ::-webkit-scrollbar-thumb {
     background-color: #1B82EC;
+    background-color: #01274d;
+
     border-radius: 5px;
   }
 </style>

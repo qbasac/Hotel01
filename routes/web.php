@@ -62,6 +62,7 @@ Auth::routes(['register' => false]);
 
     Route::resource('/blog', AdminBlogController::class);
     Route::post('blog/update-is-active/{blog}', [AdminBlogController::class, 'updateIsActive'])->name('blog.updateIsActive');
+    Route::post('blog/show-section-blog/{blog}', [AdminBlogController::class, 'ShowSectionBlog'])->name('blog.ShowSectionBlog');
 
     Route::resource('/blog-comments', AdminBlogCommentsController::class);
     Route::post('blog-comments/update-is-active/{comments}', [AdminBlogCommentsController::class, 'updateIsActive'])->name('blog-comments.updateIsActive');

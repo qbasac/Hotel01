@@ -65,28 +65,23 @@
             </div>
           </div>
           <hr>
-
-          {{-- @if (session('created'))
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('created') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          @endif
-          @if (session('updated'))
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('updated') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          @endif
-          @if (session('deleted'))
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('deleted') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          @endif --}}
-
-
-
+          <form class="row justify-content-end" action="{{ route('admin.blog-comments.index') }}" method="GET" autocomplete="off">
+            <div class="form-group col-12 col-md-6 col-lg-4">
+              <label for="" class="mb-0">Buscar</label>
+              <div  class="input-group mb-3">
+               <select name="searchBy" id="search-by"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
+                 <option value="name" {{ request('searchBy') == 'name' ? 'selected' : '' }}>Nombre</option>
+                 <option value="created_at" {{ request('searchBy') == 'created_at' ? 'selected' : '' }}>Fecha de publicación</option>
+               </select>
+               <select name="orderBy" id="form-created_at"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
+                 <option value="asc" {{ request('searchBy') == 'created_at' && request('orderBy') ? 'selected' : '' }} >Antiguas</option>
+                 <option value="desc" {{ request('searchBy') == 'created_at' && request('orderBy') ? 'selected' : '' }} >Recientes</option>
+               </select>
+                <input class="form-control d-none" id="form-name" type="search" placeholder="Nombres..." {{ request('search') ? 'autofocus' : '' }} name="search" aria-label="Search" value="{{ request('search') }}">
+                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </form>
           <div class="table-responsive">
             <table class="table table-sm table-striped table-bordered mt-4">
               <thead>
@@ -104,10 +99,7 @@
                 @foreach ($blog_comments as $blog_comment)
                   <tr class="vertical-align-middle">
                     <td class="column-options td-style">
-                      {{-- <a href="{{ route('admin.blog-comments.edit', ['blog_comment' => $blog_comment->id] ) }}" class="btn btn-sm btn-info" title="Editar">
-                        <i class="far fa-edit"></i>
-                      </a> --}}
-                      <form action="{{ route('admin.blog-comments.destroy',$blog_comment->id) }}" method="POST" class="d-inline">
+                      <form action="{{ route('admin.blog-comments.destroy',$blog_comment->id) }}" method="POST" class="d-inline form-delete">
                         @csrf
                         @method('DELETE')
                         <button type="submit" title="Eliminar" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
@@ -151,5 +143,59 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('scripts')
+
+  @if (session('deleted') == 'Eliminado satisfactoriamente')
+    <script>
+      Swal.fire({
+            icon: 'success',
+            title: 'Eliminado!',
+
+            html: `
+            Se ha eliminado con exito
+            `,
+            confirmButtonText: 'Aceptar'
+          })
+    </script>
+  @endif
+
+  <script>
+    $('.form-delete').submit(function(e){
+      e.preventDefault()
+
+      Swal.fire({
+      title: '¿Estas seguro?',
+      text: "Se eliminará definitivamente!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Eliminar!',
+      cancelButtonText: 'Cancelar'
+
+      }).then((result) => {
+      if (result.isConfirmed) {
+        this.submit();
+      }
+      })
+    })
+  </script>
+  <script>
+    const listFormInputs = ['form-name', 'form-created_at']
+    const $searchBy = document.getElementById('search-by')
+
+    $searchBy.onchange = setClassDiplayNone
+
+    function setClassDiplayNone() {
+      const listInputs = listFormInputs.map(item => document.getElementById(item))
+        .forEach($input => {
+          const method = $input.id == `form-${$searchBy.value}` ? 'remove' : 'add'
+          $input.classList[method]('d-none')
+        })
+    }
+    setClassDiplayNone()
+  </script>
 @endsection
 

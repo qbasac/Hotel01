@@ -4,14 +4,37 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\home;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function index(){
-      $blogs = Blog::get();
-      return view('backend.blog.blogs.index', compact('blogs'));
+    // public function index(){
+    //   $blogs = Blog::paginate(10);
+    //   return view('backend.blog.blogs.index', compact('blogs'));
+    // }
+
+    public function index(Request $request)
+    {
+      $columnOrder = 'id';
+      $orderBy = 'desc';
+
+      if ($request->searchBy == 'created_at') {
+        $columnOrder = $request->searchBy;
+        $orderBy = $request->orderBy;
+      }
+      $home = home::first();
+      $blogs = Blog::where(function ($query) use ($request) {
+        if ($request->searchBy == 'title') {
+          $query->where($request->searchBy, 'LIKE', "%$request->search%");
+        }
+      })
+        ->orderBy($columnOrder, $orderBy)
+        ->paginate(7);
+
+      return view('backend.blog.blogs.index', compact('blogs', 'home'));
+
     }
 
     public function create(){
@@ -29,7 +52,7 @@ class BlogController extends Controller
         $blog->image = $namefile;
       }
       $blog->save();
-      return redirect()->route('admin.blog.index');
+      return redirect()->route('admin.blog.index')->with('created', 'Registro guardado exitósamente.');
     }
 
     public function edit($id){
@@ -48,13 +71,13 @@ class BlogController extends Controller
         $blog->image = $namefile;
       }
       $blog->save();
-      return redirect()->route('admin.blog.index');
+      return redirect()->route('admin.blog.index')->with('updated', 'Registro actualizado exitósamente.');
     }
 
     public function destroy($id){
       $blog = Blog::find($id);
       $blog->delete();
-      return redirect()->route('admin.blog.index')->with('delete', 'Eliminado satisfactoriamente');
+      return redirect()->route('admin.blog.index')->with('deleted', 'Eliminado satisfactoriamente');
     }
 
     public function updateIsActive(Request $request, $id)
@@ -65,5 +88,14 @@ class BlogController extends Controller
         'is_active' => $newState
       ]);
       return back();
+    }
+
+    public function ShowSectionBlog(Request $request, $id)
+    {
+      $newState = $request->state ? 0 : 1;
+      home::whereId($id)->update([
+        'show_section_blog' => $newState
+      ]);
+      return redirect()->route('admin.blog.index');
     }
 }

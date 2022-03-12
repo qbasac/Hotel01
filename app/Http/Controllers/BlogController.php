@@ -17,13 +17,13 @@ class BlogController extends Controller
           $query->where('is_active', 1);
         }])
         ->active()
-        ->get();
+        ->paginate(6);
         return view('frontend.blog-small', compact('blogs'));
     }
 
     public function show($id)
     {
-      $blog = Blog::with('comments')
+      $blog = Blog::orderBy('created_at','desc')->with('comments')
       // ->whereHas('comments', function($queryComments) {
       //   $queryComments->latest();
       // })
@@ -31,6 +31,7 @@ class BlogController extends Controller
         $query->where('is_active', 1);
       }])
       ->whereId($id)
+
       // ->orderByDesc(BlogComments::select('created_at')->orderBy('created_at', 'asc'))
       // ->latest('')
       ->first();

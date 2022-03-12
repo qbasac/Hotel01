@@ -9,11 +9,27 @@ use Illuminate\Http\Request;
 
 class BlogCommentsController extends Controller
 {
-    public function index(){
-      $blog_comments = BlogComments::with('blog')->paginate(10);
-      return view('backend.blog.blog-comments.index', compact('blog_comments'));
-    }
 
+    public function index(Request $request)
+    {
+      $columnOrder = 'id';
+      $orderBy = 'desc';
+
+      if ($request->searchBy == 'created_at') {
+        $columnOrder = $request->searchBy;
+        $orderBy = $request->orderBy;
+      }
+      $blog_comments = BlogComments::with('blog')->where(function ($query) use ($request) {
+        if ($request->searchBy == 'name') {
+          $query->where($request->searchBy, 'LIKE', "%$request->search%");
+        }
+      })
+        ->orderBy($columnOrder, $orderBy)
+        ->paginate(7);
+
+        return view('backend.blog.blog-comments.index', compact('blog_comments'));
+
+    }
     public function create(){
       return view('backend.blog.blog-comments.create');
     }
@@ -26,20 +42,6 @@ class BlogCommentsController extends Controller
       $blog_comments->save();
       return redirect()->route('admin.blog-comments.index');
     }
-
-    // public function edit($id){
-    //   $blog_comments = BlogComments::whereId($id)->first();
-    //   return view('backend.blog.blog-comments.edit', compact('blog_comments'));
-    // }
-
-    // public function update(Request $request, $id){
-    //   $blog_comments = BlogComments::find($id);
-    //   $blog_comments->name = $request->name;
-    //   $blog_comments->email = $request->email;
-    //   $blog_comments->comment = $request->comment;
-    //   $blog_comments->save();
-    //   return redirect()->route('admin.blog-comments.index');
-    // }
 
     public function destroy($id){
       $blog_comments = BlogComments::find($id);

@@ -31,7 +31,7 @@
     padding: 0;
     overflow: hidden !important;
     color: inherit;
-    font-size: 1.125em;
+    font-size: 1.55em !important;
     font-weight: 400;
     line-height: normal;
     text-align: center;
@@ -39,6 +39,27 @@
     word-break: break-word;
     }
 
+    .confirm-btn{
+    border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: #7066e0;
+    color: #fff;
+    font-size: 1.5em !important;
+    }
+
+    .custom-title{
+    position: relative;
+    max-width: 100%;
+    margin: 0;
+    padding: .8em 1em 0;
+    color: inherit;
+    font-size: 2.1rem !important;
+    font-weight: 600;
+    text-align: center;
+    text-transform: none;
+    word-wrap: break-word;
+    }
     body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.text{
       display: none ;
     }
@@ -61,57 +82,47 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="chr-blog-small chr-blog-detail">
-                        <figure>
-                            <img src="{{ asset('storage/blog-image/'.$blog->image) }}" alt="oscarthemes">
-                            <div class="s-date-box">
-                                <span>24</span>
-                                <p>Enero 2017</p>
-                            </div>
-                        </figure>
                         <div class="text">
                             <h5 class="title"><a href="blog-detail.html">{{$blog->title}}</a></h5>
                             <ul class="blog-meta">
                                 <li><a href="#"><i class="fa fa-user"></i><span>{{$blog->name_author}}</span></a></li>
                                 <li><a href="#"><i class="fa fa-comment-o"></i><span>{{ $blog->comments_count}} Comentarios</span></a></li>
                             </ul>
-                            <p>{{$blog->description}}</p>
-
-                            <div class="chr-social-wrap">
-                                <ul class="chr-social">
-                                    <li class="social_title"><strong>Compartir:</strong></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                                <div class="page-navigation">
-                                    <a href="blog-detail.html"><i class="fa fa-arrow-left"></i>Anteriormente</a>
-                                    <a href="blog-detail.html">Siguiente<i class="fa fa-arrow-right"></i></a>
-                                </div>
+                            <div class="row">
+                              <div class="col-md-7">
+                                <p class="text-justify">{{$blog->description}}</p>
+                              </div>
+                              <div class="col-md-5">
+                                <figure>
+                                  <img src="{{ asset('storage/blog-image/'.$blog->image) }}" alt="oscarthemes">
+                                  <div class="s-date-box">
+                                    <p>{{ \Carbon\Carbon::parse($blog->created_at)->toFormattedDateString('d-F-Y')}}</p>
+                                  </div>
+                              </figure>
+                               </div>
                             </div>
-                            <!--Social Wrap End-->
+
                         </div>
                     </div>
                     <div class="chr-comment-wrap">
                         <h5 class="heading-title">Comentarios {{ $blog->comments_count}}</h5>
                         <ul class="comment">
-
                           @foreach ( $blog->comments as $comment)
-                          @if ($comment->is_active)
-                            <li>
-                                <div class="comment-thumb flex-text">
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/ct-1.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                    <div class="text">
-                                        <h5 class="title"><a href="#">{{$comment->name}}</a><span>{{ Carbon::parse($comment->created_at)->isoFormat('dddd, DD MMMM YYYY') }}</span></h5>
-                                        <p>{{$comment->comment}}</p>
-                                    </div>
-                                </div>
-                            </li>
-                          @endif
+                            @if ($comment->is_active)
+                              <li>
+                                  <div class="comment-thumb flex-text">
+                                      <figure>
+                                          <img src="{{asset('frontend/extra-images/ct-1.jpg')}}" alt="oscarthemes"/>
+                                      </figure>
+                                      <div class="text">
+                                          <h5 class="title"><a href="#">{{$comment->name}}</a><span>{{ Carbon::parse($comment->created_at)->isoFormat('dddd, DD MMMM YYYY') }}</span></h5>
+                                          <p>{{$comment->comment}}</p>
+                                      </div>
+                                  </div>
+                              </li>
+                            @endif
                           @endforeach
                         </ul>
                     </div>
@@ -142,7 +153,7 @@
                         </form>
                     </div>
                 </div>
-                <aside class="col-md-4">
+                {{-- <aside class="col-md-4">
                     <!--Side Bar Start-->
                     <div class="chr-sidebar">
                         <!--Widget Search Start-->
@@ -293,7 +304,7 @@
                         </div>
                     </div>
                     <!--Widget Archive End-->
-                </aside>
+                </aside> --}}
             </div>
         </div>
     </section>
@@ -311,11 +322,13 @@
           {
             popup: 'swal2-popup2',
             htmlContainer: 'swal2-html-container2',
+            confirmButton: 'confirm-btn'
+            // header: 'custom-title'
           },
           html: `
             <ul">
               @foreach ($errors->all() as $message)
-                 <h5> <li style="text-align: start">{{$message}}</li></h5>
+                  <li style="text-align: start; font-size:  !important">{{$message}}</li>
               @endforeach
             </ul>
           `,
@@ -329,9 +342,15 @@
     Swal.fire({
           icon: 'success',
           title: 'Su comentario se ha enviado exitosamente!',
-
+          customClass:
+          {
+            popup: 'swal2-popup2',
+            htmlContainer: 'swal2-html-container2',
+            confirmButton: 'confirm-btn'
+            // header: 'custom-title'
+          },
           html: `
-          Su comentario se ha enviado exitosamente!
+            Su comentario se ha enviado exitosamente!
           `,
           confirmButtonText: 'Aceptar'
         })

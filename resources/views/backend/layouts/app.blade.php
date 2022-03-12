@@ -11,7 +11,7 @@
     <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-    <meta name="END-POINT" content="http://127.0.0.1:8000/">  
+    {{-- <meta name="END-POINT" content="http://127.0.0.1:8000/">   --}}
     <meta name="END-POINT" content="http://hotel01.test:8080/">
 
 
@@ -46,14 +46,12 @@
                         </a>
                     </div>
 
-
                     <button type="button" class="btn px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
                         <i class="mdi mdi-menu"></i>
                     </button>
                 </div>
 
                 <div class="d-flex">
-
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -79,11 +77,6 @@
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                   @csrf
                               </form>
-
-                              {{-- <i
-                                    class="mdi mdi-power font-size-16 align-middle me-2 text-primary"></i>
-                                <span>Cerrar sesión</span> --}}
-
                               </a>
                         </div>
                     </div>

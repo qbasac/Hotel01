@@ -18,7 +18,14 @@ class HomeController extends Controller
     }
     public function index(Request $request)
     {
-        $blogs = Blog::where('is_active', 1)->get();
+        $blogs = Blog::with('comments')
+        ->withCount(['comments' => function($query) {
+          $query->where('is_active', 1);
+        }])
+        ->active()
+        ->take(3)
+        ->get();
+
         $galleries = Gallery::where('is_active', 1)->get();
         $services = Services::where('is_active', 1)->get();
         $rooms = Room::where('has_offer', 1)->where('is_active', 1)->get();
@@ -27,5 +34,4 @@ class HomeController extends Controller
         return view('frontend.index', compact('slider_homes',
          'home', 'rooms', 'services', 'galleries', 'blogs'));
     }
-
 }

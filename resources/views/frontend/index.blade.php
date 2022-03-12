@@ -8,7 +8,6 @@
     overflow: hidden;
     white-space: nowrap;
     }
-
     .paragraph_description{
     inline-size: 320px;
     max-inline-size: 305px;
@@ -380,91 +379,6 @@
     </section>
     @endif
 
-    <!--Rooms Section Start-->
-    {{-- <section>
-        <div class="container">
-            <!--Heading 1 Start-->
-            <div class="headind-1 text-center">
-                <h3 class="title">Nuestras habitaciones</h3>
-            </div>
-            <!--Heading 1 End-->
-            <div class="chr-roomslider arrows">
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room1.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 100</a>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="#">Habitación de invitados tradicional</a></h4>
-                            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                            <ul class="blog-meta">
-                                <li><i class="fa fa-bed th-cl"></i><span>2 camas</span></li>
-                                <li><i class="fa fa-user th-cl"></i><span>4 Sueños</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Room Thumb End-->
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room2.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 200</a>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="#">Habitación de invitados tradicional</a></h4>
-                            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                            <ul class="blog-meta">
-                                <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-                                <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Room Thumb End-->
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room3.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 250</a>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="#">Habitación de invitados tradicional<</a></h4>
-                            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                            <ul class="blog-meta">
-                                <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-                                <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Room Thumb End-->
-                <!--Room Thumb Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="chr-room-thumb fancy-thumb">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/room4.jpg')}}" alt="oscarthemes"/>
-                            <a href="#" class="price-tag th-bg">$ 350</a>
-                        </figure>
-                        <div class="text">
-                            <h4 class="title"><a href="#">Habitación de lujo para huéspedes</a></h4>
-                            <p>Lorem Ipsum which looks many web sites pass websites is there fore always.</p>
-                            <ul class="blog-meta">
-                                <li><i class="fa fa-bed th-cl"></i><span>2 Cama</span></li>
-                                <li><i class="fa fa-user th-cl"></i><span>4 Duerme</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Room Thumb End-->
-            </div>
-        </div>
-    </section> --}}
-
     @if ($home->show_section_gallery)
     <section class="gray-bg">
       <div class="container">
@@ -489,8 +403,8 @@
        </div>
     </section>
     @endif
-    <!--Masonry Gallery Section End-->
-    <!--Blog Section Start-->
+
+    @if ($home->show_section_blog)
     <section>
         <div class="container">
             <!--Heading 1 Start-->
@@ -513,32 +427,25 @@
                         <h4 class="title p_title"><a href="{{ route('blog.show',['blog' => $blog->id]) }}">{{$blog->title}}</a></h4>
                         <ul class="blog-meta">
                             <li><a href="#"><i class="fa fa-user"></i><span >{{$blog->name_author}}</span></a></li>
-                            <li><a href="#"><i class="fa fa-comment-o"></i><span>3 Comentarios</span></a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i><span>{{$blog ->like}}</span></a></li>
-                        </ul>
+                            <li><a href="#"><i class="fa fa-comment-o"></i><span>{{$blog->comments_count}} Comentarios</span></a></li>
+                          </ul>
                         <p class="p_description">{{$blog->description}}</p>
                         <a class="readmore-btn" href="{{ route('blog.show',['blog' => $blog->id]) }}">Leer más</a>
                     </div>
                 </div>
               </div>
               @endforeach
-
-
-
-
             </div>
+            <a class="chr-btn fancy-btn" href="{{'pequeño-blog'}}">Ver más</a>
         </div>
     </section>
-    <!--Blog Section End-->
-    <!--Price Section Start-->
+    @endif
+
     <section class="gray-bg price-table-section">
         <div class="container">
-
-            <!--Heading 1 Start-->
             <div class="headind-1 text-center">
                 <h3 class="title">Nuestros precios</h3>
             </div>
-            <!--Heading 1 End-->
             <div class="row">
                 <!--Price Table Start-->
                 <div class="col-md-4 col-sm-6">
