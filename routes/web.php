@@ -13,10 +13,7 @@ use App\Http\Controllers\Admin\ServicesController as AdminServicesController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\BlogCommentsController as AdminBlogCommentsController;
-
-
-
-
+use App\Http\Controllers\Admin\PricesController as AdminPricesController;
 
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TestimonialController;
@@ -67,6 +64,8 @@ Auth::routes(['register' => false]);
     Route::resource('/blog-comments', AdminBlogCommentsController::class);
     Route::post('blog-comments/update-is-active/{comments}', [AdminBlogCommentsController::class, 'updateIsActive'])->name('blog-comments.updateIsActive');
 
+    Route::resource('/prices', AdminPricesController::class);
+    Route::post('prices/update-is-active/{prices}', [AdminPricesController::class, 'updateIsActive'])->name('prices.updateIsActive');
 
 
   });

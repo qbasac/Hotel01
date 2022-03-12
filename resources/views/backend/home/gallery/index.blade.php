@@ -145,9 +145,6 @@
                         <i class="fas fa-pencil-alt"></i>
                         <label class="text-start mb-0"> Descripción</label>
                         <textarea  class="form-control input-changes" name="description" rows="" data-id-gallery="{{$gallery->id}}">{{$gallery->description}}</textarea>
-                        {{-- <p contenteditable name="description">
-                          {{$gallery->description}}
-                        </p> --}}
                       </div>
 
                       <div class="text-center pb-1 pt-2">
@@ -182,7 +179,7 @@
                   </div>
                 </div>
               @endforeach
-           </div>
+            </div>
         </div>
       </div>
     </div>

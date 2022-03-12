@@ -15,24 +15,16 @@
       </a>
     </li>
 
-        <li>
-          <a href="javascript: void(0);" class="has-arrow waves-effect">
-            <i class="fas fa-home"></i>
-            <span>Inicio</span>
-          </a>
-          <ul class="sub-menu" aria-expanded="true">
-            <li><a href="{{route('admin.home-slider.index')}}">Carrucel de imagenes </a></li>
-            <li><a href="{{route('admin.services.index')}}">Sección servicios</a></li>
-            {{-- <li><a href="{{route('testimonial.index')}}">Sección nuestras habitaciones</a></li> --}}
-            <li><a href="{{route('admin.gallery.index')}}">Sección galeria</a></li>
-            {{-- <li><a href="javascript: void(0);" class="has-arrow">Blog</a>
-              <ul class="sub-menu" aria-expanded="true">
-                <li><a href="{{route('admin.blog.index')}}">Sección blog</a></li>
-                <li><a href="javascript: void(0);">Comentarios del blog</a></li>
-              </ul>
-            </li> --}}
-            {{-- <li><a href="{{route('admin.blog.index')}}">Sección blog</a></li> --}}
-            <li><a href="{{route('testimonial.index')}}">Sección precios</a></li>
+    <li>
+      <a href="javascript: void(0);" class="has-arrow waves-effect">
+        <i class="fas fa-home"></i>
+        <span>Inicio</span>
+      </a>
+      <ul class="sub-menu" aria-expanded="true">
+        <li><a href="{{route('admin.home-slider.index')}}">Carrucel de imagenes </a></li>
+        <li><a href="{{route('admin.services.index')}}">Sección servicios</a></li>
+        <li><a href="{{route('admin.gallery.index')}}">Sección galeria</a></li>
+        <li><a href="{{route('admin.prices.index')}}">Sección precios</a></li>
       </ul>
     </li>
 
@@ -69,6 +61,7 @@
         <li><a href="{{route('admin.blog-comments.index')}}">Comentarios del blog</a></li>
       </ul>
     </li>
+
     <li>
       <a href="javascript: void(0);" class="has-arrow waves-effect">
         <i class="mdi mdi-file-tree"></i>
@@ -84,5 +77,6 @@
         </li>
       </ul>
     </li>
+
   </ul>
 </div>
