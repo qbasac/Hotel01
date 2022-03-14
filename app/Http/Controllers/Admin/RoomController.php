@@ -53,10 +53,10 @@ class RoomController extends Controller
       $room->image = $namefile;
     }
     $room->has_offer = $request->has_offer ?? 0;
-    if($request->has_offer){
+    if ($request->has_offer) {
       $room->discount = $request->discount;
       $room->rental_price = $room->price - ($room->price * $request->discount / 100);
-    }else{
+    } else {
       $room->discount = NULL;
       $room->rental_price = $request->price;
     }
@@ -89,7 +89,7 @@ class RoomController extends Controller
 
     $room->has_offer = $request->has_offer ?? 0;
 
-    if($request->has_offer) {
+    if ($request->has_offer) {
       $room->discount = $request->discount;
       $room->rental_price = $room->price - ($room->price * $request->discount / 100);
     } else {

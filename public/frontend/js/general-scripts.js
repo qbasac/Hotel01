@@ -33,9 +33,27 @@
       })
     })
 
+    const $cardPrice = document.querySelectorAll('.render-html-price')
+    $cardPrice.forEach( $cardPrice => {
 
+    const $links = $cardPrice.querySelectorAll('p > a')
+    $links.forEach( $link => {
+      $link.setAttribute('class','chr-btn fancy-btn')
+      $link.target = '_blank'
+      $link.setAttribute('style', `
+      list-style: none !important;
+        `)
+      })
 
-
+      $listItem = $cardPrice.querySelectorAll('ul')
+      $listItem.forEach( item => {
+        item.setAttribute('style', `
+        list-style: none !important;
+        padding-bottom: 10px;
+        margin-inline-start: 0px;
+        `)
+      })
+    })
 
 
 

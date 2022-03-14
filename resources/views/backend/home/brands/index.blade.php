@@ -89,11 +89,11 @@
           <div class="card-title">
             <h6 class="text-primary">
               <i class="fas fa-images"></i>
-              Nuestra galería
+              Marcas
             </h6>
             <div>
-             <a href="{{ route('admin.gallery.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a>
-             <form  method="POST" action="{{route('admin.gallery.ShowSectionGallery', ['gallery' => $home->id] )}}" class="d-inline">
+             <a href="{{ route('admin.brands.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a>
+             {{-- <form  method="POST" action="{{route('admin.gallery.ShowSectionGallery', ['gallery' => $home->id] )}}" class="d-inline">
               @csrf
               <input type="hidden" name="state" value="{{$home->show_section_gallery}}">
               @if ($home->show_section_gallery)
@@ -102,10 +102,10 @@
               </button>
               @else
               <button style="margin-right: 5px;" type="submit" class="btn btn btn-success " title="Cambiar estado">
-                Mostrar <i class="fas fa-eye"></i>
+                Mostrar<i class="fas fa-eye"></i>
               </button>
               @endif
-            </form>
+            </form> --}}
             </div>
           </div>
           <hr>
@@ -123,16 +123,16 @@
           @endif
 
             <div class="row">
-              @foreach ($galleries as $gallery)
-                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+              @foreach ($brands as $brand)
+                <div class="col-xl-3 col-lg-6 col-md-6 col-12">
                   <div class="card m-3 bg-light rounded">
-                    <form action="{{ route('admin.gallery.update', ['gallery' => $gallery->id]) }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
+                    <form action="{{ route('admin.brands.update', ['brand' => $brand->id]) }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
                       @method('PUT')
                       @csrf
                       <div class="mb-0">
                         <div class="file_container">
-                          <input  type="file" class="file_input input-changes" data-id-gallery="{{$gallery->id}}" onchange="previewImage(event, {{$gallery->id}})"  name="image" accept="image/*">
-                          <img class="file_image  card-img-top rounded-top" id="image-preview-{{$gallery->id}}"  src="{{ asset('storage/gallery-image/'.$gallery->image) }}" alt="oscarthemes">
+                          <input  type="file" class="file_input input-changes" data-id-gallery="{{$brand->id}}" onchange="previewImage(event, {{$brand->id}})"  name="image" accept="image/*">
+                          <img class="file_image  card-img-top rounded-top" id="image-preview-{{$brand->id}}"  src="{{ asset('storage/brand-image/'.$brand->image) }}" alt="oscarthemes">
                           <div class="texto-encima file_containe">
                             <div class="icon-change-image">
                               <i class="fas fa-camera text-white fa-icon-camera"></i>
@@ -143,20 +143,20 @@
 
                       <div class="card-body pb-1">
                         <i class="fas fa-pencil-alt"></i>
-                        <label class="text-start mb-0"> Descripción</label>
-                        <textarea  class="form-control input-changes" name="description" rows="" data-id-gallery="{{$gallery->id}}">{{$gallery->description}}</textarea>
+                        <label class="text-start mb-0"> Nombre</label>
+                        <textarea  class="form-control input-changes" name="name" rows="" data-id-gallery="{{$brand->id}}">{{$brand->name}}</textarea>
                       </div>
 
                       <div class="text-center pb-1 pt-2">
-                        <a href="{{ route('admin.gallery.index') }}" class="btn btn-sm btn-light border border-secondary submit-{{$gallery->id}} d-none" tabindex="4">Cancelar</a>
-                        <button type="submit" class="btn btn-sm btn-primary submit-{{$gallery->id}} d-none" tabindex="3">Actualizar cambios</button>
+                        <a href="{{ route('admin.gallery.index') }}" class="btn btn-sm btn-light border border-secondary submit-{{$brand->id}} d-none" tabindex="4">Cancelar</a>
+                        <button type="submit" class="btn btn-sm btn-primary submit-{{$brand->id}} d-none" tabindex="3">Actualizar cambios</button>
                       </div>
                     </form>
-                     <div class="text-center pb-2 submitUpdated-{{$gallery->id}}">
-                        <form  method="POST" action="{{route('admin.gallery.updateIsActive', ['gallery' => $gallery->id] )}}" class="d-inline">
+                     <div class="text-center pb-2 submitUpdated-{{$brand->id}}">
+                        <form  method="POST" action="{{route('admin.brands.updateIsActive', ['brands' => $brand->id] )}}" class="d-inline">
                           @csrf
-                          <input type="hidden" name="state" value="{{$gallery->is_active}}">
-                          @if ($gallery->is_active)
+                          <input type="hidden" name="state" value="{{$brand->is_active}}">
+                          @if ($brand->is_active)
                             <button type="submit"
                               class="btn btn-sm btn-success"
                               title="Cambiar estado">
@@ -170,7 +170,7 @@
                             </button>
                           @endif
                         </form>
-                        <form action="{{ route('admin.gallery.destroy',$gallery->id) }}" method="POST" class="form-delete d-inline">
+                        <form action="{{ route('admin.brands.destroy',$brand->id) }}" method="POST" class="form-delete d-inline">
                           @csrf
                           @method('DELETE')
                           <button type="submit" title="Eliminar" class="btn btn-sm btn-danger text-center"><i class="far fa-trash-alt"></i></button>

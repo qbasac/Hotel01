@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\BlogCommentsController as AdminBlogCommentsController;
 use App\Http\Controllers\Admin\PricesController as AdminPricesController;
+use App\Http\Controllers\Admin\BrandController as AdminBrandController;
 
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TestimonialController;
@@ -66,7 +67,11 @@ Auth::routes(['register' => false]);
 
     Route::resource('/prices', AdminPricesController::class);
     Route::post('prices/update-is-active/{prices}', [AdminPricesController::class, 'updateIsActive'])->name('prices.updateIsActive');
+    Route::post('prices/show-section-prices/{prices}', [AdminPricesController::class, 'ShowSectionPrices'])->name('prices.ShowSectionPrices');
 
+    Route::resource('/brands', AdminBrandController::class);
+    Route::post('brands/update-is-active/{brands}', [AdminBrandController::class, 'updateIsActive'])->name('brands.updateIsActive');
+    Route::post('brands/show-section-brands/{brands}', [AdminBrandController::class, 'ShowSectionBrands'])->name('brands.ShowSectionBrands');
 
   });
 

@@ -4,82 +4,6 @@
   Precios
 @endsection
 
-{{-- @section('styles')
-  <style>
-      .input-profile {
-        border-left: none;
-        border-top: none;
-        border-right: none;
-        border-width: 3px;
-      }
-
-      input[switch]+label,
-      input[switch]:checked+label:before,
-      input[switch]:checked+label:after {
-        transform: scale(.9)
-      }
-
-      /* CODE SNIPPETS CSS */
-
-      .file_container {
-        width: 100%;
-        height: 150px;
-        position: relative;
-        border-radius: 10px;
-        border-radius: inherit;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 0;
-        overflow: auto;
-      }
-
-
-      .file_input {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        opacity: 0;
-        z-index: 1;
-        cursor: pointer;
-        border-radius: inherit;
-      }
-
-      .file_letter {
-        font-size: 1.5rem;
-      }
-
-      .file_image {
-        z-index: 0;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        margin: auto;
-      }
-      .texto-encima{
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      height: 50px;
-      width: 50px;
-      border-radius: 5px 0px 50px 0px;
-      background: #1b82ec;
-      cursor: pointer;
-      }
-      .icon-change-image{
-        margin-left: 12px;
-        margin-top: 8px;
-        width: 10px;
-      }
-      .fa-icon-camera {
-      font-size: 1.5em;
-      }
-  </style>
-@endsection --}}
-
 @section('content')
 <div class="page-content-wrapper">
   <div class="row">
@@ -92,7 +16,22 @@
               Nuestros precios
             </h6>
             <div>
-             <a href="{{ route('admin.prices.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a>
+              @if ($prices->count() < 3)
+                <a href="{{ route('admin.prices.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
+              @endif
+             <form  method="POST" action="{{route('admin.prices.ShowSectionPrices', ['prices' => $home->id] )}}" class="d-inline">
+              @csrf
+              <input type="hidden" name="state" value="{{$home->show_section_prices}}">
+              @if ($home->show_section_prices)
+              <button type="submit" class="btn btn btn-danger float-end me-2" title="">
+                Ocultar <i class="fas fa-eye-slash"></i>
+              </button>
+              @else
+              <button type="submit" class="btn btn btn-success me-2" title="Cambiar estado">
+                Mostrar <i class="fas fa-eye"></i>
+              </button>
+              @endif
+            </form>
             </div>
           </div>
           <hr>
@@ -119,25 +58,16 @@
             @foreach ($prices as $price)
               <div class="col-md-6 col-xl-4">
                 <div class="card bg-light border border-secondary">
-                  <div class="card-body">
-                        <div class="row">
-                          <div class="row text-center pb-1 pt-2">
-                            <div class="col-5">
-                              <h4 class="card-title">S/ {{ $price->price }}</h4>
-                            </div>
-                            <div class="col-1">
-                              <h4 class="card-title">/</h4>
-                            </div>
-                            <div class="col-4">
-                              <h4 class="card-title">{{ $price->date }}</h4>
-                            </div>
-                          </div>
-                        </div>
+                  <div class="card-body bg-dark">
+                    <div class="row pt-1">
+                      <div class="col-12 ">
+                        <div class="card-title text-white justify-content-center"><h3 class="text-white">S/ {{ $price->price }} </h3> <h5 class="text-white">  / {{ $price->date }}</h5> </div>
+                      </div>
+                    </div>
                     </div>
                     <img class="img-fluid" src="{{ asset('storage/prices-image/'.$price->image) }}" alt="Card image cap">
                     <div class="card-body render-html-card">
                         <p>{!! $price->description !!}</p>
-
                         <div class="col text-center">
                           <a href="{{ route('admin.prices.edit', ['price' => $price->id] ) }}" class="btn btn-sm btn-primary" title="Editar">
                             <i class="far fa-edit pe-1"></i> Editar
@@ -170,7 +100,6 @@
               </div>
             @endforeach
           </div>
-
         </div>
       </div>
     </div>
@@ -221,7 +150,7 @@
     $cards.forEach( $card => {
       const $links = $card.querySelectorAll('p > a')
       $links.forEach( $link => {
-        $link.setAttribute('class','btn btn-sm btn-link')
+        $link.setAttribute('class','text-primary')
         $link.target = '_blank'
       })
 
@@ -236,7 +165,7 @@
       })
     })
 
-  
+
   </script>
 @endsection
 

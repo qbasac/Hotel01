@@ -62,6 +62,9 @@
       -webkit-box-orient:vertical;
       -webkit-line-clamp:3;
     }
+    .p-table{
+     margin:  0 0 60px !important;
+    }
  </style>
 @endsection
 
@@ -441,79 +444,31 @@
     </section>
     @endif
 
+    @if ($home->show_section_prices)
     <section class="gray-bg price-table-section">
         <div class="container">
             <div class="headind-1 text-center">
                 <h3 class="title">Nuestros precios</h3>
             </div>
             <div class="row">
-                <!--Price Table Start-->
+                @foreach ($prices as $price)
                 <div class="col-md-4 col-sm-6">
-                    <div class="price-table">
-                        <h4 class="title">$ 299 <sub>/ mes</sub></h4>
+                    <div class="price-table p-table">
+                        <h4 class="title">S/ {{ $price->price }} <sub>/ {{ $price->date }}</sub></h4>
                         <figure>
-                            <img src="{{asset('frontend/extra-images/price-img1.jpg')}}" alt="OscarThemes">
+                            <img src="{{ asset('storage/prices-image/'.$price->image) }}" alt="OscarThemes">
                         </figure>
-                        <div class="text">
-                            <p>Lorem Ipsum Dolor Sit Amet, is Consectetur Adipisicing A Elitie Orem Ipsum Dolor Sit Amet, is Consectetur...</p>
-                            <ul class="chr-price-contant">
-                                <li>Acceso ilimitado</li>
-                                <li>2 días de formación gratuita </li>
-                                <li>5 semanas de pase de gimnasio</li>
-                                <li>1 Curso de fitness</li>
-                                <li>Entrada ilimitada al gimnasio</li>
-                            </ul>
-                            <a style="text-align: center;" class="chr-btn fancy-btn" href="#">Comprar ahora</a>
+                        <div class="text render-html-price">
+                            <p>{!! $price->description !!}</p>
                         </div>
                     </div>
                 </div>
-                <!--Price Table End-->
-                <!--Price Table Start-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="price-table">
-                        <h4 class="title">$ 399 <sub>/ 6 meses</sub></h4>
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/price-img2.jpg')}}" alt="OscarThemes">
-                        </figure>
-                        <div class="text">
-                            <p>Lorem Ipsum Dolor Sit Amet, is Consectetur Adipisicing A Elitie Orem Ipsum Dolor Sit Amet, is Consectetur...</p>
-                            <ul class="chr-price-contant">
-                                <li>Acceso ilimitado</li>
-                                <li>2 días de formación gratuita </li>
-                                <li>5 semanas de pase de gimnasio</li>
-                                <li>1 Curso de fitness</li>
-                                <li>Entrada ilimitada al gimnasio</li>
-                            </ul>
-                            <a class="chr-btn fancy-btn" href="#">Comprar Ahora</a>
-                        </div>
-                    </div>
-                </div>
-                <!--Price Table End-->
-                <!--Price Table Start-->
-                <div class="col-md-4 hidden-sm">
-                    <div class="price-table">
-                        <h4 class="title">$ 499 <sub>/ year</sub></h4>
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/price-img3.jpg')}}" alt="OscarThemes">
-                        </figure>
-                        <div class="text">
-                            <p>Lorem Ipsum Dolor Sit Amet, is Consectetur Adipisicing A Elitie Orem Ipsum Dolor Sit Amet, is Consectetur...</p>
-                            <ul class="chr-price-contant">
-                                <li>Acceso ilimitado</li>
-                                <li>2 días de formación gratuita </li>
-                                <li>5 semanas de pase de gimnasio</li>
-                                <li>1 Curso de fitness</li>
-                                <li>Entrada ilimitada al gimnasio</li>
-                            </ul>
-                            <a class="chr-btn fancy-btn" href="#">Comprar Ahora </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Price Table End-->
+                @endforeach
             </div>
         </div>
     </section>
-    <!--Price Section End-->
+    @endif
+
     <!--Brand Slider Start-->
     <div class="brnd-slider-wrap ">
         <div class="container">
@@ -708,26 +663,9 @@
 </html>
 
 @section('scripts')
-    <script>
-            console.log('test')
+  <script>
+            console.log('testhomeeeeeeeeeeeeeeeeeeeeee')
 
-    // const $cards = document.querySelectorAll('.render-html-card')
-    // $cards.forEach( $card => {
-    //   const $links = $card.querySelectorAll('p > a')
-    //   $links.forEach( $link => {
-    //     $link.setAttribute('class','btn btn-sm btn-dark')
-    //     $link.target = '_blank'
-    //   })
 
-    //   $listItem = $card.querySelectorAll('ul > li')
-    //   $listItem.forEach( item => {
-    //     item.setAttribute('style', `
-    //       white-space: nowrap;
-    //       text-overflow: ellipsis;
-    //       overflow: hidden;
-    //       list-style-position: inside ;
-    //     `)
-    //   })
-    // })
   </script>
 @endsection

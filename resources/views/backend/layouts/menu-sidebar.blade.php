@@ -23,8 +23,8 @@
       <ul class="sub-menu" aria-expanded="true">
         <li><a href="{{route('admin.home-slider.index')}}">Carrucel de imagenes </a></li>
         <li><a href="{{route('admin.services.index')}}">Sección servicios</a></li>
-        <li><a href="{{route('admin.gallery.index')}}">Sección galeria</a></li>
-        <li><a href="{{route('admin.prices.index')}}">Sección precios</a></li>
+        <li><a href="{{route('admin.prices.index')}}">Sección planes</a></li>
+        <li><a href="{{route('admin.brands.index')}}">Marcas</a></li>
       </ul>
     </li>
 
@@ -60,6 +60,13 @@
         <li><a href="{{route('admin.blog.index')}}">Sección blog</a></li>
         <li><a href="{{route('admin.blog-comments.index')}}">Comentarios del blog</a></li>
       </ul>
+    </li>
+
+    <li>
+      <a href="{{ route('admin.gallery.index') }}" class="waves-effect">
+        <i class="fas fa-image"></i>
+        <span>Galería</span>
+      </a>
     </li>
 
     <li>

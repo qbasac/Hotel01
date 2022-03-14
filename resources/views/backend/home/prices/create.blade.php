@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('sub-title')
-    Precios
+    Planes
 @endsection
 
 @section('content')
@@ -27,7 +27,7 @@
               class="form-control input-price @error('price') is-invalid @enderror">
               @error('price')
                 <small class="text-danger input-price"> {{ $message }}</small>
-              @enderror>
+              @enderror
             </div>
             <div class="mb-3">
               <label for="title" class="form-label">Fecha
@@ -41,10 +41,12 @@
               </label>
               <input type="file" accept="image/*" class="form-control" name="image" id="image">
             </div>
-            <textarea id="editor" name="description" value="{{ old('description') }}"></textarea>
-            <br>
-            <a href="{{ route('admin.prices.index') }}" class="btn btn-danger" tabindex="4">Cancelar</a>
-            <button type="submit" value="Send" class="btn btn-primary">Guardar <i class="far fa-paper-plane"></i></button>
+            <textarea id="editor" name="description" value="{{ old('description') }}">
+            </textarea>
+            <div class="col-12 mt-3">
+              <a href="{{ route('admin.prices.index') }}" class="btn btn-danger" tabindex="4">Cancelar</a>
+              <button type="submit" value="Send" class="btn btn-primary">Guardar <i class="far fa-paper-plane"></i></button>
+            </div>
           </form>
         </div>
       </div>
