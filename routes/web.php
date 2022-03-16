@@ -15,11 +15,15 @@ use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\BlogCommentsController as AdminBlogCommentsController;
 use App\Http\Controllers\Admin\PricesController as AdminPricesController;
 use App\Http\Controllers\Admin\BrandController as AdminBrandController;
+use App\Http\Controllers\Admin\EventController as AdminEventController;
+
 
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\RoomReservationController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\EventosController;
+
 
 
 Route::post('upload-images', [AdminServicesController::class, 'handleImages'])->name('upload-images');
@@ -73,6 +77,9 @@ Auth::routes(['register' => false]);
     Route::post('brands/update-is-active/{brands}', [AdminBrandController::class, 'updateIsActive'])->name('brands.updateIsActive');
     Route::post('brands/show-section-brands/{brands}', [AdminBrandController::class, 'ShowSectionBrands'])->name('brands.ShowSectionBrands');
 
+    Route::resource('/events', AdminEventController::class);
+    Route::post('events/update-is-active/{events}', [AdminEventController::class, 'updateIsActive'])->name('events.updateIsActive');
+
   });
 
  //frontend
@@ -108,6 +115,9 @@ Route::resource('/habitacion', RoomController::class);
 Route::get('/pequeño-blog', [BlogController::class, 'blogsmall'])->name('pequeño-blog');
 Route::resource('/blog', BlogController::class);
 
+Route::get('/evento-pequeño', [EventosController::class, 'eventSmall'])->name('evento-pequeño');
+Route::get('/detalle-evento/{id}', [EventosController::class, 'eventDetail'])->name('detalle-evento');
+
 // Route::get('/blog-detail', [BlogController::class, 'blog-detail'])->name('pequeño-blog');
 
 
@@ -132,11 +142,6 @@ Route::resource('/blog', BlogController::class);
 
 // Route::get('/contacto', 'ContactoController@contact')->name('contacto');
 
-// Route::get('/evento-detalle', 'EventosController@eventDetail')->name('evento-detalle');
-// Route::get('/evento-grande', 'EventosController@eventLarge')->name('evento-grande');
-// Route::get('/evento-lista', 'EventosController@eventList')->name('evento-lista');
-// Route::get('/evento-mediano', 'EventosController@eventMedium')->name('evento-mediano');
-// Route::get('/evento-pequeño', 'EventosController@eventSmall')->name('evento-pequeño');
 
 // Route::get('galeria-maposteria', 'GaleriaController@galeriaMaposteria')->name('galeria-maposteria');
 // Route::get('galeria-simple', 'GaleriaController@galeriaSimple')->name('galeria-simple');

@@ -67,9 +67,9 @@
 
                                     <li
                                     class="{{ \Request::path() == 'evento-peque%C3%B1o' || \Request::path() == 'evento-mediano' || \Request::path() == 'evento-grande' || \Request::path() == 'evento-lista'|| \Request::path() == 'evento-detalle'? 'active' : '' }}"
-                                    ><a href="#">Evento</a>
+                                    ><a href="{{ route('evento-pequeño') }}">Evento</a>
                                         <ul class="children">
-                                            <li><a href="{{-- route('evento-pequeño') --}}">Evento Pequeño</a></li>
+                                            <li><a href="{{ route('evento-pequeño') }}">Evento Pequeño</a></li>
                                             <li><a href="{{-- route('evento-mediano') --}}">Evento Medio</a></li>
 
                                         </ul>
@@ -84,7 +84,7 @@
                                     <li
                                     class="{{ \Request::path() == 'lateral-blog' || \Request::path() == 'peque%C3%B1o-blog' || \Request::path() == 'mediano-blog' || \Request::path() == 'grande-blog'|| \Request::path() == 'lista-blog'|| \Request::path() == 'detalle-blog'? 'active' : '' }}"
                                     ><a href="{{ route('pequeño-blog') }}">Blog</a>
-                                      
+
                                     </li>
                                     <li
                                     class=" {{ \Request::path() == 'galeria-maposteria' || \Request::path() == 'galeria-simple'? 'active' : '' }}"

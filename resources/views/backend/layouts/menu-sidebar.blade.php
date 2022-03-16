@@ -70,6 +70,13 @@
     </li>
 
     <li>
+      <a href="{{ route('admin.events.index')}}" class="waves-effect">
+        <i class="fas fa-calendar-check"></i>
+        <span>Eventos</span>
+      </a>
+    </li>
+
+    <li>
       <a href="javascript: void(0);" class="has-arrow waves-effect">
         <i class="mdi mdi-file-tree"></i>
         <span>Multi Level</span>
@@ -84,6 +91,8 @@
         </li>
       </ul>
     </li>
+
+
 
   </ul>
 </div>

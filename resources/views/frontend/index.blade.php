@@ -132,14 +132,8 @@
                                 <li class="{{ \Request::path() == 'nosotros' ? 'active' : ''}}"><a href="{{ route('nosotros') }}"> Sobre nosotros</a></li>
                                 <li ><a href="{{ route('habitacion.index') }}">Habitaciones</a>
                                 </li>
-                                <li><a href="#">Evento</a>
-                                    <ul class="children">
-                                        <li><a href="{{-- route('evento-pequeño')  --}}">Evento Pequeño</a></li>
-                                        <li><a href="{{-- route('evento-mediano')  --}}">Evento Medio</a></li>
-                                        <li><a href="{{-- route('evento-grande')  --}}">Evento grande</a></li>
-                                        <li><a href="{{-- route('evento-lista') --}}">Lista de eventos</a></li>
-                                        <li><a href="{{-- route('evento-detalle') --}}">Detalle del evento</a></li>
-                                    </ul>
+                                <li><a href="{{ route('evento-pequeño') }}">Evento</a>
+                                   
                                 </li>
                             </ul>
                         </nav>

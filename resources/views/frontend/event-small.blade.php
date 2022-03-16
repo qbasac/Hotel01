@@ -16,158 +16,25 @@
     <section>
         <div class="container">
             <div class="row">
-                <!--Even Small Start-->
+                @foreach ($events as $event)
                 <div class="col-md-4">
                     <div class="chr-blog-small event-small">
                         <figure>
-                            <img src="{{asset('frontend/extra-images/img-es1.jpg')}}" alt="oscarthemes">
+                            <img src="{{ asset('storage/events-image/'.$event->image) }}" alt="oscarthemes">
                         </figure>
                         <div class="text">
-                            <h5 class="title"><a href="event-detail.html">Evento para parejas</a></h5>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug...</p>
+                            <h5 class="title"><a href="{{ route('detalle-evento' ,['id' => $event->id]) }}">{{ $event->name }}</a></h5>
+                            <p>{{ $event->description }}</p>
                             <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-calendar"></i><span>05.03.2017</span></a></li>
-                                <li><a href="#"><i class="fa fa-map-marker"></i><span>Rocket Stadium , Los Angeles</span></a></li>
+                                <li><a href="#"><i class="fa fa-calendar"></i><span>{{ $event->date_event }}</span></a></li>
+                                <li><a href="#"><i class="fa fa-map-marker"></i><span>{{ $event->place_celebration }}</span></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <!--Even Small End-->
-                <!--Even Small Start-->
-                <div class="col-md-4">
-                    <div class="chr-blog-small event-small">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-es2.jpg')}}" alt="oscarthemes">
-                        </figure>
-                        <div class="text">
-                            <h5 class="title"><a href="event-detail.html">Evento para parejas</a></h5>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug...</p>
-                            <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-calendar"></i><span>05.03.2017</span></a></li>
-                                <li><a href="#"><i class="fa fa-map-marker"></i><span>Rocket Stadium , Los Angeles</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Even Small End-->
-                <!--Even Small Start-->
-                <div class="col-md-4">
-                    <div class="chr-blog-small event-small">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-es3.jpg')}}" alt="oscarthemes">
-                        </figure>
-                        <div class="text">
-                            <h5 class="title"><a href="event-detail.html">Evento para parejas</a></h5>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug...</p>
-                            <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-calendar"></i><span>05.03.2017</span></a></li>
-                                <li><a href="#"><i class="fa fa-map-marker"></i><span>Rocket Stadium , Los Angeles</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Even Small End-->
-                <!--Even Small Start-->
-                <div class="col-md-4">
-                    <div class="chr-blog-small event-small">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-es4.jpg')}}" alt="oscarthemes">
-                        </figure>
-                        <div class="text">
-                            <h5 class="title"><a href="event-detail.html">Evento para parejas</a></h5>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug...</p>
-                            <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-calendar"></i><span>05.03.2017</span></a></li>
-                                <li><a href="#"><i class="fa fa-map-marker"></i><span>Rocket Stadium , Los Angeles</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Even Small End-->
-                <!--Even Small Start-->
-                <div class="col-md-4">
-                    <div class="chr-blog-small event-small">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-es5.jpg')}}" alt="oscarthemes">
-                        </figure>
-                        <div class="text">
-                            <h5 class="title"><a href="event-detail.html">Evento para parejas</a></h5>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug...</p>
-                            <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-calendar"></i><span>05.03.2017</span></a></li>
-                                <li><a href="#"><i class="fa fa-map-marker"></i><span>Rocket Stadium , Los Angeles</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Even Small End-->
-                <!--Even Small Start-->
-                <div class="col-md-4">
-                    <div class="chr-blog-small event-small">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-es6.jpg')}}" alt="oscarthemes">
-                        </figure>
-                        <div class="text">
-                            <h5 class="title"><a href="event-detail.html">Evento para parejas</a></h5>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug...</p>
-                            <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-calendar"></i><span>05.03.2017</span></a></li>
-                                <li><a href="#"><i class="fa fa-map-marker"></i><span>Rocket Stadium , Los Angeles</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Even Small End-->
-                <!--Even Small Start-->
-                <div class="col-md-4">
-                    <div class="chr-blog-small event-small">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-es7.jpg')}}" alt="oscarthemes">
-                        </figure>
-                        <div class="text">
-                            <h5 class="title"><a href="event-detail.html">Evento para parejas</a></h5>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug...</p>
-                            <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-calendar"></i><span>05.03.2017</span></a></li>
-                                <li><a href="#"><i class="fa fa-map-marker"></i><span>Rocket Stadium , Los Angeles</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Even Small End-->
-                <!--Even Small Start-->
-                <div class="col-md-4">
-                    <div class="chr-blog-small event-small">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-es8.jpg')}}" alt="oscarthemes">
-                        </figure>
-                        <div class="text">
-                            <h5 class="title"><a href="event-detail.html">Evento para parejas</a></h5>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug...</p>
-                            <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-calendar"></i><span>05.03.2017</span></a></li>
-                                <li><a href="#"><i class="fa fa-map-marker"></i><span>Rocket Stadium , Los Angeles</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Even Small End-->
-                <!--Even Small Start-->
-                <div class="col-md-4">
-                    <div class="chr-blog-small event-small">
-                        <figure>
-                            <img src="{{asset('frontend/extra-images/img-es9.jpg')}}" alt="oscarthemes">
-                        </figure>
-                        <div class="text">
-                            <h5 class="title"><a href="event-detail.html">Evento para parejas</a></h5>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug...</p>
-                            <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-calendar"></i><span>05.03.2017</span></a></li>
-                                <li><a href="#"><i class="fa fa-map-marker"></i><span>Rocket Stadium , Los Angeles</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
+
                 <!--Even Small End-->
                 <div class="col-md-12">
                     <!-- Pagination Start-->

@@ -20,7 +20,10 @@
                     <!--Event Detail Start-->
                     <div class="chr-room-detail chr-event-detail">
                         <!--Event Detail Slider Start-->
-                        <div class="room-detail-slider">
+                      <figure>
+                          <img src="{{ asset('frontend/extra-images/img-d1.jpg') }}" alt="oscarthemes">
+                      </figure>
+                        {{-- <div class="room-detail-slider">
                             <!--Event Detail Slider Thumb Start-->
                             <div class="slider-for arrows">
                                 <div>
@@ -99,11 +102,11 @@
                                 </div>
                             </div>
                             <!--Event Detail Slider Nav End-->
-                        </div>
+                        </div> --}}
                         <!--Event Detail Slider End-->
                         <!--Event Detail Caption Start-->
                         <div class="room-detail-caption event-detail-caption">
-                            <h5 class="heading-title">Evento en el Salón de la Familia Evenue</h5>
+                            <h5 class="heading-title">{{$event->name}}</h5>
                             <p>El evento Trailwalker consiste en que equipos de cuatro personas completen 100 km de caminata por el monte en 48 horas. Los equipos deben comprometerse a recaudar un mínimo de 1.000 dólares, que se destinarán a ayudar a los pobres.</p>
                             <p>Ut dignissim, nunc vel fringilla cursus, nunc nisl mattis est, vel pharetra mauris nisi non lorem. Duis ipsum neque, congue quis semper at, malesuada quis ex. Aliquam lacinia eget lorem ac lobortis. Donec justo turpis, congue vel nulla eu, viverra porta magna. Quisque ac sapien ac lorem pellentesque commodo. Aenean porta, libero sed vehicula auctor, magna augue bibendum mi, sed molestie est velit id massa. Praesent ut dolor facilisis, viverra est sed, porttitor ante. Quisque vel diam non mi elementum gravida sodales a nisl. Praesent eget blandit ipsum, eget ornare elit. Praesent blandit sagittis turpis, non blandit nibh commodo a. Duis nec finibus massa.</p>
                         </div>

@@ -91,7 +91,6 @@
                       <input type="checkbox" name="rating" value="5" class="list-checbox-star d-none" id="star-5">
                       <i class="fas fa-star"></i>
                     </label>
-                    {{-- <i class="far fa-star"></i> --}}
                   </div>
                 </div>
               </div>
