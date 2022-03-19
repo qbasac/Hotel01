@@ -133,7 +133,7 @@
                                 <li ><a href="{{ route('habitacion.index') }}">Habitaciones</a>
                                 </li>
                                 <li><a href="{{ route('evento-pequeño') }}">Evento</a>
-                                   
+
                                 </li>
                             </ul>
                         </nav>
@@ -463,49 +463,21 @@
     </section>
     @endif
 
-    <!--Brand Slider Start-->
+    @if ($home->show_section_brands)
     <div class="brnd-slider-wrap ">
-        <div class="container">
-            <div class="brnd-slider">
-                <div>
-                    <a href="#" class="thumb">
-                        <img src="{{asset('frontend/extra-images/brand1.png')}}" alt="oscarthemes"/>
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="thumb">
-                        <img src="{{asset('frontend/extra-images/brand2.png')}}" alt="oscarthemes"/>
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="thumb">
-                        <img src="{{asset('frontend/extra-images/brand3.png')}}" alt="oscarthemes"/>
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="thumb">
-                        <img src="{{asset('frontend/extra-images/brand4.png')}}" alt="oscarthemes"/>
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="thumb">
-                        <img src="{{asset('frontend/extra-images/brand5.png')}}" alt="oscarthemes"/>
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="thumb">
-                        <img src="{{asset('frontend/extra-images/brand6.png')}}" alt="oscarthemes"/>
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="thumb">
-                        <img src="{{asset('frontend/extra-images/brand1.png')}}" alt="oscarthemes"/>
-                    </a>
-                </div>
+      <div class="container">
+          <div class="brnd-slider">
+            @foreach ($brands as $brand)
+            <div>
+                <a href="#" class="thumb">
+                    <img src="{{ asset('storage/brand-image/'.$brand->image) }}" alt="oscarthemes"/>
+                </a>
             </div>
-        </div>
+            @endforeach
+          </div>
+      </div>
     </div>
-    <!--Brand Slider End-->
+    @endif
 </div>
 <!--News Letter Wrap Start-->
 <section class="news-letter">

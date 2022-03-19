@@ -97,6 +97,16 @@
             </h6>
           </div>
           <hr>
+          @if (count($errors->all()))
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <ul class="mb-0">
+              @foreach ($errors->all() as $message)
+                <li>{{$message}}</li>
+              @endforeach
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
           <form action="{{ route('admin.events.update', ['event' => $event->id]) }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
            @method('PUT')
            @csrf
@@ -122,26 +132,13 @@
                     <small class="text-danger input-description"> {{ $message }}</small>
                   @enderror
               </div>
-              <div style="background: #e4f4ff;" class="file_container">
-                <input type="file" class="file_input" id="file_input" name="image" accept="image/*">
-                @if ($event->image)
-                <img src="{{ asset('storage/events-image/'.$event->image) }}">
-                @else
-                <img id="file_image" class="file_image">
-                <div id="letter-upload" class="file_letter">
-                  <div class="text-center">
-                      <h1 class="color-upload-img"><i class="fas fa-upload"></i></h1>
-                  </div>
-                  <h2 class="color-img-upload">Selecione una imagen</h2>
-                  <hr>
-                  <center>
-                    <h6 class="color-upload-img">
-                      O arrastra una imagen
-                    </h6>
-                  </center>
+              <div class="mb-3">
+                <div class="file_container">
+                  <input  type="file" class="file_input" id="file_input" name="image" accept="image/*">
+                    <img id="file_image" class="file_image" src="{{ asset('storage/events-image/'.$event->image) }}" alt="oscarthemes">
+                  </input>
                 </div>
-                @endif
-              </div>
+             </div>
             </div>
             <div class="col-md-6">
               <div class="mb-3">
@@ -226,43 +223,7 @@
 @endsection
 
 @section('scripts')
-  <script src="{{ asset('backend/ckeditor5-classic/ckeditor.js') }}"></script>
-  <script src="{{ asset('backend/ckeditor5-classic/translations/es.js') }}"></script>
   <script>
-    const $editor = document.querySelector('#editor')
-    const config = {
-      toolbar: [ 'heading', '|', 'link', 'bulletedList', 'insertTable'],
-      language: 'es',
-      heading: {
-        options: [
-          { model: 'paragraph', title: 'Parráfo', class: 'ck-heading_paragraph' },
-          { model: 'heading1', view: 'h1', title: 'Título', class: 'ck-heading_heading1' },
-          { model: 'heading2', view: 'h2', title: 'Sub titulo', class: 'ck-heading_heading2' }
-        ]
-      },
-    }
-
-    ClassicEditor.create($editor, config)
-
-
-    observerHTML('input-price')
-    observerHTML('input-date')
-
-    function observerHTML(className) {
-      const $inputPrices = document.querySelectorAll('.'+ className)
-      $inputPrices.forEach(element => {
-        if(element.tagName === 'INPUT') {
-          element.addEventListener('input', function () {
-            this.classList.remove('is-invalid')
-            if(element.nextElementSibling && element.nextElementSibling.tagName == 'SMALL') {
-              element.nextElementSibling.classList.add('d-none')
-            }
-          })
-        }
-      })
-    }
-  </script>
-    <script>
       let fileInput,
       fileImage = document.querySelector('#file_image'),
       letterUpload = document.querySelector('#letter-upload');
@@ -275,7 +236,8 @@
       reader.readAsDataURL(file)
       letterUpload.style.opacity = '0'
     })
-    }
+  }
+  console.log("teaaaaaaaaa")
   </script>
 @endsection
 

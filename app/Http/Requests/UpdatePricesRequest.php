@@ -36,7 +36,6 @@ class UpdatePricesRequest extends FormRequest
     return [
       'price' => 'precio',
       'date' => 'fecha',
-      // 'image' => 'imagen',
       'description' => 'descripción'
     ];
   }

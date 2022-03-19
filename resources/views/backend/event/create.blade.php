@@ -97,6 +97,16 @@
             </h6>
           </div>
           <hr>
+          @if (count($errors->all()))
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <ul class="mb-0">
+              @foreach ($errors->all() as $message)
+                <li>{{$message}}</li>
+              @endforeach
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
           <form action="{{ route('admin.events.store') }}" method="POST" enctype="multipart/form-data" autocomplete="off">
             @csrf
             <div class="row">

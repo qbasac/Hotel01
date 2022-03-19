@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Brand;
 use App\Models\Gallery;
 use App\Models\home;
 use App\Models\Price;
@@ -26,7 +27,7 @@ class HomeController extends Controller
         ->active()
         ->take(3)
         ->get();
-
+        $brands = Brand::where('is_active', 1)->get();
         $prices = Price::where('is_active', 1)->get();
         $galleries = Gallery::where('is_active', 1)->take(8)->get();
         $services = Services::where('is_active', 1)->get();
@@ -34,6 +35,6 @@ class HomeController extends Controller
         $home = home::first();
         $slider_homes = SliderHome::where('is_active', 1)->get();
         return view('frontend.index', compact('slider_homes',
-        'home', 'rooms', 'services', 'galleries', 'blogs', 'prices'));
+        'home', 'rooms', 'services', 'galleries', 'blogs', 'prices', 'brands'));
     }
 }

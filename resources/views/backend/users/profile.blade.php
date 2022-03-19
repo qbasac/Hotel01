@@ -149,12 +149,10 @@ Usuarios
                       </div>
                     </div>
 
-
                     <div class="col-12 col-lg-12">
                       <button type="submit" class="btn btn-primary"> Actualizar perfil </button>
                     </div>
                   </div>
-
 
                    <div class="col-12 col-lg-5  text-center">
 

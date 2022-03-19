@@ -92,20 +92,20 @@
               Marcas
             </h6>
             <div>
-             <a href="{{ route('admin.brands.create') }}" class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></a>
-             {{-- <form  method="POST" action="{{route('admin.gallery.ShowSectionGallery', ['gallery' => $home->id] )}}" class="d-inline">
-              @csrf
-              <input type="hidden" name="state" value="{{$home->show_section_gallery}}">
-              @if ($home->show_section_gallery)
-              <button style="margin-left: 5px;"  type="submit" class="btn btn btn-danger float-end" title="">
-                Ocultar <i class="fas fa-eye-slash"></i>
-              </button>
-              @else
-              <button style="margin-right: 5px;" type="submit" class="btn btn btn-success " title="Cambiar estado">
-                Mostrar<i class="fas fa-eye"></i>
-              </button>
-              @endif
-            </form> --}}
+             <a href="{{ route('admin.brands.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
+              <form  method="POST" action="{{route('admin.brands.ShowSectionBrands', ['brands' => $home->id] )}}" class="d-inline">
+                @csrf
+                <input type="hidden" name="state" value="{{$home->show_section_brands}}">
+                @if ($home->show_section_brands)
+                <button type="submit" class="btn btn btn-danger float-end me-2" title="">
+                  Ocultar <i class="fas fa-eye-slash"></i>
+                </button>
+                @else
+                <button type="submit" class="btn btn btn-success me-2" title="Cambiar estado">
+                  Mostrar <i class="fas fa-eye"></i>
+                </button>
+                @endif
+              </form>
             </div>
           </div>
           <hr>

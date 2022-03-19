@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreEventRequest;
+use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,7 +22,7 @@ class EventController extends Controller
         return view('backend.event.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreEventRequest $request)
     {
       $events = new Event();
       $events->name = $request->name;
@@ -44,7 +46,7 @@ class EventController extends Controller
       return view('backend.event.edit', compact('event'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateEventRequest $request, $id)
     {
       $events = Event::find($id);
       $events->name = $request->name;
