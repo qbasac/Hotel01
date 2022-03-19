@@ -16,7 +16,7 @@ class EventosController extends Controller
 
     public function eventSmall()
     {
-        $events = Event::where('is_active', 1)->where('state_event',1)->get();
+        $events = Event::where('is_active', 1)->where('state_event',1 && 2)->get();
         return view('frontend.event-small', compact('events'));
     }
 }

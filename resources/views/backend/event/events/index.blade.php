@@ -4,6 +4,25 @@
   Eventos
 @endsection
 
+@section('styles')
+<style>
+  .p_description {
+    inline-size: 100%;
+    block-size: 60px;
+    max-inline-size: 100% !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  .card_separator{
+    margin-bottom: 0px;
+    margin-top: 0PX;
+  }
+</style>
+
+@endsection
 @section('content')
 <div class="page-content-wrapper">
   <div class="row">
@@ -46,11 +65,10 @@
                   <img class="card-img-top img-fluid rounded-top" src="{{ asset('storage/events-image/'.$event->image) }}" alt="Card image cap">
                   <div class="card-body">
                       <h4 class="card-title">{{ $event->name }}</h4>
-                      <p class="card-text">{{ $event->description }}</p>
+                      <p class="card-text p_description">{{ $event->description }}</p>
                       <div class="col-12">
                         <i class="fa fa-calendar"></i><span> {{ $event->date_event }} </span> │ <i class="fa fa-map-marker"></i><span> {{ $event->place_celebration }}</span>
                       </div>
-
                       @if ($event->state_event == 1)
                       <div class="col-12 mt-3">
                         <div class="card-title  justify-content-center"><span class="badge bg-soft-primary rounded-pill text-primary" ><i class="mdi mdi-checkbox-blank-circle text-primary"></i>
@@ -70,9 +88,8 @@
                         </div>
                       </div>
                       @endif
-
                   </div>
-                  <hr>
+                  <hr class=" card_separator">
                   <div class="card-body">
                     <div class="col text-center">
                       <a href="{{ route('admin.events.edit', ['event' => $event->id] ) }}" class="btn btn-sm btn-primary" title="Editar">
@@ -103,8 +120,9 @@
                     </div>
                   </div>
               </div>
-          </div>
+            </div>
             @endforeach
+            {{ $events->links() }}
           </div>
         </div>
       </div>

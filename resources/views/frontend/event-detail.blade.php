@@ -1,4 +1,16 @@
+@php
+  use \Carbon\Carbon;
+@endphp
+
 @extends('frontend.layouts.app')
+
+@section('style')
+<style>
+  .mt-3{
+    margin-top: 30px;
+  }
+</style>
+@endsection
 
 @section('content')
 <div data-stellar-background-ratio="0.5" class="parallax-section chr-sub-banner text-center">
@@ -12,135 +24,50 @@
 </div>
 <!--Banner Wrap End-->
 <div class="main-contant">
-    <!--Event Detail Section Start-->
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <!--Event Detail Start-->
                     <div class="chr-room-detail chr-event-detail">
-                        <!--Event Detail Slider Start-->
-                      <figure>
-                          <img src="{{ asset('frontend/extra-images/img-d1.jpg') }}" alt="oscarthemes">
-                      </figure>
-                        {{-- <div class="room-detail-slider">
-                            <!--Event Detail Slider Thumb Start-->
-                            <div class="slider-for arrows">
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide1.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide2.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide3.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide4.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide5.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide6.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide6.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                            </div>
-                            <!--Event Detail Slider Thumb End-->
-                            <!--Event Detail Slider Nav Start-->
-                            <div class="slider-nav">
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide-thumb1.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide-thumb2.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide-thumb3.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide-thumb4.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide-thumb5.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide-thumb6.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                                <div>
-                                    <figure>
-                                        <img src="{{asset('frontend/extra-images/slide-thumb6.jpg')}}" alt="oscarthemes"/>
-                                    </figure>
-                                </div>
-                            </div>
-                            <!--Event Detail Slider Nav End-->
-                        </div> --}}
-                        <!--Event Detail Slider End-->
-                        <!--Event Detail Caption Start-->
-                        <div class="room-detail-caption event-detail-caption">
+                        <figure>
+                            <img src="{{ asset('storage/events-image/'.$event->image) }}" alt="oscarthemes">
+                        </figure>
+
+                        <div class="room-detail-caption event-detail-caption mt-3">
                             <h5 class="heading-title">{{$event->name}}</h5>
-                            <p>El evento Trailwalker consiste en que equipos de cuatro personas completen 100 km de caminata por el monte en 48 horas. Los equipos deben comprometerse a recaudar un mínimo de 1.000 dólares, que se destinarán a ayudar a los pobres.</p>
-                            <p>Ut dignissim, nunc vel fringilla cursus, nunc nisl mattis est, vel pharetra mauris nisi non lorem. Duis ipsum neque, congue quis semper at, malesuada quis ex. Aliquam lacinia eget lorem ac lobortis. Donec justo turpis, congue vel nulla eu, viverra porta magna. Quisque ac sapien ac lorem pellentesque commodo. Aenean porta, libero sed vehicula auctor, magna augue bibendum mi, sed molestie est velit id massa. Praesent ut dolor facilisis, viverra est sed, porttitor ante. Quisque vel diam non mi elementum gravida sodales a nisl. Praesent eget blandit ipsum, eget ornare elit. Praesent blandit sagittis turpis, non blandit nibh commodo a. Duis nec finibus massa.</p>
+                            <p>{{$event->description}}</p>
                         </div>
-                        <!--Event Detail Caption End-->
-                        <!--Event Detail Start-->
+
                         <div class="event-detail-info">
                             <h5 class="heading-title">Detalles del evento</h5>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="widget-event-info">
                                         <div class="text">
                                             <h6 class="title"><i class="fa fa-clock-o"></i>Hora de inicio</h6>
-                                            <p>9:00 A.M</p>
-                                            <p>Jueves, 18 de febrero de 2016</p>
+                                            <p>{{ \Carbon\Carbon::parse($event->star_time)->format('g:i A')}}</p>
+                                            {{-- $date->isoFormat('LLLL'); --}}
+                                            <p>{{ Carbon::parse($event->date_event)->isoFormat('LLLL') }}</p>
                                         </div>
                                         <div class="text">
                                             <h6 class="title"><i class="fa fa-clock-o"></i>Tiempo de finalización</h6>
-                                            <p>2:00 P.M</p>
-                                            <p>Jueves, 18 de febrero de 2016</p>
+                                            <p>{{ \Carbon\Carbon::parse($event->time_completion)->format('g:i A')}}</p>
+                                            <p>{{ Carbon::parse($event->date_event)->isoFormat('dddd, DD MMMM YYYY') }}</p>
                                         </div>
                                         <div class="text">
                                             <h6 class="title"><i class="fa fa-map-marker"></i>Lugar de celebración</h6>
-                                            <p>Henderson, Nevada</p>
+                                            <p>{{ $event->place_celebration}}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <!--Event Detail Caption Start-->
                                     <div class="room-detail-caption event-detail-caption">
                                         <p>Ut dignissim, nunc vel fringilla cursus, nunc nisl mattis est, vel pharetra mauris nisi non lorem. Duis ipsum neque, congue quis semper at, malesuada quis ex. Aliquam lacinia eget lorem ac lobortis. Donec justo turpis, congue vel nulla eu, viverra porta magna. Quisque ac sapien ac lorem pellentesque commodo.</p>
                                         <p>Ut dignissim, nunc vel fringilla cursus, nunc nisl mattis est, vel pharetra mauris nisi non lorem. Duis ipsum neque, congue quis semper at, malesuada quis ex. Aliquam lacinia eget lorem ac lobortis. Donec justo turpis, congue vel nulla eu, viverra porta magna. Quisque ac sapien ac lorem pellentesque commodo.</p>
                                     </div>
                                     <!--Event Detail Caption End-->
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <!--Event Facilities End-->

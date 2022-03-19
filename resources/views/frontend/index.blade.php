@@ -133,7 +133,6 @@
                                 <li ><a href="{{ route('habitacion.index') }}">Habitaciones</a>
                                 </li>
                                 <li><a href="{{ route('evento-pequeño') }}">Evento</a>
-
                                 </li>
                             </ul>
                         </nav>

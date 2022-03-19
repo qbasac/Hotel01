@@ -1,6 +1,5 @@
 @php
   use \Carbon\Carbon;
-
 @endphp
 @extends('frontend.layouts.app')
 

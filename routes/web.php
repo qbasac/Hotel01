@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\BlogCommentsController as AdminBlogCommentsContro
 use App\Http\Controllers\Admin\PricesController as AdminPricesController;
 use App\Http\Controllers\Admin\BrandController as AdminBrandController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
+use App\Http\Controllers\Admin\EventOrganizerController as AdminEventOrganizerController;
+
 
 
 use App\Http\Controllers\RoomController;
@@ -79,6 +81,8 @@ Auth::routes(['register' => false]);
 
     Route::resource('/events', AdminEventController::class);
     Route::post('events/update-is-active/{events}', [AdminEventController::class, 'updateIsActive'])->name('events.updateIsActive');
+
+    Route::resource('/event-organizer', AdminEventOrganizerController::class);
 
   });
 

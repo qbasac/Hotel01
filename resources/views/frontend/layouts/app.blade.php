@@ -68,11 +68,6 @@
                                     <li
                                     class="{{ \Request::path() == 'evento-peque%C3%B1o' || \Request::path() == 'evento-mediano' || \Request::path() == 'evento-grande' || \Request::path() == 'evento-lista'|| \Request::path() == 'evento-detalle'? 'active' : '' }}"
                                     ><a href="{{ route('evento-pequeño') }}">Evento</a>
-                                        <ul class="children">
-                                            <li><a href="{{ route('evento-pequeño') }}">Evento Pequeño</a></li>
-                                            <li><a href="{{-- route('evento-mediano') --}}">Evento Medio</a></li>
-
-                                        </ul>
                                     </li>
                                 </ul>
                             </nav>

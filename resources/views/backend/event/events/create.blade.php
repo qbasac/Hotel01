@@ -123,20 +123,24 @@
                   </label>
                   <textarea id="description" name="description" type="text" class="form-control" value="{{ old('description') }}"  placeholder="Complete este campo" autofocus></textarea>
                 </div>
-                <div style="background: #e4f4ff;" class="file_container">
-                  <input type="file" class="file_input" id="file_input" name="image" accept="image/*">
-                  <img id="file_image" class="file_image">
-                  <div id="letter-upload" class="file_letter">
-                    <div class="text-center">
-                        <h1 class="color-upload-img"><i class="fas fa-upload"></i></h1>
-                    </div>
-                    <h2 class="color-img-upload">Selecione una imagen</h2>
-                    <hr>
-                    <center>
-                      <h6 class="color-upload-img">
+                <div class="mb-3">
+                  <label for="image" class="form-label">Imagen
+                    <span class="span-reqrired">*</span>
+                    <small class="text-muted"> (Tamaño de imagen recomendado 220px x 290px) </small>
+                  </label>
+                  <div style="background: #e4f4ff;" class="file_container">
+                    <input type="file" class="file_input" id="file_input" name="image" accept="image/*">
+                    <img id="file_image" class="file_image">
+                    <div id="letter-upload" class="file_letter">
+                      <div class="text-center">
+                          <h1 class="color-upload-img"><i class="fas fa-upload"></i></h1>
+                          <h2 class="color-img-upload">Selecione una imagen</h2>
+                      </div>
+                      <hr>
+                      <h6 class="color-upload-img text-center">
                         O arrastra una imagen
                       </h6>
-                    </center>
+                    </div>
                   </div>
                 </div>
               </div>

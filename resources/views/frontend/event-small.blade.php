@@ -1,5 +1,19 @@
 @extends('frontend.layouts.app')
 
+@section('style')
+<style>
+  .p_description {
+    inline-size: 100%;
+    block-size: 70px;
+    max-inline-size: 100% !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+</style>
+@endsection
 @section('content')
 <div data-stellar-background-ratio="0.5" class="parallax-section chr-sub-banner text-center">
     <div class="container">
@@ -24,11 +38,12 @@
                         </figure>
                         <div class="text">
                             <h5 class="title"><a href="{{ route('detalle-evento' ,['id' => $event->id]) }}">{{ $event->name }}</a></h5>
-                            <p>{{ $event->description }}</p>
+                            <p class="p_description">{{ $event->description }}</p>
                             <ul class="blog-meta">
                                 <li><a href="#"><i class="fa fa-calendar"></i><span>{{ $event->date_event }}</span></a></li>
                                 <li><a href="#"><i class="fa fa-map-marker"></i><span>{{ $event->place_celebration }}</span></a></li>
                             </ul>
+                            <a class="readmore-btn" href="{{ route('detalle-evento',['id' => $event->id]) }}">Leer más</a>
                         </div>
                     </div>
                 </div>

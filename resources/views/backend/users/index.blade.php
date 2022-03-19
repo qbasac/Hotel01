@@ -4,27 +4,6 @@
 Usuarios
 @endsection
 
-@section('styles')
-<style>
-  ::-webkit-scrollbar {
-    height: 5px;
-    width: 5px;
-    display: block;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: #73b9ff;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #1B82EC;
-    background-color: #01274d;
-
-    border-radius: 5px;
-  }
-</style>
-@endsection
-
 @section('sub-title')
 Usuarios
 @endsection
@@ -51,7 +30,7 @@ Usuarios
                   Ocultar personal <i class="fas fa-eye-slash"></i>
                 </button>
                 @else
-                <button  style="margin-right: 5px;" type="submit" class="btn btn btn-success " title="Cambiar estado">
+                <button   type="submit" class="btn btn btn-success m-0" title="Cambiar estado">
                   Mostrar personal <i class="fas fa-eye"></i>
                 </button>
                 @endif
@@ -89,11 +68,7 @@ Usuarios
                  <option value="name" {{ request('searchBy') == 'name' ? 'selected' : '' }}>Nombres</option>
                  <option value="email" {{ request('searchBy') == 'email' ? 'selected' : '' }}>Correo</option>
                </select>
-
-
-
                 <input class="form-control " id="form-name" type="search" placeholder="Nombres..." {{ request('search') ? 'autofocus' : '' }} name="search" aria-label="Search" value="{{ request('search') }}" >
-
                 <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
               </div>
 

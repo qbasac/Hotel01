@@ -69,11 +69,22 @@
       </a>
     </li>
 
-    <li>
+    {{-- <li>
       <a href="{{ route('admin.events.index')}}" class="waves-effect">
         <i class="fas fa-calendar-check"></i>
         <span>Eventos</span>
       </a>
+    </li> --}}
+
+    <li>
+      <a href="javascript: void(0);" class="has-arrow waves-effect">
+        <i class="fas fa-calendar-check"></i>
+        <span>Eventos</span>
+      </a>
+      <ul class="sub-menu" aria-expanded="true">
+        <li><a href="{{route('admin.events.index')}}">Eventos</a></li>
+        <li><a href="{{route('admin.event-organizer.index')}}">Organizadores del evento</a></li>
+      </ul>
     </li>
 
     <li>

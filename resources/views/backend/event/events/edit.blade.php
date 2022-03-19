@@ -110,7 +110,7 @@
           <form action="{{ route('admin.events.update', ['event' => $event->id]) }}" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
            @method('PUT')
            @csrf
-           <div class="row">
+          <div class="row">
             <div class="col-md-6">
               <div class="mb-3">
                 <label for="name" class="form-label">Nombre
@@ -133,12 +133,15 @@
                   @enderror
               </div>
               <div class="mb-3">
+                <label for="image" class="form-label">Imagen
+                  <span class="span-reqrired">*</span>
+                  <small class="text-muted"> (Tamaño de imagen recomendado 220px x 290px) </small>
+                </label>
                 <div class="file_container">
                   <input  type="file" class="file_input" id="file_input" name="image" accept="image/*">
-                    <img id="file_image" class="file_image" src="{{ asset('storage/events-image/'.$event->image) }}" alt="oscarthemes">
-                  </input>
+                  <img id="file_image" class="file_image" src="{{ asset('storage/events-image/'.$event->image) }}" alt="oscarthemes">
                 </div>
-             </div>
+              </div>
             </div>
             <div class="col-md-6">
               <div class="mb-3">
@@ -207,7 +210,7 @@
                   </div>
               </div>
             </div>
-
+          </div>
             <div class="col-12 mt-3">
               <a href="{{ route('admin.events.index') }}" class="btn btn-danger" tabindex="4">Cancelar</a>
               <button type="submit" value="Send" class="btn btn-primary">Actualizar <i class="far fa-paper-plane"></i></button>

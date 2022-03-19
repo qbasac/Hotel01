@@ -110,22 +110,18 @@
               @csrf
               <div class="row">
                 <div class="col-md-6">
-                  <div style="1px solid #1b82ec; background:#e4f4ff;" class="card" >
-                    <div style="" class="file_container">
-                      <input type="file" class="file_input" id="file_input" name="image" accept="image/*">
-                      <img id="file_image" class="file_image">
+                  <div style="background: #e4f4ff;" class="file_container">
+                    <input type="file" class="file_input" id="file_input" name="image" accept="image/*">
+                    <img id="file_image" class="file_image">
                     <div id="letter-upload" class="file_letter">
                       <div class="text-center">
                           <h1 class="color-upload-img"><i class="fas fa-upload"></i></h1>
+                          <h2 class="color-img-upload">Selecione una imagen</h2>
                       </div>
-                        <h2 class="color-img-upload">Selecione una imagen</h2>
-                        <hr>
-                        <center>
-                          <h6 class="color-upload-img">
-                            O arrastra una imagen
-                          </h6>
-                        </center>
-                      </div>
+                      <hr>
+                      <h6 class="color-upload-img text-center">
+                        O arrastra una imagen
+                      </h6>
                     </div>
                   </div>
                 </div>
@@ -138,8 +134,10 @@
                   </div>
                 </div>
               </div>
-              <a href="{{ route('admin.gallery.index') }}" class="btn btn-danger">Cancelar</a>
-              <button type="submit" class="btn btn-primary">Guardar <i class="far fa-paper-plane"></i></button>
+              <div class="col-13 mt-3">
+                <a href="{{ route('admin.gallery.index') }}" class="btn btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Guardar <i class="far fa-paper-plane"></i></button>
+              </div>
            </form>
         </div>
       </div>
