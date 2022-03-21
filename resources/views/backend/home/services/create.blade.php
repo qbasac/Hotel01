@@ -59,13 +59,7 @@
     }
 
     ClassicEditor
-      .create($editor, config)
-      .then( editor => {
-          console.log( editor );
-      } )
-      .catch( error => {
-          console.error( error );
-      });
+      .create($editor, config);
   </script>
 @endsection
 

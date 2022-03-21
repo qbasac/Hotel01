@@ -35,7 +35,7 @@
 
                         <div class="room-detail-caption event-detail-caption mt-3">
                             <h5 class="heading-title">{{$event->name}}</h5>
-                            <p>{{$event->description}}</p>
+                            <p>{!!$event->description!!}</p>
                         </div>
 
                         <div class="event-detail-info">

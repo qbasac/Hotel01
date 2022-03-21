@@ -38,7 +38,7 @@
                         </figure>
                         <div class="text">
                             <h5 class="title"><a href="{{ route('detalle-evento' ,['id' => $event->id]) }}">{{ $event->name }}</a></h5>
-                            <p class="p_description">{{ $event->description }}</p>
+                            <p>{!! $event->description !!}</p>
                             <ul class="blog-meta">
                                 <li><a href="#"><i class="fa fa-calendar"></i><span>{{ $event->date_event }}</span></a></li>
                                 <li><a href="#"><i class="fa fa-map-marker"></i><span>{{ $event->place_celebration }}</span></a></li>

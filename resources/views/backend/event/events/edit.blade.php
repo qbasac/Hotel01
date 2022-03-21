@@ -126,11 +126,7 @@
                 <label for="description" class="form-label">Descripción
                   <span class="span-reqrired">*</span>
                 </label>
-                <textarea id="description" name="description" type="text"  value="" placeholder="Complete este campo..."
-                  class="form-control input-description @error('description') is-invalid @enderror">{{$event->description}} </textarea>
-                  @error('description')
-                    <small class="text-danger input-description"> {{ $message }}</small>
-                  @enderror
+                <textarea id="editor" name="description">{{$event->description}}</textarea>
               </div>
               <div class="mb-3">
                 <label for="image" class="form-label">Imagen
@@ -216,8 +212,6 @@
               <button type="submit" value="Send" class="btn btn-primary">Actualizar <i class="far fa-paper-plane"></i></button>
             </div>
           </form>
-
-
         </div>
       </div>
     </div>
@@ -226,6 +220,8 @@
 @endsection
 
 @section('scripts')
+  <script src="{{ asset('backend/ckeditor5-classic/ckeditor.js') }}"></script>
+  <script src="{{ asset('backend/ckeditor5-classic/translations/es.js') }}"></script>
   <script>
       let fileInput,
       fileImage = document.querySelector('#file_image'),
@@ -241,6 +237,24 @@
     })
   }
   console.log("teaaaaaaaaa")
+  </script>
+    <script>
+    const $editor = document.querySelector('#editor')
+    const config = {
+      toolbar: [ 'heading', '|', 'link', 'bulletedList', 'insertTable'],
+      language: 'es',
+      heading: {
+        options: [
+          { model: 'paragraph', title: 'Parráfo', class: 'ck-heading_paragraph' },
+          { model: 'heading1', view: 'h1', title: 'Título', class: 'ck-heading_heading1' },
+          { model: 'heading2', view: 'h2', title: 'Sub titulo', class: 'ck-heading_heading2' }
+        ]
+      },
+    }
+
+    ClassicEditor
+      .create($editor, config);
+      console.log("ttttt")
   </script>
 @endsection
 

@@ -1,4 +1,12 @@
-<div id="sidebar-menu">
+
+   <div class="col-12 text-center">
+      <div class="card-title  justify-content-center">
+        <span class="badge bg-soft-success   rounded-pill text-secondary" >
+        {{ Auth::user()->nick_name }}
+        </span>
+      </div>
+    </div>
+  <div id="sidebar-menu">
   <ul class="metismenu list-unstyled" id="side-menu">
     <li class="menu-title text-uppercase">INICIO</li>
     <li>

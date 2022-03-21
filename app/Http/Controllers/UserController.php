@@ -92,9 +92,6 @@ class UserController extends Controller
   }
 
   public function profileUpdate(UpdateProfileRequest $request) {
-    // dd($request->all());
-
-
     $user = User::find(auth()->user()->id);
     $user->nick_name = $request->nick_name;
     $user->email = $request->email;
@@ -103,34 +100,18 @@ class UserController extends Controller
       $request->file('avatar')->storeAs('public/users', $namefile);
       $user->avatar = $namefile;
     }
-
     $user->save();
 
-    // if($request->isChangePassword){
-    //   if (Hash::check($request->current_password, auth()->user()->password)) {
-    //     $user->fill([
-    //       'password' => Hash::make($request->get('new_password'))
-    //     ])
-    //     ->save();
-    //   } else {
-    //     throw ValidationException::withMessages([
-    //       'messages' => ['La contraseña actual no es la correcta']
-    //     ]);
-    //   }
-    // }
-
-   if(!Hash::check($request->current_password, auth()->user()->password)) {
+   if(Hash::check($request->current_password, auth()->user()->password)) {
       return back()->withErrors(['currentPasswordError' => 'La contraseña actual no es correcta.'])->withInput();
     }
     if($request->new_password != $request->new_confirm_password) {
       return back()->withErrors(['Errors passwords' => 'La nueva contraseña y confirmar contraseña no son iguales'])->withInput();
     }
 
-
     if($request->is_change_password) {
       $user->password = Hash::make($request->new_password);
     }
-    $user->save();
 
     return back()->with('updated' , 'Registro Actualizado correctamente');
   }

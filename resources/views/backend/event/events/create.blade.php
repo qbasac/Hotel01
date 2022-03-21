@@ -118,10 +118,10 @@
                   <input id="name" name="name" type="text" class="form-control" value="{{ old('name') }}"  placeholder="Complete este campo" autofocus>
                 </div>
                 <div class="mb-3">
-                  <label for="description" class="form-label">Descripción
+                 <label for="description" class="form-label">Descripción
                     <span class="span-reqrired">*</span>
                   </label>
-                  <textarea id="description" name="description" type="text" class="form-control" value="{{ old('description') }}"  placeholder="Complete este campo" autofocus></textarea>
+                  <textarea id="editor" name="description" value="{{ old('description') }}"></textarea>
                 </div>
                 <div class="mb-3">
                   <label for="image" class="form-label">Imagen
@@ -202,11 +202,7 @@
     }
 
     ClassicEditor
-      .create($editor, config)
-      .then( editor => {
-      } )
-      .catch( error => {
-      });
+      .create($editor, config);
 
       function observerHTML(className) {
       const $inputPrices = document.querySelectorAll('.'+ className)

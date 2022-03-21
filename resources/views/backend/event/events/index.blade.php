@@ -65,7 +65,11 @@
                   <img class="card-img-top img-fluid rounded-top" src="{{ asset('storage/events-image/'.$event->image) }}" alt="Card image cap">
                   <div class="card-body">
                       <h4 class="card-title">{{ $event->name }}</h4>
-                      <p class="card-text p_description">{{ $event->description }}</p>
+                      <p class="card-text ">
+                       <div class="p_description">
+                         {!! $event->description !!}
+                       </div>
+                      </p>
                       <div class="col-12">
                         <i class="fa fa-calendar"></i><span> {{ $event->date_event }} </span> │ <i class="fa fa-map-marker"></i><span> {{ $event->place_celebration }}</span>
                       </div>
