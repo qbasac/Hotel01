@@ -16,197 +16,25 @@
         <div class="container">
             <div class="row">
                 <!--Gallary Thumb Strat-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="gallary-thumb fancy-effect">
-                        <div class="fancy-thumb">
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/sgallary-img1.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                            <div class="zoom-icon p-middel">
-                                <a href="extra-images/sgallary-img1.jpg">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @foreach ($galleries as $gallery)
+                  <div class="col-md-4 col-sm-6">
+                      <div class="gallary-thumb fancy-effect">
+                          <div class="fancy-thumb">
+                              <figure>
+                                  <img src="{{ asset('storage/gallery-image/'.$gallery->image) }}" alt="Oscar Themes"/>
+                              </figure>
+                              <div class="zoom-icon p-middel">
+                                  <a href="extra-images/sgallary-img1.jpg">
+                                      <i class="fa fa-search"></i>
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                @endforeach
+
                 <!--Gallary Thumb End-->
-                <!--Gallary Thumb Strat-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="gallary-thumb fancy-effect">
-                        <div class="fancy-thumb">
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/sgallary-img2.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                            <div class="zoom-icon p-middel">
-                                <a href="extra-images/sgallary-img2.jpg">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-                <!--Gallary Thumb Strat-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="gallary-thumb fancy-effect">
-                        <div class="fancy-thumb">
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/sgallary-img3.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                            <div class="zoom-icon p-middel">
-                                <a href="extra-images/sgallary-img3.jpg">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-                <!--Gallary Thumb Strat-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="gallary-thumb fancy-effect">
-                        <div class="fancy-thumb">
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/sgallary-img4.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                            <div class="zoom-icon p-middel">
-                                <a href="extra-images/sgallary-img4.jpg">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-                <!--Gallary Thumb Strat-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="gallary-thumb fancy-effect">
-                        <div class="fancy-thumb">
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/sgallary-img5.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                            <div class="zoom-icon p-middel">
-                                <a href="extra-images/sgallary-img5.jpg">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-                <!--Gallary Thumb Strat-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="gallary-thumb fancy-effect">
-                        <div class="fancy-thumb">
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/sgallary-img6.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                            <div class="zoom-icon p-middel">
-                                <a href="extra-images/sgallary-img6.jpg">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-                <!--Gallary Thumb Strat-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="gallary-thumb fancy-effect">
-                        <div class="fancy-thumb">
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/sgallary-img7.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                            <div class="zoom-icon p-middel">
-                                <a href="extra-images/sgallary-img7.jpg">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-                <!--Gallary Thumb Strat-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="gallary-thumb fancy-effect">
-                        <div class="fancy-thumb">
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/sgallary-img8.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                            <div class="zoom-icon p-middel">
-                                <a href="extra-images/sgallary-img8.jpg">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-                <!--Gallary Thumb Strat-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="gallary-thumb fancy-effect">
-                        <div class="fancy-thumb">
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/sgallary-img9.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                            <div class="zoom-icon p-middel">
-                                <a href="extra-images/sgallary-img9.jpg">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-                <!--Gallary Thumb Strat-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="gallary-thumb fancy-effect">
-                        <div class="fancy-thumb">
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/sgallary-img10.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                            <div class="zoom-icon p-middel">
-                                <a href="extra-images/sgallary-img10.jpg">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-                <!--Gallary Thumb Strat-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="gallary-thumb fancy-effect">
-                        <div class="fancy-thumb">
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/sgallary-img11.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                            <div class="zoom-icon p-middel">
-                                <a href="extra-images/sgallary-img11.jpg">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
-                <!--Gallary Thumb Strat-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="gallary-thumb fancy-effect">
-                        <div class="fancy-thumb">
-                            <figure>
-                                <img src="{{asset('frontend/extra-images/sgallary-img12.jpg')}}" alt="Oscar Themes"/>
-                            </figure>
-                            <div class="zoom-icon p-middel">
-                                <a href="extra-images/sgallary-img12.jpg">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallary Thumb End-->
+
                 <div class="col-md-12">
                     <!-- Pagination Start-->
                     <div class="chr-pagination text-center">

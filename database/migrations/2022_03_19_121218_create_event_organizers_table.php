@@ -20,6 +20,7 @@ class CreateEventOrganizersTable extends Migration
       $table->string('occupation')->nullable();
       $table->text('description')->nullable();
       $table->string('image')->nullable();
+      $table->boolean('is_active')->default(1);
       $table->timestamps();
     });
   }

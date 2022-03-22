@@ -35,7 +35,9 @@
 
                         <div class="room-detail-caption event-detail-caption mt-3">
                             <h5 class="heading-title">{{$event->name}}</h5>
-                            <p>{!!$event->description!!}</p>
+                            <div class="cardDescription">
+                             <p>{!!$event->description!!}</p>
+                            </div>
                         </div>
 
                         <div class="event-detail-info">
@@ -286,5 +288,24 @@
 <!--News Letter Wrap Start-->
 
 </div>
+
+@endsection
+
+@section('scripts')
+<script>
+
+const $cardDescription = document.querySelectorAll('.cardDescription')
+    $cardDescription.forEach( $cardDescription => {
+
+    const $links = $cardDescription.querySelectorAll('p > a')
+    $links.forEach( $link => {
+      $link.target = '_blank'
+      $link.setAttribute('style', `
+      color: #1B82EC;
+        `)
+      })
+    })
+
+</script>
 
 @endsection

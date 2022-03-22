@@ -19,12 +19,24 @@ class EventController extends Controller
 
   public function create()
   {
-    return view('backend.event.events.create');
+    $event = Event::first();
+    return view('backend.event.events.create', compact('event'));
   }
 
   public function store(StoreEventRequest $request)
+  // public function store(Request $request)
   {
     $events = new Event();
+
+    $dateCurrent = now();
+    $dateEvent = Carbon::parse($request->date_event);
+    if(!$dateCurrent->greaterThan($dateEvent)) {
+      $events->state_event = $request->state_event ?? 2;
+    }
+    else{
+      // $events->state_event = $request->state_event->default(1);
+    }
+
     $events->name = $request->name;
     $events->description = $request->description;
     if ($request->file('image')) {
@@ -80,5 +92,11 @@ class EventController extends Controller
     $event = Event::find($id);
     $event->delete();
     return redirect()->route('admin.events.index')->with('deleted', 'Eliminado');
+  }
+
+  public function eventDetail($id)
+  {
+      $event = Event::whereId($id)->first();
+      return view('backend.event.events.event-detail', compact('event'));
   }
 }

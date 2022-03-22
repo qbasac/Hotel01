@@ -16,7 +16,7 @@
           <div class="card-body">
           <div class="card-title">
             <h6 class="text-primary">
-              <i class="fas fa-images"></i> Agregar organizador de evento
+              <i class="fa fa-solid fa-user"></i> Agregar organizador de evento
             </h6>
           </div>
           <hr>

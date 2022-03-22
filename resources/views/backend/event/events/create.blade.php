@@ -110,9 +110,11 @@
           <form action="{{ route('admin.events.store') }}" method="POST" enctype="multipart/form-data" autocomplete="off">
             @csrf
             <div class="row">
+
+
               <div class="col-md-6">
                 <div class="mb-3">
-                  <label for="name" class="form-label">Nombre
+                  <label for="name" class="form-label">Nombre {{$event->name}}
                     <span class="span-reqrired">*</span>
                   </label>
                   <input id="name" name="name" type="text" class="form-control" value="{{ old('name') }}"  placeholder="Complete este campo" autofocus>
@@ -128,13 +130,13 @@
                     <span class="span-reqrired">*</span>
                     <small class="text-muted"> (Tamaño de imagen recomendado 220px x 290px) </small>
                   </label>
-                  <div style="background: #e4f4ff;" class="file_container">
+                  <div style="background: hsl(204deg 100% 50% / 11%);" class="file_container">
                     <input type="file" class="file_input" id="file_input" name="image" accept="image/*">
                     <img id="file_image" class="file_image">
                     <div id="letter-upload" class="file_letter">
                       <div class="text-center">
                           <h1 class="color-upload-img"><i class="fas fa-upload"></i></h1>
-                          <h2 class="color-img-upload">Selecione una imagen</h2>
+                          <h2 class="color-img-upload text-primary">Selecione una imagen</h2>
                       </div>
                       <hr>
                       <h6 class="color-upload-img text-center">

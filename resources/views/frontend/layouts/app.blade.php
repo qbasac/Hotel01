@@ -64,7 +64,6 @@
                                     <li class="{{ \Request::path() == 'nosotros' ? 'active' : ''}}"><a href="{{ route('nosotros') }}"> Sobre nosotros</a></li>
                                     <li class="{{ \Request::path() == 'habitacion' ? 'active' : ''}}"><a href="{{ route('habitacion.index') }}"> Habitaciones</a></li>
 
-
                                     <li
                                     class="{{ \Request::path() == 'evento-peque%C3%B1o' || \Request::path() == 'evento-mediano' || \Request::path() == 'evento-grande' || \Request::path() == 'evento-lista'|| \Request::path() == 'evento-detalle'? 'active' : '' }}"
                                     ><a href="{{ route('evento-pequeño') }}">Evento</a>
@@ -83,11 +82,7 @@
                                     </li>
                                     <li
                                     class=" {{ \Request::path() == 'galeria-maposteria' || \Request::path() == 'galeria-simple'? 'active' : '' }}"
-                                     ><a href="#">Galería Edit</a>
-                                        <ul class="children">
-                                            <li><a href="{{-- route('galeria-maposteria') --}}">Galería de mampostería</a></li>
-                                            <li><a href="{{-- route('galeria-simple') --}}">Galería simple</a></li>
-                                        </ul>
+                                     ><a href="{{ route('galeria-simple') }}">Galería</a>
                                     </li>
                                     <li
                                     class=" {{ \Request::path() == '404' || \Request::path() == 'personal-pagina' || \Request::path() == 'acceso-pagina' || \Request::path() == 'inscribase-pagina'|| \Request::path() == 'comingsoon-paginas'? 'active' : '' }}"

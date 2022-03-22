@@ -4,13 +4,14 @@
 <style>
   .p_description {
     inline-size: 100%;
-    block-size: 70px;
+    block-size: 78px;
     max-inline-size: 100% !important;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    margin-bottom: 15px
   }
 </style>
 @endsection
@@ -38,9 +39,11 @@
                         </figure>
                         <div class="text">
                             <h5 class="title"><a href="{{ route('detalle-evento' ,['id' => $event->id]) }}">{{ $event->name }}</a></h5>
-                            <p>{!! $event->description !!}</p>
+                            <div class="p_description">
+                              <p>{!! $event->description !!}</p>
+                            </div>
                             <ul class="blog-meta">
-                                <li><a href="#"><i class="fa fa-calendar"></i><span>{{ $event->date_event }}</span></a></li>
+                                <li><a href="#"><i class="fa fa-calendar"></i><span>{{ \Carbon\Carbon::parse($event->date_event)->format('d-m-Y')}}</span></a></li>
                                 <li><a href="#"><i class="fa fa-map-marker"></i><span>{{ $event->place_celebration }}</span></a></li>
                             </ul>
                             <a class="readmore-btn" href="{{ route('detalle-evento',['id' => $event->id]) }}">Leer más</a>

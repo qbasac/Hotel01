@@ -92,7 +92,7 @@
         <div class="card-body">
           <div class="card-title">
             <h6 class="text-primary">
-              <i class="far fa-money-bill-alt"></i>
+              <i class="mdi mdi-calendar-check"></i>
               Editar eventos
             </h6>
           </div>

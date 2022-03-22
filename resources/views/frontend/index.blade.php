@@ -145,11 +145,10 @@
 
                                 </li>
                                 <li>
-                                    <a href="#">Galerí DASDADAa</a>
-                                    <ul class="children">
-                                        <li><a href="{{-- route('galeria-maposteria') --}}">Galería de mampostería</a></li>
-                                        <li><a href="{{-- route('galeria-simple') --}}">Galería simple</a></li>
-                                    </ul>
+                                    <a href="{{ route('galeria-simple') }}">Galería</a>
+                                    {{-- <ul class="children">
+                                        <li><a href="{{ route('galeria-simple') }}">Galería simple</a></li>
+                                    </ul> --}}
                                 </li>
                                 <li class="last">
                                     <a href="#">Páginas</a>

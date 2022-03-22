@@ -2,20 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 
 class GaleriaController extends Controller
 {
-    public function construct()
-    {
-        $this->middleware('auth');
-    }
-    public function galeriaMaposteria()
-    {
-        return view('frontend.masonry-gallery');
-    }
     public function galeriaSimple()
     {
-        return view('frontend.simple-gallery');
+        $galleries = Gallery::where('is_active', 1)->get();
+        return view('frontend.simple-gallery', compact('galleries'));
     }
 }

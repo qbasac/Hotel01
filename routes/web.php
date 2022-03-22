@@ -25,6 +25,8 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\RoomReservationController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EventosController;
+use App\Http\Controllers\GaleriaController;
+
 
 
 
@@ -81,8 +83,10 @@ Auth::routes(['register' => false]);
 
     Route::resource('/events', AdminEventController::class);
     Route::post('events/update-is-active/{events}', [AdminEventController::class, 'updateIsActive'])->name('events.updateIsActive');
+    Route::get('event-detail/{id}', [AdminEventController::class, 'eventDetail'])->name('event-detail');
 
     Route::resource('/event-organizer', AdminEventOrganizerController::class);
+    Route::post('organizer/update-is-active/{organizer}', [AdminEventOrganizerController::class, 'updateIsActive'])->name('organizer.updateIsActive');
 
   });
 
@@ -121,6 +125,8 @@ Route::resource('/blog', BlogController::class);
 
 Route::get('/evento-pequeño', [EventosController::class, 'eventSmall'])->name('evento-pequeño');
 Route::get('/detalle-evento/{id}', [EventosController::class, 'eventDetail'])->name('detalle-evento');
+
+Route::get('galeria-simple', [GaleriaController::class, 'galeriaSimple'])->name('galeria-simple');
 
 // Route::get('/blog-detail', [BlogController::class, 'blog-detail'])->name('pequeño-blog');
 

@@ -1,28 +1,71 @@
 @extends('backend.layouts.app')
 
+@php
+  use \Carbon\Carbon;
+@endphp
+
 @section('sub-title')
-  Eventos
+    Eventos
 @endsection
 
 @section('styles')
 <style>
-  .p_description {
-    inline-size: 100%;
-    block-size: 60px;
-    max-inline-size: 100% !important;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-  }
-  .card_separator{
+    .file_container {
+      width: 100%;
+      height: 300px;
+      position: relative;
+      border-radius: 10px;
+      border-radius: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 0;
+      overflow: auto;
+      border: 1px solid #CBD1D7;
+    }
+
+    .file_input {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      opacity: 0;
+      z-index: 1;
+      cursor: pointer;
+      border-radius: inherit;
+    }
+
+    .file_letter {
+      font-size: 1.5rem;
+    }
+
+    .file_image {
+      z-index: 0;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+    }
+    .color-upload-img{
+      color: #5f9eff;
+    }
+    .color-img-upload{
+      color: rgb(50, 50, 114);
+    }
+
+    .container-detail{
+      text-align: -webkit-center;
+    }
+
+    .card_separator{
     margin-bottom: 0px;
     margin-top: 0PX;
   }
 </style>
-
 @endsection
+
 @section('content')
 <div class="page-content-wrapper">
   <div class="row">
@@ -31,37 +74,15 @@
         <div class="card-body">
           <div class="card-title">
             <h6 class="text-primary">
-              <i class="mdi mdi-calendar-check"></i>
-              Nuestros eventos
+              <a href="{{ route('admin.events.index') }}" class="fas fa-chevron-circle-left btn-sm"></a>
+              Detalles del evento
             </h6>
-            <div>
-             <a href="{{ route('admin.events.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
-            </div>
           </div>
           <hr>
-          <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-            <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-            </symbol>
-          </svg>
-          @if (session('created'))
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-            {{ session('created') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          @endif
-          @if (session('updated'))
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-            {{ session('updated') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          @endif
-          <div class="row">
-            @foreach ($events as $event)
-            <div class="col-md-6 col-xl-3">
-              <div class="card bg-light">
+
+          <div class="col-md-12 container-detail">
+            <div class=" col-xl-6">
+              <div class="card bg-light border border-3">
                   <img class="card-img-top img-fluid rounded-top" src="{{ asset('storage/events-image/'.$event->image) }}" alt="Card image cap">
                   <div class="card-body">
                       <h4 class="card-title">{{ $event->name }}</h4>
@@ -70,9 +91,45 @@
                          {!! $event->description !!}
                        </div>
                       </p>
-                      <div class="col-12">
+                      {{-- <div class="col-12">
                         <i class="fa fa-calendar"></i><span> {{ \Carbon\Carbon::parse($event->date_event)->format('d-m-Y')}} </span> │ <i class="fa fa-map-marker"></i><span> {{ $event->place_celebration }}</span>
+                      </div> --}}
+
+                      <div class="table-responsive">
+                        <table class="table table-bordered  mb-0">
+                            <tbody class="border border-warning">
+                                <tr>
+                                  <td>
+                                    <div class="text">
+                                      <h6 class="title"><i class="fa fa-regular fa-clock text-warning"></i> Hora de inicio</h6>
+                                      <p>{{ \Carbon\Carbon::parse($event->star_time)->format('g:i A')}}</p>
+                                      {{-- $date->isoFormat('LLLL'); --}}
+                                      <p>{{ Carbon::parse($event->date_event)->isoFormat('LLLL') }}</p>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="text">
+                                      <h6 class="title"><i class="fa fa-regular fa-clock text-warning"></i> Tiempo de finalización</h6>
+                                      <p>{{ \Carbon\Carbon::parse($event->time_completion)->format('g:i A')}}</p>
+                                      <p>{{ Carbon::parse($event->date_event)->isoFormat('dddd, DD MMMM YYYY') }}</p>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="text">
+                                      <h6 class="title"><i class="fa fa-map-marker text-warning"></i> Lugar de celebración</h6>
+                                      <p>{{ $event->place_celebration}}</p>
+                                    </div>
+                                  </td>
+                                </tr>
+                            </tbody>
+                        </table>
                       </div>
+
+
                       @if ($event->state_event == 1)
                       <div class="col-12 mt-3">
                         <div class="card-title  justify-content-center"><span class="badge bg-soft-primary rounded-pill text-primary" ><i class="mdi mdi-checkbox-blank-circle text-primary"></i>
@@ -93,7 +150,8 @@
                       </div>
                       @endif
                   </div>
-                  <hr class="card_separator">
+                  <hr class=" card_separator">
+
                   <div class="card-body">
                     <div class="col text-center">
                       <a href="{{ route('admin.events.edit', ['event' => $event->id] ) }}" class="btn btn-sm btn-primary" title="Editar">
@@ -121,16 +179,13 @@
                           </button>
                         @endif
                       </form>
-                      <a href="{{ route('admin.event-detail', ['id' => $event->id] ) }}" class="btn btn-sm btn-primary" title="Ver detalles">
-                        <i class="fas fa-eye"></i>
-                      </a>
                     </div>
                   </div>
               </div>
             </div>
-            @endforeach
-            {{ $events->links() }}
           </div>
+
+
         </div>
       </div>
     </div>
@@ -139,8 +194,7 @@
 @endsection
 
 @section('scripts')
-
-  @if (session('deleted') == 'Eliminado')
+@if (session('deleted') == 'Eliminado')
     <script>
       Swal.fire({
             icon: 'success',
@@ -175,28 +229,27 @@
       })
     })
   </script>
-
   <script>
-    const $cards = document.querySelectorAll('.render-html-card')
-    $cards.forEach( $card => {
-      const $links = $card.querySelectorAll('p > a')
+      const $cardDescription = document.querySelectorAll('.p_description')
+      $cardDescription.forEach( $cardDescription => {
+
+      const $links = $cardDescription.querySelectorAll('p > a')
       $links.forEach( $link => {
-        $link.setAttribute('class','text-primary')
         $link.target = '_blank'
+        $link.setAttribute('style', `
+        color: #1B82EC;
+          `)
+        })
+
+
+      $listItem = $cardDescription.querySelectorAll('p')
+        $listItem.forEach( item => {
+          item.setAttribute('style', `
+          text-align: justify;
+          `)
+        })
       })
-
-      $listItem = $card.querySelectorAll('ul > li')
-      $listItem.forEach( item => {
-        item.setAttribute('style', `
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          list-style-position: inside ;
-        `)
-      })
-    })
-
-
   </script>
+
 @endsection
 

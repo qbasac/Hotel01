@@ -1,8 +1,8 @@
 
    <div class="col-12 text-center">
-      <div class="card-title  justify-content-center">
-        <span class="badge bg-soft-success   rounded-pill text-secondary" >
-        {{ Auth::user()->nick_name }}
+      <div class="justify-content-center">
+        <span class="text-muted" >
+         [ {{ Auth::user()->nick_name }} ]
         </span>
       </div>
     </div>
