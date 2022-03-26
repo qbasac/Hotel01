@@ -4,6 +4,68 @@
     <link rel="stylesheet" href="style.css">
 @endsection
 
+@section('style')
+  <style>
+
+    .swal2-popup2 {
+    display: none;
+    position: relative;
+    box-sizing: border-box;
+    grid-template-columns: minmax(0,100%);
+    width: 46em !important;
+    max-width: 100%;
+    block-size: 300px;
+    padding: 16px 0 1.25em;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    color: #545454;
+    font-family: inherit;
+    font-size: 1rem;
+    }
+
+    .swal2-html-container2{
+    z-index: 1;
+    justify-content: center;
+    margin: 1em 1.6em .3em;
+    padding: 0;
+    overflow: hidden !important;
+    color: inherit;
+    font-size: 1.55em !important;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-word;
+    }
+
+    .confirm-btn{
+    border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: #7066e0;
+    color: #fff;
+    font-size: 1.5em !important;
+    }
+
+    .custom-title{
+    position: relative;
+    max-width: 100%;
+    margin: 0;
+    padding: .8em 1em 0;
+    color: inherit;
+    font-size: 2.1rem !important;
+    font-weight: 600;
+    text-align: center;
+    text-transform: none;
+    word-wrap: break-word;
+    }
+    body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.text{
+      display: none ;
+    }
+  </style>
+@endsection
+
 @section('content')
     <div data-stellar-background-ratio="0.5" class="parallax-section chr-sub-banner text-center">
         <div class="container">
@@ -58,27 +120,27 @@
                         <h3 class="title">Póngase en contacto con nosotros</h3>
                     </div>
                     <!--Heading 1 End-->
-                    <form id="contact-form" action="https://bilalmghl.com/html/hotel/light-demo/php/contact-form.php" method="POST">
-                        <!--Divider Start-->
+                    <form action="{{ route('contact-form.store') }}" method="POST" autocomplete="off" novalidate>
+                      @csrf                        <!--Divider Start-->
                         <div class="input-divider row">
                             <div class="col-md-4 col-sm-4">
                                 <!--Input Field Start-->
                                 <div class="input-field">
-                                    <input type="text" value="" data-msg-required="Please enter your name" maxlength="100" class="form-control " name="name" id="name" placeholder="Su nombre" required>
+                                    <input id="name" name="name" type="text" value="" data-msg-required="Please enter your name" maxlength="100" class="form-control " name="name" id="name" placeholder="Su nombre" required>
                                 </div>
                                 <!--Input Field End-->
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <!--Input Field Start-->
                                 <div class="input-field">
-                                    <input type="email" value="" data-msg-required="Please enter your email address" data-msg-email="Please enter a valid email address" maxlength="100" class="form-control " name="email" id="email" placeholder="Correo electrónico" required>
+                                    <input id="email" name="email" type="email" value="" data-msg-required="Please enter your email address" data-msg-email="Please enter a valid email address" maxlength="100" class="form-control " name="email" id="email" placeholder="Correo electrónico" required>
                                 </div>
                                 <!--Input Field End-->
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <!--Input Field Start-->
                                 <div class="input-field">
-                                    <input type="text" value="" data-msg-required="Please enter subject" maxlength="100" class="form-control " name="subject" id="subject" placeholder="Asunto" required>
+                                    <input id="subject" name="subject" type="text" value="" data-msg-required="Please enter subject" maxlength="100" class="form-control " name="subject" id="subject" placeholder="Asunto" required>
                                 </div>
                                 <!--Input Field End-->
                             </div>
@@ -86,7 +148,7 @@
                         <!--Divider End-->
                         <!--Input Field Start-->
                         <div class="input-field">
-                            <textarea maxlength="5000" data-msg-required="Please enter your message" rows="4" class="form-control " name="message" id="message" placeholder="Su mensaje" required></textarea>
+                            <textarea id="message" name="message" maxlength="5000" data-msg-required="Please enter your message" rows="4" class="form-control " name="message" id="message" placeholder="Su mensaje" required></textarea>
                         </div>
                         <!--Input Field End-->
                         <!--Input Field Start-->
@@ -112,5 +174,49 @@
 @endsection
 
 @section('scripts')
+  @if ($errors->any())
+    <script>
+        Swal.fire({
+          icon: 'error',
+          title: 'Corrija los errores!',
+          customClass:
+          {
+            popup: 'swal2-popup2',
+            htmlContainer: 'swal2-html-container2',
+            confirmButton: 'confirm-btn'
+            // header: 'custom-title'
+          },
+          html: `
+            <ul">
+              @foreach ($errors->all() as $message)
+                  <li style="text-align: start; font-size:  !important">{{$message}}</li>
+              @endforeach
+            </ul>
+          `,
+          confirmButtonText: 'Continuar'
+        })
+    </script>
+  @endif
+
+  @if (session('created') == 'vale')
+    <script>
+    Swal.fire({
+          icon: 'success',
+          title: 'Su mensaje se ha enviado exitosamente!',
+          customClass:
+          {
+            popup: 'swal2-popup2',
+            htmlContainer: 'swal2-html-container2',
+            confirmButton: 'confirm-btn'
+            // header: 'custom-title'
+          },
+          html: `
+            Su comentario se ha enviado exitosamente!
+          `,
+          confirmButtonText: 'Aceptar'
+        })
+    </script>
+  @endif
 
 @endsection
+

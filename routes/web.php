@@ -138,6 +138,7 @@ Route::get('/detalle-evento/{id}', [EventosController::class, 'eventDetail'])->n
 Route::get('galeria-simple', [GaleriaController::class, 'galeriaSimple'])->name('galeria-simple');
 
 Route::get('/contacto', [ContactoController::class, 'contact'])->name('contacto');
+Route::resource('/contact-form', ContactoController::class);
 
 // Route::get('/blog-detail', [BlogController::class, 'blog-detail'])->name('pequeño-blog');
 

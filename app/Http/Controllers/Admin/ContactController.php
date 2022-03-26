@@ -32,4 +32,5 @@ class ContactController extends Controller
     $contact->save();
     return redirect()->route('admin.contact.index')->with('updated', 'Registro actualizado exitósamente.');
   }
+
 }

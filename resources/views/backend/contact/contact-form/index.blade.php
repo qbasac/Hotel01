@@ -10,64 +10,10 @@
 
 @section('styles')
 <style>
-    .file_container {
-      width: 100%;
-      height: 300px;
-      position: relative;
-      border-radius: 10px;
-      border-radius: inherit;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 0;
-      overflow: auto;
-      border: 1px solid #CBD1D7;
-    }
+  .btn-delete{
+    margin-top: -20px;
+  }
 
-    .file_input {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      opacity: 0;
-      z-index: 1;
-      cursor: pointer;
-      border-radius: inherit;
-    }
-
-    .file_letter {
-      font-size: 1.5rem;
-    }
-
-    .file_image {
-      z-index: 0;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      margin: auto;
-    }
-    .color-upload-img{
-      color: #5f9eff;
-    }
-    .color-img-upload{
-      color: rgb(50, 50, 114);
-    }
-
-    .container-detail{
-      text-align: -webkit-center;
-    }
-
-    .card_separator{
-      margin-bottom: 0px;
-      margin-top: 0PX;
-    }
-
-    iframe{
-      width: 100%;
-      height: 300px;
-    }
 </style>
 @endsection
 
@@ -97,60 +43,41 @@
           </div>
           @endif
 
-          <div class="card shadow-none">
-            <div class="card-body">
-                <div data-simplebar="init" ><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: -20px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: auto; overflow: hidden scroll; padding-right: 20px; padding-bottom: 0px;"><div class="simplebar-content" style="padding: 0px;">
-                    <div class="inbox-wid">
-                        <a href="#" class="text-dark">
-                            <div class="inbox-item">
-                                <div class="inbox-item-img float-start me-3"><img src="https://electronicssoftware.net/wp-content/uploads/user.png" class="avatar-md rounded-circle" alt=""></div>
-                                <h6 class="inbox-item-author mb-1 text-dark">Irene</h6>
-                                <p class="inbox-item-text text-muted mb-0">Hey! there I'm
-                                    available...</p>
-                                <p class="inbox-item-date text-muted">13:40 PM</p>
-                            </div>
-                        </a>
-                        <a href="#" class="text-dark">
-                            <div class="inbox-item">
-                                <div class="inbox-item-img float-start me-3"><img src="https://electronicssoftware.net/wp-content/uploads/user.png" class="avatar-md rounded-circle" alt=""></div>
-                                <h6 class="inbox-item-author mb-1 text-dark">Jennifer</h6>
-                                <p class="inbox-item-text text-muted mb-0">I've finished it! See
-                                    you
-                                    so...</p>
-                                <p class="inbox-item-date text-muted">13:34 PM</p>
-                            </div>
-                        </a>
-                        <a href="#" class="text-dark">
-                            <div class="inbox-item">
-                                <div class="inbox-item-img float-start me-3"><img src="https://electronicssoftware.net/wp-content/uploads/user.png" class="avatar-md rounded-circle" alt=""></div>
-                                <h6 class="inbox-item-author mb-1 text-dark">Richard</h6>
-                                <p class="inbox-item-text text-muted mb-0">This theme is
-                                    awesome!
-                                </p>
-                                <p class="inbox-item-date text-muted">13:17 PM</p>
-                            </div>
-                        </a>
-                        <a href="#" class="text-dark">
-                            <div class="inbox-item">
-                                <div class="inbox-item-img float-start me-3"><img src="https://electronicssoftware.net/wp-content/uploads/user.png" class="avatar-md rounded-circle" alt=""></div>
-                                <h6 class="inbox-item-author mb-1 text-dark">Martin</h6>
-                                <p class="inbox-item-text text-muted mb-0">Nice to meet you</p>
-                                <p class="inbox-item-date text-muted">12:20 PM</p>
-                            </div>
-                        </a>
-                        <a href="#" class="text-dark">
-                            <div class="inbox-item">
-                                <div class="inbox-item-img float-start me-3"><img src="https://electronicssoftware.net/wp-content/uploads/user.png" class="avatar-md rounded-circle" alt=""></div>
-                                <h6 class="inbox-item-author mb-1 text-dark">Sean</h6>
-                                <p class="inbox-item-text text-muted mb-0">Hey! there I'm
-                                    available...</p>
-                                <p class="inbox-item-date text-muted">11:47 AM</p>
-                            </div>
-                        </a>
+
+
+              <div class="accordion" id="accordionMasagges">
+                @foreach ($contact_forms as $message)
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading-message-{{$message->id}}">
+                    <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-message-{{$message->id}}" aria-expanded="false" aria-controls="collapse-message-{{$message->id}}">
+                      <div class="inbox-item-img float-start me-3"><img src="https://electronicssoftware.net/wp-content/uploads/user.png" class="avatar-md rounded-circle" alt=""></div>
+                      {{ $message->name }}
+                    </button>
+                  </h2>
+                  <div id="collapse-message-{{$message->id}}" class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}" aria-labelledby="heading-message-{{$message->id}}" data-bs-parent="#accordionMasagges" style="">
+                    <div class="accordion-body">
+                      <h6>Asunto: {{ $message->subject }}</h6>
+                      <p>Mensaje: {{ $message->message }}</p>
+
+                      <form action="{{ route('admin.contact-form.destroy',$message->id) }}"  method="POST" class="form-delete">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" title="Eliminar" class="btn btn-sm btn-danger  float-end btn-delete"><i class="far fa-trash-alt"></i> Eliminar</button>
+                      </form>
+
                     </div>
-                </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 345px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 343px; transform: translate3d(0px, 0px, 0px); display: block;"></div></div></div>
+                  </div>
+                </div>
+                @endforeach
+              </div>
+              <div class="mt-2">
+                {{ $contact_forms->links() }}
+              </div>
+
+
+
             </div>
-        </div>
+          </div>
         </div>
       </div>
     </div>
@@ -214,6 +141,19 @@
           `)
         })
       })
+  </script>
+
+  <script>
+    function vermas(id) {
+      if (id == "mas") {
+        document.getElementById("desplegar").style.display = "block";
+        document.getElementById("mas").style.display = "none";
+      }
+      else {
+        document.getElementById("desplegar").style.display = "none";
+        document.getElementById("mas").style.display = "inline";
+      }
+    }
   </script>
 
 @endsection
