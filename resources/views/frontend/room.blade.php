@@ -6,7 +6,6 @@
     margin-left: .25rem;
     margin-right: .25rem;
     }
-
     .pagination li .page-link {
       border-radius: 5rem;
       border: none;
@@ -14,7 +13,6 @@
       text-align: center;
       color: #4f5464;
     }
-
     .pagination li.active .page-link,
     .pagination li .page-link:hover {
       background-color: #EDCB9A;
@@ -26,7 +24,6 @@
       transition-property: all;
       transition-duration: 300ms;
      }
-
     .has_offer{
       position: absolute;
       top: 2rem;
@@ -37,27 +34,21 @@
       padding: 0 1rem;
       color: white;
       }
-
       .room_quantity{
       margin: 5px !important; display: block; inline-size: 100%;text-align: center;
       }
-
       .has_offer_if{
         text-align: center;margin: 1rem 0 .5rem;
       }
-
       .sup_room_price{
         text-decoration: line-through;color: #969696;
       }
-
       .span_rental_price{
         font-weight: 600; font-size: 2rem
       }
-
       .btn_reservar{
         text-align: center;
       }
-
       .paragraph_name{
       inline-size: 300px;
       block-size: 40px;
@@ -68,7 +59,6 @@
       -webkit-box-orient:vertical;
       -webkit-line-clamp:2;
       }
-
     .paragraph_description{
       inline-size: 320px;
       block-size: 70px;
@@ -189,22 +179,17 @@
               <option value="price" {{ request('searchBy') == 'price' ? 'selected' : '' }}>Precio</option>
               <option value="number_beds" {{ request('searchBy') == 'number_beds' ? 'selected' : '' }}>Camas</option>
             </select>
-
             <select name="orderBy" id="form-price"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
               <option value="asc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De menor a mayor</option>
               <option value="desc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De mayor a menor</option>
             </select>
-
           <select name="orderBy" id="form-number_beds"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
             <option value="asc" {{ request('searchBy') == 'number_beds' && request('orderBy') ? 'selected' : '' }} >de menor a mayor</option>
             <option value="desc" {{ request('searchBy') == 'number_beds' && request('orderBy') ? 'selected' : '' }} >de mayor a menor</option>
           </select>
-
             <input class="form-control d-none" id="form-name" type="search" placeholder="Nombres..." {{ request('search') ? 'autofocus' : '' }} name="search" aria-label="Search" value="{{ request('search') }}" >
-
             <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
           </div>
-
         </div>
       </form> --}}
     </div>
@@ -257,9 +242,7 @@
 <script>
   const listFormInputs = ['form-name', 'form-price',] // 'form-number_beds'
   const $searchBy = document.getElementById('search-by')
-
   $searchBy.onchange = setClassDiplayNone
-
   function setClassDiplayNone() {
     const listInputs = listFormInputs.map(item => document.getElementById(item))
       .forEach($input => {
@@ -267,7 +250,6 @@
         $input.classList[method]('d-none')
       })
   }
-
   setClassDiplayNone()
 </script>
 

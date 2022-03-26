@@ -28,8 +28,8 @@ class StoreEventRequest extends FormRequest
       'name' => 'required',
       'description' => 'required',
       'date_event' => 'required|date|after_or_equal:today',
-      'star_time' => 'required',
-      'time_completion' => 'required',
+      'start_time' => 'required',
+      'end_time' => 'required',
       'place_celebration' => 'required'
     ];
   }
@@ -41,8 +41,8 @@ class StoreEventRequest extends FormRequest
       'name' => 'nombre',
       'description' => 'descripción',
       'date_event' => 'fecha del evento',
-      'star_time' => 'hora de inicio',
-      'time_completion' => 'tiempo de finalización ',
+      'start_time' => 'hora de inicio',
+      'end_time' => 'tiempo de finalización ',
       'place_celebration' => 'lugar de celebración'
     ];
   }

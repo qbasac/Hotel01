@@ -19,8 +19,8 @@ class CreateEventsTable extends Migration
             $table->string('name', 150);
             $table->text('description');
             $table->date('date_event');
-            $table->time('star_time');
-            $table->time('time_completion');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->string('place_celebration');
             $table->smallInteger('state_event')->default(1)->comment('(0 past_event) (1 current_event) (2 next_event)');
             $table->boolean('is_active')->default(1);

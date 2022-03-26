@@ -84,19 +84,19 @@
                                     class=" {{ \Request::path() == 'galeria-maposteria' || \Request::path() == 'galeria-simple'? 'active' : '' }}"
                                      ><a href="{{ route('galeria-simple') }}">Galería</a>
                                     </li>
-                                    <li
+                                    {{-- <li
                                     class=" {{ \Request::path() == '404' || \Request::path() == 'personal-pagina' || \Request::path() == 'acceso-pagina' || \Request::path() == 'inscribase-pagina'|| \Request::path() == 'comingsoon-paginas'? 'active' : '' }}"
                                     ><a href="#">Páginas</a>
                                         <ul class="children">
-                                            <li><a href="{{-- route('404') --}}">404</a></li>
-                                            <li><a href="{{-- route('personal-pagina') --}}">Personal</a></li>
-                                            <li><a href="{{-- route('acceso-pagina') --}}">Inicio de sesión</a></li>
-                                            <li><a href="{{-- route('inscribase-pagina') --}}">Inscríbase en</a></li>
-                                            <li><a href="{{-- route('comingsoon-paginas') --}}">Comingsoon</a></li>
+                                            <li><a href="{{ route('404') }}">404</a></li>
+                                            <li><a href="{{ route('personal-pagina') }}">Personal</a></li>
+                                            <li><a href="{{ route('acceso-pagina') }}">Inicio de sesión</a></li>
+                                            <li><a href="{{ route('inscribase-pagina') }}">Inscríbase en</a></li>
+                                            <li><a href="{{ route('comingsoon-paginas') }}">Comingsoon</a></li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                     <li class="{{ \Request::path() == 'contacto' ? 'active' : ''}}">
-                                        <a href="{{-- route('contacto') --}}">Contacto con nosotros</a>
+                                        <a href="{{ route('contacto') }}">Contacto con nosotros</a>
                                     </li>
                                 </ul>
                             </nav>

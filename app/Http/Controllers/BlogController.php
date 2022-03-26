@@ -24,19 +24,12 @@ class BlogController extends Controller
     public function show($id)
     {
       $blog = Blog::orderBy('created_at','desc')->with('comments')
-      // ->whereHas('comments', function($queryComments) {
-      //   $queryComments->latest();
-      // })
       ->withCount(['comments' => function($query) {
         $query->where('is_active', 1);
       }])
       ->whereId($id)
 
-      // ->orderByDesc(BlogComments::select('created_at')->orderBy('created_at', 'asc'))
-      // ->latest('')
       ->first();
-      // dd($blog);
-      // $blog_comments = BlogComments::where('is_active', 1)->get();
       return view('frontend.blog-detail', compact('blog'));
     }
 

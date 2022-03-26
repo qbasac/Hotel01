@@ -150,18 +150,18 @@
                                         <li><a href="{{ route('galeria-simple') }}">Galería simple</a></li>
                                     </ul> --}}
                                 </li>
-                                <li class="last">
+                                {{-- <li class="last">
                                     <a href="#">Páginas</a>
                                     <ul class="children">
-                                        <li><a href="{{-- route('404') --}}">404</a></li>
-                                        <li><a href="{{-- route('personal-pagina') --}}">Personal</a></li>
-                                        <li><a href="{{-- route('acceso-pagina') --}}">Inicio de sesión</a></li>
-                                        <li><a href="{{-- route('inscribase-pagina') --}}">Inscríbase en</a></li>
-                                        <li><a href="{{-- route('comingsoon-paginas') --}}">Comingsoon</a></li>
+                                        <li><a href="{{ route('404') }}">404</a></li>
+                                        <li><a href="{{ route('personal-pagina') }}">Personal</a></li>
+                                        <li><a href="{{ route('acceso-pagina') }}">Inicio de sesión</a></li>
+                                        <li><a href="{{ route('inscribase-pagina') }}">Inscríbase en</a></li>
+                                        <li><a href="{{ route('comingsoon-paginas') }}">Comingsoon</a></li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li>
-                                    <a href="{{-- route('contacto') --}}">Contacto con nosotros</a>
+                                    <a href="{{ route('contacto') }}">Contacto con nosotros</a>
                                 </li>
                             </ul>
                         </nav>

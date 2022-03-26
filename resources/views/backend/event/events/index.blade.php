@@ -1,5 +1,9 @@
 @extends('backend.layouts.app')
 
+@php
+  use Carbon\Carbon;
+@endphp
+
 @section('sub-title')
   Eventos
 @endsection
@@ -73,6 +77,11 @@
                       <div class="col-12">
                         <i class="fa fa-calendar"></i><span> {{ \Carbon\Carbon::parse($event->date_event)->format('d-m-Y')}} </span> │ <i class="fa fa-map-marker"></i><span> {{ $event->place_celebration }}</span>
                       </div>
+                      @php
+                          $dateCurrent = now();
+                          $dateEvent = Carbon::parse($event->date_event);
+                      @endphp
+
                       @if ($event->state_event == 1)
                       <div class="col-12 mt-3">
                         <div class="card-title  justify-content-center"><span class="badge bg-soft-primary rounded-pill text-primary" ><i class="mdi mdi-checkbox-blank-circle text-primary"></i>
@@ -85,7 +94,8 @@
                           Proximo</span>
                         </div>
                       </div>
-                      @else
+
+                      @elseif ($event->state_event == 0)
                       <div class="col-12 mt-3">
                         <div class="card-title  justify-content-center"><span class="badge bg-soft-danger rounded-pill text-danger" ><i class="mdi mdi-checkbox-blank-circle text-danger"></i>
                           Pasado</span>
@@ -195,8 +205,6 @@
         `)
       })
     })
-
-
   </script>
 @endsection
 

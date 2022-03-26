@@ -10,11 +10,6 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-  // public function index(){
-  //   $blogs = Blog::paginate(10);
-  //   return view('backend.blog.blogs.index', compact('blogs'));
-  // }
-
   public function index(Request $request)
   {
     $columnOrder = 'id';
@@ -30,8 +25,8 @@ class BlogController extends Controller
         $query->where($request->searchBy, 'LIKE', "%$request->search%");
       }
     })
-      ->orderBy($columnOrder, $orderBy)
-      ->paginate(7);
+    ->orderBy($columnOrder, $orderBy)
+    ->paginate(7);
 
     return view('backend.blog.blogs.index', compact('blogs', 'home'));
   }

@@ -9,7 +9,7 @@ class GaleriaController extends Controller
 {
     public function galeriaSimple()
     {
-        $galleries = Gallery::where('is_active', 1)->get();
+        $galleries = Gallery::where('is_active', 1)->paginate(6);
         return view('frontend.simple-gallery', compact('galleries'));
     }
 }

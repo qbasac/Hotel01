@@ -14,45 +14,39 @@
             </ol>
         </div>
     </div>
-    <!--Banner Wrap End-->
+
     <div class="main-contant">
         <div class="chr-map">
-            <div id="map-canvas"></div>
+          {!! $contact->direction_map !!}
         </div>
-        <!--Contact Us Section Start-->
+
         <section class="chr-contact-wrap">
-            <div class="container">
-                <!--Contact Wrap Start-->
+          <div class="container">
                 <div class="row">
-                    <!--Contact Thumb Start-->
                     <div class="col-md-4 col-sm-4">
                         <div class="chr-contact-thumb">
                             <i class="fa fa-map-marker"></i>
                             <h5 class="title">Dirección</h5>
-                            <p>Gulberg 3 , Walton Road , Usa</p>
+                            <p>{{ $contact->direction }}</p>
                         </div>
                     </div>
-                    <!--Contact Wrap End-->
-                    <!--Contact Thumb Start-->
+
                     <div class="col-md-4 col-sm-4">
                         <div class="chr-contact-thumb">
                             <i class="fa fa-phone"></i>
                             <h5 class="title">Teléfono</h5>
-                            <p>+1 - 99 - 1234567</p>
+                            <p>{{ $contact->phone }}</p>
                         </div>
                     </div>
-                    <!--Contact Wrap End-->
-                    <!--Contact Thumb Start-->
+
                     <div class="col-md-4 col-sm-4">
                         <div class="chr-contact-thumb">
                             <i class="fa fa-envelope"></i>
-                            <h5 class="title">Correo electrónico a</h5>
-                            <p>info@themes.com</p>
+                            <h5 class="title">Correo electrónico</h5>
+                            <p>{{ $contact->email }}</p>
                         </div>
                     </div>
-                    <!--Contact Wrap End-->
                 </div>
-                <!--Contact Wrap End-->
             </div>
         </section>
         <!--Contact Us Section End-->

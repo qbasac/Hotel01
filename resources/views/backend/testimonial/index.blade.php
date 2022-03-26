@@ -18,18 +18,18 @@ Usuarios
             <h6 class="text-primary">
               <i class="fas fa-comment "></i> Testimonios
             </h6>
-            <div >
-              <a href="{{ route('testimonial.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a>
+            <div>
+              {{-- <a href="{{ route('testimonial.create') }}" class="btn btn-primary float-end">Nuevo <i class="fas fa-plus"></i></a> --}}
               <form  method="POST" action="{{route('testimonial.ShowSectionTestimonial', ['testimonial' => $about->id] )}}" class="d-inline">
                 @csrf
                 <input type="hidden" name="state" value="{{$about->show_section_testimonial}}">
                 @if ($about->show_section_testimonial)
                 <button  type="submit" class="btn btn btn-danger float-end" title="">
-                  Ocultar testimonios <i class="fas fa-eye-slash"></i>
+                  Ocultar <i class="fas fa-eye-slash"></i>
                 </button>
                 @else
                 <button  type="submit" class="btn btn btn-success " title="Cambiar estado">
-                  Mostrar testimonios <i class="fas fa-eye"></i>
+                  Mostrar <i class="fas fa-eye"></i>
                 </button>
                 @endif
               </form>
@@ -52,7 +52,7 @@ Usuarios
                 @foreach ($testimonials as $testimonial)
                 <tr>
                   <td style=" text-align: left;vertical-align: middle;">
-                    <a href="{{ route('testimonial.edit', ['testimonial' => $testimonial->id] ) }}" class="btn btn-sm btn-info" title="Editar"><i class="far fa-edit"></i></a>
+                    {{-- <a href="{{ route('testimonial.edit', ['testimonial' => $testimonial->id] ) }}" class="btn btn-sm btn-info" title="Editar"><i class="far fa-edit"></i></a> --}}
                     <form action="{{ route('testimonial.destroy',$testimonial->id) }}" method="POST" class="d-inline">
                       @csrf
                       @method('DELETE')

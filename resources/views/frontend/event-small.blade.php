@@ -1,10 +1,14 @@
+@php
+  use \Carbon\Carbon;
+  $now = now()->startOfDay();
+@endphp
 @extends('frontend.layouts.app')
 
 @section('style')
 <style>
   .p_description {
     inline-size: 100%;
-    block-size: 78px;
+    block-size: 85px;
     max-inline-size: 100% !important;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -13,6 +17,49 @@
     -webkit-line-clamp: 3;
     margin-bottom: 15px
   }
+
+  .current_event{
+  position: absolute;
+  top: 1.5rem;
+  left: 3rem;
+  display: inline-block;
+  font-weight: 600;
+  background: #0552c7;
+  padding: 0 1rem;
+  color: white;
+  }
+
+  .past_event{
+  position: absolute;
+  top: 1.5rem;
+  left: 3rem;
+  display: inline-block;
+  font-weight: 600;
+  background: #008f47;
+  padding: 0 1rem;
+  color: white;
+  }
+
+  .pagination li {
+  margin-left: .25rem;
+  margin-right: .25rem;
+  }
+
+  .pagination li .page-link {
+  border-radius: 5rem;
+  border: none;
+  min-width: 2.25rem;
+  text-align: center;
+  color: #4f5464;
+  }
+
+  .pagination li.active .page-link,
+  .pagination li .page-link:hover {
+  background-color: #EDCB9A;
+  color: #fff;
+  font-weight: bold;
+  }
+
 </style>
 @endsection
 @section('content')
@@ -37,6 +84,18 @@
                         <figure>
                             <img src="{{ asset('storage/events-image/'.$event->image) }}" alt="oscarthemes">
                         </figure>
+
+                          @if (\Carbon\Carbon::parse($event->date_event)->equalTo($now))
+                            <div class="current_event">
+                              <span>Actual</span>
+                            </div>
+                          @else
+                            <div class="past_event">
+                              <span>Proximo</span>
+                            </div>
+                          @endif
+
+
                         <div class="text">
                             <h5 class="title"><a href="{{ route('detalle-evento' ,['id' => $event->id]) }}">{{ $event->name }}</a></h5>
                             <div class="p_description">
@@ -51,22 +110,10 @@
                     </div>
                 </div>
                 @endforeach
-
-
-                <!--Even Small End-->
-                <div class="col-md-12">
-                    <!-- Pagination Start-->
-                    <div class="chr-pagination text-center">
-                        <span class="page-numbers current">1</span>
-                        <a class="page-numbers" href="#">2</a>
-                        <a class="page-numbers" href="#">3</a>
-                        <a class="page-numbers border_none" href="#">...</a>
-                        <a class="page-numbers" href="#">18</a>
-                        <a class="page-numbers" href="#">19</a>
-                        <a class="page-numbers" href="#">20</a>
-                    </div>
-                    <!-- Pagination End-->
+                <div style="text-align: center;">
+                  {{ $events->links() }}
                 </div>
+
             </div>
         </div>
     </section>

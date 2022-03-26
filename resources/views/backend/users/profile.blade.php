@@ -78,6 +78,7 @@ Usuarios
     top: 0;
     margin: auto;
     border-radius: 50%;
+    object-fit: cover;
   }
 
   .texto-encima{

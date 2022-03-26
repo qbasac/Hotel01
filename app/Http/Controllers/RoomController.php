@@ -24,7 +24,7 @@ class RoomController extends Controller
     } elseif($request->number_beds == 2) {
       $filterBeds = [51, 100];
     }elseif($request->number_beds == 3) {
-      $filterBeds = ['number_beds' > 50];
+      $filterBeds = ['number_beds', '>', 100];
     }
 
     $rooms = Room::where(function ($query) use ($request, $filterPrices,  $filterBeds) {

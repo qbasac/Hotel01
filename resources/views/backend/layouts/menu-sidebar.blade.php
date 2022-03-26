@@ -38,7 +38,7 @@
 
     <li>
         <a href="javascript: void(0);" class="has-arrow waves-effect">
-          <i class="fas fa-address-card"></i>
+          <i class="fas fa-id-badge"></i>
           <span>Sobre Nosotros</span>
         </a>
         <ul class="sub-menu" aria-expanded="true">
@@ -77,13 +77,6 @@
       </a>
     </li>
 
-    {{-- <li>
-      <a href="{{ route('admin.events.index')}}" class="waves-effect">
-        <i class="fas fa-calendar-check"></i>
-        <span>Eventos</span>
-      </a>
-    </li> --}}
-
     <li>
       <a href="javascript: void(0);" class="has-arrow waves-effect">
         <i class="fas fa-calendar-check"></i>
@@ -97,6 +90,17 @@
 
     <li>
       <a href="javascript: void(0);" class="has-arrow waves-effect">
+        <i class="fas fa-address-card"></i>
+        <span>Contacto</span>
+      </a>
+      <ul class="sub-menu" aria-expanded="true">
+        <li><a href="{{route('admin.contact.index')}}">Contacto</a></li>
+        <li><a href="{{route('admin.contact-form.index')}}">Mensajes</a></li>
+      </ul>
+    </li>
+
+    {{-- <li>
+      <a href="javascript: void(0);" class="has-arrow waves-effect">
         <i class="mdi mdi-file-tree"></i>
         <span>Multi Level</span>
       </a>
@@ -109,8 +113,7 @@
           </ul>
         </li>
       </ul>
-    </li>
-
+    </li> --}}
 
 
   </ul>

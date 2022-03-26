@@ -154,20 +154,20 @@
                 <label for="star_time" class="form-label">Hora de inicio
                   <span class="span-reqrired">*</span>
                 </label>
-                <input id="star_time" name="star_time" type="time"  value="{{$event->star_time}}" placeholder="Complete este campo..."
-                  class="form-control input-star_time @error('star_time') is-invalid @enderror">
-                  @error('star_time')
-                    <small class="text-danger input-star_time"> {{ $message }}</small>
+                <input id="start_time" name="start_time" type="time"  value="{{$event->start_time}}" placeholder="Complete este campo..."
+                  class="form-control input-star_time @error('start_time') is-invalid @enderror">
+                  @error('start_time')
+                    <small class="text-danger input-start_time"> {{ $message }}</small>
                   @enderror
               </div>
               <div class="mb-3">
-                <label for="time_completion" class="form-label">Tiempo de finalización
+                <label for="end_time" class="form-label">Hora de finalización
                   <span class="span-reqrired">*</span>
                 </label>
-                <input id="time_completion" name="time_completion" type="time"  value="{{$event->time_completion}}" placeholder="Complete este campo..."
-                  class="form-control input-star_time @error('time_completion') is-invalid @enderror">
-                  @error('time_completion')
-                    <small class="text-danger input-time_completion"> {{ $message }}</small>
+                <input id="end_time" name="end_time" type="time"  value="{{$event->end_time}}" placeholder="Complete este campo..."
+                  class="form-control input-end_time @error('end_time') is-invalid @enderror">
+                  @error('end_time')
+                    <small class="text-danger input-end_time"> {{ $message }}</small>
                   @enderror
               </div>
               <div class="mb-3">
@@ -181,6 +181,26 @@
                   @enderror
               </div>
               <div class="mb-3">
+                <label for="organizer_ids" class="form-label">Organizador del evento
+                  <span class="span-reqrired">*</span>
+                </label>
+                <div class="form-control overflow-auto" style=" max-height: 200px;">
+                  @foreach ($organizers as $organizer)
+                  <label class="d-block mb-0">
+                    <input type="checkbox"
+                      name="organizer_ids[]"
+                      id="organizer_ids"
+                      value="{{ $organizer->id }}"
+                      {{ in_array($organizer->id, $ornigenizer_ids) ? 'checked' : '' }}
+                    >
+                    {{ $organizer->name }}
+                  </label>
+                  @endforeach
+                </div>
+              </div>
+
+
+              {{-- <div class="mb-3">
                 <label for="rating" class="form-label mb-2">Estado
                   <span class="span-reqrired">*</span>
                 </label>
@@ -204,7 +224,7 @@
                       </label>
                     </div>
                   </div>
-              </div>
+              </div> --}}
             </div>
           </div>
             <div class="col-12 mt-3">

@@ -17,6 +17,10 @@ use App\Http\Controllers\Admin\PricesController as AdminPricesController;
 use App\Http\Controllers\Admin\BrandController as AdminBrandController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\EventOrganizerController as AdminEventOrganizerController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Admin\ContactFormController as AdminContactFormController;
+
+
 
 
 
@@ -26,6 +30,8 @@ use App\Http\Controllers\RoomReservationController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\GaleriaController;
+use App\Http\Controllers\ContactoController;
+
 
 
 
@@ -88,6 +94,9 @@ Auth::routes(['register' => false]);
     Route::resource('/event-organizer', AdminEventOrganizerController::class);
     Route::post('organizer/update-is-active/{organizer}', [AdminEventOrganizerController::class, 'updateIsActive'])->name('organizer.updateIsActive');
 
+    Route::resource('/contact', AdminContactController::class);
+    Route::resource('/contact-form', AdminContactFormController::class);
+
   });
 
  //frontend
@@ -127,6 +136,8 @@ Route::get('/evento-pequeño', [EventosController::class, 'eventSmall'])->name('
 Route::get('/detalle-evento/{id}', [EventosController::class, 'eventDetail'])->name('detalle-evento');
 
 Route::get('galeria-simple', [GaleriaController::class, 'galeriaSimple'])->name('galeria-simple');
+
+Route::get('/contacto', [ContactoController::class, 'contact'])->name('contacto');
 
 // Route::get('/blog-detail', [BlogController::class, 'blog-detail'])->name('pequeño-blog');
 

@@ -78,9 +78,7 @@
     .color-img-upload{
       color: rgb(50, 50, 114);
     }
-    .card{
 
-    }
 </style>
 @endsection
 
@@ -114,7 +112,7 @@
 
               <div class="col-md-6">
                 <div class="mb-3">
-                  <label for="name" class="form-label">Nombre {{$event->name}}
+                  <label for="name" class="form-label">Nombre
                     <span class="span-reqrired">*</span>
                   </label>
                   <input id="name" name="name" type="text" class="form-control" value="{{ old('name') }}"  placeholder="Complete este campo" autofocus>
@@ -157,13 +155,13 @@
                   <label for="date_event" class="form-label">Hora de inicio
                     <span class="span-reqrired">*</span>
                   </label>
-                  <input id="star_time" name="star_time" type="time" class="form-control" value="{{ old('star_time') }}"  placeholder="Complete este campo" autofocus>
+                  <input id="star_time" name="start_time" type="time" class="form-control" value="{{ old('start_time') }}"  placeholder="Complete este campo" autofocus>
                 </div>
                 <div class="mb-3">
-                  <label for="time_completion" class="form-label">Tiempo de finalización
+                  <label for="end_time" class="form-label">Hora de finalización
                     <span class="span-reqrired">*</span>
                   </label>
-                  <input id="time_completion" name="time_completion" type="time" class="form-control" value="{{ old('time_completion') }}"  placeholder="Complete este campo" autofocus>
+                  <input id="end_time" name="end_time" type="time" class="form-control" value="{{ old('end_time') }}"  placeholder="Complete este campo" autofocus>
                 </div>
                 <div class="mb-3">
                   <label for="place_celebration" class="form-label">Lugar de celebración
@@ -171,13 +169,29 @@
                   </label>
                   <input id="place_celebration" name="place_celebration" type="text" class="form-control" value="{{ old('place_celebration') }}"  placeholder="Complete este campo" autofocus>
                 </div>
+
+                <div class="mb-3">
+                  <label for="organizer_ids" class="form-label">Organizador del evento
+                    <span class="span-reqrired">*</span>
+                  </label>
+                  <div class="form-control overflow-auto" style=" max-height: 200px;">
+                    @foreach ($organizers as $organizer)
+                      <input type="checkbox" name="organizer_ids[]" id="organizer_ids"  value="{{ $organizer->id }}"> {{ $organizer->name }} <br>
+                    @endforeach
+                  </div>
+                </div>
               </div>
+
+
+
 
             <div class="col-12 mt-3">
               <a href="{{ route('admin.events.index') }}" class="btn btn-danger" tabindex="4">Cancelar</a>
               <button type="submit" value="Send" class="btn btn-primary">Guardar <i class="far fa-paper-plane"></i></button>
             </div>
           </form>
+
+
         </div>
       </div>
     </div>
@@ -235,6 +249,9 @@
   })
   }
 </script>
+
+
+
 @endsection
 
 

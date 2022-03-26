@@ -15,7 +15,6 @@ class CreateEventOrganizersTable extends Migration
   {
     Schema::create('event_organizers', function (Blueprint $table) {
       $table->id();
-      $table->unsignedBigInteger('event_id')->nullable();
       $table->string('name', 50);
       $table->string('occupation')->nullable();
       $table->text('description')->nullable();

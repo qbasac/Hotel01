@@ -60,9 +60,9 @@
     }
 
     .card_separator{
-    margin-bottom: 0px;
-    margin-top: 0PX;
-  }
+      margin-bottom: 0px;
+      margin-top: 0PX;
+    }
 </style>
 @endsection
 
@@ -91,6 +91,12 @@
                          {!! $event->description !!}
                        </div>
                       </p>
+
+                      <div class="col-12">
+                        @foreach ($event->eventOrganizerDetail as $organizer)
+                        <h6>{{ $organizer->organizer->name }}</h6>
+                        @endforeach
+                      </div>
                       {{-- <div class="col-12">
                         <i class="fa fa-calendar"></i><span> {{ \Carbon\Carbon::parse($event->date_event)->format('d-m-Y')}} </span> │ <i class="fa fa-map-marker"></i><span> {{ $event->place_celebration }}</span>
                       </div> --}}

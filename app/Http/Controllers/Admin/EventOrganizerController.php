@@ -11,7 +11,7 @@ class EventOrganizerController extends Controller
 {
     public function index()
     {
-      $organizers = EventOrganizer::get();
+      $organizers = EventOrganizer::paginate(10);
       return view('backend.event.event-organizer.index', compact('organizers'));
     }
 

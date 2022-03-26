@@ -1,5 +1,29 @@
 @extends('frontend.layouts.app')
 
+@section('style')
+<style>
+  .pagination li {
+  margin-left: .25rem;
+  margin-right: .25rem;
+  }
+
+  .pagination li .page-link {
+  border-radius: 5rem;
+  border: none;
+  min-width: 2.25rem;
+  text-align: center;
+  color: #4f5464;
+  }
+
+  .pagination li.active .page-link,
+  .pagination li .page-link:hover {
+  background-color: #EDCB9A;
+  color: #fff;
+  font-weight: bold;
+  }
+</style>
+@endsection
+
 @section('content')
 <div data-stellar-background-ratio="0.5" class="parallax-section chr-sub-banner text-center">
     <div class="container">
@@ -32,22 +56,11 @@
                       </div>
                   </div>
                 @endforeach
-
-                <!--Gallary Thumb End-->
-
-                <div class="col-md-12">
-                    <!-- Pagination Start-->
-                    <div class="chr-pagination text-center">
-                        <span class="page-numbers current">1</span>
-                        <a class="page-numbers" href="#">2</a>
-                        <a class="page-numbers" href="#">3</a>
-                        <a class="page-numbers border_none" href="#">...</a>
-                        <a class="page-numbers" href="#">18</a>
-                        <a class="page-numbers" href="#">19</a>
-                        <a class="page-numbers" href="#">20</a>
-                    </div>
-                    <!-- Pagination End-->
+                <div style="text-align: center;">
+                  {{ $galleries->links() }}
                 </div>
+
+
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Contact;
 use App\Models\home;
 use Illuminate\Database\Seeder;
 
@@ -23,9 +24,7 @@ class DatabaseSeeder extends Seeder
       $this->call(UserSeeder::class);
       $this->call(SliderHomeSeeder::class);
       $this->call(BlogSeeder::class);
+      $this->call(Contact::class);
 
-
-
-      // $this->call(OffersHomeSeeder::class);
     }
 }

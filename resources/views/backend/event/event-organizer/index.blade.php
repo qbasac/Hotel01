@@ -137,7 +137,7 @@ Inicio
             </table>
           </div>
         </div>
-        {{-- {{ $slider_homes->links() }} --}}
+        {{ $organizers->links() }}
       </div>
     </div>
   </div>
