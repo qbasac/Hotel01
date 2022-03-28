@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Contact;
 use App\Models\home;
+use App\Models\Subscription;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,6 +26,6 @@ class DatabaseSeeder extends Seeder
       $this->call(SliderHomeSeeder::class);
       $this->call(BlogSeeder::class);
       $this->call(Contact::class);
-
+      $this->call(Subscription::class);
     }
 }

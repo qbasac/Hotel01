@@ -121,41 +121,32 @@
                     </div>
                     <!--Heading 1 End-->
                     <form action="{{ route('contact-form.store') }}" method="POST" autocomplete="off" novalidate>
-                      @csrf                        <!--Divider Start-->
+                      @csrf                        
                         <div class="input-divider row">
                             <div class="col-md-4 col-sm-4">
-                                <!--Input Field Start-->
                                 <div class="input-field">
                                     <input id="name" name="name" type="text" value="" data-msg-required="Please enter your name" maxlength="100" class="form-control " name="name" id="name" placeholder="Su nombre" required>
                                 </div>
-                                <!--Input Field End-->
                             </div>
                             <div class="col-md-4 col-sm-4">
-                                <!--Input Field Start-->
                                 <div class="input-field">
                                     <input id="email" name="email" type="email" value="" data-msg-required="Please enter your email address" data-msg-email="Please enter a valid email address" maxlength="100" class="form-control " name="email" id="email" placeholder="Correo electrónico" required>
                                 </div>
-                                <!--Input Field End-->
                             </div>
                             <div class="col-md-4 col-sm-4">
-                                <!--Input Field Start-->
                                 <div class="input-field">
                                     <input id="subject" name="subject" type="text" value="" data-msg-required="Please enter subject" maxlength="100" class="form-control " name="subject" id="subject" placeholder="Asunto" required>
                                 </div>
-                                <!--Input Field End-->
                             </div>
                         </div>
-                        <!--Divider End-->
-                        <!--Input Field Start-->
+
                         <div class="input-field">
                             <textarea id="message" name="message" maxlength="5000" data-msg-required="Please enter your message" rows="4" class="form-control " name="message" id="message" placeholder="Su mensaje" required></textarea>
                         </div>
-                        <!--Input Field End-->
-                        <!--Input Field Start-->
+
                         <div class="input-field text-center">
                             <input type="submit" value="ENVIAR MENSAJE" class="button medium rounded gray font-open-sans mt-40" data-loading-text="Loading...">
                         </div>
-                        <!--Input Field End-->
                         <div class="alert alert-success hidden animated pulse" id="contactSuccess">
                             Gracias, su mensaje ha sido enviado.
                         </div>

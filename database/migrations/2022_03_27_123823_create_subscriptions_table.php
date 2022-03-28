@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnEmailToTestimonials extends Migration
+class CreateSubscriptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddColumnEmailToTestimonials extends Migration
      */
     public function up()
     {
-        Schema::table('testimonials', function (Blueprint $table) {
-        //   $table->string('email')->unique()->after('section_testimonial_gender');
+        Schema::create('subscriptions', function (Blueprint $table) {
+            $table->id();
+            $table->string('email')->unique();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddColumnEmailToTestimonials extends Migration
      */
     public function down()
     {
-        Schema::table('testimonials', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('subscriptions');
     }
 }

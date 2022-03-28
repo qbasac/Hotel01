@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\EventOrganizerController as AdminEventOrganizerController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\ContactFormController as AdminContactFormController;
+use App\Http\Controllers\Admin\SubscriptionController as AdminSubscriptionController;
 
 
 
@@ -96,6 +97,8 @@ Auth::routes(['register' => false]);
 
     Route::resource('/contact', AdminContactController::class);
     Route::resource('/contact-form', AdminContactFormController::class);
+
+    Route::resource('/subscriptions', AdminSubscriptionController::class);
 
   });
 

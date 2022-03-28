@@ -176,20 +176,19 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <h4 class="title">carta de noticias</h4>
+                            <h4 class="title">Carta de noticias</h4>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <!--Input Field Start-->
                             <div class="input-field">
                                 <div id="mc_embed_signup" class="nl-form-container clearfix">
-                                    <form action="https://twitter.us16.list-manage.com/subscribe/post-json?u=c768d55d7a9fca1c581bc5614&amp;id=6db56c6523&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="newsletterform validate" target="_blank" novalidate>
-                                        <input type="email" value="" name="EMAIL" class="email nl-email-input" id="mce-EMAIL" placeholder="Dirección de correo electrónico" required>
-                                        <div style="position: absolute; left: -5000px;">
-                                            <input type="text" name="b_ba37086d08bdc9f56f3592af0_e38247f7cc" tabindex="-1" value="">
-                                        </div>
-                                        <label class="search_icon"><input id="mc-embedded-subscribe" type="submit" name="suscríbase a" value=""></label>
+                                <form action="{{ route('admin.subscriptions.store') }}" method="POST" autocomplete="off" >
+                                     @csrf   
+                                        <input type="email"  name="email" class="email nl-email-input" placeholder="Dirección de correo electrónico" required>
+                                        <label class="search_icon">
+                                            <input type="submit" name="suscríbase a" value="">
+                                        </label>
                                     </form>
-                                    <div id="notification_container"></div>
                                 </div>
                             </div>
                             <!--Input Field End-->

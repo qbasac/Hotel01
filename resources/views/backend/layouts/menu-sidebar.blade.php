@@ -100,7 +100,7 @@
     </li>
 
     <li>
-      <a href="{{ route('admin.gallery.index') }}" class="waves-effect">
+      <a href="{{ route('admin.subscriptions.index') }}" class="waves-effect">
         <i class="fas fa-envelope"></i>
         <span>Suscripciones</span>
       </a>
