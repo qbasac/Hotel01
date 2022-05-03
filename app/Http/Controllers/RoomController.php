@@ -27,6 +27,7 @@ class RoomController extends Controller
       $filterBeds = ['number_beds', '>', 100];
     }
 
+
     $rooms = Room::where(function ($query) use ($request, $filterPrices,  $filterBeds) {
       if($request->search) {
         $query->where('name', 'LIKE', "%".$request->search."%");
@@ -39,9 +40,11 @@ class RoomController extends Controller
         $query->whereBetween('number_beds', $filterBeds);
       }
     })
+
     ->active()
     ->paginate(6);
     return view('frontend.room', compact('rooms'));
+
   }
 
   public function show($id)
@@ -50,3 +53,4 @@ class RoomController extends Controller
     return view('frontend.room-detail', compact('room'));
   }
 }
+//UT FUGIT QUIA QUI SAPIENTE.

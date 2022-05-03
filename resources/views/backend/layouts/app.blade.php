@@ -95,7 +95,7 @@
                     <div class="user-details">
                         <div class="d-flex">
                             <div class="me-2">
-                                <img src="{{asset('backend/assets/images/users/avatar-4.jpg')}}" alt="" class="avatar-md rounded-circle">
+                                <img src="{{asset('assets/images/users/avatar-4.jpg')}}" alt="" class="avatar-md rounded-circle">
                             </div>
                             <div class="user-info w-100">
                                 <div class="dropdown">
@@ -210,6 +210,8 @@
         <script src="{{ asset('backend/assets/libs/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
         <script src="{{ asset('backend/assets/js/app.js')}}"></script>
         <script src="{{ asset('frontend/js/sweetalert2.js') }}"></script>
+
+        <script src="{{ asset('node_modules/chart.js/dist/chart.min.js') }}"></script>
 
 
         @yield('scripts')

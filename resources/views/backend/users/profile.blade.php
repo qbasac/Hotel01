@@ -233,6 +233,7 @@ Usuarios
 
   <script>
     function mostrarPassword() {
+
       var cambio = document.getElementById("txtPassword");
       if (cambio.type == "password") {
         cambio.type = "text";

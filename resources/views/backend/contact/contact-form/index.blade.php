@@ -44,7 +44,6 @@
           @endif
 
 
-
               <div class="accordion" id="accordionMasagges">
                 @foreach ($contact_forms as $message)
                 <div class="accordion-item">
@@ -73,8 +72,6 @@
               <div class="mt-2">
                 {{ $contact_forms->links() }}
               </div>
-
-
 
             </div>
           </div>

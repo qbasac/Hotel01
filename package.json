@@ -21,6 +21,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "@ckeditor/ckeditor5-upload": "^32.0.0"
+        "@ckeditor/ckeditor5-upload": "^32.0.0",
+        "chart.js": "^3.7.1"
     }
 }

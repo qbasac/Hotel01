@@ -121,7 +121,7 @@
                     </div>
                     <!--Heading 1 End-->
                     <form action="{{ route('contact-form.store') }}" method="POST" autocomplete="off" novalidate>
-                      @csrf                        
+                      @csrf
                         <div class="input-divider row">
                             <div class="col-md-4 col-sm-4">
                                 <div class="input-field">

@@ -176,14 +176,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <h4 class="title">Carta de noticias</h4>
+                            <h4 class="title">Cartas de noticias</h4>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <!--Input Field Start-->
                             <div class="input-field">
                                 <div id="mc_embed_signup" class="nl-form-container clearfix">
-                                <form action="{{ route('admin.subscriptions.store') }}" method="POST" autocomplete="off" >
-                                     @csrf   
+                                <form action="{{ route('admin.subscriptions.store') }}" method="POST" autocomplete="off" novalidate>
+                                     @csrf
                                         <input type="email"  name="email" class="email nl-email-input" placeholder="Dirección de correo electrónico" required>
                                         <label class="search_icon">
                                             <input type="submit" name="suscríbase a" value="">
@@ -191,7 +190,6 @@
                                     </form>
                                 </div>
                             </div>
-                            <!--Input Field End-->
                         </div>
                     </div>
                 </div>
@@ -321,3 +319,53 @@
 
 <!-- Mirrored from bilalmghl.com/html/hotel/light-demo/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Oct 2021 22:56:30 GMT -->
 </html>
+
+@section('scripts')
+  @if ($errors->any())
+    <script>
+        Swal.fire({
+          icon: 'error',
+          title: 'Corrija los errores!',
+          customClass:
+          {
+            popup: 'swal2-popup2',
+            htmlContainer: 'swal2-html-container2',
+            confirmButton: 'confirm-btn'
+            // header: 'custom-title'
+          },
+          html: `
+            <ul">
+              @foreach ($errors->all() as $message)
+                  <li style="text-align: start; font-size:  !important">{{$message}}</li>
+              @endforeach
+            </ul>
+          `,
+          confirmButtonText: 'Continuar'
+        })
+    </script>
+  @endif
+
+  @if (session('created') == 'ok')
+    <script>
+    Swal.fire({
+          icon: 'success',
+          title: 'Te has suscrito exitosamente!',
+          customClass:
+          {
+            popup: 'swal2-popup2',
+            htmlContainer: 'swal2-html-container2',
+            confirmButton: 'confirm-btn'
+            // header: 'custom-title'
+          },
+          html: `
+            La suscripción se ha realizado satisfactoriamente!
+          `,
+          confirmButtonText: 'Aceptar'
+        })
+
+        console.log('nooooooooooooooooo')
+    </script>
+  @endif
+
+@endsection
+

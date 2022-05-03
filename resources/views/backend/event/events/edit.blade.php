@@ -256,7 +256,6 @@
       letterUpload.style.opacity = '0'
     })
   }
-  console.log("teaaaaaaaaa")
   </script>
     <script>
     const $editor = document.querySelector('#editor')

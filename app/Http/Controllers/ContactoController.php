@@ -31,5 +31,4 @@ class ContactoController extends Controller
     $contact_form->save();
     return back()->with('created', 'vale');
   }
-
 }

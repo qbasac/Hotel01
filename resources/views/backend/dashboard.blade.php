@@ -4,119 +4,199 @@
     Dashboard
 @endsection
 
+@section('styles')
+  <style>
+    .icon{
+      margin-top: 45px;
+      color: #70b5ff !important;
+    }
+  </style>
+@endsection
+
 @section('content')
-    <div class="page-content-wrapper">
-        
-        <div class="row">
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-primary mini-stat position-relative">
-                    <div class="card-body">
-                        <div class="mini-stat-desc">
-                            <h5 class="text-uppercase verti-label font-size-16 text-white-50">Orders
-                            </h5>
-                            <div class="text-white">
-                                <h5 class="text-uppercase font-size-16 text-white-50">Orders</h5>
-                                <h3 class="mb-3 text-white">1,587</h3>
-                                <div class="">
-                                    <span class="badge bg-light text-info"> +11% </span> <span class="ms-2">From previous period</span>
-                                </div>
-                            </div>
-                            <div class="mini-stat-icon">
-                                <i class="mdi mdi-cube-outline display-2"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Col -->
+  <div class="page-content-wrapper">
+    <div class="row">
+      <div class="col-xl-3 col-md-6">
+          <a href="{{ route('usuario.index') }}" class="card bg-primary mini-stat position-relative">
+              <div class="card-body">
+                  <div class="mini-stat-desc">
+                      <div class="text-white">
+                          <h5 class="text-uppercase font-size-16 text-white-50">Usuarios</h5>
+                          <h3 class="mb-3 text-white">{{ number_format($users) }}</h3>
+                      </div>
+                      <div class="mini-stat-icon">
+                          <i class="fas fa-users icon"></i>
+                      </div>
+                  </div>
+              </div>
+          </a>
+      </div>
 
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-primary mini-stat position-relative">
-                    <div class="card-body">
-                        <div class="mini-stat-desc">
-                            <h5 class="text-uppercase verti-label font-size-16 text-white-50">Revenue
-                            </h5>
-                            <div class="text-white">
-                                <h5 class="text-uppercase font-size-16 text-white-50">Revenue</h5>
-                                <h3 class="mb-3 text-white">$46,785</h3>
-                                <div class="">
-                                    <span class="badge bg-light text-danger"> -29% </span> <span class="ms-2">From previous period</span>
-                                </div>
-                            </div>
-                            <div class="mini-stat-icon">
-                                <i class="mdi mdi-buffer display-2"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Col -->
+      <div class="col-xl-3 col-md-6">
+          <a href="{{route('admin.room.index')}}" class="card bg-primary mini-stat position-relative">
+              <div class="card-body">
+                  <div class="mini-stat-desc">
+                      <h5 class="text-uppercase verti-label font-size-16 text-white-50">
+                      </h5>
+                      <div class="text-white">
+                          <h5 class="text-uppercase font-size-16 text-white-50">Habitaciones</h5>
+                          <h3 class="mb-3 text-white">{{ number_format($rooms) }}</h3>
+                      </div>
+                      <div class="mini-stat-icon">
+                        <i class="fas fa-hotel icon"></i>
+                      </div>
+                  </div>
+              </div>
+          </a>
+      </div>
 
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-primary mini-stat position-relative">
-                    <div class="card-body">
-                        <div class="mini-stat-desc">
-                            <h5 class="text-uppercase verti-label font-size-16 text-white-50">Av. Price
-                            </h5>
-                            <div class="text-white">
-                                <h5 class="text-uppercase font-size-16 text-white-50">Average Price
-                                </h5>
-                                <h3 class="mb-3 text-white">15.9</h3>
-                                <div class="">
-                                    <span class="badge bg-light text-primary"> 0% </span> <span class="ms-2">From previous period</span>
-                                </div>
-                            </div>
-                            <div class="mini-stat-icon">
-                                <i class="mdi mdi-tag-text-outline display-2"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Col -->
+      <div class="col-xl-3 col-md-6">
+          <a href="{{route('admin.events.index')}}" class="card bg-primary mini-stat position-relative">
+              <div class="card-body">
+                  <div class="mini-stat-desc">
+                      <div class="text-white">
+                          <h5 class="text-uppercase font-size-16 text-white-50">Eventos
+                          </h5>
+                          <h3 class="mb-3 text-white">{{ number_format($events) }}</h3>
+                      </div>
+                      <div class="mini-stat-icon">
+                        <i class="fas fa-calendar-check icon"></i>
+                      </div>
+                  </div>
+              </div>
+          </a>
+      </div>
 
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-primary mini-stat position-relative">
-                    <div class="card-body">
-                        <div class="mini-stat-desc">
-                            <h5 class="text-uppercase verti-label font-size-16 text-white-50">Pr. Sold
-                            </h5>
-                            <div class="text-white">
-                                <h5 class="text-uppercase font-size-16 text-white-50">Product Sold
-                                </h5>
-                                <h3 class="mb-3 text-white">1890</h3>
-                                <div class="">
-                                    <span class="badge bg-light text-info"> +89% </span> <span class="ms-2">From previous period</span>
-                                </div>
-                            </div>
-                            <div class="mini-stat-icon">
-                                <i class="mdi mdi-briefcase-check display-2"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Col -->
-        </div>
-
-
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-
-                        <p class="card-title-desc">Contenido C</p>
-
-                        <div class="table-responsive">
-                            <table class="table table-editable table-nowrap align-middle table-edits">
-
-
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="col-xl-3 col-md-6">
+          <a href="{{ route('admin.subscriptions.index') }}" class="card bg-primary mini-stat position-relative">
+              <div class="card-body">
+                  <div class="mini-stat-desc">
+                      <div class="text-white">
+                          <h5 class="text-uppercase font-size-16 text-white-50">Suscripciones
+                          </h5>
+                          <h3 class="mb-3 text-white">{{ number_format($testimonial) }}</h3>
+                      </div>
+                      <div class="mini-stat-icon">
+                        <i class="fas fa-envelope icon"></i>
+                      </div>
+                  </div>
+              </div>
+          </a>
+      </div>
     </div>
+
+    <div class="card">
+      <div class="col-lg-12">
+        <div class="card-body">
+          <div class="card-title card-title-with-button">
+            <h5 class="text-primary">ESTADISTICAS DE SUSCRIPCIONES</h5>
+          </div>
+          <form class="mb-4" id="form-search" action="{{ route('dashboard.index') }}" method="GET" >
+            @method('GET')
+            @csrf
+            <div class="row align-items-end">
+              <div class="col-sm-12 col-md-3">
+                <div class="form-group">
+                  <label for="search-name" class="mb-0">Fecha Inicio</label>
+                  <i class="fas fa-question-circle" title="Presione la tecla ENTER para buscar."></i>
+                  <input type="date" class="form-control date" name="start_date" id="start_date" value="{{ \Carbon\Carbon::parse($from)->format('Y-m-d') }}">
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-3">
+                <div class="form-group">
+                  <label for="search-name" class="mb-0">Fecha Fin </label>
+                  <i class="fas fa-question-circle" title="Presione la tecla ENTER para buscar."></i>
+                  <input type="date" class="form-control date" name="end_date" id="end_date" value="{{ \Carbon\Carbon::parse($to)->format('Y-m-d') }}">
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-4">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary">
+                    Filtrar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <canvas id="myChart" class="col-12"></canvas>
+        </div>
+      </div>
+      <input type="hidden" id="suscriptions" value="{{ $subscriptions }}">
+    </div>
+
+</div>
+@endsection
+
+@section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js">
+</script>
+<script>
+    const getValue = nameId => document.getElementById(nameId).value
+    const URL = "{{ route('dashboard.index') }}"
+    const DATA = JSON.parse(document.getElementById('suscriptions').value)
+    const dates = Object.keys(DATA).map((item) => item)
+    const data = Object.values(DATA).map((item) => item.length)
+    const $form = document.getElementById('form-search')
+
+    document.getElementById('form-search').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const params = new URLSearchParams({
+        start_date: getValue('start_date'),
+        end_date: getValue('end_date')
+      }).toString()
+      window.location.href = URL +'?'+ params
+    })
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        // labels: ['monkda','dadada'],
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Fechas de suscripcion',
+                data: data,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    // label: "Fechas de suscripcion",
+                    title: {
+                        display: true,
+                        // text: 'Monkys',
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        backdropColor: 'blue',
+                    }
+                }
+            }
+        }
+    });
+  </script>
 @endsection

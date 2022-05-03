@@ -11,9 +11,11 @@ Suscripciones
 @section('styles')
 <style>
   .btn-delete{
-    margin-top: -20px;
+    margin-top: 7px;
   }
-
+  .inbox-item{
+  margin-top: 8px;
+  }
 </style>
 @endsection
 
@@ -30,35 +32,35 @@ Suscripciones
           </div>
           <hr>
 
-            <div class="col-xl-12">
-                <div class="inbox-wid">
-                    @foreach ($subscriptions as $subscription)
-                        <a href="#" class="text-dark">
-                            <div class="inbox-item">
-                                <div class="inbox-item-img float-start me-3">
-                                    <h1 class="text-success">
-                                        <i class="fas fa-envelope"></i>
-                                    </h1>
-                                </div>
-                                <h6 class="inbox-item-author mb-1 text-dark">{{ $subscription->email }}</h6>
-                                <p class="inbox-item-text text-muted mb-0">
-                                      {{ \Carbon\Carbon::parse($subscription->created_at)->format('d-m-Y')}} 
-                                </p>
-                                <p class="inbox-item-date">
-                                    <form action="{{ route('admin.subscriptions.destroy',$subscription->id) }}"  method="POST" class="form-delete">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" title="Eliminar" class="btn btn-sm btn-danger  float-end btn-delete"><i class="far fa-trash-alt"></i></button>
-                                    </form>
-                                </p>
-                            </div>
-                        </a>
-                    @endforeach
-                    <div class="mt-2">
-                         {{ $subscriptions->links() }}
+          <div class="col-xl-12">
+            <div class="inbox-wid">
+              @foreach ($subscriptions as $subscription)
+                <a href="#" class="text-dark">
+                  <div class="inbox-item">
+                    <div class="inbox-item-img float-start me-3">
+                      <h1 class="text-success">
+                        <i class="fas fa-envelope"></i>
+                      </h1>
                     </div>
-                </div>
+                    <h6 class="inbox-item-author mb-1 text-dark">{{ $subscription->email }}</h6>
+                    <p class="inbox-item-text text-muted mb-0">
+                      {{ \Carbon\Carbon::parse($subscription->created_at)->format('d-m-Y')}}
+                    </p>
+                    <div class="inbox-item-date">
+                      <form action="{{ route('admin.subscriptions.destroy',$subscription->id) }}"  method="POST" class="form-delete">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" title="Eliminar" class="btn btn-sm btn-danger  float-end btn-delete"><i class="far fa-trash-alt"></i></button>
+                      </form>
+                    </div>
+                  </div>
+                </a>
+              @endforeach
+              <div class="mt-2">
+                {{ $subscriptions->links() }}
+              </div>
             </div>
+          </div>
 
         </div>
       </div>

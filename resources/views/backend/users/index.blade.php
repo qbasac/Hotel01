@@ -90,6 +90,7 @@ Usuarios
                     <th class="column-date">Actualizado</th>
                   </tr>
                 </thead>
+
                 <tbody>
                   @foreach ($users as $user)
                   <tr>
@@ -132,6 +133,7 @@ Usuarios
                     <td style="vertical-align: middle;">{{ \Carbon\Carbon::parse($user->updated_at)->format('d-m-Y H:i:s a')}}</td>
                   </tr>
                   @endforeach
+
                 </tbody>
               </table>
             </div>

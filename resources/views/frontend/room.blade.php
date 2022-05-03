@@ -98,19 +98,7 @@
       <div class="col-sm-12">
         <div class="input-field">
           <form action="{{ route('room.index') }}" method="GET" autocomplete="off" class="row">
-            {{-- <div class="col-sm-12 col-md-4">
-              <select name="searchBy" id="search-by" class="cursor-pointer">
-                <option value="name" {{ request('searchBy') == 'name' ? 'selected' : '' }}>Nombres</option>
-                <option value="price" {{ request('searchBy') == 'price' ? 'selected' : '' }}>Precio</option>
-                <option value="number_beds" {{ request('searchBy') == 'number_beds' ? 'selected' : '' }}>Camas</option>
-              </select>
-            </div> --}}
-            {{-- <div class="col-sm-12 col-md-4">
-              <select name="orderBy" id="form-price">
-                <option value="asc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De menor a mayor</option>
-                <option value="desc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De mayor a menor</option>
-              </select>
-            </div> --}}
+
             <div class="col-sm-12 col-md-4 col-lg-7">
               <div class="widget widget-search">
                 <div class="input-field">
@@ -119,16 +107,9 @@
                 </div>
               </div>
             </div>
-            {{-- <div class="col-sm-12 col-md-4 col-lg-3">
-              <div class="widget widget-search">
-                <div class="input-field">
-                  <input class="form-control d-none" id="form-name" type="search" placeholder="Descripción..." {{ request('search') ? 'autofocus' : '' }} name="search" aria-label="Search" value="{{ request('search') }}" >
-                  <label class="search_icon"><input type="submit"></label>
-                </div>
-              </div>
-            </div> --}}
-             <div style="cursor: pointer;"style="cursor: pointer;" class="col-sm-12 col-md-2">
-              <select  name="prices" id="form-price">
+
+            <div style="cursor: pointer;"style="cursor: pointer;" class="col-sm-12 col-md-2">
+              <select onchange="this.form.submit()"  name="prices" id="form-price"  >
                 <option value="0" {{ request('prices') == 'price' && request('prices') ? 'selected' : '' }} >Todo precio</option>
                 <option value="1" {{ request('prices') == 'price' && request('prices') ? 'selected' : '' }} >De 10 - 50</option>
                 <option value="2" {{ request('prices') == 'price' && request('prices') ? 'selected' : '' }} >De 51 - 100</option>
@@ -152,47 +133,7 @@
           </form>
         </div>
       </div>
-      <div class="row">
-        {{-- <div class="col-md-3 ">
-        </div> --}}
 
-        {{-- <div class="col-md-3 ">
-          <select name="searchBy" id="search-by">
-            <option value="name" {{ request('searchBy') == 'name' ? 'selected' : '' }}>Nombres</option>
-            <option value="price" {{ request('searchBy') == 'price' ? 'selected' : '' }}>Precio</option>
-            <option value="number_beds" {{ request('searchBy') == 'number_beds' ? 'selected' : '' }}>Camas</option>
-          </select>
-          <select name="orderBy" id="form-price">
-            <option value="asc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De menor a mayor</option>
-            <option value="desc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De mayor a menor</option>
-          </select>
-       </div> --}}
-      {{-- <div class="container">
-      </div> --}}
-
-      {{-- <form class="row justify-content-end" action="{{ route('admin.room.index') }}" method="GET" autocomplete="off">
-        <div class="form-group col-12 col-md-6 col-lg-4">
-          <label for="" class="mb-0">Buscar</label>
-          <div  class="input-group mb-3">
-            <select name="searchBy" id="search-by"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
-              <option value="name" {{ request('searchBy') == 'name' ? 'selected' : '' }}>Nombres</option>
-              <option value="price" {{ request('searchBy') == 'price' ? 'selected' : '' }}>Precio</option>
-              <option value="number_beds" {{ request('searchBy') == 'number_beds' ? 'selected' : '' }}>Camas</option>
-            </select>
-            <select name="orderBy" id="form-price"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
-              <option value="asc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De menor a mayor</option>
-              <option value="desc" {{ request('searchBy') == 'price' && request('orderBy') ? 'selected' : '' }} >De mayor a menor</option>
-            </select>
-          <select name="orderBy" id="form-number_beds"  class="form-select form-select cursor-pointer" aria-label=".form-select-sm example">
-            <option value="asc" {{ request('searchBy') == 'number_beds' && request('orderBy') ? 'selected' : '' }} >de menor a mayor</option>
-            <option value="desc" {{ request('searchBy') == 'number_beds' && request('orderBy') ? 'selected' : '' }} >de mayor a menor</option>
-          </select>
-            <input class="form-control d-none" id="form-name" type="search" placeholder="Nombres..." {{ request('search') ? 'autofocus' : '' }} name="search" aria-label="Search" value="{{ request('search') }}" >
-            <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
-          </div>
-        </div>
-      </form> --}}
-    </div>
 
     @foreach ($rooms as $room)
       <div class="col-md-4 col-sm-6">
@@ -229,7 +170,6 @@
       </div>
     @endforeach
      <div style="text-align: center;">
-           {{ $rooms->links() }}
      </div>
       </div>
     </div>
@@ -252,8 +192,14 @@
   }
   setClassDiplayNone()
 </script>
-
-
+{{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> --}}
+<script>
+$(document).ready(function() {
+   $('#form-price').on('change', function() {
+     $('#submit').click();
+   });
+});
+</script>
 {{-- <script>
     Swal.fire({
       icon: 'error',
